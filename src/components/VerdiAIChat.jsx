@@ -19,6 +19,9 @@ const RESPONSES = {
     dispute: "Müvekkillerimizi geniş bir ticari uyuşmazlık yelpazesinde temsil ediyor; ulusal ve uluslararası tahkim (ISTAC, ICC, UNCITRAL) ve davalarda stratejik destek sağlıyoruz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
     competition: "Rekabet hukuku alanında birleşme/devralma izin başvuruları, Rekabet Kurulu soruşturmaları, kartel ve hakim durum davalarında ve uyum programlarında müvekkillerimizi en üst düzeyde temsil etmekteyiz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
     career: "Verdi Hukuk Bürosu bünyesinde kariyer yapmak, stajyer veya avukat olarak ekibimize katılmak isterseniz güncel açık pozisyonlarımızı görmek ve CV'nizi göndermek için [Kariyer Sayfamızı](/kariyer) ziyaret edebilirsiniz.",
+    about: "Verdi Hukuk Bürosu, Türkiye'nin önde gelen tam hizmet (full-service) hukuk bürolarından biridir. Sektör bilgisi ile birleştirdiğimiz derin hukuki uzmanlığımızla, yerli ve uluslararası müvekkillerimize en yüksek standartlarda danışmanlık hizmeti sunuyoruz. Kuruluşumuz ve vizyonumuz hakkında daha fazla bilgi edinmek için [Hakkımızda](/hakkimizda) sayfamızı ziyaret edebilirsiniz.",
+    publications: "Büromuz avukatlarının güncel hukuki gelişmeleri ve makaleleri ele aldığı yayınlarımızı incelemek için [Yayınlarımız](/yayinlar) sayfamızı ziyaret edebilirsiniz.",
+    process: "Müvekkillerimizle yürüttüğümüz şeffaf ve adım adım hukuki süreçlerimizi incelemek ve süreç simülasyonumuzu deneyimlemek için [Süreç Yönetimi](/surec) sayfamızı ziyaret edebilirsiniz.",
   },
   en: {
     greeting: "Hello! How can I help you? I can answer your questions about Verdi Law Firm, our practice areas, our team, or how to contact us.",
@@ -30,6 +33,9 @@ const RESPONSES = {
     dispute: "We represent our clients in a wide range of commercial disputes, providing strategic support in domestic and international arbitration (ISTAC, ICC, UNCITRAL) and litigation. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
     competition: "In competition law, we provide high-level representation in merger/acquisition clearance filings, TCA investigations, cartel and dominance cases, and compliance programs. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
     career: "If you would like to build a career at Verdi Law Firm, or join our team as an associate or intern, you can visit our [Career Page](/kariyer) to view open positions and submit your CV.",
+    about: "Verdi Law Firm is one of Turkey's leading full-service law firms. With deep legal expertise combined with sector knowledge, we provide advisory services to domestic and international clients at the highest standards. To learn more about our history and vision, please visit our [About Us](/hakkimizda) page.",
+    publications: "You can visit our [Publications](/yayinlar) page to review articles and updates on current legal developments authored by our lawyers.",
+    process: "You can visit our [Process Management](/surec) page to examine our transparent, step-by-step workflows and experience our process simulator.",
   }
 };
 
@@ -67,6 +73,15 @@ function getBotResponse(input, lang) {
   }
   if (query.includes('kariyer') || query.includes('staj') || query.includes('iş') || query.includes('is ') || query.includes('başvuru') || query.includes('basvuru') || query.includes('cv') || query.includes('career') || query.includes('job') || query.includes('intern') || query.includes('apply')) {
     return res.career;
+  }
+  if (query.includes('hakkinda') || query.includes('hakkında') || query.includes('hakkimizda') || query.includes('hakkımızda') || query.includes('hakkınızda') || query.includes('tarihçe') || query.includes('tarih') || query.includes('about') || query.includes('who we are') || query.includes('who is')) {
+    return res.about;
+  }
+  if (query.includes('yayin') || query.includes('yayın') || query.includes('makale') || query.includes('yazı') || query.includes('yazi') || query.includes('dergi') || query.includes('publication') || query.includes('article') || query.includes('newsletter') || query.includes('bulletin')) {
+    return res.publications;
+  }
+  if (query.includes('surec') || query.includes('süreç') || query.includes('adim') || query.includes('adım') || query.includes('simulasyon') || query.includes('simülasyon') || query.includes('isleyis') || query.includes('işleyiş') || query.includes('process') || query.includes('step') || query.includes('workflow') || query.includes('simulator')) {
+    return res.process;
   }
 
   return res.default;
