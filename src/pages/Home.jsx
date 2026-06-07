@@ -229,10 +229,10 @@ export default function Home() {
                         <li key={area.id}>
                           <a
                             href={`#${area.id}`}
-                            className={`group flex items-center gap-3 border-l-2 py-2.5 pl-4 text-sm transition ${
+                            className={`group flex items-center gap-3 border-l-2 py-2.5 pl-4 text-sm transition-all duration-300 ${
                               isActive
-                                ? 'border-[#8b6f3d] text-[#1f1f1f] font-semibold'
-                                : 'border-transparent text-[#5f5b52] hover:text-[#1f1f1f] hover:border-[#d8d0bf]'
+                                ? 'border-[#8b6f3d] text-[#1f1f1f] font-semibold opacity-100'
+                                : 'border-transparent text-[#5f5b52] hover:text-[#1f1f1f] hover:border-[#d8d0bf] opacity-40 hover:opacity-80'
                             }`}
                           >
                             <span className="text-xs font-mono text-[#9a8c70]">
@@ -256,11 +256,14 @@ export default function Home() {
               <div>
                 {PRACTICE_AREAS.map((area, i) => {
                   const content = area[language];
+                  const isActive = activeId === area.id;
                   return (
                     <article
                       key={area.id}
                       id={area.id}
-                      className="scroll-mt-32 border-b border-[#d8d0bf] py-14 first:pt-0 last:border-b-0"
+                      className={`scroll-mt-32 border-b border-[#d8d0bf] py-14 first:pt-0 last:border-b-0 transition-all duration-500 origin-left ${
+                        isActive ? 'opacity-100 scale-100' : 'opacity-25 scale-[0.98]'
+                      }`}
                     >
                       <Reveal>
                         <div className="flex items-baseline gap-4 mb-6">
