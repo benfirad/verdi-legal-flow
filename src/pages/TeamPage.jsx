@@ -13,15 +13,16 @@ function MemberCard({ member, onClick }) {
   return (
     <motion.button
       onClick={() => onClick(member)}
-      className="group text-left bg-white border border-[#e4dccb] hover:border-[#8b6f3d]/60 transition-colors"
-      whileHover={{ y: -2 }}
+      className="group text-left bg-white border border-[#e4dccb] hover:border-[#8b6f3d]/60 transition-all"
+      whileHover={{ y: -4, scale: 1.015 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 22 }}
     >
       <div className="aspect-square overflow-hidden bg-[#e8e1d2]">
         <img
           src={member.image}
           alt={member.name}
           loading="lazy"
-          className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03] group-hover:grayscale-0"
+          className="h-full w-full object-cover grayscale transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-hover:grayscale-0"
           onError={(e) => {
             e.currentTarget.style.display = 'none';
             e.currentTarget.parentElement.innerHTML = `<div class="flex h-full w-full items-center justify-center bg-[#e8e1d2] font-fraunces text-3xl text-[#8b6f3d]">${member.name.split(' ').map(n => n[0]).slice(0, 2).join('')}</div>`;
@@ -60,17 +61,22 @@ function MemberModal({ member, onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
     >
       <motion.div
         className="absolute inset-0 bg-black/60 backdrop-blur-md"
         onClick={onClose}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
       />
       <motion.div
         className="relative z-10 w-full max-w-3xl bg-white border border-[#d8d0bf] overflow-hidden max-h-[90vh] overflow-y-auto"
         initial={{ opacity: 0, scale: 0.96, y: 24 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 24 }}
-        transition={{ duration: 0.35 }}
+        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
       >
         <button
           onClick={onClose}
@@ -405,7 +411,7 @@ function AreaFilterDrawer({ language, areaFilter, setAreaFilter, areaCounts, onC
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.25 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* Backdrop */}
       <div

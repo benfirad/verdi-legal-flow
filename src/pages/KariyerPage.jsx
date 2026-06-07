@@ -141,7 +141,7 @@ export default function KariyerPage() {
       <section data-nav-theme="light" className="relative overflow-hidden bg-white text-[#202020] pt-36 pb-16 border-b border-[#d8d0bf]">
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8" ref={headerRef}>
           <motion.div className="flex items-center gap-3 mb-6"
-            initial={{ opacity: 0, x: -20 }} animate={headerInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }}>
+            initial={{ opacity: 0, x: -20 }} animate={headerInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
             <div className="w-8 h-px bg-[#8b6f3d]" />
             <span className="text-xs tracking-[0.35em] uppercase text-[#8b6f3d] font-semibold">{l.badge}</span>
           </motion.div>
@@ -151,7 +151,7 @@ export default function KariyerPage() {
             {l.title}
           </motion.h1>
           <motion.p className="text-[#5f5b52] text-base md:text-lg max-w-2xl leading-relaxed font-light"
-            initial={{ opacity: 0 }} animate={headerInView ? { opacity: 1 } : {}} transition={{ delay: 0.4 }}>
+            initial={{ opacity: 0 }} animate={headerInView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}>
             {l.sub}
           </motion.p>
         </div>
@@ -174,10 +174,11 @@ export default function KariyerPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="bg-white p-8 border border-[#d8d0bf] rounded-sm hover:shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:border-[#8b6f3d]/50 transition-all duration-300 group"
+                  transition={{ duration: 0.8, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -6, scale: 1.015 }}
+                  className="bg-white p-8 border border-[#d8d0bf] rounded-sm hover:shadow-[0_12px_36px_rgba(139,111,61,0.06)] hover:border-[#8b6f3d]/50 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group"
                 >
-                  <div className="w-12 h-12 rounded-sm bg-[#c9a87c]/10 border border-[#c9a87c]/30 flex items-center justify-center text-[#8b6f3d] mb-6 group-hover:bg-[#c9a87c] group-hover:text-white transition-colors duration-300">
+                  <div className="w-12 h-12 rounded-sm bg-[#c9a87c]/10 border border-[#c9a87c]/30 flex items-center justify-center text-[#8b6f3d] mb-6 group-hover:bg-[#c9a87c] group-hover:text-white transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]">
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <h3 className="font-semibold text-lg text-[#202020] mb-3">{val.title}</h3>
@@ -206,8 +207,9 @@ export default function KariyerPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="border border-[#d8d0bf] rounded-sm p-6 bg-white hover:border-[#8b6f3d]/50 hover:shadow-[0_8px_30px_rgba(0,0,0,0.02)] transition-all duration-300 group"
+                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -4, scale: 1.015 }}
+                className="border border-[#d8d0bf] rounded-sm p-6 bg-white hover:border-[#8b6f3d]/50 hover:shadow-[0_12px_36px_rgba(139,111,61,0.06)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>

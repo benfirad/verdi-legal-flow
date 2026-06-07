@@ -13,6 +13,10 @@ import PublicationsPage from '@/pages/PublicationsPage';
 import ProcessPage from '@/pages/ProcessPage';
 import KariyerPage from '@/pages/KariyerPage';
 import ContactPage from '@/pages/ContactPage';
+import Login from '@/pages/Login';
+import Register from '@/pages/Register';
+import ForgotPassword from '@/pages/ForgotPassword';
+import ResetPassword from '@/pages/ResetPassword';
 import { LanguageProvider } from '@/lib/LanguageContext';
 import VerdiAIChat from '@/components/VerdiAIChat';
 
@@ -50,6 +54,10 @@ const AuthenticatedApp = () => {
       <Route path="/surec" element={<ProcessPage />} />
       <Route path="/kariyer" element={<KariyerPage />} />
       <Route path="/iletisim" element={<ContactPage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

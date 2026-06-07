@@ -123,8 +123,9 @@ export default function ContactPage() {
               <div className="flex flex-col gap-4">
                 {contactInfo.map((info, i) => (
                   <motion.div key={i}
-                    className="flex items-start gap-4 p-5 border border-border/20 rounded-sm bg-card/20 hover:border-cobalt/30 transition-colors"
-                    whileHover={{ x: 4 }}>
+                    className="flex items-start gap-4 p-5 border border-border/20 rounded-sm bg-card/20 hover:border-cobalt/35 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]"
+                    whileHover={{ x: 6, scale: 1.015 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}>
                     <div className="w-11 h-11 rounded-sm bg-cobalt/10 border border-cobalt/20 flex items-center justify-center shrink-0">
                       <info.icon className="w-5 h-5 text-cobalt" />
                     </div>
@@ -159,7 +160,11 @@ export default function ContactPage() {
 
             {/* Map */}
             <FadeIn delay={0.3} direction="right">
-              <div className="rounded-sm overflow-hidden border border-border/20 aspect-[4/3]">
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+                className="rounded-sm overflow-hidden border border-border/20 aspect-[4/3] hover:border-cobalt/30 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]"
+              >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.2!2d29.01!3d41.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA0JzQ4LjAiTiAyOcKwMDAnMzYuMCJF!5e0!3m2!1str!2str!4v1234567890"
                   width="100%" height="100%" style={{ border: 0 }}
@@ -167,7 +172,7 @@ export default function ContactPage() {
                   referrerPolicy="no-referrer-when-downgrade"
                   className="grayscale"
                 />
-              </div>
+              </motion.div>
             </FadeIn>
           </div>
 

@@ -348,11 +348,12 @@ export default function ProcessPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`text-left p-5 rounded-sm border transition-all duration-300 group relative overflow-hidden ${
+              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -4, scale: 1.015 }}
+              className={`text-left p-5 rounded-sm border transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group relative overflow-hidden ${
                 selectedScenario === sc.id
-                  ? 'border-cobalt bg-cobalt/10'
-                  : 'border-border/20 bg-card/30 hover:border-cobalt/30'
+                  ? 'border-cobalt bg-cobalt/10 shadow-[0_12px_36px_rgba(30,58,138,0.12)]'
+                  : 'border-border/20 bg-card/30 hover:border-cobalt/30 hover:shadow-[0_8px_24px_rgba(0,0,0,0.15)]'
               }`}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${sc.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${selectedScenario === sc.id ? 'opacity-100' : ''}`} />
@@ -445,7 +446,7 @@ export default function ProcessPage() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.4 }}
+                      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                       className="space-y-4"
                     >
                       {/* Step detail */}

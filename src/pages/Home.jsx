@@ -171,14 +171,20 @@ export default function Home() {
                 const title = language === 'tr' ? member.titleTr : member.titleEn;
                 const initials = member.name.split(' ').map((n) => n[0]).slice(0, 2).join('');
                 return (
-                  <motion.article key={member.id} variants={itemVariants} className="group">
+                  <motion.article
+                    key={member.id}
+                    variants={itemVariants}
+                    whileHover={{ y: -4, scale: 1.015 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+                    className="group"
+                  >
                     <a href="/ekibimiz" className="block">
                       <div className="aspect-square overflow-hidden bg-[#e8e1d2]">
                         <img
                           src={member.image}
                           alt={member.name}
                           loading="lazy"
-                          className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03] group-hover:grayscale-0"
+                          className="h-full w-full object-cover grayscale transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-hover:grayscale-0"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
                             e.currentTarget.parentElement.innerHTML = `<div class="flex h-full w-full items-center justify-center bg-[#e8e1d2] font-fraunces text-5xl text-[#8b6f3d]">${initials}</div>`;
