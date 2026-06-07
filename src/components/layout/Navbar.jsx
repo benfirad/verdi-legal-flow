@@ -64,11 +64,11 @@ export default function Navbar() {
       }`}
     >
       <nav
-        className={`mx-auto flex max-w-[1840px] items-center justify-between px-7 lg:px-9 transition-all duration-300 ${
+        className={`pointer-events-auto mx-auto flex max-w-[1840px] items-center justify-between px-7 lg:px-9 transition-all duration-300 ${
           isScrolled ? 'h-16' : 'h-24'
         }`}
       >
-        <a href="/" className="pointer-events-auto block">
+        <a href="/" className="block">
           <img
             src="/assets/logoust.png"
             alt="Verdi"
@@ -115,7 +115,7 @@ export default function Navbar() {
           </div>
           {/* Ana Menü butonu — her zaman görünür */}
           <button
-            className="flex h-11 w-11 items-center justify-center border border-current transition hover:opacity-70"
+            className="pointer-events-auto flex h-11 w-11 items-center justify-center border border-current transition hover:opacity-70"
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Ana Menü"
           >
