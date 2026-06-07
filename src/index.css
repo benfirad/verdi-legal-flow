@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-fraunces: 'Inter', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    
+    --background: 214 60% 96%;
+    --foreground: 220 35% 18%;
+    --card: 215 20% 93%;
+    --card-foreground: 220 40% 10%;
+    --popover: 215 20% 93%;
+    --popover-foreground: 220 40% 10%;
+    --primary: 220 30% 28%;
+    --primary-foreground: 215 25% 97%;
+    --secondary: 215 18% 88%;
+    --secondary-foreground: 220 40% 10%;
+    --muted: 215 18% 88%;
+    --muted-foreground: 215 15% 45%;
+    --accent: 220 30% 28%;
+    --accent-foreground: 215 25% 97%;
+    --destructive: 0 84.2% 50%;
+    --destructive-foreground: 215 25% 97%;
+    --border: 215 18% 82%;
+    --input: 215 18% 82%;
+    --ring: 220 30% 28%;
+    --chart-1: 220 30% 28%;
+    --chart-2: 200 58% 39%;
+    --chart-3: 210 37% 24%;
+    --chart-4: 195 74% 66%;
+    --chart-5: 215 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 215 25% 97%;
+    --sidebar-foreground: 220 40% 10%;
+    --sidebar-primary: 220 30% 28%;
+    --sidebar-primary-foreground: 215 25% 97%;
+    --sidebar-accent: 215 18% 88%;
+    --sidebar-accent-foreground: 220 40% 10%;
+    --sidebar-border: 215 18% 82%;
+    --sidebar-ring: 220 30% 28%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 40 10% 97%;
+    --card: 0 0% 6%;
+    --card-foreground: 40 10% 97%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 40 10% 97%;
+    --primary: 30 10% 38%;
+    --primary-foreground: 38 28% 94%;
+    --secondary: 38 18% 82%;
+    --secondary-foreground: 30 18% 10%;
+    --muted: 38 18% 82%;
+    --muted-foreground: 30 10% 42%;
+    --accent: 30 10% 38%;
+    --accent-foreground: 38 28% 94%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 38 28% 94%;
+    --border: 38 15% 72%;
+    --input: 38 15% 72%;
+    --ring: 30 10% 38%;
+    --chart-1: 30 10% 38%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 38 28% 94%;
+    --sidebar-foreground: 30 18% 10%;
+    --sidebar-primary: 30 10% 38%;
+    --sidebar-primary-foreground: 38 28% 94%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-family: var(--font-inter);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-inter);
+  }
+}
+
+@layer utilities {
+  .font-fraunces {
+    font-family: var(--font-fraunces);
+  }
+  
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground;
+  }
+
+  .verdi-reveal {
+    animation: verdiReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes verdiReveal {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .magnetic-hover {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .magnetic-hover:hover {
+    transform: translateY(-2px);
+  }
+
+  .line-grow {
+    transform-origin: top;
+    animation: lineGrow 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes lineGrow {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Video overlay */
+.video-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 12, 0.7) 0%,
+    rgba(10, 10, 12, 0.5) 50%,
+    rgba(10, 10, 12, 0.9) 100%
+  );
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .verdi-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .line-grow {
+    animation: none;
+    transform: scaleY(1);
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
