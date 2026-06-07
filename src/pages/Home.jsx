@@ -1,25 +1,10 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useLanguage } from '@/lib/LanguageContext';
 import { teamMembers } from '@/lib/teamData';
-
-const news = {
-  tr: [
-    { date: '4 Haziran 2026', title: 'Şirket birleşmeleri ve devralmalarında güncel rekabet hukuku değerlendirmeleri', type: 'Duyuru' },
-    { date: '25 Mayıs 2026', title: 'Taşınmaz satışlarında güvenli ödeme sistemi uygulaması ve hukuki sonuçları', type: 'Yayın' },
-    { date: '15 Mayıs 2026', title: 'Kişisel verilerin korunmasında yönetim kurullarının sorumluluğu', type: 'Yayın' },
-    { date: '7 Mayıs 2026', title: 'İş hukukunda yeni izin düzenlemelerine ilişkin uygulama notu', type: 'Bilgi Notu' },
-  ],
-  en: [
-    { date: '4 June 2026', title: 'Current competition law considerations in mergers and acquisitions', type: 'Announcement' },
-    { date: '25 May 2026', title: 'Secure payment system in real estate sales and its legal effects', type: 'Publication' },
-    { date: '15 May 2026', title: 'Board responsibilities in personal data protection compliance', type: 'Publication' },
-    { date: '7 May 2026', title: 'Practice note on recent leave regulations in employment law', type: 'Briefing' },
-  ],
-};
 
 // Tüm bölüm başlıkları için ortak standart — Hakkımızda bloğuyla aynı oran
 const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d]';
@@ -86,7 +71,6 @@ function SectionHeader({ eyebrow, title, action }) {
 
 export default function Home() {
   const { language, t } = useLanguage();
-  const items = news[language] || news.tr;
   const areas = t('practiceAreas.areas').slice(0, 8);
   const featuredTeam = teamMembers.filter((m) => m.position === 'partner');
 
@@ -227,44 +211,6 @@ export default function Home() {
                   </div>
                   <ArrowRight className="h-5 w-5 shrink-0 text-[#9a8c70] transition group-hover:translate-x-1 group-hover:text-[#202020]" />
                 </motion.a>
-              ))}
-            </StaggerList>
-          </div>
-        </section>
-
-        {/* ── Duyurular & Yayınlar ── */}
-        <section id="publications" data-nav-theme="light" className="bg-white">
-          <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[0.55fr_1.45fr] lg:px-8">
-            <Reveal>
-              <p className={EYEBROW_CLS}>
-                {language === 'tr' ? 'Duyurular & Yayınlar' : 'Announcements & Publications'}
-              </p>
-              <h2 className={SECTION_TITLE_CLS}>
-                {language === 'tr' ? 'Güncel hukuki gelişmeler' : 'Current legal developments'}
-              </h2>
-              <p className="mt-6 text-[#6b665d]">
-                {language === 'tr'
-                  ? 'Mevzuat değişiklikleri, içtihat notları ve sektörel gelişmeler hakkında kısa değerlendirmeler.'
-                  : 'Brief assessments on legislative changes, case law notes and sector developments.'}
-              </p>
-            </Reveal>
-
-            <StaggerList className="border-t border-[#d8d0bf]" stagger={0.08}>
-              {items.map((item) => (
-                <motion.article
-                  key={item.title}
-                  variants={itemVariants}
-                  className="group grid gap-4 border-b border-[#d8d0bf] py-7 md:grid-cols-[170px_1fr_32px] md:items-start"
-                >
-                  <div className="text-sm text-[#777167]">
-                    <p className="flex items-center gap-2"><Calendar className="h-4 w-4" />{item.date}</p>
-                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[#9a7a3d]">{item.type}</p>
-                  </div>
-                  <h3 className="font-fraunces text-2xl leading-snug text-[#202020] transition group-hover:text-[#8b6f3d]">
-                    {item.title}
-                  </h3>
-                  <ArrowRight className="hidden h-5 w-5 text-[#9a8c70] transition group-hover:translate-x-1 md:block" />
-                </motion.article>
               ))}
             </StaggerList>
           </div>

@@ -42,10 +42,10 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
+    { href: '/', label: t('nav.home') },
     { href: '/hakkimizda', label: t('nav.about') },
     { href: '/calisma-alanlari', label: language === 'tr' ? 'Hizmetlerimiz' : 'Services' },
     { href: '/ekibimiz', label: t('nav.team') },
-    { href: '/yayinlar', label: language === 'tr' ? 'Duyurular ve Yayınlar' : 'Announcements & Publications' },
     { href: '/kariyer', label: language === 'tr' ? 'Kariyer' : 'Career' },
     { href: '/iletisim', label: t('nav.contact') },
   ];
@@ -106,10 +106,11 @@ export default function Navbar() {
               <Search className="h-6 w-6" />
             </button>
           </div>
+          {/* Ana Menü butonu — her zaman görünür */}
           <button
-            className="flex h-11 w-11 items-center justify-center border border-current lg:hidden"
+            className="flex h-11 w-11 items-center justify-center border border-current transition hover:opacity-70"
             onClick={() => setIsMobileMenuOpen(true)}
-            aria-label="Open menu"
+            aria-label="Ana Menü"
           >
             <Menu className="h-5 w-5" />
           </button>

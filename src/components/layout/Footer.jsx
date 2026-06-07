@@ -10,7 +10,6 @@ export default function Footer() {
     { href: '/hakkimizda', label: t('nav.about') },
     { href: '/calisma-alanlari', label: language === 'tr' ? 'Uzmanlık Alanlarımız' : 'Our Practice Areas' },
     { href: '/ekibimiz', label: t('nav.team') },
-    { href: '/yayinlar', label: t('nav.publications') },
     { href: '/iletisim', label: t('nav.contact') },
   ];
 
