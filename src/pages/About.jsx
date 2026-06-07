@@ -129,7 +129,7 @@ export default function About() {
             <div className="border-t border-[#e4dccb]" />
 
             {/* Kuruluşumuz ve Vizyonumuz */}
-            <Reveal delay={0.1}>
+            <Reveal delay={0.1} from="right">
               <p className={EYEBROW_CLS}>
                 {language === 'tr' ? 'Kuruluşumuz ve Vizyonumuz' : 'Our Foundation and Vision'}
               </p>
@@ -153,7 +153,7 @@ export default function About() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.2} className="lg:sticky lg:top-32">
+          <Reveal delay={0.2} from="right" className="lg:sticky lg:top-32">
             <figure className="relative">
               <div className="aspect-[4/5] overflow-hidden">
                 <img

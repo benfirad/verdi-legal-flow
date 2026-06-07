@@ -1,47 +1,54 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-// ── Site genelinde ortak animasyon dili ──
-// Kart-stack tasarımına uygun: belirgin yukarı kayma + hafif scale + smooth snap
+// ── Site geneli animasyon dili: YATAY SLIDE (sinematik) ──
+// Öğeler yan taraftan kayarak ekrana girer.
 
-export const CARD_EASE = [0.22, 1, 0.36, 1]; // ease-out-quart (snappy)
+export const CARD_EASE = [0.22, 1, 0.36, 1]; // ease-out-quart (snap)
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 56, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.85, ease: CARD_EASE },
-  },
-};
+const DEFAULT_OFFSET = 100; // px
 
-export const itemVariants = {
-  hidden: { opacity: 0, y: 36, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: CARD_EASE },
-  },
-};
+function makeVariants(from = 'left', offset = DEFAULT_OFFSET) {
+  const x = from === 'right' ? offset : from === 'left' ? -offset : 0;
+  const y = from === 'bottom' ? offset : from === 'top' ? -offset : 0;
+  return {
+    hidden: { opacity: 0, x, y },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: { duration: 0.95, ease: CARD_EASE },
+    },
+  };
+}
 
 /**
- * Tek bir öğeyi scroll'da kart gibi açar.
- * delay: gecikme (s); className ile dış sarmalayıcıya class verilebilir.
+ * Scroll'a girince yan taraftan slide reveal.
+ * from: 'left' | 'right' | 'top' | 'bottom' (default 'left')
+ * offset: kaç piksel uzaktan kaysın
+ * delay: gecikme
  */
-export function Reveal({ children, delay = 0, className = '', as: Tag = motion.div }) {
+export function Reveal({
+  children,
+  delay = 0,
+  from = 'left',
+  offset = DEFAULT_OFFSET,
+  className = '',
+  as: Tag = motion.div,
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const variants = makeVariants(from, offset);
 
   return (
     <Tag
       ref={ref}
-      variants={cardVariants}
+      variants={variants}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
-      transition={{ delay, duration: 0.85, ease: CARD_EASE }}
+      transition={{ delay, duration: 0.95, ease: CARD_EASE }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </Tag>
@@ -49,10 +56,22 @@ export function Reveal({ children, delay = 0, className = '', as: Tag = motion.d
 }
 
 /**
- * Çocuk motion.X öğelerini sırayla kart gibi açar.
- * stagger: çocuklar arası gecikme (s).
+ * StaggerList içindeki çocuk motion.X öğeleri için varsayılan variant.
+ * Soldan kayarak gelir.
  */
-export function StaggerList({ children, className = '', stagger = 0.12 }) {
+export const itemVariants = {
+  hidden: { opacity: 0, x: -60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: CARD_EASE },
+  },
+};
+
+/**
+ * Çocuk öğeleri sırayla soldan kaydırarak açar.
+ */
+export function StaggerList({ children, className = '', stagger = 0.1 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
@@ -73,14 +92,18 @@ export function StaggerList({ children, className = '', stagger = 0.12 }) {
 }
 
 /**
- * Birinci yükleme için (hero gibi, scroll beklemeden).
+ * İlk yükleme animasyonu (scroll beklemeden).
+ * Hero gibi bölümlerde kullanılır. Soldan kayar.
  */
-export function Enter({ children, delay = 0, className = '' }) {
+export function Enter({ children, delay = 0, from = 'left', offset = 60, className = '' }) {
+  const x = from === 'right' ? offset : from === 'left' ? -offset : 0;
+  const y = from === 'bottom' ? offset : from === 'top' ? -offset : 0;
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40, scale: 0.97 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.95, delay, ease: CARD_EASE }}
+      initial={{ opacity: 0, x, y }}
+      animate={{ opacity: 1, x: 0, y: 0 }}
+      transition={{ duration: 1, delay, ease: CARD_EASE }}
       className={className}
     >
       {children}

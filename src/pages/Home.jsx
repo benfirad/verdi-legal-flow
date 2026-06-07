@@ -23,7 +23,7 @@ function SectionHeader({ eyebrow, title, action }) {
         <h2 className={SECTION_TITLE_CLS}>{title}</h2>
       </Reveal>
       {action && (
-        <Reveal delay={0.1} y={12}>
+        <Reveal delay={0.1} from="right">
           {action}
         </Reveal>
       )}
@@ -78,9 +78,9 @@ export default function Home() {
                     : 'Verdi provides legal services through a capable team of attorneys, consultants and support units with deep legal experience across distinct areas of practice.'}
                 </p>
               </Enter>
-              <Enter delay={0.55}>
+              <Enter delay={0.55} from="right">
                 <motion.a
-                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileHover={{ scale: 1.02, x: 4 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.3, ease: CARD_EASE }}
                   href="/iletisim"
@@ -103,7 +103,7 @@ export default function Home() {
                   {language === 'tr' ? 'Stratejik hukuk danışmanlığı' : 'Strategic legal counsel'}
                 </h2>
               </Reveal>
-              <Reveal delay={0.15}>
+              <Reveal delay={0.15} from="right">
                 <p className="max-w-3xl text-lg leading-8 text-[#5f5b52]">
                   {t('about.description')}
                 </p>
@@ -116,7 +116,7 @@ export default function Home() {
                   {language === 'tr' ? 'Ekibimiz' : 'Our Team'}
                 </h3>
               </Reveal>
-              <Reveal delay={0.1} y={12}>
+              <Reveal delay={0.1} from="right">
                 <a href="/ekibimiz" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#6d5b35]">
                   {language === 'tr' ? 'Tüm ekibi gör' : 'View entire team'}
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
