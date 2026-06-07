@@ -104,7 +104,7 @@ export default function ContactPage() {
               {t('contact.title')}
             </span>
           </div>
-          <h1 className="font-fraunces text-5xl md:text-7xl font-bold text-bone leading-tight mb-4">
+          <h1 className="font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold text-bone leading-tight mb-4">
             {language === 'tr' ? 'Bizimle\nİletişime Geçin' : 'Get in\nTouch'}
           </h1>
           <p className="text-steel text-lg max-w-xl mt-4">{t('contact.description')}</p>

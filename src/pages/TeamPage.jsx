@@ -230,7 +230,7 @@ export default function TeamPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d]">
             {language === 'tr' ? 'Ekibimiz' : 'Our Team'}
           </p>
-          <h1 className="mt-6 font-fraunces text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] text-[#1f1f1f]">
+          <h1 className="mt-6 font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15] text-[#1f1f1f]">
             {language === 'tr' ? 'Verdi ekibiyle tanışın.' : 'Meet the Verdi team.'}
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-[#5f5b52]">
