@@ -97,8 +97,8 @@ export default function Home() {
       <Navbar />
 
       <main>
-        {/* ── Hero ── */}
-        <section id="home" data-nav-theme="dark" className="relative min-h-[760px] overflow-hidden bg-[#05070b] text-white lg:min-h-screen">
+        {/* ── Hero (stack layer 1) ── */}
+        <section id="home" data-nav-theme="dark" className="sticky top-0 z-10 min-h-[760px] overflow-hidden bg-[#05070b] text-white lg:h-screen lg:min-h-screen">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=2400&q=90"
             alt={language === 'tr' ? 'Modern iş merkezi cephesi' : 'Modern business tower facade'}
@@ -135,8 +135,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Hakkımızda + Ortaklarımız ── */}
-        <section id="about" data-nav-theme="light" className="border-y border-[#ded8ca] bg-white">
+        {/* ── Hakkımızda + Ortaklarımız (stack layer 2) ── */}
+        <section id="about" data-nav-theme="light" className="sticky top-0 z-20 min-h-screen border-y border-[#ded8ca] bg-white shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.25)]">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
               <Reveal>
@@ -205,13 +205,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Çalışma Alanları — yatay kart carousel ── */}
-        <PracticeAreasCarousel language={language} t={t} />
-
-        {/* Eski sticky-sidebar layout kaldırıldı — yerine carousel geldi */}
-        {false && (
-        <section id="practice-areas-legacy" data-nav-theme="light" className="hidden bg-[#f6f4ef]">
+        {/* ── Çalışma Alanları (stack layer 3) ── */}
+        <section id="practice-areas" data-nav-theme="light" className="sticky top-0 z-30 min-h-screen bg-[#f6f4ef] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.25)]">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+            <div className="mb-12 border-b border-[#d8d0bf] pb-8">
+              <SectionHeader
+                eyebrow={t('practiceAreas.title')}
+                title={t('practiceAreas.subtitle')}
+                action={
+                  <a href="/calisma-alanlari" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#6d5b35]">
+                    {language === 'tr' ? 'Tüm alanlar' : 'All practices'}
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </a>
+                }
+              />
+            </div>
             <div className="grid gap-12 lg:grid-cols-[280px_1fr] mt-12">
               {/* Sidebar */}
               <aside className="lg:sticky lg:top-32 lg:self-start">
@@ -321,10 +329,11 @@ export default function Home() {
             </div>
           </div>
         </section>
-        )}
       </main>
 
-      <Footer />
+      <div className="relative z-40">
+        <Footer />
+      </div>
     </div>
   );
 }
