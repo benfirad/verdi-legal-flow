@@ -134,24 +134,24 @@ export default function KariyerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-bone text-ink">
+    <div className="min-h-screen bg-[#f6f4ef] text-[#202020]">
       <Navbar />
 
       {/* Hero Section */}
-      <section data-nav-theme="dark" className="relative overflow-hidden bg-ink text-white">
+      <section data-nav-theme="dark" className="relative overflow-hidden bg-[#05070b] text-white">
         <img
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=2400&q=90"
           alt="Office"
           className="absolute inset-0 h-full w-full object-cover object-center grayscale opacity-15"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/80 to-ink/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/40 to-ink/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black/50" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-44 pb-28" ref={headerRef}>
           <motion.div className="flex items-center gap-3 mb-6"
             initial={{ opacity: 0, x: -20 }} animate={headerInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }}>
-            <div className="w-8 h-px bg-steel/60" />
-            <span className="text-xs tracking-[0.35em] uppercase text-steel font-semibold">{l.badge}</span>
+            <div className="w-8 h-px bg-[#c8b68c]/60" />
+            <span className="text-xs tracking-[0.35em] uppercase text-[#c8b68c] font-semibold">{l.badge}</span>
           </motion.div>
           <motion.h1 className="font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 whitespace-pre-line"
             initial={{ opacity: 0, y: 40 }} animate={headerInView ? { opacity: 1, y: 0 } : {}}
@@ -166,11 +166,11 @@ export default function KariyerPage() {
       </section>
 
       {/* Culture & Values */}
-      <section data-nav-theme="light" className="bg-[#f0f4f8]/50 border-b border-ink/5 py-24 px-6 lg:px-8">
+      <section data-nav-theme="light" className="bg-[#f6f4ef] border-b border-[#d8d0bf]/40 py-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cobalt mb-3">{l.cultureTitle}</p>
-            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-ink">{l.cultureSub}</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d] mb-3">{l.cultureTitle}</p>
+            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#202020]">{l.cultureSub}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -183,13 +183,13 @@ export default function KariyerPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="bg-white p-8 border border-ink/5 rounded-sm hover:shadow-[0_8px_30px_rgba(13,27,46,0.03)] hover:border-cobalt/20 transition-all duration-300 group"
+                  className="bg-white p-8 border border-[#d8d0bf] rounded-sm hover:shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:border-[#8b6f3d]/50 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 rounded-sm bg-cobalt/5 border border-cobalt/10 flex items-center justify-center text-cobalt mb-6 group-hover:bg-cobalt group-hover:text-white transition-colors duration-300">
+                  <div className="w-12 h-12 rounded-sm bg-[#c9a87c]/10 border border-[#c9a87c]/30 flex items-center justify-center text-[#8b6f3d] mb-6 group-hover:bg-[#c9a87c] group-hover:text-white transition-colors duration-300">
                     <IconComponent className="w-5 h-5" />
                   </div>
-                  <h3 className="font-semibold text-lg text-ink mb-3">{val.title}</h3>
-                  <p className="text-sm text-ink/75 leading-relaxed font-light">{val.desc}</p>
+                  <h3 className="font-semibold text-lg text-[#202020] mb-3">{val.title}</h3>
+                  <p className="text-sm text-[#5f5b52] leading-relaxed font-light">{val.desc}</p>
                 </motion.div>
               );
             })}
@@ -198,12 +198,12 @@ export default function KariyerPage() {
       </section>
 
       {/* Open Positions */}
-      <section data-nav-theme="light" className="bg-bone py-24 px-6 lg:px-8">
+      <section data-nav-theme="light" className="bg-[#f6f4ef] py-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-ink/10 pb-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#d8d0bf] pb-6 mb-12">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cobalt mb-3">{l.badge}</p>
-              <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-ink">{l.openPos}</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d] mb-3">{l.badge}</p>
+              <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#202020]">{l.openPos}</h2>
             </div>
           </div>
 
@@ -215,17 +215,17 @@ export default function KariyerPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="border border-ink/10 rounded-sm p-6 bg-white hover:border-cobalt/35 hover:shadow-[0_8px_30px_rgba(13,27,46,0.03)] transition-all duration-300 group"
+                className="border border-[#d8d0bf] rounded-sm p-6 bg-white hover:border-[#8b6f3d]/50 hover:shadow-[0_8px_30px_rgba(0,0,0,0.02)] transition-all duration-300 group"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-semibold text-base text-ink mb-1 group-hover:text-cobalt transition-colors">{p.title}</h3>
-                    <p className="text-ink/65 text-xs uppercase tracking-wider font-medium">{p.dept}</p>
+                    <h3 className="font-semibold text-base text-[#202020] mb-1 group-hover:text-[#8b6f3d] transition-colors">{p.title}</h3>
+                    <p className="text-[#5f5b52] text-xs uppercase tracking-wider font-medium">{p.dept}</p>
                   </div>
                   <span className={`text-xs px-3 py-1 rounded-sm border shrink-0 font-medium ${
                     p.type === 'Staj' || p.type === 'Internship'
-                      ? 'bg-amber-500/10 border-amber-500/20 text-amber-700'
-                      : 'bg-cobalt/5 border-cobalt/10 text-cobalt'
+                      ? 'bg-[#c9a87c]/10 border-[#c9a87c]/30 text-[#8b6f3d]'
+                      : 'bg-[#202020]/5 border-[#202020]/10 text-[#202020]/70'
                   }`}>
                     {p.type}
                   </span>
@@ -237,70 +237,70 @@ export default function KariyerPage() {
       </section>
 
       {/* Application Form */}
-      <section data-nav-theme="light" className="bg-bone pb-28 px-6 lg:px-8">
+      <section data-nav-theme="light" className="bg-[#f6f4ef] pb-28 px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white border border-ink/10 rounded-sm p-8 md:p-12 shadow-[0_12px_40px_rgba(13,27,46,0.02)]"
+            className="bg-white border border-[#d8d0bf] rounded-sm p-8 md:p-12 shadow-[0_12px_40px_rgba(0,0,0,0.01)]"
           >
-            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-ink border-b border-ink/10 pb-6 mb-8">{l.applyTitle}</h2>
+            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#202020] border-b border-[#d8d0bf] pb-6 mb-8">{l.applyTitle}</h2>
 
             {success ? (
               <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
                 className="bg-green-500/5 border border-green-500/20 rounded-sm p-10 text-center">
                 <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="font-semibold text-lg text-ink mb-2">{l.successTitle}</h3>
-                <p className="text-ink/75 text-sm">{l.successMsg}</p>
+                <h3 className="font-semibold text-lg text-[#202020] mb-2">{l.successTitle}</h3>
+                <p className="text-[#5f5b52] text-sm">{l.successMsg}</p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-ink/75 mb-2">{l.name} *</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#5f5b52] mb-2">{l.name} *</label>
                     <input required value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                      className="w-full px-4 py-3 border border-ink/15 rounded-sm bg-white text-ink text-sm focus:outline-none focus:border-cobalt transition-colors" />
+                      className="w-full px-4 py-3 border border-[#d8d0bf] rounded-sm bg-white text-[#202020] text-sm focus:outline-none focus:border-[#8b6f3d] transition-colors" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-ink/75 mb-2">{l.email} *</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#5f5b52] mb-2">{l.email} *</label>
                     <input required type="email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                      className="w-full px-4 py-3 border border-ink/15 rounded-sm bg-white text-ink text-sm focus:outline-none focus:border-cobalt transition-colors" />
+                      className="w-full px-4 py-3 border border-[#d8d0bf] rounded-sm bg-white text-[#202020] text-sm focus:outline-none focus:border-[#8b6f3d] transition-colors" />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-ink/75 mb-2">{l.phone}</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#5f5b52] mb-2">{l.phone}</label>
                     <input value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-                      className="w-full px-4 py-3 border border-ink/15 rounded-sm bg-white text-ink text-sm focus:outline-none focus:border-cobalt transition-colors" />
+                      className="w-full px-4 py-3 border border-[#d8d0bf] rounded-sm bg-white text-[#202020] text-sm focus:outline-none focus:border-[#8b6f3d] transition-colors" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-ink/75 mb-2">{l.position} *</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#5f5b52] mb-2">{l.position} *</label>
                     <div className="relative">
                       <select required value={form.position} onChange={e => setForm(f => ({ ...f, position: e.target.value }))}
-                        className="w-full px-4 py-3 border border-ink/15 rounded-sm bg-white text-ink text-sm focus:outline-none focus:border-cobalt transition-colors appearance-none cursor-pointer">
+                        className="w-full px-4 py-3 border border-[#d8d0bf] rounded-sm bg-white text-[#202020] text-sm focus:outline-none focus:border-[#8b6f3d] transition-colors appearance-none cursor-pointer">
                         <option value="">{l.posPlaceholder}</option>
                         {pos.map((p, i) => <option key={i} value={p.title}>{p.title}</option>)}
                         <option value={language === 'tr' ? 'Açık Başvuru' : 'Open Application'}>{language === 'tr' ? 'Açık Başvuru' : 'Open Application'}</option>
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-ink/65">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#5f5b52]">
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-ink/75 mb-2">{l.message}</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#5f5b52] mb-2">{l.message}</label>
                   <textarea rows={4} value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                    className="w-full px-4 py-3 border border-ink/15 rounded-sm bg-white text-ink text-sm focus:outline-none focus:border-cobalt transition-colors resize-none" />
+                    className="w-full px-4 py-3 border border-[#d8d0bf] rounded-sm bg-white text-[#202020] text-sm focus:outline-none focus:border-[#8b6f3d] transition-colors resize-none" />
                 </div>
 
                 {/* CV Upload */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-ink/75 mb-2">{l.cvLabel}</label>
-                  <label className="flex items-center gap-3 px-4 py-4 border border-dashed border-cobalt/40 rounded-sm bg-cobalt/5 cursor-pointer hover:bg-cobalt/10 hover:border-cobalt transition-all group">
-                    <Upload className="w-4 h-4 text-cobalt/70 group-hover:text-cobalt transition-colors" />
-                    <span className="text-sm text-ink/60 group-hover:text-ink transition-colors font-medium">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#5f5b52] mb-2">{l.cvLabel}</label>
+                  <label className="flex items-center gap-3 px-4 py-4 border border-dashed border-[#c9a87c]/40 rounded-sm bg-[#c9a87c]/5 cursor-pointer hover:bg-[#c9a87c]/10 hover:border-[#8b6f3d] transition-all group">
+                    <Upload className="w-4 h-4 text-[#8b6f3d]/70 group-hover:text-[#8b6f3d] transition-colors" />
+                    <span className="text-sm text-[#5f5b52] group-hover:text-[#202020] transition-colors font-medium">
                       {cvFile ? cvFile.name : l.cvBtn}
                     </span>
                     <input type="file" accept=".pdf,.doc,.docx" className="hidden"
@@ -310,7 +310,7 @@ export default function KariyerPage() {
 
                 <motion.button
                   type="submit" disabled={loading}
-                  className="flex items-center gap-3 px-8 py-4 bg-ink text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-cobalt transition-all disabled:opacity-60 w-full justify-center shadow-md hover:shadow-lg"
+                  className="flex items-center gap-3 px-8 py-4 bg-[#1f1f1f] text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-[#8b6f3d] hover:text-white transition-all disabled:opacity-60 w-full justify-center shadow-md hover:shadow-lg"
                   whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.98 }}>
                   {loading ? l.sending : <><Send className="w-4 h-4" />{l.submit}</>}
                 </motion.button>
