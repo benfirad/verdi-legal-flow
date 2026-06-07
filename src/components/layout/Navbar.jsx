@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Menu, Search, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -108,9 +108,6 @@ export default function Navbar() {
               className={`transition hover:opacity-100 ${language === 'tr' ? 'opacity-100 font-bold' : 'opacity-40'}`}
             >
               TR
-            </button>
-            <button aria-label="Search" className="ml-3 transition hover:opacity-70">
-              <Search className="h-6 w-6" />
             </button>
           </div>
           {/* Ana Menü butonu — her zaman görünür */}
