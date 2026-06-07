@@ -153,12 +153,12 @@ export default function KariyerPage() {
             <div className="w-8 h-px bg-steel/60" />
             <span className="text-xs tracking-[0.35em] uppercase text-steel font-semibold">{l.badge}</span>
           </motion.div>
-          <motion.h1 className="font-fraunces text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 whitespace-pre-line"
+          <motion.h1 className="font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 whitespace-pre-line"
             initial={{ opacity: 0, y: 40 }} animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
             {l.title}
           </motion.h1>
-          <motion.p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed font-light"
+          <motion.p className="text-white/80 text-base md:text-lg max-w-2xl leading-relaxed font-light"
             initial={{ opacity: 0 }} animate={headerInView ? { opacity: 1 } : {}} transition={{ delay: 0.4 }}>
             {l.sub}
           </motion.p>
@@ -170,7 +170,7 @@ export default function KariyerPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cobalt mb-3">{l.cultureTitle}</p>
-            <h2 className="font-fraunces text-3xl md:text-4xl font-bold text-ink">{l.cultureSub}</h2>
+            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-ink">{l.cultureSub}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -188,7 +188,7 @@ export default function KariyerPage() {
                   <div className="w-12 h-12 rounded-sm bg-cobalt/5 border border-cobalt/10 flex items-center justify-center text-cobalt mb-6 group-hover:bg-cobalt group-hover:text-white transition-colors duration-300">
                     <IconComponent className="w-5 h-5" />
                   </div>
-                  <h3 className="font-fraunces text-xl font-bold text-ink mb-3">{val.title}</h3>
+                  <h3 className="font-semibold text-lg text-ink mb-3">{val.title}</h3>
                   <p className="text-sm text-ink/75 leading-relaxed font-light">{val.desc}</p>
                 </motion.div>
               );
@@ -203,7 +203,7 @@ export default function KariyerPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-ink/10 pb-6 mb-12">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cobalt mb-3">{l.badge}</p>
-              <h2 className="font-fraunces text-3xl font-bold text-ink">{l.openPos}</h2>
+              <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-ink">{l.openPos}</h2>
             </div>
           </div>
 
@@ -219,7 +219,7 @@ export default function KariyerPage() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-fraunces text-lg font-bold text-ink mb-1 group-hover:text-cobalt transition-colors">{p.title}</h3>
+                    <h3 className="font-semibold text-base text-ink mb-1 group-hover:text-cobalt transition-colors">{p.title}</h3>
                     <p className="text-ink/65 text-xs uppercase tracking-wider font-medium">{p.dept}</p>
                   </div>
                   <span className={`text-xs px-3 py-1 rounded-sm border shrink-0 font-medium ${
@@ -245,13 +245,13 @@ export default function KariyerPage() {
             viewport={{ once: true }}
             className="bg-white border border-ink/10 rounded-sm p-8 md:p-12 shadow-[0_12px_40px_rgba(13,27,46,0.02)]"
           >
-            <h2 className="font-fraunces text-2xl md:text-3xl font-bold text-ink border-b border-ink/10 pb-6 mb-8">{l.applyTitle}</h2>
+            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-ink border-b border-ink/10 pb-6 mb-8">{l.applyTitle}</h2>
 
             {success ? (
               <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
                 className="bg-green-500/5 border border-green-500/20 rounded-sm p-10 text-center">
                 <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="font-fraunces text-xl font-bold text-ink mb-2">{l.successTitle}</h3>
+                <h3 className="font-semibold text-lg text-ink mb-2">{l.successTitle}</h3>
                 <p className="text-ink/75 text-sm">{l.successMsg}</p>
               </motion.div>
             ) : (
