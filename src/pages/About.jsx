@@ -7,9 +7,9 @@ import Footer from '@/components/layout/Footer';
 import { Reveal, StaggerList, itemVariants } from '@/components/motion/Reveal';
 
 // Tipografi standardı (Home/PracticeAreas ile aynı)
-const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#B8946B]';
-const EYEBROW_DARK_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#D4B585]';
-const SECTION_TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-[#0A1428] md:text-4xl';
+const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#B08A4C]';
+const EYEBROW_DARK_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#D9B97A]';
+const SECTION_TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-[#0F1E1A] md:text-4xl';
 
 const STATS = [
   { value: '20+', label: { tr: 'Yıllık Tecrübe', en: 'Years of Experience' } },
@@ -65,22 +65,22 @@ export default function About() {
   const { language } = useLanguage();
 
   return (
-    <div className="bg-[#F1EEE7] text-[#0A1428] min-h-screen">
+    <div className="bg-[#F0EBE0] text-[#0F1E1A] min-h-screen">
       <Navbar />
 
       {/* ── Tecrübe vurgusu (en üst, sola hizalı) ── */}
-      <section data-nav-theme="light" className="bg-[#F1EEE7] border-b border-[#D4DAE3]">
+      <section data-nav-theme="light" className="bg-[#F0EBE0] border-b border-[#D5D0BF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-40 pb-28">
           <Reveal>
             <div className="grid items-end gap-8 md:grid-cols-[auto_1fr_auto] md:gap-12">
-              <span className="block font-fraunces text-[140px] md:text-[200px] leading-[0.85] font-semibold text-[#0A1428]">
-                20<span className="text-[#B8946B]">+</span>
+              <span className="block font-fraunces text-[140px] md:text-[200px] leading-[0.85] font-semibold text-[#0F1E1A]">
+                20<span className="text-[#B08A4C]">+</span>
               </span>
               <div className="md:pb-6">
-                <p className="text-xs uppercase tracking-[0.35em] text-[#B8946B] font-semibold">
+                <p className="text-xs uppercase tracking-[0.35em] text-[#B08A4C] font-semibold">
                   {language === 'tr' ? 'Yıllık Tecrübe' : 'Years of Experience'}
                 </p>
-                <p className="mt-4 max-w-md text-lg leading-8 text-[#475569]">
+                <p className="mt-4 max-w-md text-lg leading-8 text-[#525A52]">
                   {language === 'tr'
                     ? '2003’ten bu yana yerli ve uluslararası iş dünyasına kesintisiz hukuki danışmanlık veriyoruz.'
                     : 'Since 2003, we have been providing uninterrupted legal counsel to domestic and international business.'}
@@ -88,8 +88,8 @@ export default function About() {
               </div>
               {/* Sağ aksent */}
               <div className="hidden md:flex md:pb-6 items-center gap-3">
-                <div className="h-px w-12 bg-[#B8946B]" />
-                <p className="text-[10px] uppercase tracking-[0.35em] text-[#B8946B] font-semibold whitespace-nowrap">
+                <div className="h-px w-12 bg-[#B08A4C]" />
+                <p className="text-[10px] uppercase tracking-[0.35em] text-[#B08A4C] font-semibold whitespace-nowrap">
                   {language === 'tr' ? '2003 — Bugün' : '2003 — Today'}
                 </p>
               </div>
@@ -99,7 +99,7 @@ export default function About() {
       </section>
 
       {/* ── Biz Kimiz + Kuruluşumuz ve Vizyonumuz ── */}
-      <section data-nav-theme="light" className="bg-white border-b border-[#D4DAE3]">
+      <section data-nav-theme="light" className="bg-white border-b border-[#D5D0BF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 grid gap-14 lg:grid-cols-[1.2fr_0.8fr] items-start">
           <div className="space-y-14">
             {/* Biz Kimiz */}
@@ -112,7 +112,7 @@ export default function About() {
                   ? 'İstanbul merkezli, uluslararası ölçekte hizmet veren bir hukuk bürosu.'
                   : 'An Istanbul-based law firm serving on an international scale.'}
               </h2>
-              <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#475569]">
+              <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#525A52]">
                 <p>
                   {language === 'tr'
                     ? 'Verdi Hukuk Bürosu, yabancı yatırımcılara ve Türk iş dünyasının kurumsal aktörlerine geniş bir uzmanlık yelpazesi içinde hukuki danışmanlık ve dava takip hizmeti sunan, deneyimli avukatlardan oluşan bir ekiptir.'
@@ -126,7 +126,7 @@ export default function About() {
               </div>
             </Reveal>
 
-            <div className="border-t border-[#E4E7EC]" />
+            <div className="border-t border-[#E4DFCD]" />
 
             {/* Kuruluşumuz ve Vizyonumuz */}
             <Reveal delay={0.1} from="right">
@@ -138,7 +138,7 @@ export default function About() {
                   ? '2003 yılında, sonuç odaklı bir hukuk anlayışıyla kuruldu.'
                   : 'Founded in 2003 with a result-oriented approach to law.'}
               </h2>
-              <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#475569]">
+              <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#525A52]">
                 <p>
                   {language === 'tr'
                     ? 'Verdi Hukuk Bürosu, kurucu ortağımız Av. Mehmet Verdi tarafından, yerli ve yabancı iş dünyasına uluslararası standartlarda sonuç odaklı, yaratıcı, yenilikçi, hızlı ve nitelikli hukuki çözümler sunma anlayışıyla kurulmuştur.'
@@ -162,10 +162,10 @@ export default function About() {
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-3/4 h-3/4 border border-[#B8946B]/30 pointer-events-none" />
-              <figcaption className="absolute -top-4 -left-4 bg-[#B8946B] text-[#F1EEE7] px-5 py-3">
+              <div className="absolute -bottom-6 -right-6 w-3/4 h-3/4 border border-[#B08A4C]/30 pointer-events-none" />
+              <figcaption className="absolute -top-4 -left-4 bg-[#B08A4C] text-[#F0EBE0] px-5 py-3">
                 <span className="font-fraunces text-2xl font-bold">2003</span>
-                <p className="text-xs text-[#F1EEE7]/70 tracking-wider uppercase mt-0.5">
+                <p className="text-xs text-[#F0EBE0]/70 tracking-wider uppercase mt-0.5">
                   {language === 'tr' ? 'Kuruluş' : 'Founded'}
                 </p>
               </figcaption>
@@ -175,7 +175,7 @@ export default function About() {
       </section>
 
       {/* ── Tek Hedef ── */}
-      <section data-nav-theme="light" className="bg-[#F1EEE7] border-b border-[#D4DAE3]">
+      <section data-nav-theme="light" className="bg-[#F0EBE0] border-b border-[#D5D0BF]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 py-24 text-center">
           <Reveal>
             <p className={EYEBROW_CLS}>
@@ -184,7 +184,7 @@ export default function About() {
             <h2 className={SECTION_TITLE_CLS}>
               {language === 'tr' ? 'Müvekkil odaklı çözümler.' : 'Client-centered solutions.'}
             </h2>
-            <p className="mt-8 max-w-3xl mx-auto text-lg leading-8 text-[#475569]">
+            <p className="mt-8 max-w-3xl mx-auto text-lg leading-8 text-[#525A52]">
               {language === 'tr'
                 ? 'Her müvekkilimizin ticari hedeflerini, sektörel dinamiklerini ve risk eşiklerini bütünsel olarak değerlendirir; üretilen hukuki çözümün gerçek dünyada uygulanabilir, hızlı ve değer yaratan bir sonuç doğurmasını sağlarız.'
                 : 'We assess each client’s commercial objectives, sector dynamics and risk thresholds holistically, ensuring that the legal solutions we produce are practical, swift and value-generating in the real world.'}
@@ -224,7 +224,7 @@ function ValuesShowcase({ language }) {
     <section
       ref={containerRef}
       data-nav-theme="light"
-      className="relative bg-white border-b border-[#D4DAE3]"
+      className="relative bg-white border-b border-[#D5D0BF]"
       style={{ height: `${VALUES.length * 90}vh` }}
     >
       <div className="sticky top-0 h-screen flex items-center">
@@ -254,7 +254,7 @@ function ValuesShowcase({ language }) {
                 }}
               />
               <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-cobalt/30 blur-[100px]" />
-              <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-[#B8946B]/20 blur-[100px]" />
+              <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-[#B08A4C]/20 blur-[100px]" />
 
               <img
                 src="/assets/verdilogo.png"
@@ -271,9 +271,9 @@ function ValuesShowcase({ language }) {
                     animate={{ opacity: 1, scale: 1, rotate: 0 }}
                     exit={{ opacity: 0, scale: 0.85, rotate: 8 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-32 h-32 md:w-40 md:h-40 border border-[#D4B585]/40 bg-white/[0.04] backdrop-blur-sm flex items-center justify-center"
+                    className="w-32 h-32 md:w-40 md:h-40 border border-[#D9B97A]/40 bg-white/[0.04] backdrop-blur-sm flex items-center justify-center"
                   >
-                    <ActiveIcon className="w-14 h-14 md:w-16 md:h-16 text-[#D4B585]" strokeWidth={1.4} />
+                    <ActiveIcon className="w-14 h-14 md:w-16 md:h-16 text-[#D9B97A]" strokeWidth={1.4} />
                   </motion.div>
                 </AnimatePresence>
 
@@ -287,7 +287,7 @@ function ValuesShowcase({ language }) {
                     className="mt-8 font-fraunces text-4xl md:text-5xl font-semibold text-white"
                   >
                     {String(active + 1).padStart(2, '0')}
-                    <span className="text-[#D4B585]">/{String(VALUES.length).padStart(2, '0')}</span>
+                    <span className="text-[#D9B97A]">/{String(VALUES.length).padStart(2, '0')}</span>
                   </motion.p>
                 </AnimatePresence>
               </div>
@@ -297,14 +297,14 @@ function ValuesShowcase({ language }) {
             <div className="flex flex-col">
               {/* Dikey progress + numaralı göstergeler */}
               <div className="mb-10 flex items-center gap-6">
-                <div className="relative h-1 flex-1 bg-[#E4E7EC] overflow-hidden">
+                <div className="relative h-1 flex-1 bg-[#E4DFCD] overflow-hidden">
                   <motion.div
-                    className="absolute inset-y-0 left-0 bg-[#B8946B]"
+                    className="absolute inset-y-0 left-0 bg-[#B08A4C]"
                     style={{ width: `${((active + 1) / VALUES.length) * 100}%` }}
                     transition={{ duration: 0.4 }}
                   />
                 </div>
-                <span className="text-xs font-mono text-[#8E96A5] whitespace-nowrap">
+                <span className="text-xs font-mono text-[#8A8D7E] whitespace-nowrap">
                   {String(active + 1).padStart(2, '0')} / {String(VALUES.length).padStart(2, '0')}
                 </span>
               </div>
@@ -324,10 +324,10 @@ function ValuesShowcase({ language }) {
                         ? `Değer ${String(active + 1).padStart(2, '0')}`
                         : `Value ${String(active + 1).padStart(2, '0')}`}
                     </p>
-                    <h3 className="font-fraunces text-3xl md:text-4xl font-semibold leading-tight text-[#0A1428]">
+                    <h3 className="font-fraunces text-3xl md:text-4xl font-semibold leading-tight text-[#0F1E1A]">
                       {current.title[language]}
                     </h3>
-                    <p className="mt-6 text-[17px] leading-8 text-[#475569]">
+                    <p className="mt-6 text-[17px] leading-8 text-[#525A52]">
                       {current.desc[language]}
                     </p>
                   </motion.div>
@@ -341,8 +341,8 @@ function ValuesShowcase({ language }) {
                     key={i}
                     className={`text-[10px] uppercase tracking-[0.15em] py-3 border-t-2 transition-colors ${
                       active === i
-                        ? 'border-[#B8946B] text-[#0A1428] font-semibold'
-                        : 'border-[#E4E7EC] text-[#8E96A5]'
+                        ? 'border-[#B08A4C] text-[#0F1E1A] font-semibold'
+                        : 'border-[#E4DFCD] text-[#8A8D7E]'
                     }`}
                   >
                     <span className="font-mono mr-1">{String(i + 1).padStart(2, '0')}</span>
@@ -352,7 +352,7 @@ function ValuesShowcase({ language }) {
             </div>
           </div>
 
-          <p className="mt-8 text-center text-[10px] uppercase tracking-[0.3em] text-[#8E96A5]">
+          <p className="mt-8 text-center text-[10px] uppercase tracking-[0.3em] text-[#8A8D7E]">
             {language === 'tr' ? 'Aşağı kaydırın' : 'Scroll down'} ↓
           </p>
         </div>

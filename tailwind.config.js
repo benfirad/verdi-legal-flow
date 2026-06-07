@@ -14,15 +14,15 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-        // Oxford navy + sıcak krem + brass aksent (sofistike, karakterli)
-        ink: '#0F1F3D',          // Oxford navy (footer + koyu bölümler)
-        bone: '#F1EEE7',         // sıcak krem (sayfa zemini)
-        cobalt: '#B8946B',       // brushed brass (aksent)
-        steel: '#7A8AA3',         // soğuk slate
-        parchment: '#FAF8F3',     // krem kart zemini
-        sepia: '#1F365C',         // mid navy
-        slate_section: '#08132A', // en derin navy
-        cool_mid: '#E5E2D8',      // sıcak nötr
+        // Pantone Emerald (17-5641, 2013 COY) + Şampanya + Brushed Brass
+        ink: '#0E5043',          // Emerald green (footer + koyu bölümler)
+        bone: '#F0EBE0',         // Şampanya krem (sayfa zemini)
+        cobalt: '#B08A4C',       // Brushed brass (aksent)
+        steel: '#7A8276',         // Sıcak gri-yeşil
+        parchment: '#FAF7EE',     // Açık krem kart
+        sepia: '#1F3D34',         // Mid emerald
+        slate_section: '#072821', // En derin orman
+        cool_mid: '#E0DBC8',      // Sıcak şampanya
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

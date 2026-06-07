@@ -22,7 +22,7 @@ export default function Footer() {
                 <a
                   key={index}
                   href="#"
-                  className="flex h-8 w-8 items-center justify-center border border-white/20 text-[#c9d2e8] transition hover:border-[#D4B585] hover:text-[#D4B585]"
+                  className="flex h-8 w-8 items-center justify-center border border-white/20 text-[#c9d2e8] transition hover:border-[#D9B97A] hover:text-[#D9B97A]"
                   aria-label="Social link"
                 >
                   <Icon className="h-3.5 w-3.5" />
@@ -33,7 +33,7 @@ export default function Footer() {
 
           {/* Sağ: CTA */}
           <div className="md:text-right">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#D4B585]">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#D9B97A]">
               {language === 'tr' ? 'Bizimle Çalışın' : 'Work With Us'}
             </p>
             <h2 className="mt-3 font-fraunces text-2xl font-semibold leading-tight md:text-3xl md:ml-auto md:max-w-xl">
