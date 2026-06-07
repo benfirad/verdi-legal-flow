@@ -14,15 +14,15 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-        // Aizome (藍染) — çoklu indigo, Edo dönemi, tamamen soğuk
-        ink: '#1B2A4E',          // Derin indigo (footer + koyu bölümler)
-        bone: '#DEE2E6',         // Soğuk washi (sayfa zemini)
-        cobalt: '#6B8AAE',       // Solgun indigo (aksent)
-        steel: '#8FA0B5',         // Açık soğuk gri
-        parchment: '#F4F6F8',     // Saf beyaz kart
-        sepia: '#2A3D6B',         // Mid indigo
-        slate_section: '#0E1A35', // En derin gece indigo
-        cool_mid: '#C8D0DA',      // Soğuk açık gri
+        // Tsukimi (月見) — ay ışığı, soğuk slate + ay beyazı + buz mavi aksent
+        ink: '#2B3A4A',          // Soğuk slate (footer + koyu bölümler)
+        bone: '#E8ECEF',         // Ay beyazı (sayfa zemini)
+        cobalt: '#5A7A8C',       // Buz mavi (aksent)
+        steel: '#A8B0B5',         // Gümüş gri
+        parchment: '#F4F6F8',     // Solgun ay (kart)
+        sepia: '#3D4D5E',         // Mid slate
+        slate_section: '#1A2530', // En derin gece slate
+        cool_mid: '#C8CFD3',      // Soğuk taş
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
