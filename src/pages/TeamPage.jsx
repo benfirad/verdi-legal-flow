@@ -240,9 +240,6 @@ export default function TeamPage() {
       {/* Hero (stack layer 1) */}
       <section data-nav-theme="light" className="sticky top-0 z-10 bg-white border-b border-[#C8CFD3]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-36 pb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#5A7A8C]">
-            {language === 'tr' ? 'Ekibimiz' : 'Our Team'}
-          </p>
           <h1 className="mt-6 font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15] text-[#1A2530]">
             {language === 'tr' ? 'Verdi ekibiyle tanışın.' : 'Meet the Verdi team.'}
           </h1>

@@ -61,7 +61,6 @@ export default function ContactPage() {
 
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-20">
             <Reveal>
-              <p className={EYEBROW_DARK_CLS}>{t('İletişim', 'Contact')}</p>
               <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-5xl">
                 {t('Bir dosya, bir karar, bir hayat.', 'A case, a decision, a life.')}
               </h1>
@@ -81,7 +80,6 @@ export default function ContactPage() {
             {/* Form */}
             <Reveal>
               <div className="bg-white border border-[#C8CFD3] p-8 md:p-12">
-                <p className={EYEBROW_CLS}>{t('Bize Yazın', 'Write to Us')}</p>
                 <h2 className={`${TITLE_CLS} mb-2`}>
                   {t('Başlamak için kısa bir not bırakın.', 'Drop a short note to get started.')}
                 </h2>
@@ -220,7 +218,6 @@ export default function ContactPage() {
                 <div className="bg-white border border-[#C8CFD3] p-7">
                   <div className="flex items-center gap-3 mb-5">
                     <Clock className="h-4 w-4 text-[#5A7A8C]" />
-                    <p className={EYEBROW_CLS}>{t('Çalışma Saatleri', 'Working Hours')}</p>
                   </div>
                   <ul className="space-y-3">
                     {WORKING_HOURS[language].map((row, i) => (
@@ -241,7 +238,6 @@ export default function ContactPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20">
             <Reveal>
               <div className="max-w-2xl mb-10">
-                <p className={EYEBROW_CLS}>{t('Konum', 'Location')}</p>
                 <h2 className={TITLE_CLS}>
                   {t('Levent — Büyükdere Caddesi üzerinde.', 'Levent — on Büyükdere Avenue.')}
                 </h2>

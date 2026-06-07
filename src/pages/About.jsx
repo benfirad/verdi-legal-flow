@@ -77,9 +77,6 @@ export default function About() {
                 20<span className="text-[#5A7A8C]">+</span>
               </span>
               <div className="md:pb-6">
-                <p className="text-xs uppercase tracking-[0.35em] text-[#5A7A8C] font-semibold">
-                  {language === 'tr' ? 'Yıllık Tecrübe' : 'Years of Experience'}
-                </p>
                 <p className="mt-4 max-w-md text-lg leading-8 text-[#4D5660]">
                   {language === 'tr'
                     ? '2003’ten bu yana yerli ve uluslararası iş dünyasına kesintisiz hukuki danışmanlık veriyoruz.'
@@ -89,9 +86,6 @@ export default function About() {
               {/* Sağ aksent */}
               <div className="hidden md:flex md:pb-6 items-center gap-3">
                 <div className="h-px w-12 bg-[#5A7A8C]" />
-                <p className="text-[10px] uppercase tracking-[0.35em] text-[#5A7A8C] font-semibold whitespace-nowrap">
-                  {language === 'tr' ? '2003 — Bugün' : '2003 — Today'}
-                </p>
               </div>
             </div>
           </Reveal>
@@ -104,9 +98,6 @@ export default function About() {
           <div className="space-y-14">
             {/* Biz Kimiz */}
             <Reveal>
-              <p className={EYEBROW_CLS}>
-                {language === 'tr' ? 'Biz Kimiz' : 'Who We Are'}
-              </p>
               <h2 className={SECTION_TITLE_CLS}>
                 {language === 'tr'
                   ? 'İstanbul merkezli, uluslararası ölçekte hizmet veren bir hukuk bürosu.'
@@ -130,9 +121,6 @@ export default function About() {
 
             {/* Kuruluşumuz ve Vizyonumuz */}
             <Reveal delay={0.1} from="right">
-              <p className={EYEBROW_CLS}>
-                {language === 'tr' ? 'Kuruluşumuz ve Vizyonumuz' : 'Our Foundation and Vision'}
-              </p>
               <h2 className={SECTION_TITLE_CLS}>
                 {language === 'tr'
                   ? '2003 yılında, sonuç odaklı bir hukuk anlayışıyla kuruldu.'
@@ -178,9 +166,6 @@ export default function About() {
       <section data-nav-theme="light" className="relative z-30 bg-[#E8ECEF] border-b border-[#C8CFD3] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.15)]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 py-24 text-center">
           <Reveal>
-            <p className={EYEBROW_CLS}>
-              {language === 'tr' ? 'Tek Hedef' : 'One Objective'}
-            </p>
             <h2 className={SECTION_TITLE_CLS}>
               {language === 'tr' ? 'Müvekkil odaklı çözümler.' : 'Client-centered solutions.'}
             </h2>
@@ -233,9 +218,6 @@ function ValuesShowcase({ language }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 w-full">
           <Reveal>
             <div className="mb-10 max-w-2xl">
-              <p className={EYEBROW_CLS}>
-                {language === 'tr' ? 'Değerlerimiz' : 'Our Values'}
-              </p>
               <h2 className={SECTION_TITLE_CLS}>
                 {language === 'tr'
                   ? 'Çalışma anlayışımızın temelini oluşturan ilkeler.'
@@ -321,11 +303,6 @@ function ValuesShowcase({ language }) {
                     exit={{ opacity: 0, y: -16 }}
                     transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    <p className={`${EYEBROW_CLS} mb-4`}>
-                      {language === 'tr'
-                        ? `Değer ${String(active + 1).padStart(2, '0')}`
-                        : `Value ${String(active + 1).padStart(2, '0')}`}
-                    </p>
                     <h3 className="font-fraunces text-3xl md:text-4xl font-semibold leading-tight text-[#1A2530]">
                       {current.title[language]}
                     </h3>

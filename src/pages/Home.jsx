@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useLanguage } from '@/lib/LanguageContext';
@@ -19,7 +19,6 @@ function SectionHeader({ eyebrow, title, action }) {
   return (
     <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
       <Reveal>
-        <p className={EYEBROW_CLS}>{eyebrow}</p>
         <h2 className={SECTION_TITLE_CLS}>{title}</h2>
       </Reveal>
       {action && (
@@ -34,24 +33,6 @@ function SectionHeader({ eyebrow, title, action }) {
 export default function Home() {
   const { language, t } = useLanguage();
   const featuredTeam = teamMembers.filter((m) => m.position === 'partner');
-  const [activeId, setActiveId] = useState(PRACTICE_AREAS[0].id);
-
-  // Scroll spy — hangi bölüm görünür ise sidebar'da işaretle
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActiveId(e.target.id);
-        });
-      },
-      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
-    );
-    PRACTICE_AREAS.forEach((a) => {
-      const el = document.getElementById(a.id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#E8ECEF] text-[#1A2530]">
@@ -98,7 +79,6 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
               <Reveal>
-                <p className={EYEBROW_CLS}>{t('about.title')}</p>
                 <h2 className={`${SECTION_TITLE_CLS} max-w-md`}>
                   {language === 'tr' ? 'Stratejik hukuk danışmanlığı' : 'Strategic legal counsel'}
                 </h2>
@@ -163,128 +143,66 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Çalışma Alanları (stack layer 3) ── */}
+        {/* ── Uzmanlık Alanları (stack layer 3) — magazine grid ── */}
         <section id="practice-areas" data-nav-theme="light" className="sticky top-0 z-30 min-h-screen bg-[#E8ECEF] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.25)]">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-            <div className="mb-12 border-b border-[#C8CFD3] pb-8">
-              <SectionHeader
-                eyebrow={t('practiceAreas.title')}
-                title={t('practiceAreas.subtitle')}
-                action={
-                  <a href="/calisma-alanlari" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#3F5C72]">
-                    {language === 'tr' ? 'Tüm alanlar' : 'All practices'}
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </a>
-                }
-              />
+            {/* Başlık satırı (eyebrow yok) */}
+            <div className="mb-12 flex flex-col justify-between gap-6 border-b border-[#C8CFD3] pb-8 md:flex-row md:items-end">
+              <Reveal>
+                <h2 className={`${SECTION_TITLE_CLS} max-w-2xl`}>
+                  {language === 'tr'
+                    ? 'Dokuz alanda, derin uzmanlık.'
+                    : 'Deep expertise across nine areas.'}
+                </h2>
+              </Reveal>
+              <Reveal delay={0.1} from="right">
+                <a
+                  href="/calisma-alanlari"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#3F5C72]"
+                >
+                  {language === 'tr' ? 'Tüm alanlar' : 'All practices'}
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </a>
+              </Reveal>
             </div>
-            <div className="grid gap-12 lg:grid-cols-[280px_1fr] mt-12">
-              {/* Sidebar */}
-              <aside className="lg:sticky lg:top-32 lg:self-start">
-                <p className={`${EYEBROW_CLS} mb-6`}>
-                  {language === 'tr' ? 'Alanlar' : 'Areas'}
-                </p>
-                <nav>
-                  <ul className="space-y-1">
-                    {PRACTICE_AREAS.map((area, i) => {
-                      const isActive = activeId === area.id;
-                      return (
-                        <li key={area.id}>
-                          <a
-                            href={`#${area.id}`}
-                            className={`group flex items-center gap-3 border-l-2 py-2.5 pl-4 text-sm transition-all duration-300 ${
-                              isActive
-                                ? 'border-[#5A7A8C] text-[#1A2530] font-semibold opacity-100'
-                                : 'border-transparent text-[#4D5660] hover:text-[#1A2530] hover:border-[#C8CFD3] opacity-40 hover:opacity-80'
-                            }`}
-                          >
-                            <span className="text-xs font-mono text-[#A8B0B5]">
-                              {String(i + 1).padStart(2, '0')}
-                            </span>
-                            <span>{area[language].title}</span>
-                            <ChevronRight
-                              className={`ml-auto h-3.5 w-3.5 transition ${
-                                isActive ? 'translate-x-1 text-[#5A7A8C]' : 'opacity-0 group-hover:opacity-100'
-                              }`}
-                            />
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </nav>
-              </aside>
 
-              {/* Detail blocks */}
-              <div>
-                {PRACTICE_AREAS.map((area, i) => {
-                  const content = area[language];
-                  const isActive = activeId === area.id;
-                  return (
-                    <article
-                      key={area.id}
-                      id={area.id}
-                      className={`scroll-mt-32 border-b border-[#C8CFD3] py-14 first:pt-0 last:border-b-0 transition-all duration-500 origin-left ${
-                        isActive ? 'opacity-100 scale-100' : 'opacity-25 scale-[0.98]'
-                      }`}
-                    >
-                      <Reveal>
-                        <div className="flex items-baseline gap-4 mb-6">
-                          <span className="font-fraunces text-5xl font-semibold text-[#d4c4a3]">
-                            {String(i + 1).padStart(2, '0')}
-                          </span>
-                          <h2 className="font-fraunces text-3xl font-semibold leading-tight text-[#1A2530] md:text-4xl">
-                            {content.title}
-                          </h2>
-                        </div>
-                        <p className="text-lg leading-8 text-[#4D5660] max-w-3xl">
-                          {content.lede}
-                        </p>
-                      </Reveal>
+            {/* Magazine grid — 3 sütun, hover'da brushed indigo ile renklenir */}
+            <StaggerList className="grid gap-px bg-[#C8CFD3] border border-[#C8CFD3] md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
+              {PRACTICE_AREAS.map((area, i) => {
+                const content = area[language];
+                return (
+                  <motion.a
+                    key={area.id}
+                    variants={itemVariants}
+                    whileHover={{ y: -2 }}
+                    transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+                    href="/calisma-alanlari"
+                    className="group relative flex flex-col justify-between gap-8 bg-white p-8 md:p-10 min-h-[260px] hover:bg-[#1A2530] transition-colors duration-500 overflow-hidden"
+                  >
+                    {/* Üst: numara + ok */}
+                    <div className="flex items-center justify-between">
+                      <span className="font-fraunces text-3xl font-semibold text-[#5A7A8C] group-hover:text-[#B8CCDA] transition-colors">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <ArrowRight className="h-5 w-5 text-[#A8B0B5] transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#B8CCDA]" />
+                    </div>
 
-                      <Reveal delay={0.1}>
-                        <div className="mt-8">
-                          <p className={`${EYEBROW_CLS} mb-5`}>
-                            {language === 'tr' ? 'Hizmetlerimiz' : 'Services'}
-                          </p>
-                          <ul className="grid gap-3 sm:grid-cols-2">
-                            {content.services.map((s, j) => (
-                              <li
-                                key={j}
-                                className="flex items-start gap-3 border-l-2 border-[#C8CFD3] pl-4 py-2 text-[15px] text-[#3a3a3a] hover:border-[#5A7A8C] transition-colors"
-                              >
-                                <span className="font-mono text-xs text-[#A8B0B5] mt-1.5 shrink-0">
-                                  {String(j + 1).padStart(2, '0')}
-                                </span>
-                                {s}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </Reveal>
+                    {/* Alt: başlık + tease */}
+                    <div>
+                      <h3 className="font-fraunces text-2xl font-semibold leading-tight text-[#1A2530] group-hover:text-white transition-colors">
+                        {content.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-6 text-[#4D5660] group-hover:text-white/70 transition-colors line-clamp-2">
+                        {content.lede}
+                      </p>
+                    </div>
 
-                      <Reveal delay={0.2}>
-                        <div className="mt-8 flex flex-wrap items-center gap-6 text-sm">
-                          <a
-                            href="/iletisim"
-                            className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#1A2530] text-xs"
-                          >
-                            {language === 'tr' ? 'Bu konuda danışın' : 'Get advice'}
-                            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                          </a>
-                          <a
-                            href="/ekibimiz"
-                            className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5A7A8C] hover:text-[#1A2530] transition"
-                          >
-                            {language === 'tr' ? 'İlgili ekip' : 'Related team'}
-                          </a>
-                        </div>
-                      </Reveal>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
+                    {/* Hover'da beliren ince çizgi */}
+                    <span className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-[#B8CCDA] transition-transform duration-500 group-hover:scale-x-100" />
+                  </motion.a>
+                );
+              })}
+            </StaggerList>
           </div>
         </section>
       </main>
@@ -292,165 +210,6 @@ export default function Home() {
       <div className="relative z-40">
         <Footer />
       </div>
-    </div>
-  );
-}
-
-// ── Çalışma Alanları — yatay scroll-driven carousel ──
-function PracticeAreasCarousel({ language, t }) {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
-  // 9 kart × her biri viewport genişliği; toplam yatay yer değiştirme = (n-1) * 100vw
-  const total = PRACTICE_AREAS.length;
-  // İlk kart başlık panelinin yanında dursun: 100vw - başlık paneli (yaklaşık)
-  // Kartlar sağdan sola kayar. Negatif x kullanıyoruz.
-  const xPercent = useTransform(scrollYProgress, [0, 1], ['0%', `-${(total) * 100}%`]);
-
-  return (
-    <section
-      ref={containerRef}
-      data-nav-theme="light"
-      className="relative bg-[#E8ECEF]"
-      style={{ height: `${total * 80}vh` }}
-    >
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
-        {/* Üst başlık */}
-        <div className="mx-auto w-full max-w-7xl px-6 lg:px-8 pt-24 pb-8">
-          <SectionHeader
-            eyebrow={t('practiceAreas.title')}
-            title={t('practiceAreas.subtitle')}
-            action={
-              <a href="/calisma-alanlari" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#3F5C72]">
-                {language === 'tr' ? 'Tüm alanlar' : 'All practices'}
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-              </a>
-            }
-          />
-        </div>
-
-        {/* Yatay kayan kartlar */}
-        <div className="flex-1 flex items-center overflow-hidden">
-          <motion.div
-            style={{ x: xPercent }}
-            className="flex gap-6 px-6 lg:px-8 will-change-transform"
-          >
-            {PRACTICE_AREAS.map((area, i) => {
-              const content = area[language];
-              return (
-                <article
-                  key={area.id}
-                  className="relative shrink-0 w-[88vw] max-w-[720px] h-[60vh] max-h-[520px] bg-white border border-[#C8CFD3] p-10 md:p-12 flex flex-col"
-                >
-                  {/* Numara + gradient aksenti */}
-                  <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#5A7A8C] to-transparent" />
-                  <div className="flex items-baseline gap-4 mb-6">
-                    <span className="font-fraunces text-6xl font-semibold text-[#d4c4a3]">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span className="text-xs font-mono text-[#A8B0B5]">
-                      / {String(total).padStart(2, '0')}
-                    </span>
-                  </div>
-
-                  <h3 className="font-fraunces text-2xl md:text-3xl font-semibold leading-tight text-[#1A2530]">
-                    {content.title}
-                  </h3>
-
-                  <p className="mt-4 text-[15px] leading-7 text-[#4D5660] line-clamp-4">
-                    {content.lede}
-                  </p>
-
-                  {/* Hizmet özetleri */}
-                  <ul className="mt-6 space-y-2 flex-1 overflow-hidden">
-                    {content.services.slice(0, 3).map((s, j) => (
-                      <li key={j} className="flex items-start gap-3 text-sm text-[#3a3a3a]">
-                        <span className="font-mono text-xs text-[#A8B0B5] mt-1">
-                          {String(j + 1).padStart(2, '0')}
-                        </span>
-                        <span className="truncate">{s}</span>
-                      </li>
-                    ))}
-                    {content.services.length > 3 && (
-                      <li className="text-xs text-[#A8B0B5] pl-7">
-                        +{content.services.length - 3} {language === 'tr' ? 'hizmet daha' : 'more services'}
-                      </li>
-                    )}
-                  </ul>
-
-                  {/* CTA */}
-                  <a
-                    href="/calisma-alanlari"
-                    className="group mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#1A2530]"
-                  >
-                    {language === 'tr' ? 'Detayları gör' : 'See details'}
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </a>
-                </article>
-              );
-            })}
-
-            {/* Son kart (CTA) */}
-            <article className="relative shrink-0 w-[88vw] max-w-[720px] h-[60vh] max-h-[520px] bg-ink text-white p-10 md:p-12 flex flex-col justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#B8CCDA]">
-                  {language === 'tr' ? 'Tüm uzmanlık alanları' : 'All practice areas'}
-                </p>
-                <h3 className="mt-6 font-fraunces text-2xl md:text-3xl font-semibold leading-tight">
-                  {language === 'tr'
-                    ? `${total} farklı alanda derin uzmanlık.`
-                    : `Deep expertise in ${total} distinct areas.`}
-                </h3>
-              </div>
-              <a
-                href="/calisma-alanlari"
-                className="group inline-flex items-center gap-3 border border-white/40 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] hover:bg-white hover:text-ink transition self-start"
-              >
-                {language === 'tr' ? 'Tümünü keşfet' : 'Explore all'}
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-              </a>
-            </article>
-          </motion.div>
-        </div>
-
-        {/* Alt progress + ipucu */}
-        <CarouselProgress scrollYProgress={scrollYProgress} total={total} language={language} />
-      </div>
-    </section>
-  );
-}
-
-function CarouselProgress({ scrollYProgress, total, language }) {
-  const widthPercent = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  const [current, setCurrent] = useState(1);
-
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on('change', (v) => {
-      const i = Math.min(total + 1, Math.max(1, Math.floor(v * (total + 1)) + 1));
-      setCurrent(i);
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress, total]);
-
-  return (
-    <div className="mx-auto w-full max-w-7xl px-6 lg:px-8 pb-10">
-      <div className="flex items-center gap-6">
-        <div className="relative h-px flex-1 bg-[#C8CFD3]">
-          <motion.div
-            className="absolute left-0 top-0 h-full bg-[#5A7A8C]"
-            style={{ width: widthPercent }}
-          />
-        </div>
-        <span className="text-xs font-mono text-[#A8B0B5] whitespace-nowrap">
-          {String(current).padStart(2, '0')} / {String(total + 1).padStart(2, '0')}
-        </span>
-      </div>
-      <p className="mt-3 text-center text-[10px] uppercase tracking-[0.3em] text-[#A8B0B5]">
-        {language === 'tr' ? 'Aşağı kaydırın' : 'Scroll down'} →
-      </p>
     </div>
   );
 }

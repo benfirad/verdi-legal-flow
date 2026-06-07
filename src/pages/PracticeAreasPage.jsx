@@ -273,9 +273,6 @@ export default function PracticeAreasPage() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-24">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#B8CCDA]">
-              {language === 'tr' ? 'Uzmanlık Alanlarımız' : 'Our Practice Areas'}
-            </p>
             <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-4xl">
               {language === 'tr'
                 ? 'Her sektör için derin uzmanlık.'
@@ -295,9 +292,6 @@ export default function PracticeAreasPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20 grid gap-12 lg:grid-cols-[280px_1fr]">
         {/* Sidebar */}
         <aside className="lg:sticky lg:top-32 lg:self-start">
-          <p className={`${EYEBROW_CLS} mb-6`}>
-            {language === 'tr' ? 'Alanlar' : 'Areas'}
-          </p>
           <nav>
             <ul className="space-y-1">
               {PRACTICE_AREAS.map((area, i) => {
@@ -358,9 +352,6 @@ export default function PracticeAreasPage() {
 
                 <Reveal delay={0.1}>
                   <div className="mt-8">
-                    <p className={`${EYEBROW_CLS} mb-5`}>
-                      {language === 'tr' ? 'Hizmetlerimiz' : 'Services'}
-                    </p>
                     <ul className="grid gap-3 sm:grid-cols-2">
                       {content.services.map((s, j) => (
                         <li

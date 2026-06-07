@@ -79,7 +79,6 @@ export default function KariyerPage() {
 
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-24">
             <Reveal>
-              <p className={EYEBROW_DARK_CLS}>{t('Kariyer', 'Career')}</p>
               <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-5xl max-w-3xl">
                 {t('Bir adım atın. Geri kalanını birlikte inşa edelim.', 'Take a step. We will build the rest together.')}
               </h1>
@@ -98,7 +97,6 @@ export default function KariyerPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
             <Reveal>
               <div className="mb-14 max-w-2xl">
-                <p className={EYEBROW_CLS}>{t('Neden Verdi', 'Why Verdi')}</p>
                 <h2 className={TITLE_CLS}>
                   {t('Hukuk pratiğinizi besleyen bir çalışma kültürü.', 'A culture that nourishes your legal practice.')}
                 </h2>
@@ -134,7 +132,6 @@ export default function KariyerPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end mb-12">
               <Reveal>
-                <p className={EYEBROW_CLS}>{t('Açık Pozisyonlar', 'Open Positions')}</p>
                 <h2 className={TITLE_CLS}>
                   {t(`Şu anda ${POSITIONS.tr.length} açık pozisyon var.`, `${POSITIONS.en.length} positions currently open.`)}
                 </h2>
@@ -190,7 +187,6 @@ export default function KariyerPage() {
           <div className="mx-auto max-w-5xl px-6 lg:px-8 py-24">
             <Reveal>
               <div className="text-center mb-12">
-                <p className={EYEBROW_CLS}>{t('Başvuru', 'Application')}</p>
                 <h2 className={TITLE_CLS}>
                   {t('Birlikte çalışalım.', 'Let’s work together.')}
                 </h2>
