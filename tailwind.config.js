@@ -14,15 +14,15 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-        // Pantone Emerald (17-5641, 2013 COY) + Şampanya + Brushed Brass
-        ink: '#0E5043',          // Emerald green (footer + koyu bölümler)
-        bone: '#F0EBE0',         // Şampanya krem (sayfa zemini)
-        cobalt: '#B08A4C',       // Brushed brass (aksent)
-        steel: '#7A8276',         // Sıcak gri-yeşil
-        parchment: '#FAF7EE',     // Açık krem kart
-        sepia: '#1F3D34',         // Mid emerald
-        slate_section: '#072821', // En derin orman
-        cool_mid: '#E0DBC8',      // Sıcak şampanya
+        // Aizome (藍染) — çoklu indigo, Edo dönemi, tamamen soğuk
+        ink: '#1B2A4E',          // Derin indigo (footer + koyu bölümler)
+        bone: '#DEE2E6',         // Soğuk washi (sayfa zemini)
+        cobalt: '#6B8AAE',       // Solgun indigo (aksent)
+        steel: '#8FA0B5',         // Açık soğuk gri
+        parchment: '#F4F6F8',     // Saf beyaz kart
+        sepia: '#2A3D6B',         // Mid indigo
+        slate_section: '#0E1A35', // En derin gece indigo
+        cool_mid: '#C8D0DA',      // Soğuk açık gri
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
