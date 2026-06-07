@@ -138,7 +138,7 @@ export default function KariyerPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section data-nav-theme="light" className="relative overflow-hidden bg-[#f6f4ef] text-[#202020] pt-36 pb-16">
+      <section data-nav-theme="light" className="relative overflow-hidden bg-white text-[#202020] pt-36 pb-16 border-b border-[#d8d0bf]">
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8" ref={headerRef}>
           <motion.div className="flex items-center gap-3 mb-6"
             initial={{ opacity: 0, x: -20 }} animate={headerInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }}>
