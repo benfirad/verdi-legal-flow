@@ -243,21 +243,21 @@ export default function TeamPage() {
 
       {/* Filtre bölümü */}
       <section data-nav-theme="light" className="border-b border-[#d8d0bf] bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-10 grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-end">
-          {/* Pozisyon — inline chip'ler */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-10 grid gap-8 lg:grid-cols-2 lg:items-start">
+          {/* Pozisyon — bölümlü buton */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8b6f3d] mb-4">
               {language === 'tr' ? 'Pozisyon' : 'Position'}
             </p>
-            <div className="flex flex-wrap gap-2">
-              <FilterChip
+            <div className="flex w-full border border-[#d8d0bf] divide-x divide-[#d8d0bf]">
+              <PositionTab
                 active={positionFilter === 'all'}
                 onClick={() => setPositionFilter('all')}
                 label={language === 'tr' ? 'Tümü' : 'All'}
                 count={positionCounts.all}
               />
               {POSITIONS.map((p) => (
-                <FilterChip
+                <PositionTab
                   key={p.id}
                   active={positionFilter === p.id}
                   onClick={() => setPositionFilter(p.id)}
@@ -266,6 +266,11 @@ export default function TeamPage() {
                 />
               ))}
             </div>
+            <p className="mt-2 text-xs text-[#9a8c70]">
+              {language === 'tr'
+                ? `${filtered.length} kişi gösteriliyor`
+                : `${filtered.length} people shown`}
+            </p>
           </div>
 
           {/* Çalışma Alanı — drawer trigger */}
@@ -275,11 +280,11 @@ export default function TeamPage() {
             </p>
             <button
               onClick={() => setDrawerOpen(true)}
-              className="group flex items-center justify-between gap-4 w-full border border-[#d8d0bf] bg-white px-5 py-3.5 text-sm transition hover:border-[#8b6f3d]/60"
+              className="group flex items-center justify-between gap-4 w-full border border-[#d8d0bf] bg-white px-5 py-3.5 text-sm transition hover:border-[#8b6f3d]/60 h-[58px]"
             >
-              <span className="flex items-center gap-3">
-                <Filter className="h-4 w-4 text-[#8b6f3d]" />
-                <span className="text-[#1f1f1f] font-medium">
+              <span className="flex items-center gap-3 min-w-0">
+                <Filter className="h-4 w-4 text-[#8b6f3d] shrink-0" />
+                <span className="text-[#1f1f1f] font-medium truncate">
                   {areaFilter === 'all'
                     ? (language === 'tr' ? 'Tüm Alanlar' : 'All Areas')
                     : (PRACTICE_AREAS.find((a) => a.id === areaFilter)?.[language] || '')}
@@ -292,18 +297,18 @@ export default function TeamPage() {
                       e.stopPropagation();
                       setAreaFilter('all');
                     }}
-                    className="ml-1 inline-flex items-center justify-center h-5 w-5 rounded-full bg-[#8b6f3d]/10 text-[#8b6f3d] hover:bg-[#8b6f3d]/20"
+                    className="ml-1 inline-flex items-center justify-center h-5 w-5 rounded-full bg-[#8b6f3d]/10 text-[#8b6f3d] hover:bg-[#8b6f3d]/20 shrink-0"
                   >
                     <X className="h-3 w-3" />
                   </span>
                 )}
               </span>
-              <ChevronDown className="h-4 w-4 text-[#9a8c70] transition group-hover:translate-y-0.5" />
+              <ChevronDown className="h-4 w-4 text-[#9a8c70] transition group-hover:translate-y-0.5 shrink-0" />
             </button>
             <p className="mt-2 text-xs text-[#9a8c70]">
               {language === 'tr'
-                ? `${filtered.length} kişi gösteriliyor`
-                : `${filtered.length} people shown`}
+                ? `${PRACTICE_AREAS.filter((a) => areaCounts[a.id] > 0).length} alan mevcut`
+                : `${PRACTICE_AREAS.filter((a) => areaCounts[a.id] > 0).length} areas available`}
             </p>
           </div>
         </div>
@@ -354,6 +359,24 @@ export default function TeamPage() {
         {selected && <MemberModal member={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
     </div>
+  );
+}
+
+function PositionTab({ active, onClick, label, count }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex-1 flex items-center justify-center gap-2 px-3 py-4 text-sm transition ${
+        active
+          ? 'bg-[#202020] text-white'
+          : 'bg-white text-[#5f5b52] hover:bg-[#f6f4ef] hover:text-[#1f1f1f]'
+      }`}
+    >
+      <span className="font-medium">{label}</span>
+      <span className={`text-xs font-mono ${active ? 'text-white/60' : 'text-[#9a8c70]'}`}>
+        {count}
+      </span>
+    </button>
   );
 }
 
