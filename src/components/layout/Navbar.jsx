@@ -64,22 +64,38 @@ export default function Navbar() {
         className="pointer-events-auto relative mx-auto max-w-[1840px] px-7 lg:px-9 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]"
         style={{ height: isScrolled ? '64px' : '96px' }}
       >
-        {/* Left: Centered Logo on scroll, Left-aligned on top */}
+        {/* Left Logo - Visible only when NOT scrolled */}
         <div 
-          className={`absolute top-1/2 -translate-y-1/2 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+          className={`absolute left-7 lg:left-9 top-1/2 -translate-y-1/2 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
             isScrolled 
-              ? 'left-1/2 -translate-x-1/2' 
-              : 'left-7 lg:left-9 translate-x-0'
+              ? 'opacity-0 pointer-events-none' 
+              : 'opacity-100'
           }`}
         >
           <a href="/" className="block">
             <img
               src="/assets/logoust.png"
               alt="Verdi"
-              className={`w-auto object-contain transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
-                isDark ? 'invert' : ''
-              }`}
-              style={{ height: isScrolled ? '32px' : '48px' }}
+              className={`w-auto object-contain ${isDark ? 'invert' : ''}`}
+              style={{ height: '48px' }}
+            />
+          </a>
+        </div>
+
+        {/* Center Logo - Visible only when scrolled */}
+        <div 
+          className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+            isScrolled 
+              ? 'opacity-100' 
+              : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          <a href="/" className="block">
+            <img
+              src="/assets/logoust.png"
+              alt="Verdi"
+              className={`w-auto object-contain ${isDark ? 'invert' : ''}`}
+              style={{ height: '32px' }}
             />
           </a>
         </div>
