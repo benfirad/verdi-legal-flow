@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, X, GraduationCap, Scale, Globe, Filter, ChevronDown } from 'lucide-react';
+import { Mail, Phone, X, GraduationCap, Scale, Globe, Filter, ChevronDown, Search } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -181,6 +181,7 @@ export default function TeamPage() {
   const [positionFilter, setPositionFilter] = useState('all');
   const [areaFilter, setAreaFilter] = useState('all');
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [query, setQuery] = useState('');
 
   // ESC ile drawer kapat + body scroll kilidi
   useEffect(() => {
@@ -211,12 +212,18 @@ export default function TeamPage() {
   }, []);
 
   const filtered = useMemo(() => {
+    const q = query.trim().toLocaleLowerCase('tr');
     return teamMembers.filter((m) => {
       if (positionFilter !== 'all' && m.position !== positionFilter) return false;
       if (areaFilter !== 'all' && !m.practiceAreas.includes(areaFilter)) return false;
+      if (q) {
+        const title = `${m.titleTr} ${m.titleEn}`.toLocaleLowerCase('tr');
+        const haystack = `${m.name.toLocaleLowerCase('tr')} ${title} ${m.email}`;
+        if (!haystack.includes(q)) return false;
+      }
       return true;
     });
-  }, [positionFilter, areaFilter]);
+  }, [positionFilter, areaFilter, query]);
 
   // Pozisyon bazında gruplandır
   const grouped = useMemo(() => {
@@ -230,8 +237,8 @@ export default function TeamPage() {
     <div className="min-h-screen bg-[#E8ECEF] text-[#1A2530]">
       <Navbar />
 
-      {/* Hero */}
-      <section data-nav-theme="light" className="bg-white border-b border-[#C8CFD3]">
+      {/* Hero (stack layer 1) */}
+      <section data-nav-theme="light" className="sticky top-0 z-10 bg-white border-b border-[#C8CFD3]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-36 pb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#5A7A8C]">
             {language === 'tr' ? 'Ekibimiz' : 'Our Team'}
@@ -244,11 +251,35 @@ export default function TeamPage() {
               ? 'Deneyimli avukat, danışman ve stajyer kadromuzla müvekkillerimize geniş bir uzmanlık yelpazesinde hizmet veriyoruz.'
               : 'With our experienced team of attorneys, advisors and trainees, we serve our clients across a broad spectrum of expertise.'}
           </p>
+
+          {/* Kişi arama */}
+          <div className="mt-10 max-w-xl">
+            <label className="relative block">
+              <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[#5A7A8C]" />
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={language === 'tr' ? 'İsim veya ünvan ara…' : 'Search by name or title…'}
+                className="w-full bg-[#F4F6F8] border border-[#C8CFD3] pl-11 pr-12 py-3.5 text-sm text-[#1A2530] placeholder:text-[#7A8590] focus:outline-none focus:border-[#5A7A8C] focus:ring-2 focus:ring-[#5A7A8C]/20 transition"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 h-7 w-7 flex items-center justify-center text-[#7A8590] hover:text-[#1A2530] transition"
+                  aria-label="Clear"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              )}
+            </label>
+          </div>
         </div>
       </section>
 
-      {/* Filtre bölümü */}
-      <section data-nav-theme="light" className="border-b border-[#C8CFD3] bg-white">
+      {/* Filtre bölümü (stack layer 2) */}
+      <section data-nav-theme="light" className="relative z-20 border-b border-[#C8CFD3] bg-white shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.15)]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-10 grid gap-8 lg:grid-cols-2 lg:items-start">
           {/* Pozisyon — bölümlü buton */}
           <div>
@@ -333,8 +364,9 @@ export default function TeamPage() {
         )}
       </AnimatePresence>
 
-      {/* Grup-grup üyeler */}
-      <section data-nav-theme="light" className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+      {/* Grup-grup üyeler (stack layer 3) */}
+      <section data-nav-theme="light" className="relative z-30 bg-[#E8ECEF] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.15)]">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         {grouped.length === 0 && (
           <p className="text-center text-[#4D5660] py-16">
             {language === 'tr' ? 'Bu filtreye uygun üye bulunamadı.' : 'No team members match this filter.'}
@@ -357,9 +389,12 @@ export default function TeamPage() {
             </div>
           </div>
         ))}
+        </div>
       </section>
 
-      <Footer />
+      <div className="relative z-40">
+        <Footer />
+      </div>
 
       <AnimatePresence>
         {selected && <MemberModal member={selected} onClose={() => setSelected(null)} />}

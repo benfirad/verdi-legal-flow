@@ -261,7 +261,7 @@ export default function PracticeAreasPage() {
       <Navbar />
 
       {/* Hero */}
-      <section data-nav-theme="dark" className="relative overflow-hidden bg-[#1A2530] text-white">
+      <section data-nav-theme="dark" className="sticky top-0 z-10 relative overflow-hidden bg-[#1A2530] text-white">
         <img
           src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=2400&q=90"
           alt={language === 'tr' ? 'Hukuk kütüphanesi' : 'Law library'}
@@ -291,7 +291,8 @@ export default function PracticeAreasPage() {
       </section>
 
       {/* Content: sticky sidebar nav + detail blocks */}
-      <section data-nav-theme="light" className="mx-auto max-w-7xl px-6 lg:px-8 py-20 grid gap-12 lg:grid-cols-[280px_1fr]">
+      <section data-nav-theme="light" className="relative z-20 bg-[#E8ECEF] border-t border-[#C8CFD3] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.25)]">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20 grid gap-12 lg:grid-cols-[280px_1fr]">
         {/* Sidebar */}
         <aside className="lg:sticky lg:top-32 lg:self-start">
           <p className={`${EYEBROW_CLS} mb-6`}>
@@ -397,9 +398,12 @@ export default function PracticeAreasPage() {
             );
           })}
         </div>
+        </div>
       </section>
 
-      <Footer />
+      <div className="relative z-30">
+        <Footer />
+      </div>
     </div>
   );
 }

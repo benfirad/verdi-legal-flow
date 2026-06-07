@@ -69,7 +69,7 @@ export default function About() {
       <Navbar />
 
       {/* ── Tecrübe vurgusu (en üst, sola hizalı) ── */}
-      <section data-nav-theme="light" className="bg-[#E8ECEF] border-b border-[#C8CFD3]">
+      <section data-nav-theme="light" className="sticky top-0 z-10 bg-[#E8ECEF] border-b border-[#C8CFD3]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-40 pb-28">
           <Reveal>
             <div className="grid items-end gap-8 md:grid-cols-[auto_1fr_auto] md:gap-12">
@@ -98,8 +98,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Biz Kimiz + Kuruluşumuz ve Vizyonumuz ── */}
-      <section data-nav-theme="light" className="bg-white border-b border-[#C8CFD3]">
+      {/* ── Biz Kimiz + Kuruluşumuz ve Vizyonumuz (stack layer 2) ── */}
+      <section data-nav-theme="light" className="relative z-20 bg-white border-b border-[#C8CFD3] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.15)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 grid gap-14 lg:grid-cols-[1.2fr_0.8fr] items-start">
           <div className="space-y-14">
             {/* Biz Kimiz */}
@@ -174,8 +174,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Tek Hedef ── */}
-      <section data-nav-theme="light" className="bg-[#E8ECEF] border-b border-[#C8CFD3]">
+      {/* ── Tek Hedef (stack layer 3) ── */}
+      <section data-nav-theme="light" className="relative z-30 bg-[#E8ECEF] border-b border-[#C8CFD3] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.15)]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 py-24 text-center">
           <Reveal>
             <p className={EYEBROW_CLS}>
@@ -197,7 +197,9 @@ export default function About() {
       <ValuesShowcase language={language} />
       {/* renk uyumu için aşağıdaki container'da bir border ayraç kalır */}
 
-      <Footer />
+      <div className="relative z-50">
+        <Footer />
+      </div>
     </div>
   );
 }
@@ -224,7 +226,7 @@ function ValuesShowcase({ language }) {
     <section
       ref={containerRef}
       data-nav-theme="light"
-      className="relative bg-white border-b border-[#C8CFD3]"
+      className="relative z-40 bg-white border-b border-[#C8CFD3] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.15)]"
       style={{ height: `${VALUES.length * 90}vh` }}
     >
       <div className="sticky top-0 h-screen flex items-center">
