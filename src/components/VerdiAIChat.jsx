@@ -8,6 +8,25 @@ const WELCOME = {
   en: "Hello! I'm **Verdi AI**. I'm here to answer your questions, direct you to the right expert, and provide information about our firm. How can I help you?",
 };
 
+const SUGGESTIONS = {
+  tr: [
+    { text: "Büronuz hakkında bilgi alabilir miyim?", label: "Hakkımızda" },
+    { text: "Uzmanlık alanlarınız nelerdir?", label: "Uzmanlık Alanları" },
+    { text: "Ekibiniz kimlerden oluşuyor?", label: "Ekibimiz" },
+    { text: "Süreç yönetiminiz nasıl işliyor?", label: "Süreç Yönetimi" },
+    { text: "Yayın ve makalelerinizi inceleyebilir miyim?", label: "Yayınlar" },
+    { text: "İletişim bilgileriniz nedir?", label: "İletişim" }
+  ],
+  en: [
+    { text: "Can I get information about the firm?", label: "About Us" },
+    { text: "What are your practice areas?", label: "Practice Areas" },
+    { text: "Who is in your team?", label: "Our Team" },
+    { text: "How does your process work?", label: "Process Management" },
+    { text: "Can I review your publications and articles?", label: "Publications" },
+    { text: "What are your contact details?", label: "Contact Us" }
+  ]
+};
+
 const RESPONSES = {
   tr: {
     greeting: "Merhaba! Size nasıl yardımcı olabilirim? Verdi Hukuk Bürosu, uzmanlık alanlarımız, ekibimiz veya bizimle iletişime geçme konularında sorularınızı yanıtlayabilirim.",
@@ -117,18 +136,15 @@ export default function VerdiAIChat() {
     setMessages([{ role: 'assistant', content: WELCOME[language] ?? WELCOME.tr, id: Date.now() }]);
   };
 
-  const sendMessage = async (e) => {
-    e.preventDefault();
-    if (!input.trim() || loading) return;
+  const submitMessage = (text) => {
+    if (!text.trim() || loading) return;
 
-    const userText = input.trim();
-    const userMsg = { role: 'user', content: userText, id: Date.now() };
+    const userMsg = { role: 'user', content: text, id: Date.now() };
     setMessages(prev => [...prev, userMsg]);
-    setInput('');
     setLoading(true);
 
     setTimeout(() => {
-      const botResponse = getBotResponse(userText, language);
+      const botResponse = getBotResponse(text, language);
       setMessages(prev => [
         ...prev,
         {
@@ -139,6 +155,13 @@ export default function VerdiAIChat() {
       ]);
       setLoading(false);
     }, 1000);
+  };
+
+  const sendMessage = async (e) => {
+    e.preventDefault();
+    if (!input.trim() || loading) return;
+    submitMessage(input);
+    setInput('');
   };
 
   const placeholder = language === 'tr' ? 'Hukuki sorunuzu yazın…' : 'Ask your legal question…';
@@ -257,6 +280,26 @@ export default function VerdiAIChat() {
                   </motion.div>
                 ))}
               </AnimatePresence>
+
+              {/* Suggestion Chips */}
+              {messages.length === 1 && !loading && (
+                <div className="flex flex-wrap gap-2 pt-2 pl-9 pb-2">
+                  {(SUGGESTIONS[language] ?? SUGGESTIONS.tr).map((sug, idx) => (
+                    <motion.button
+                      key={idx}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 + idx * 0.05 }}
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(30, 58, 138, 0.25)' }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => submitMessage(sug.text)}
+                      className="text-[11px] font-medium px-3 py-2 rounded-full border border-cobalt/35 bg-cobalt/5 text-bone/90 hover:border-cobalt/60 hover:text-bone transition-colors text-left shrink-0"
+                    >
+                      {sug.label}
+                    </motion.button>
+                  ))}
+                </div>
+              )}
 
               {/* Typing indicator */}
               <AnimatePresence>
