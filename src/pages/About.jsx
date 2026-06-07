@@ -4,6 +4,7 @@ import { Users, Scale, Sparkles, Building2, MessageSquare } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { Reveal, StaggerList, itemVariants } from '@/components/motion/Reveal';
 
 // Tipografi standardı (Home/PracticeAreas ile aynı)
 const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d]';
@@ -59,43 +60,6 @@ const VALUES = [
     },
   },
 ];
-
-function Reveal({ children, delay = 0, y = 24, className = '' }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function StaggerList({ children, className = '', stagger = 0.08 }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      variants={{ hidden: {}, visible: { transition: { staggerChildren: stagger } } }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-};
 
 export default function About() {
   const { language } = useLanguage();

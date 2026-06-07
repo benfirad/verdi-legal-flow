@@ -6,53 +6,14 @@ import Footer from '@/components/layout/Footer';
 import { useLanguage } from '@/lib/LanguageContext';
 import { teamMembers } from '@/lib/teamData';
 import { PRACTICE_AREAS } from './PracticeAreasPage';
+import { Reveal, StaggerList, Enter, itemVariants, CARD_EASE } from '@/components/motion/Reveal';
 
 // Tüm bölüm başlıkları için ortak standart — Hakkımızda bloğuyla aynı oran
 const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d]';
 const SECTION_TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-[#1f1f1f] md:text-4xl';
 const SUB_TITLE_CLS = 'font-fraunces text-3xl font-semibold leading-tight text-[#1f1f1f] md:text-4xl';
 
-// Scroll-tetikli reveal animasyonu
-function Reveal({ children, delay = 0, y = 24, className = '', as: Tag = motion.div }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-  return (
-    <Tag
-      ref={ref}
-      initial={{ opacity: 0, y }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
-      className={className}
-    >
-      {children}
-    </Tag>
-  );
-}
-
-// Liste/Grid içinde sıralı stagger için
-function StaggerList({ children, className = '', stagger = 0.08 }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      variants={{
-        hidden: {},
-        visible: { transition: { staggerChildren: stagger } },
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-};
+// (Reveal, StaggerList, itemVariants ortak modülden geliyor)
 
 function SectionHeader({ eyebrow, title, action }) {
   return (
@@ -110,27 +71,24 @@ export default function Home() {
 
           <div className="relative z-10 mx-auto flex min-h-[760px] max-w-[1840px] flex-col justify-end px-7 pb-0 pt-28 lg:min-h-screen lg:px-16">
             <div className="mb-24 grid w-full max-w-[1680px] gap-8 lg:mb-28 lg:ml-4 lg:grid-cols-[minmax(0,1180px)_260px] lg:items-end lg:gap-16">
-              <motion.p
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="max-w-none text-xl font-normal leading-snug text-white/92 lg:text-[26px] xl:text-[28px]"
-              >
-                {language === 'tr'
-                  ? 'Hukuki danışmanlık alanında Verdi, hizmetlerini derin hukuki deneyime ve farklı alanlarda tecrübeye sahip uzman avukat, danışman ve destek birimlerinden oluşan yetkin bir ekiple sunmaktadır.'
-                  : 'Verdi provides legal services through a capable team of attorneys, consultants and support units with deep legal experience across distinct areas of practice.'}
-              </motion.p>
-              <motion.a
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                href="/iletisim"
-                className="inline-flex h-16 w-full max-w-[220px] items-center justify-center justify-self-start border border-white/70 px-8 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-white hover:text-[#202020] lg:justify-self-end"
-              >
-                {language === 'tr' ? 'İletişim' : 'Contact'}
-              </motion.a>
+              <Enter delay={0.3}>
+                <p className="max-w-none text-xl font-normal leading-snug text-white/92 lg:text-[26px] xl:text-[28px]">
+                  {language === 'tr'
+                    ? 'Hukuki danışmanlık alanında Verdi, hizmetlerini derin hukuki deneyime ve farklı alanlarda tecrübeye sahip uzman avukat, danışman ve destek birimlerinden oluşan yetkin bir ekiple sunmaktadır.'
+                    : 'Verdi provides legal services through a capable team of attorneys, consultants and support units with deep legal experience across distinct areas of practice.'}
+                </p>
+              </Enter>
+              <Enter delay={0.55}>
+                <motion.a
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.3, ease: CARD_EASE }}
+                  href="/iletisim"
+                  className="inline-flex h-16 w-full max-w-[220px] items-center justify-center justify-self-start border border-white/70 px-8 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-white hover:text-[#202020] lg:justify-self-end"
+                >
+                  {language === 'tr' ? 'İletişim' : 'Contact'}
+                </motion.a>
+              </Enter>
             </div>
           </div>
         </section>
