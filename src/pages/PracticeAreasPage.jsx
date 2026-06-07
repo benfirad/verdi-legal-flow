@@ -232,8 +232,8 @@ export const PRACTICE_AREAS = [
 ];
 
 // Ortak başlık standartları (Home ile aynı)
-const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d]';
-const SECTION_TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-[#1f1f1f] md:text-4xl';
+const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#9C7B3F]';
+const SECTION_TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-[#2A1A14] md:text-4xl';
 
 export default function PracticeAreasPage() {
   const { language } = useLanguage();
@@ -257,11 +257,11 @@ export default function PracticeAreasPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ef] text-[#202020]">
+    <div className="min-h-screen bg-[#F4EBD9] text-[#2A1A14]">
       <Navbar />
 
       {/* Hero */}
-      <section data-nav-theme="dark" className="relative overflow-hidden bg-[#05070b] text-white">
+      <section data-nav-theme="dark" className="relative overflow-hidden bg-[#1F0808] text-white">
         <img
           src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=2400&q=90"
           alt={language === 'tr' ? 'Hukuk kütüphanesi' : 'Law library'}
@@ -273,7 +273,7 @@ export default function PracticeAreasPage() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-24">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#c8b68c]">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#D9B97A]">
               {language === 'tr' ? 'Uzmanlık Alanlarımız' : 'Our Practice Areas'}
             </p>
             <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-4xl">
@@ -307,17 +307,17 @@ export default function PracticeAreasPage() {
                       href={`#${area.id}`}
                       className={`group flex items-center gap-3 border-l-2 py-2.5 pl-4 text-sm transition-all duration-300 ${
                         isActive
-                          ? 'border-[#8b6f3d] text-[#1f1f1f] font-semibold opacity-100'
-                          : 'border-transparent text-[#5f5b52] hover:text-[#1f1f1f] hover:border-[#d8d0bf] opacity-40 hover:opacity-80'
+                          ? 'border-[#9C7B3F] text-[#2A1A14] font-semibold opacity-100'
+                          : 'border-transparent text-[#6B5340] hover:text-[#2A1A14] hover:border-[#D9CFB6] opacity-40 hover:opacity-80'
                       }`}
                     >
-                      <span className="text-xs font-mono text-[#9a8c70]">
+                      <span className="text-xs font-mono text-[#A89880]">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <span>{area[language].title}</span>
                       <ChevronRight
                         className={`ml-auto h-3.5 w-3.5 transition ${
-                          isActive ? 'translate-x-1 text-[#8b6f3d]' : 'opacity-0 group-hover:opacity-100'
+                          isActive ? 'translate-x-1 text-[#9C7B3F]' : 'opacity-0 group-hover:opacity-100'
                         }`}
                       />
                     </a>
@@ -337,7 +337,7 @@ export default function PracticeAreasPage() {
               <article
                 key={area.id}
                 id={area.id}
-                className={`scroll-mt-32 border-b border-[#d8d0bf] py-14 first:pt-0 last:border-b-0 transition-all duration-500 origin-left ${
+                className={`scroll-mt-32 border-b border-[#D9CFB6] py-14 first:pt-0 last:border-b-0 transition-all duration-500 origin-left ${
                   isActive ? 'opacity-100 scale-100' : 'opacity-25 scale-[0.98]'
                 }`}
               >
@@ -346,11 +346,11 @@ export default function PracticeAreasPage() {
                     <span className="font-fraunces text-5xl font-semibold text-[#d4c4a3]">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <h2 className="font-fraunces text-3xl font-semibold leading-tight text-[#1f1f1f] md:text-4xl">
+                    <h2 className="font-fraunces text-3xl font-semibold leading-tight text-[#2A1A14] md:text-4xl">
                       {content.title}
                     </h2>
                   </div>
-                  <p className="text-lg leading-8 text-[#5f5b52] max-w-3xl">
+                  <p className="text-lg leading-8 text-[#6B5340] max-w-3xl">
                     {content.lede}
                   </p>
                 </Reveal>
@@ -364,9 +364,9 @@ export default function PracticeAreasPage() {
                       {content.services.map((s, j) => (
                         <li
                           key={j}
-                          className="flex items-start gap-3 border-l-2 border-[#d8d0bf] pl-4 py-2 text-[15px] text-[#3a3a3a] hover:border-[#8b6f3d] transition-colors"
+                          className="flex items-start gap-3 border-l-2 border-[#D9CFB6] pl-4 py-2 text-[15px] text-[#3a3a3a] hover:border-[#9C7B3F] transition-colors"
                         >
-                          <span className="font-mono text-xs text-[#9a8c70] mt-1.5 shrink-0">
+                          <span className="font-mono text-xs text-[#A89880] mt-1.5 shrink-0">
                             {String(j + 1).padStart(2, '0')}
                           </span>
                           {s}
@@ -380,14 +380,14 @@ export default function PracticeAreasPage() {
                   <div className="mt-8 flex flex-wrap items-center gap-6 text-sm">
                     <a
                       href="/iletisim"
-                      className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#1f1f1f] text-xs"
+                      className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#2A1A14] text-xs"
                     >
                       {language === 'tr' ? 'Bu konuda danışın' : 'Get advice'}
                       <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                     </a>
                     <a
                       href="/ekibimiz"
-                      className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8b6f3d] hover:text-[#1f1f1f] transition"
+                      className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9C7B3F] hover:text-[#2A1A14] transition"
                     >
                       {language === 'tr' ? 'İlgili ekip' : 'Related team'}
                     </a>

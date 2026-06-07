@@ -9,9 +9,9 @@ import { PRACTICE_AREAS } from './PracticeAreasPage';
 import { Reveal, StaggerList, Enter, itemVariants, CARD_EASE } from '@/components/motion/Reveal';
 
 // Tüm bölüm başlıkları için ortak standart — Hakkımızda bloğuyla aynı oran
-const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d]';
-const SECTION_TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-[#1f1f1f] md:text-4xl';
-const SUB_TITLE_CLS = 'font-fraunces text-3xl font-semibold leading-tight text-[#1f1f1f] md:text-4xl';
+const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#9C7B3F]';
+const SECTION_TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-[#2A1A14] md:text-4xl';
+const SUB_TITLE_CLS = 'font-fraunces text-3xl font-semibold leading-tight text-[#2A1A14] md:text-4xl';
 
 // (Reveal, StaggerList, itemVariants ortak modülden geliyor)
 
@@ -54,12 +54,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ef] text-[#202020]">
+    <div className="min-h-screen bg-[#F4EBD9] text-[#2A1A14]">
       <Navbar />
 
       <main>
         {/* ── Hero (stack layer 1) ── */}
-        <section id="home" data-nav-theme="dark" className="sticky top-0 z-10 min-h-[760px] overflow-hidden bg-[#05070b] text-white lg:h-screen lg:min-h-screen">
+        <section id="home" data-nav-theme="dark" className="sticky top-0 z-10 min-h-[760px] overflow-hidden bg-[#1F0808] text-white lg:h-screen lg:min-h-screen">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=2400&q=90"
             alt={language === 'tr' ? 'Modern iş merkezi cephesi' : 'Modern business tower facade'}
@@ -84,7 +84,7 @@ export default function Home() {
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.3, ease: CARD_EASE }}
                   href="/iletisim"
-                  className="inline-flex h-16 w-full max-w-[220px] items-center justify-center justify-self-start border border-white/70 px-8 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-white hover:text-[#202020] lg:justify-self-end"
+                  className="inline-flex h-16 w-full max-w-[220px] items-center justify-center justify-self-start border border-white/70 px-8 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-white hover:text-[#2A1A14] lg:justify-self-end"
                 >
                   {language === 'tr' ? 'İletişim' : 'Contact'}
                 </motion.a>
@@ -94,7 +94,7 @@ export default function Home() {
         </section>
 
         {/* ── Hakkımızda + Ortaklarımız (stack layer 2) ── */}
-        <section id="about" data-nav-theme="light" className="sticky top-0 z-20 min-h-screen border-y border-[#ded8ca] bg-white shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.25)]">
+        <section id="about" data-nav-theme="light" className="sticky top-0 z-20 min-h-screen border-y border-[#E0D3B5] bg-white shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.25)]">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
               <Reveal>
@@ -104,20 +104,20 @@ export default function Home() {
                 </h2>
               </Reveal>
               <Reveal delay={0.15} from="right">
-                <p className="max-w-3xl text-lg leading-8 text-[#5f5b52]">
+                <p className="max-w-3xl text-lg leading-8 text-[#6B5340]">
                   {t('about.description')}
                 </p>
               </Reveal>
             </div>
 
-            <div className="mt-20 flex flex-col justify-between gap-6 border-t border-[#d8d0bf] pt-10 md:flex-row md:items-end">
+            <div className="mt-20 flex flex-col justify-between gap-6 border-t border-[#D9CFB6] pt-10 md:flex-row md:items-end">
               <Reveal>
                 <h3 className={SUB_TITLE_CLS}>
                   {language === 'tr' ? 'Ekibimiz' : 'Our Team'}
                 </h3>
               </Reveal>
               <Reveal delay={0.1} from="right">
-                <a href="/ekibimiz" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#6d5b35]">
+                <a href="/ekibimiz" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#7A5A2C]">
                   {language === 'tr' ? 'Tüm ekibi gör' : 'View entire team'}
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </a>
@@ -137,7 +137,7 @@ export default function Home() {
                     className="group"
                   >
                     <a href="/ekibimiz" className="block">
-                      <div className="aspect-square overflow-hidden bg-[#e8e1d2]">
+                      <div className="aspect-square overflow-hidden bg-[#E8DCC0]">
                         <img
                           src={member.image}
                           alt={member.name}
@@ -145,13 +145,13 @@ export default function Home() {
                           className="h-full w-full object-cover grayscale transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-hover:grayscale-0"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
-                            e.currentTarget.parentElement.innerHTML = `<div class="flex h-full w-full items-center justify-center bg-[#e8e1d2] font-fraunces text-5xl text-[#8b6f3d]">${initials}</div>`;
+                            e.currentTarget.parentElement.innerHTML = `<div class="flex h-full w-full items-center justify-center bg-[#E8DCC0] font-fraunces text-5xl text-[#9C7B3F]">${initials}</div>`;
                           }}
                         />
                       </div>
-                      <div className="border-b border-[#d8d0bf] py-5">
-                        <h3 className="text-xl font-semibold text-[#202020]">{member.name}</h3>
-                        <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#8b6f3d]">
+                      <div className="border-b border-[#D9CFB6] py-5">
+                        <h3 className="text-xl font-semibold text-[#2A1A14]">{member.name}</h3>
+                        <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#9C7B3F]">
                           {title}
                         </p>
                       </div>
@@ -164,14 +164,14 @@ export default function Home() {
         </section>
 
         {/* ── Çalışma Alanları (stack layer 3) ── */}
-        <section id="practice-areas" data-nav-theme="light" className="sticky top-0 z-30 min-h-screen bg-[#f6f4ef] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.25)]">
+        <section id="practice-areas" data-nav-theme="light" className="sticky top-0 z-30 min-h-screen bg-[#F4EBD9] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.25)]">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-            <div className="mb-12 border-b border-[#d8d0bf] pb-8">
+            <div className="mb-12 border-b border-[#D9CFB6] pb-8">
               <SectionHeader
                 eyebrow={t('practiceAreas.title')}
                 title={t('practiceAreas.subtitle')}
                 action={
-                  <a href="/calisma-alanlari" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#6d5b35]">
+                  <a href="/calisma-alanlari" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#7A5A2C]">
                     {language === 'tr' ? 'Tüm alanlar' : 'All practices'}
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </a>
@@ -194,17 +194,17 @@ export default function Home() {
                             href={`#${area.id}`}
                             className={`group flex items-center gap-3 border-l-2 py-2.5 pl-4 text-sm transition-all duration-300 ${
                               isActive
-                                ? 'border-[#8b6f3d] text-[#1f1f1f] font-semibold opacity-100'
-                                : 'border-transparent text-[#5f5b52] hover:text-[#1f1f1f] hover:border-[#d8d0bf] opacity-40 hover:opacity-80'
+                                ? 'border-[#9C7B3F] text-[#2A1A14] font-semibold opacity-100'
+                                : 'border-transparent text-[#6B5340] hover:text-[#2A1A14] hover:border-[#D9CFB6] opacity-40 hover:opacity-80'
                             }`}
                           >
-                            <span className="text-xs font-mono text-[#9a8c70]">
+                            <span className="text-xs font-mono text-[#A89880]">
                               {String(i + 1).padStart(2, '0')}
                             </span>
                             <span>{area[language].title}</span>
                             <ChevronRight
                               className={`ml-auto h-3.5 w-3.5 transition ${
-                                isActive ? 'translate-x-1 text-[#8b6f3d]' : 'opacity-0 group-hover:opacity-100'
+                                isActive ? 'translate-x-1 text-[#9C7B3F]' : 'opacity-0 group-hover:opacity-100'
                               }`}
                             />
                           </a>
@@ -224,7 +224,7 @@ export default function Home() {
                     <article
                       key={area.id}
                       id={area.id}
-                      className={`scroll-mt-32 border-b border-[#d8d0bf] py-14 first:pt-0 last:border-b-0 transition-all duration-500 origin-left ${
+                      className={`scroll-mt-32 border-b border-[#D9CFB6] py-14 first:pt-0 last:border-b-0 transition-all duration-500 origin-left ${
                         isActive ? 'opacity-100 scale-100' : 'opacity-25 scale-[0.98]'
                       }`}
                     >
@@ -233,11 +233,11 @@ export default function Home() {
                           <span className="font-fraunces text-5xl font-semibold text-[#d4c4a3]">
                             {String(i + 1).padStart(2, '0')}
                           </span>
-                          <h2 className="font-fraunces text-3xl font-semibold leading-tight text-[#1f1f1f] md:text-4xl">
+                          <h2 className="font-fraunces text-3xl font-semibold leading-tight text-[#2A1A14] md:text-4xl">
                             {content.title}
                           </h2>
                         </div>
-                        <p className="text-lg leading-8 text-[#5f5b52] max-w-3xl">
+                        <p className="text-lg leading-8 text-[#6B5340] max-w-3xl">
                           {content.lede}
                         </p>
                       </Reveal>
@@ -251,9 +251,9 @@ export default function Home() {
                             {content.services.map((s, j) => (
                               <li
                                 key={j}
-                                className="flex items-start gap-3 border-l-2 border-[#d8d0bf] pl-4 py-2 text-[15px] text-[#3a3a3a] hover:border-[#8b6f3d] transition-colors"
+                                className="flex items-start gap-3 border-l-2 border-[#D9CFB6] pl-4 py-2 text-[15px] text-[#3a3a3a] hover:border-[#9C7B3F] transition-colors"
                               >
-                                <span className="font-mono text-xs text-[#9a8c70] mt-1.5 shrink-0">
+                                <span className="font-mono text-xs text-[#A89880] mt-1.5 shrink-0">
                                   {String(j + 1).padStart(2, '0')}
                                 </span>
                                 {s}
@@ -267,14 +267,14 @@ export default function Home() {
                         <div className="mt-8 flex flex-wrap items-center gap-6 text-sm">
                           <a
                             href="/iletisim"
-                            className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#1f1f1f] text-xs"
+                            className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#2A1A14] text-xs"
                           >
                             {language === 'tr' ? 'Bu konuda danışın' : 'Get advice'}
                             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                           </a>
                           <a
                             href="/ekibimiz"
-                            className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8b6f3d] hover:text-[#1f1f1f] transition"
+                            className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9C7B3F] hover:text-[#2A1A14] transition"
                           >
                             {language === 'tr' ? 'İlgili ekip' : 'Related team'}
                           </a>
@@ -314,7 +314,7 @@ function PracticeAreasCarousel({ language, t }) {
     <section
       ref={containerRef}
       data-nav-theme="light"
-      className="relative bg-[#f6f4ef]"
+      className="relative bg-[#F4EBD9]"
       style={{ height: `${total * 80}vh` }}
     >
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
@@ -324,7 +324,7 @@ function PracticeAreasCarousel({ language, t }) {
             eyebrow={t('practiceAreas.title')}
             title={t('practiceAreas.subtitle')}
             action={
-              <a href="/calisma-alanlari" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#6d5b35]">
+              <a href="/calisma-alanlari" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#7A5A2C]">
                 {language === 'tr' ? 'Tüm alanlar' : 'All practices'}
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </a>
@@ -343,24 +343,24 @@ function PracticeAreasCarousel({ language, t }) {
               return (
                 <article
                   key={area.id}
-                  className="relative shrink-0 w-[88vw] max-w-[720px] h-[60vh] max-h-[520px] bg-white border border-[#d8d0bf] p-10 md:p-12 flex flex-col"
+                  className="relative shrink-0 w-[88vw] max-w-[720px] h-[60vh] max-h-[520px] bg-white border border-[#D9CFB6] p-10 md:p-12 flex flex-col"
                 >
                   {/* Numara + gradient aksenti */}
-                  <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#8b6f3d] to-transparent" />
+                  <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#9C7B3F] to-transparent" />
                   <div className="flex items-baseline gap-4 mb-6">
                     <span className="font-fraunces text-6xl font-semibold text-[#d4c4a3]">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="text-xs font-mono text-[#9a8c70]">
+                    <span className="text-xs font-mono text-[#A89880]">
                       / {String(total).padStart(2, '0')}
                     </span>
                   </div>
 
-                  <h3 className="font-fraunces text-2xl md:text-3xl font-semibold leading-tight text-[#1f1f1f]">
+                  <h3 className="font-fraunces text-2xl md:text-3xl font-semibold leading-tight text-[#2A1A14]">
                     {content.title}
                   </h3>
 
-                  <p className="mt-4 text-[15px] leading-7 text-[#5f5b52] line-clamp-4">
+                  <p className="mt-4 text-[15px] leading-7 text-[#6B5340] line-clamp-4">
                     {content.lede}
                   </p>
 
@@ -368,14 +368,14 @@ function PracticeAreasCarousel({ language, t }) {
                   <ul className="mt-6 space-y-2 flex-1 overflow-hidden">
                     {content.services.slice(0, 3).map((s, j) => (
                       <li key={j} className="flex items-start gap-3 text-sm text-[#3a3a3a]">
-                        <span className="font-mono text-xs text-[#9a8c70] mt-1">
+                        <span className="font-mono text-xs text-[#A89880] mt-1">
                           {String(j + 1).padStart(2, '0')}
                         </span>
                         <span className="truncate">{s}</span>
                       </li>
                     ))}
                     {content.services.length > 3 && (
-                      <li className="text-xs text-[#9a8c70] pl-7">
+                      <li className="text-xs text-[#A89880] pl-7">
                         +{content.services.length - 3} {language === 'tr' ? 'hizmet daha' : 'more services'}
                       </li>
                     )}
@@ -384,7 +384,7 @@ function PracticeAreasCarousel({ language, t }) {
                   {/* CTA */}
                   <a
                     href="/calisma-alanlari"
-                    className="group mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#1f1f1f]"
+                    className="group mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#2A1A14]"
                   >
                     {language === 'tr' ? 'Detayları gör' : 'See details'}
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -396,7 +396,7 @@ function PracticeAreasCarousel({ language, t }) {
             {/* Son kart (CTA) */}
             <article className="relative shrink-0 w-[88vw] max-w-[720px] h-[60vh] max-h-[520px] bg-ink text-white p-10 md:p-12 flex flex-col justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#c8b68c]">
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#D9B97A]">
                   {language === 'tr' ? 'Tüm uzmanlık alanları' : 'All practice areas'}
                 </p>
                 <h3 className="mt-6 font-fraunces text-2xl md:text-3xl font-semibold leading-tight">
@@ -438,17 +438,17 @@ function CarouselProgress({ scrollYProgress, total, language }) {
   return (
     <div className="mx-auto w-full max-w-7xl px-6 lg:px-8 pb-10">
       <div className="flex items-center gap-6">
-        <div className="relative h-px flex-1 bg-[#d8d0bf]">
+        <div className="relative h-px flex-1 bg-[#D9CFB6]">
           <motion.div
-            className="absolute left-0 top-0 h-full bg-[#8b6f3d]"
+            className="absolute left-0 top-0 h-full bg-[#9C7B3F]"
             style={{ width: widthPercent }}
           />
         </div>
-        <span className="text-xs font-mono text-[#9a8c70] whitespace-nowrap">
+        <span className="text-xs font-mono text-[#A89880] whitespace-nowrap">
           {String(current).padStart(2, '0')} / {String(total + 1).padStart(2, '0')}
         </span>
       </div>
-      <p className="mt-3 text-center text-[10px] uppercase tracking-[0.3em] text-[#9a8c70]">
+      <p className="mt-3 text-center text-[10px] uppercase tracking-[0.3em] text-[#A89880]">
         {language === 'tr' ? 'Aşağı kaydırın' : 'Scroll down'} →
       </p>
     </div>
