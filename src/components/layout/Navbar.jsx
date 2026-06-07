@@ -16,7 +16,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState(getDefaultTheme);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { language, toggleLanguage, t } = useLanguage();
+  const { language, setLanguage, toggleLanguage, t } = useLanguage();
   const isDark = theme === 'dark';
 
   useEffect(() => {
@@ -95,11 +95,17 @@ export default function Navbar() {
           <div className={`hidden items-center gap-3 text-sm font-semibold transition-all duration-300 lg:flex ${
             isScrolled ? 'translate-y-[-8px] opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
           }`}>
-            <button onClick={toggleLanguage} className="transition hover:opacity-70">
+            <button
+              onClick={() => setLanguage('en')}
+              className={`transition hover:opacity-100 ${language === 'en' ? 'opacity-100 font-bold' : 'opacity-40'}`}
+            >
               EN
             </button>
             <span className={isDark ? 'text-white/35' : 'text-[#202020]/35'}>|</span>
-            <button onClick={toggleLanguage} className="transition hover:opacity-70">
+            <button
+              onClick={() => setLanguage('tr')}
+              className={`transition hover:opacity-100 ${language === 'tr' ? 'opacity-100 font-bold' : 'opacity-40'}`}
+            >
               TR
             </button>
             <button aria-label="Search" className="ml-3 transition hover:opacity-70">

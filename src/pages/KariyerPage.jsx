@@ -138,27 +138,19 @@ export default function KariyerPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section data-nav-theme="dark" className="relative overflow-hidden bg-[#05070b] text-white">
-        <img
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=2400&q=90"
-          alt="Office"
-          className="absolute inset-0 h-full w-full object-cover object-center grayscale opacity-15"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black/50" />
-
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-44 pb-28" ref={headerRef}>
+      <section data-nav-theme="light" className="relative overflow-hidden bg-[#f6f4ef] text-[#202020] pt-36 pb-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8" ref={headerRef}>
           <motion.div className="flex items-center gap-3 mb-6"
             initial={{ opacity: 0, x: -20 }} animate={headerInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }}>
-            <div className="w-8 h-px bg-[#c8b68c]/60" />
-            <span className="text-xs tracking-[0.35em] uppercase text-[#c8b68c] font-semibold">{l.badge}</span>
+            <div className="w-8 h-px bg-[#8b6f3d]" />
+            <span className="text-xs tracking-[0.35em] uppercase text-[#8b6f3d] font-semibold">{l.badge}</span>
           </motion.div>
-          <motion.h1 className="font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 whitespace-pre-line"
+          <motion.h1 className="font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold text-[#202020] leading-tight mb-6 whitespace-pre-line"
             initial={{ opacity: 0, y: 40 }} animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
             {l.title}
           </motion.h1>
-          <motion.p className="text-white/80 text-base md:text-lg max-w-2xl leading-relaxed font-light"
+          <motion.p className="text-[#5f5b52] text-base md:text-lg max-w-2xl leading-relaxed font-light"
             initial={{ opacity: 0 }} animate={headerInView ? { opacity: 1 } : {}} transition={{ delay: 0.4 }}>
             {l.sub}
           </motion.p>

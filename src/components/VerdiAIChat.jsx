@@ -4,14 +4,72 @@ import { Send, Trash2, Sparkles, Bot, User, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const WELCOME = {
-  tr: 'Merhaba! Ben **Verdi Yapay Zekası**. Hukuki sorularınızı yanıtlamak, doğru uzmana yönlendirmek ve süreçler hakkında bilgi vermek için buradayım. Size nasıl yardımcı olabilirim?',
-  en: "Hello! I'm **Verdi AI**. I'm here to answer your legal questions, direct you to the right expert, and provide information about processes. How can I help you?",
+  tr: 'Merhaba! Ben **Verdi Yapay Zekası**. Hukuki sorularınızı yanıtlamak, doğru uzmanlara yönlendirmek ve büromuz hakkında bilgi vermek için buradayım. Size nasıl yardımcı olabilirim?',
+  en: "Hello! I'm **Verdi AI**. I'm here to answer your questions, direct you to the right expert, and provide information about our firm. How can I help you?",
+};
+
+const RESPONSES = {
+  tr: {
+    greeting: "Merhaba! Size nasıl yardımcı olabilirim? Verdi Hukuk Bürosu, uzmanlık alanlarımız, ekibimiz veya bizimle iletişime geçme konularında sorularınızı yanıtlayabilirim.",
+    default: "Sorunuzu anlıyorum. Verdi Hukuk Bürosu olarak kurumsal danışmanlık, uyuşmazlık çözümü, bankacılık ve diğer uzmanlık alanlarımızda size en iyi hizmeti sunmak için buradayız. Detaylı hukuki danışmanlık almak ve davanızı değerlendirmemiz için lütfen [İletişim](/iletisim) sayfamızdaki formu doldurun veya doğrudan bizi arayın.",
+    contact: "Verdi Hukuk Bürosu İstanbul Levent'te yer almaktadır.\n\n**Adres:** Levent, Büyükdere Cad. No:185, 34394 Şişli / İstanbul\n**Telefon:** +90 212 324 XX XX\n**E-posta:** info@verdihukuk.com.tr\n\nBizimle doğrudan iletişime geçmek için [İletişim Sayfamızı](/iletisim) ziyaret edebilirsiniz.",
+    team: "Verdi Hukuk Bürosu, kurucuları ve kıdemli ortakları dahil olmak üzere alanında uzman geniş bir avukat kadrosuna sahiptir. Ekibimizin tamamını, uzmanlık alanlarını ve özgeçmişlerini incelemek için [Ekibimiz Sayfasını](/ekibimiz) ziyaret edebilirsiniz.",
+    banking: "Türkiye'de bankacılık hukuku alanında öncü hukuk büroları arasında yer alıyoruz. Proje finansmanı, sendikasyon kredileri, BDDK düzenleyici uyumu ve yapılandırılmış finansman alanlarında derin tecrübeye sahibiz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
+    ma: "Yerli ve yabancı müvekkillerimize birleşme, devralma (M&A) ve şirketler hukuku süreçlerinde tam kapsamlı hukuki danışmanlık sunuyoruz. Durum tespiti (due diligence), hisse devir sözleşmesi (SPA) müzakereleri ve kurumsal yönetim konularında lideriz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
+    dispute: "Müvekkillerimizi geniş bir ticari uyuşmazlık yelpazesinde temsil ediyor; ulusal ve uluslararası tahkim (ISTAC, ICC, UNCITRAL) ve davalarda stratejik destek sağlıyoruz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
+    competition: "Rekabet hukuku alanında birleşme/devralma izin başvuruları, Rekabet Kurulu soruşturmaları, kartel ve hakim durum davalarında ve uyum programlarında müvekkillerimizi en üst düzeyde temsil etmekteyiz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
+    career: "Verdi Hukuk Bürosu bünyesinde kariyer yapmak, stajyer veya avukat olarak ekibimize katılmak isterseniz güncel açık pozisyonlarımızı görmek ve CV'nizi göndermek için [Kariyer Sayfamızı](/kariyer) ziyaret edebilirsiniz.",
+  },
+  en: {
+    greeting: "Hello! How can I help you? I can answer your questions about Verdi Law Firm, our practice areas, our team, or how to contact us.",
+    default: "I understand your query. At Verdi Law Firm, we are here to provide you with the best service in corporate advisory, dispute resolution, and our other practice areas. To get detailed legal advice and let us assess your case, please fill out the form on our [Contact](/iletisim) page or call us directly.",
+    contact: "Verdi Law Firm is located in Levent, Istanbul.\n\n**Address:** Levent, Buyukdere Cad. No:185, 34394 Sisli / Istanbul\n**Phone:** +90 212 324 XX XX\n**Email:** info@verdilaw.com.tr\n\nYou can visit our [Contact Page](/iletisim) to get in touch with us directly.",
+    team: "Verdi Law Firm has a large team of expert lawyers, including founders and senior partners. You can visit our [Team Page](/ekibimiz) to review our entire team, their specialties, and biographies.",
+    banking: "We are among the leading law firms in Turkey in the field of banking law. We have deep experience in project finance, syndicated loans, BRSA regulatory compliance, and structured finance. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
+    ma: "We offer full-service legal advice to domestic and foreign clients in mergers & acquisitions (M&A) and corporate law processes. We are leaders in due diligence, SPA negotiations, and corporate governance. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
+    dispute: "We represent our clients in a wide range of commercial disputes, providing strategic support in domestic and international arbitration (ISTAC, ICC, UNCITRAL) and litigation. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
+    competition: "In competition law, we provide high-level representation in merger/acquisition clearance filings, TCA investigations, cartel and dominance cases, and compliance programs. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
+    career: "If you would like to build a career at Verdi Law Firm, or join our team as an associate or intern, you can visit our [Career Page](/kariyer) to view open positions and submit your CV.",
+  }
 };
 
 function formatMessage(text) {
   return text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="underline hover:text-[#c9a87c] font-medium transition-colors">$1</a>')
     .replace(/\n/g, '<br/>');
+}
+
+function getBotResponse(input, lang) {
+  const query = input.toLowerCase();
+  const res = RESPONSES[lang] || RESPONSES.tr;
+
+  if (query.includes('merhaba') || query.includes('selam') || query.includes('hello') || query.includes('hi')) {
+    return res.greeting;
+  }
+  if (query.includes('iletisim') || query.includes('iletişim') || query.includes('adres') || query.includes('telefon') || query.includes('ulaş') || query.includes('ulas') || query.includes('email') || query.includes('e-posta') || query.includes('contact') || query.includes('phone') || query.includes('address') || query.includes('mail')) {
+    return res.contact;
+  }
+  if (query.includes('ekip') || query.includes('avukat') || query.includes('ortak') || query.includes('kurucu') || query.includes('partner') || query.includes('lawyer') || query.includes('attorney') || query.includes('team') || query.includes('biyografi') || query.includes('kimler')) {
+    return res.team;
+  }
+  if (query.includes('banka') || query.includes('finans') || query.includes('kredi') || query.includes('proje') || query.includes('banking') || query.includes('finance') || query.includes('loan')) {
+    return res.banking;
+  }
+  if (query.includes('birleşme') || query.includes('devralma') || query.includes('sirket') || query.includes('şirket') || query.includes('kurumsal') || query.includes('m&a') || query.includes('merger') || query.includes('acquisition') || query.includes('corporate')) {
+    return res.ma;
+  }
+  if (query.includes('uyuşmazlık') || query.includes('uyusmazlik') || query.includes('tahkim') || query.includes('dava') || query.includes('mahkeme') || query.includes('arabulucu') || query.includes('arbitration') || query.includes('dispute') || query.includes('litigation') || query.includes('court') || query.includes('icc') || query.includes('istac')) {
+    return res.dispute;
+  }
+  if (query.includes('rekabet') || query.includes('kartel') || query.includes('soruşturma') || query.includes('sorusturma') || query.includes('kurul') || query.includes('competition') || query.includes('antitrust') || query.includes('tca')) {
+    return res.competition;
+  }
+  if (query.includes('kariyer') || query.includes('staj') || query.includes('iş') || query.includes('is ') || query.includes('başvuru') || query.includes('basvuru') || query.includes('cv') || query.includes('career') || query.includes('job') || query.includes('intern') || query.includes('apply')) {
+    return res.career;
+  }
+
+  return res.default;
 }
 
 export default function VerdiAIChat() {
@@ -48,25 +106,24 @@ export default function VerdiAIChat() {
     e.preventDefault();
     if (!input.trim() || loading) return;
 
-    const userMsg = { role: 'user', content: input.trim(), id: Date.now() };
+    const userText = input.trim();
+    const userMsg = { role: 'user', content: userText, id: Date.now() };
     setMessages(prev => [...prev, userMsg]);
     setInput('');
     setLoading(true);
 
-    // Placeholder — backend will be wired by the user
     setTimeout(() => {
+      const botResponse = getBotResponse(userText, language);
       setMessages(prev => [
         ...prev,
         {
           role: 'assistant',
-          content: language === 'tr'
-            ? 'Mesajınız alındı. Yakında yanıt verilecektir.'
-            : 'Your message has been received. A response will be provided shortly.',
+          content: botResponse,
           id: Date.now() + 1,
         },
       ]);
       setLoading(false);
-    }, 1200);
+    }, 1000);
   };
 
   const placeholder = language === 'tr' ? 'Hukuki sorunuzu yazın…' : 'Ask your legal question…';
