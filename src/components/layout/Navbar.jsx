@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { ChevronDown, Check } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const getDefaultTheme = () => {
@@ -14,8 +15,25 @@ const getDefaultTheme = () => {
 export default function Navbar() {
   const [theme, setTheme] = useState(getDefaultTheme);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef(null);
   const { language, setLanguage, t } = useLanguage();
   const isDark = theme === 'dark';
+
+  // Dış tıklama ile dropdown kapanır
+  useEffect(() => {
+    if (!langOpen) return;
+    const onDown = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+    };
+    const onKey = (e) => { if (e.key === 'Escape') setLangOpen(false); };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [langOpen]);
 
   useEffect(() => {
     const updateTheme = () => {
@@ -119,27 +137,64 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right: Language Selector (fades and slides out to the right on scroll) */}
-        <div 
-          className={`absolute right-7 lg:right-9 top-1/2 -translate-y-1/2 flex items-center gap-3 text-sm font-semibold transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
-            isScrolled 
-              ? 'opacity-0 pointer-events-none translate-x-4' 
+        {/* Right: Language dropdown (fades and slides out to the right on scroll) */}
+        <div
+          ref={langRef}
+          className={`absolute right-7 lg:right-9 top-1/2 -translate-y-1/2 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+            isScrolled
+              ? 'opacity-0 pointer-events-none translate-x-4'
               : 'opacity-100'
           }`}
         >
           <button
-            onClick={() => setLanguage('en')}
-            className={`transition hover:opacity-100 ${language === 'en' ? 'opacity-100 font-bold' : 'opacity-40'}`}
+            onClick={() => setLangOpen((v) => !v)}
+            className={`flex items-center gap-2 border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
+              isDark
+                ? 'border-white/40 hover:border-white text-white'
+                : 'border-[#1A2530]/30 hover:border-[#1A2530] text-[#1A2530]'
+            }`}
+            aria-haspopup="listbox"
+            aria-expanded={langOpen}
           >
-            EN
+            {language === 'tr' ? 'TR' : 'EN'}
+            <ChevronDown className={`h-3.5 w-3.5 transition-transform ${langOpen ? 'rotate-180' : ''}`} />
           </button>
-          <span className={isDark ? 'text-white/35' : 'text-[#1A2530]/35'}>|</span>
-          <button
-            onClick={() => setLanguage('tr')}
-            className={`transition hover:opacity-100 ${language === 'tr' ? 'opacity-100 font-bold' : 'opacity-40'}`}
+
+          {/* Dropdown panel */}
+          <div
+            className={`absolute right-0 top-full mt-2 min-w-[140px] transition-all duration-200 origin-top-right ${
+              langOpen
+                ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+                : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
+            }`}
           >
-            TR
-          </button>
+            <ul className="bg-white border border-[#D6DCE0] shadow-[0_12px_32px_-12px_rgba(26,37,48,0.25)] overflow-hidden">
+              {[
+                { code: 'tr', label: 'Türkçe', short: 'TR' },
+                { code: 'en', label: 'English', short: 'EN' },
+              ].map((opt) => {
+                const active = language === opt.code;
+                return (
+                  <li key={opt.code}>
+                    <button
+                      onClick={() => { setLanguage(opt.code); setLangOpen(false); }}
+                      className={`w-full flex items-center justify-between gap-3 px-4 py-3 text-sm text-left transition-colors ${
+                        active
+                          ? 'bg-[#F4F6F8] text-[#1A2530] font-semibold'
+                          : 'text-[#4D5660] hover:bg-[#F4F6F8] hover:text-[#1A2530]'
+                      }`}
+                    >
+                      <span className="flex items-center gap-3">
+                        <span className="font-mono text-xs text-[#5A7A8C]">{opt.short}</span>
+                        <span>{opt.label}</span>
+                      </span>
+                      {active && <Check className="h-3.5 w-3.5 text-[#5A7A8C]" />}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </nav>
     </header>

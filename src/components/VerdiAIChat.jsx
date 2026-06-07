@@ -181,11 +181,11 @@ export default function VerdiAIChat() {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.94 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 pl-4 pr-5 py-3.5 rounded-full bg-[#5A7A8C] text-white shadow-[0_8px_32px_rgba(139,111,61,0.25)] hover:shadow-[0_12px_40px_rgba(139,111,61,0.4)] transition-shadow"
+            className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 pl-4 pr-5 py-3.5 bg-[#1A2530] text-white shadow-[0_8px_32px_rgba(26,37,48,0.35)] hover:shadow-[0_12px_40px_rgba(26,37,48,0.5)] transition-shadow"
           >
             {/* Pulsing ring */}
-            <span className="absolute inset-0 rounded-full bg-[#5A7A8C] animate-ping opacity-20 pointer-events-none" />
-            <div className="relative w-7 h-7 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+            <span className="absolute inset-0 bg-[#1A2530] animate-ping opacity-20 pointer-events-none" />
+            <div className="relative w-7 h-7 bg-white/10 flex items-center justify-center shrink-0">
               <Sparkles className="w-3.5 h-3.5 text-white" />
             </div>
             <span className="text-sm font-semibold tracking-wide relative z-10">Verdi AI</span>

@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, X, GraduationCap, Scale, Globe, Filter, ChevronDown, Search } from 'lucide-react';
+import { Mail, Phone, X, GraduationCap, Scale, Globe, Filter, ChevronDown, Search, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -13,24 +13,33 @@ function MemberCard({ member, onClick }) {
   return (
     <motion.button
       onClick={() => onClick(member)}
-      className="group text-left bg-white border border-[#D6DCE0] hover:border-[#5A7A8C]/60 transition-all"
-      whileHover={{ y: -4, scale: 1.015 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+      className="group text-left bg-white border border-[#D6DCE0] hover:border-[#5A7A8C] hover:shadow-[0_18px_44px_-18px_rgba(26,37,48,0.45)] transition-all relative overflow-hidden"
+      whileHover={{ y: -6, scale: 1.02 }}
+      transition={{ type: 'spring', stiffness: 280, damping: 20 }}
     >
-      <div className="aspect-square overflow-hidden bg-[#C8CFD3]">
+      <div className="aspect-square overflow-hidden bg-[#C8CFD3] relative">
         <img
           src={member.image}
           alt={member.name}
           loading="lazy"
-          className="h-full w-full object-cover grayscale transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-hover:grayscale-0"
+          className="h-full w-full object-cover transition-transform duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
           onError={(e) => {
             e.currentTarget.style.display = 'none';
             e.currentTarget.parentElement.innerHTML = `<div class="flex h-full w-full items-center justify-center bg-[#C8CFD3] font-fraunces text-3xl text-[#5A7A8C]">${member.name.split(' ').map(n => n[0]).slice(0, 2).join('')}</div>`;
           }}
         />
+        {/* Hover'da beliren alttan gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A2530]/85 via-[#1A2530]/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Hover'da beliren "Profili Gör" */}
+        <span className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+          <span>{language === 'tr' ? 'Profili Gör' : 'View Profile'}</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </span>
       </div>
-      <div className="border-t border-[#D6DCE0] p-5">
-        <h3 className="font-fraunces text-lg font-semibold text-[#1A2530] leading-tight">{member.name}</h3>
+      <div className="border-t border-[#D6DCE0] p-5 group-hover:bg-[#F4F6F8] transition-colors">
+        <h3 className="font-fraunces text-lg font-semibold text-[#1A2530] leading-tight group-hover:text-[#5A7A8C] transition-colors">
+          {member.name}
+        </h3>
         <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#5A7A8C]">{title}</p>
         <div className="mt-4 flex items-center gap-3 text-[#A8B0B5]">
           <a
