@@ -412,31 +412,6 @@ export default function PracticeAreasPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section data-nav-theme="dark" className="bg-ink text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20 grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-end">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#c8b68c]">
-              {language === 'tr' ? 'Bizimle Çalışın' : 'Work With Us'}
-            </p>
-            <h2 className="mt-5 font-fraunces text-3xl font-semibold leading-tight md:text-4xl">
-              {language === 'tr'
-                ? 'Hukuki ihtiyaçlarınızı birlikte değerlendirelim.'
-                : 'Let us assess your legal needs together.'}
-            </h2>
-          </Reveal>
-          <Reveal delay={0.15} y={12}>
-            <a
-              href="/iletisim"
-              className="group inline-flex items-center gap-3 border border-white/40 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] transition hover:bg-white hover:text-ink"
-            >
-              {language === 'tr' ? 'İletişime geçin' : 'Contact us'}
-              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );

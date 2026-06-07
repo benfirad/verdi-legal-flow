@@ -51,13 +51,29 @@ export default function Navbar() {
   ];
 
   return (
-    <header className={`pointer-events-none fixed inset-x-0 top-0 z-50 bg-transparent transition-colors duration-200 ${isDark ? 'text-white' : 'text-[#202020]'}`}>
-      <nav className="mx-auto flex h-24 max-w-[1840px] items-center justify-between px-7 lg:px-9">
+    <header
+      className={`pointer-events-none fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        isDark ? 'text-white' : 'text-[#202020]'
+      } ${
+        isScrolled
+          ? isDark
+            ? 'bg-ink/85 backdrop-blur-md border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.25)]'
+            : 'bg-[#f6f4ef]/90 backdrop-blur-md border-b border-[#d8d0bf] shadow-[0_4px_24px_rgba(0,0,0,0.06)]'
+          : 'bg-transparent'
+      }`}
+    >
+      <nav
+        className={`mx-auto flex max-w-[1840px] items-center justify-between px-7 lg:px-9 transition-all duration-300 ${
+          isScrolled ? 'h-16' : 'h-24'
+        }`}
+      >
         <a href="/" className="pointer-events-auto block">
           <img
             src="/assets/logoust.png"
             alt="Verdi"
-            className={`h-12 w-auto object-contain transition duration-200 ${isDark ? 'invert' : ''}`}
+            className={`w-auto object-contain transition-all duration-300 ${isDark ? 'invert' : ''} ${
+              isScrolled ? 'h-8' : 'h-12'
+            }`}
           />
         </a>
 

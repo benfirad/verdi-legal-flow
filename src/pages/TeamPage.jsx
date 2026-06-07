@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, X, GraduationCap, Scale, Globe, Award } from 'lucide-react';
+import { Mail, Phone, X, GraduationCap, Scale, Globe, Award, Filter, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -174,6 +174,19 @@ export default function TeamPage() {
   const [selected, setSelected] = useState(null);
   const [positionFilter, setPositionFilter] = useState('all');
   const [areaFilter, setAreaFilter] = useState('all');
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // ESC ile drawer kapat + body scroll kilidi
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const onKey = (e) => { if (e.key === 'Escape') setDrawerOpen(false); };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [drawerOpen]);
 
   const positionCounts = useMemo(() => {
     const counts = { all: teamMembers.length };
@@ -230,8 +243,8 @@ export default function TeamPage() {
 
       {/* Filtre bölümü */}
       <section data-nav-theme="light" className="border-b border-[#d8d0bf] bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-10 grid gap-10 lg:grid-cols-2">
-          {/* Pozisyon */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-10 grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+          {/* Pozisyon — inline chip'ler */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8b6f3d] mb-4">
               {language === 'tr' ? 'Pozisyon' : 'Position'}
@@ -255,31 +268,59 @@ export default function TeamPage() {
             </div>
           </div>
 
-          {/* Çalışma Alanı */}
+          {/* Çalışma Alanı — drawer trigger */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8b6f3d] mb-4">
               {language === 'tr' ? 'Çalışma Alanı' : 'Practice Area'}
             </p>
-            <div className="flex flex-wrap gap-2">
-              <FilterChip
-                active={areaFilter === 'all'}
-                onClick={() => setAreaFilter('all')}
-                label={language === 'tr' ? 'Tümü' : 'All'}
-                count={areaCounts.all}
-              />
-              {PRACTICE_AREAS.filter((a) => areaCounts[a.id] > 0).map((a) => (
-                <FilterChip
-                  key={a.id}
-                  active={areaFilter === a.id}
-                  onClick={() => setAreaFilter(a.id)}
-                  label={a[language]}
-                  count={areaCounts[a.id]}
-                />
-              ))}
-            </div>
+            <button
+              onClick={() => setDrawerOpen(true)}
+              className="group flex items-center justify-between gap-4 w-full border border-[#d8d0bf] bg-white px-5 py-3.5 text-sm transition hover:border-[#8b6f3d]/60"
+            >
+              <span className="flex items-center gap-3">
+                <Filter className="h-4 w-4 text-[#8b6f3d]" />
+                <span className="text-[#1f1f1f] font-medium">
+                  {areaFilter === 'all'
+                    ? (language === 'tr' ? 'Tüm Alanlar' : 'All Areas')
+                    : (PRACTICE_AREAS.find((a) => a.id === areaFilter)?.[language] || '')}
+                </span>
+                {areaFilter !== 'all' && (
+                  <span
+                    role="button"
+                    tabIndex={0}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setAreaFilter('all');
+                    }}
+                    className="ml-1 inline-flex items-center justify-center h-5 w-5 rounded-full bg-[#8b6f3d]/10 text-[#8b6f3d] hover:bg-[#8b6f3d]/20"
+                  >
+                    <X className="h-3 w-3" />
+                  </span>
+                )}
+              </span>
+              <ChevronDown className="h-4 w-4 text-[#9a8c70] transition group-hover:translate-y-0.5" />
+            </button>
+            <p className="mt-2 text-xs text-[#9a8c70]">
+              {language === 'tr'
+                ? `${filtered.length} kişi gösteriliyor`
+                : `${filtered.length} people shown`}
+            </p>
           </div>
         </div>
       </section>
+
+      {/* Çalışma Alanı Drawer */}
+      <AnimatePresence>
+        {drawerOpen && (
+          <AreaFilterDrawer
+            language={language}
+            areaFilter={areaFilter}
+            setAreaFilter={setAreaFilter}
+            areaCounts={areaCounts}
+            onClose={() => setDrawerOpen(false)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Grup-grup üyeler */}
       <section data-nav-theme="light" className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
@@ -329,5 +370,114 @@ function FilterChip({ active, onClick, label, count }) {
       {label}
       <span className={`text-xs ${active ? 'text-white/60' : 'text-[#9a8c70]'}`}>{count}</span>
     </button>
+  );
+}
+
+function AreaFilterDrawer({ language, areaFilter, setAreaFilter, areaCounts, onClose }) {
+  const visibleAreas = PRACTICE_AREAS.filter((a) => areaCounts[a.id] > 0);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[110]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+    >
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-ink/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
+
+      {/* Drawer paneli (sağdan) */}
+      <motion.aside
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '100%' }}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col"
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-7 py-6 border-b border-[#d8d0bf]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8b6f3d]">
+              {language === 'tr' ? 'Filtre' : 'Filter'}
+            </p>
+            <h3 className="mt-2 font-fraunces text-xl font-semibold text-[#1f1f1f]">
+              {language === 'tr' ? 'Çalışma Alanı' : 'Practice Area'}
+            </h3>
+          </div>
+          <button
+            onClick={onClose}
+            className="flex h-10 w-10 items-center justify-center border border-[#d8d0bf] text-[#5f5b52] hover:text-[#1f1f1f] hover:border-[#8b6f3d]/60 transition"
+            aria-label="Close"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+
+        {/* Liste */}
+        <div className="flex-1 overflow-y-auto px-7 py-6">
+          <ul className="space-y-1">
+            {/* Tümü */}
+            <li>
+              <button
+                onClick={() => { setAreaFilter('all'); onClose(); }}
+                className={`w-full flex items-center justify-between gap-4 px-4 py-3.5 text-left transition ${
+                  areaFilter === 'all'
+                    ? 'bg-[#8b6f3d] text-white'
+                    : 'text-[#1f1f1f] hover:bg-[#f6f4ef]'
+                }`}
+              >
+                <span className="text-sm font-medium">
+                  {language === 'tr' ? 'Tüm Alanlar' : 'All Areas'}
+                </span>
+                <span className={`text-xs font-mono ${areaFilter === 'all' ? 'text-white/70' : 'text-[#9a8c70]'}`}>
+                  {areaCounts.all}
+                </span>
+              </button>
+            </li>
+
+            {visibleAreas.map((a) => {
+              const isActive = areaFilter === a.id;
+              return (
+                <li key={a.id}>
+                  <button
+                    onClick={() => { setAreaFilter(a.id); onClose(); }}
+                    className={`w-full flex items-center justify-between gap-4 px-4 py-3.5 text-left transition ${
+                      isActive
+                        ? 'bg-[#8b6f3d] text-white'
+                        : 'text-[#1f1f1f] hover:bg-[#f6f4ef]'
+                    }`}
+                  >
+                    <span className="text-sm">{a[language]}</span>
+                    <span className={`text-xs font-mono ${isActive ? 'text-white/70' : 'text-[#9a8c70]'}`}>
+                      {areaCounts[a.id]}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        {/* Footer */}
+        <div className="px-7 py-5 border-t border-[#d8d0bf] flex items-center justify-between">
+          <button
+            onClick={() => { setAreaFilter('all'); onClose(); }}
+            className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5f5b52] hover:text-[#1f1f1f] transition"
+          >
+            {language === 'tr' ? 'Temizle' : 'Clear'}
+          </button>
+          <button
+            onClick={onClose}
+            className="bg-ink text-white text-xs font-semibold uppercase tracking-[0.18em] px-6 py-3 hover:bg-ink/90 transition"
+          >
+            {language === 'tr' ? 'Kapat' : 'Close'}
+          </button>
+        </div>
+      </motion.aside>
+    </motion.div>
   );
 }

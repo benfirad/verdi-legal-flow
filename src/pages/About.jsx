@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView, useScroll, useMotionValueEvent } from 'framer-motion';
 import { ArrowRight, Users, Scale, Sparkles, Building2, MessageSquare } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
@@ -104,22 +104,29 @@ export default function About() {
     <div className="bg-[#f6f4ef] text-[#202020] min-h-screen">
       <Navbar />
 
-      {/* ── Tecrübe vurgusu (en üst) ── */}
+      {/* ── Tecrübe vurgusu (en üst, sola hizalı) ── */}
       <section data-nav-theme="light" className="bg-[#f6f4ef] border-b border-[#d8d0bf]">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8 pt-40 pb-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-40 pb-28">
           <Reveal>
-            <div className="grid items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
-              <span className="block font-fraunces text-[96px] md:text-[140px] leading-[0.9] font-semibold text-[#1f1f1f] text-center md:text-left">
+            <div className="grid items-end gap-8 md:grid-cols-[auto_1fr_auto] md:gap-12">
+              <span className="block font-fraunces text-[140px] md:text-[200px] leading-[0.85] font-semibold text-[#1f1f1f]">
                 20<span className="text-[#8b6f3d]">+</span>
               </span>
-              <div className="text-center md:text-left md:border-l md:border-[#d8d0bf] md:pl-12">
+              <div className="md:pb-6">
                 <p className="text-xs uppercase tracking-[0.35em] text-[#8b6f3d] font-semibold">
                   {language === 'tr' ? 'Yıllık Tecrübe' : 'Years of Experience'}
                 </p>
-                <p className="mt-4 text-lg leading-8 text-[#5f5b52]">
+                <p className="mt-4 max-w-md text-lg leading-8 text-[#5f5b52]">
                   {language === 'tr'
                     ? '2003’ten bu yana yerli ve uluslararası iş dünyasına kesintisiz hukuki danışmanlık veriyoruz.'
                     : 'Since 2003, we have been providing uninterrupted legal counsel to domestic and international business.'}
+                </p>
+              </div>
+              {/* Sağ aksent */}
+              <div className="hidden md:flex md:pb-6 items-center gap-3">
+                <div className="h-px w-12 bg-[#8b6f3d]" />
+                <p className="text-[10px] uppercase tracking-[0.35em] text-[#8b6f3d] font-semibold whitespace-nowrap">
+                  {language === 'tr' ? '2003 — Bugün' : '2003 — Today'}
                 </p>
               </div>
             </div>
@@ -226,183 +233,164 @@ export default function About() {
       <ValuesShowcase language={language} />
       {/* renk uyumu için aşağıdaki container'da bir border ayraç kalır */}
 
-      {/* ── CTA ── */}
-      <section data-nav-theme="dark" className="bg-ink text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-end">
-          <Reveal>
-            <p className={EYEBROW_DARK_CLS}>
-              {language === 'tr' ? 'Bizimle Çalışın' : 'Work With Us'}
-            </p>
-            <h2 className="mt-5 font-fraunces text-3xl font-semibold leading-tight md:text-4xl">
-              {language === 'tr'
-                ? 'Hukuki ihtiyaçlarınızı birlikte değerlendirelim.'
-                : 'Let us assess your legal needs together.'}
-            </h2>
-          </Reveal>
-          <Reveal delay={0.15} y={12}>
-            <a
-              href="/iletisim"
-              className="group inline-flex items-center gap-3 border border-white/40 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] transition hover:bg-white hover:text-ink"
-            >
-              {language === 'tr' ? 'İletişime geçin' : 'Contact us'}
-              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
 }
 
-// ── Değerlerimiz interaktif showcase ──
+// ── Değerlerimiz — scroll ile aktifleşen showcase ──
 function ValuesShowcase({ language }) {
+  const containerRef = useRef(null);
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
 
-  // Otomatik dönüş (kullanıcı hover/tıklayınca durur)
-  useEffect(() => {
-    if (paused) return;
-    const id = setInterval(() => setActive((v) => (v + 1) % VALUES.length), 5000);
-    return () => clearInterval(id);
-  }, [paused]);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  });
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    const idx = Math.min(VALUES.length - 1, Math.max(0, Math.floor(latest * VALUES.length)));
+    setActive(idx);
+  });
 
   const current = VALUES[active];
   const ActiveIcon = current.icon;
 
   return (
     <section
+      ref={containerRef}
       data-nav-theme="light"
-      className="bg-white border-b border-[#d8d0bf]"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      className="relative bg-white border-b border-[#d8d0bf]"
+      style={{ height: `${VALUES.length * 90}vh` }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24">
-        <Reveal>
-          <div className="mb-14 max-w-2xl">
-            <p className={EYEBROW_CLS}>
-              {language === 'tr' ? 'Değerlerimiz' : 'Our Values'}
-            </p>
-            <h2 className={SECTION_TITLE_CLS}>
-              {language === 'tr'
-                ? 'Çalışma anlayışımızın temelini oluşturan ilkeler.'
-                : 'The principles that form the foundation of our practice.'}
-            </h2>
-          </div>
-        </Reveal>
-
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] items-stretch">
-          {/* Sol: animasyonlu ikon paneli */}
-          <div className="relative aspect-[4/5] lg:aspect-auto lg:min-h-[460px] overflow-hidden bg-ink">
-            {/* Arka plan dokuları */}
-            <div
-              className="absolute inset-0 pointer-events-none opacity-[0.05]"
-              style={{
-                backgroundImage:
-                  'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
-                backgroundSize: '40px 40px',
-              }}
-            />
-            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-cobalt/30 blur-[100px]" />
-            <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-[#8b6f3d]/20 blur-[100px]" />
-
-            {/* Verdi logosu (yarı saydam, en arka plan) */}
-            <img
-              src="/assets/verdilogo.png"
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 m-auto w-2/3 object-contain brightness-0 invert opacity-[0.07]"
-            />
-
-            {/* Aktif değer ikonu (orta) */}
-            <div className="relative z-10 h-full w-full flex flex-col items-center justify-center p-10">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active}
-                  initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  exit={{ opacity: 0, scale: 0.85, rotate: 8 }}
-                  transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-32 h-32 md:w-40 md:h-40 border border-[#c8b68c]/40 bg-white/[0.04] backdrop-blur-sm flex items-center justify-center"
-                >
-                  <ActiveIcon className="w-14 h-14 md:w-16 md:h-16 text-[#c8b68c]" strokeWidth={1.4} />
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Aktif sayı */}
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={`num-${active}`}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.4 }}
-                  className="mt-10 font-fraunces text-5xl font-semibold text-white"
-                >
-                  {String(active + 1).padStart(2, '0')}
-                  <span className="text-[#c8b68c]">/{String(VALUES.length).padStart(2, '0')}</span>
-                </motion.p>
-              </AnimatePresence>
+      <div className="sticky top-0 h-screen flex items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 w-full">
+          <Reveal>
+            <div className="mb-10 max-w-2xl">
+              <p className={EYEBROW_CLS}>
+                {language === 'tr' ? 'Değerlerimiz' : 'Our Values'}
+              </p>
+              <h2 className={SECTION_TITLE_CLS}>
+                {language === 'tr'
+                  ? 'Çalışma anlayışımızın temelini oluşturan ilkeler.'
+                  : 'The principles that form the foundation of our practice.'}
+              </h2>
             </div>
-          </div>
+          </Reveal>
 
-          {/* Sağ: değişen yazı + numaralı navigasyon */}
-          <div className="flex flex-col">
-            {/* Navigasyon (numaralar) */}
-            <div className="flex flex-wrap gap-2 mb-10">
-              {VALUES.map((v, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActive(i)}
-                  className={`group flex items-center gap-3 border px-4 py-2.5 text-xs uppercase tracking-[0.18em] transition ${
-                    active === i
-                      ? 'border-[#8b6f3d] bg-[#8b6f3d] text-white font-semibold'
-                      : 'border-[#d8d0bf] bg-white text-[#5f5b52] hover:border-[#8b6f3d]/60 hover:text-[#1f1f1f]'
-                  }`}
-                >
-                  <span className="font-mono">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="hidden sm:inline">{v.title[language]}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* İçerik (geçişli) */}
-            <div className="flex-1 flex flex-col justify-center">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`content-${active}`}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <p className={`${EYEBROW_CLS} mb-4`}>
-                    {language === 'tr'
-                      ? `Değer ${String(active + 1).padStart(2, '0')}`
-                      : `Value ${String(active + 1).padStart(2, '0')}`}
-                  </p>
-                  <h3 className="font-fraunces text-3xl md:text-4xl font-semibold leading-tight text-[#1f1f1f]">
-                    {current.title[language]}
-                  </h3>
-                  <p className="mt-6 text-[17px] leading-8 text-[#5f5b52]">
-                    {current.desc[language]}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* İlerleme çubuğu */}
-            <div className="mt-12 h-px bg-[#e4dccb] overflow-hidden">
-              <motion.div
-                key={`bar-${active}-${paused}`}
-                initial={{ width: '0%' }}
-                animate={{ width: paused ? '0%' : '100%' }}
-                transition={{ duration: paused ? 0 : 5, ease: 'linear' }}
-                className="h-full bg-[#8b6f3d]"
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] items-stretch">
+            {/* Sol: animasyonlu ikon paneli */}
+            <div className="relative aspect-[4/5] lg:aspect-auto lg:min-h-[420px] overflow-hidden bg-ink">
+              <div
+                className="absolute inset-0 pointer-events-none opacity-[0.05]"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+                  backgroundSize: '40px 40px',
+                }}
               />
+              <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-cobalt/30 blur-[100px]" />
+              <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-[#8b6f3d]/20 blur-[100px]" />
+
+              <img
+                src="/assets/verdilogo.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 m-auto w-2/3 object-contain brightness-0 invert opacity-[0.07]"
+              />
+
+              <div className="relative z-10 h-full w-full flex flex-col items-center justify-center p-10">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={active}
+                    initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    exit={{ opacity: 0, scale: 0.85, rotate: 8 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="w-32 h-32 md:w-40 md:h-40 border border-[#c8b68c]/40 bg-white/[0.04] backdrop-blur-sm flex items-center justify-center"
+                  >
+                    <ActiveIcon className="w-14 h-14 md:w-16 md:h-16 text-[#c8b68c]" strokeWidth={1.4} />
+                  </motion.div>
+                </AnimatePresence>
+
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={`num-${active}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.4 }}
+                    className="mt-8 font-fraunces text-4xl md:text-5xl font-semibold text-white"
+                  >
+                    {String(active + 1).padStart(2, '0')}
+                    <span className="text-[#c8b68c]">/{String(VALUES.length).padStart(2, '0')}</span>
+                  </motion.p>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* Sağ: değişen yazı + scroll progress göstergesi */}
+            <div className="flex flex-col">
+              {/* Dikey progress + numaralı göstergeler */}
+              <div className="mb-10 flex items-center gap-6">
+                <div className="relative h-1 flex-1 bg-[#e4dccb] overflow-hidden">
+                  <motion.div
+                    className="absolute inset-y-0 left-0 bg-[#8b6f3d]"
+                    style={{ width: `${((active + 1) / VALUES.length) * 100}%` }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </div>
+                <span className="text-xs font-mono text-[#9a8c70] whitespace-nowrap">
+                  {String(active + 1).padStart(2, '0')} / {String(VALUES.length).padStart(2, '0')}
+                </span>
+              </div>
+
+              {/* İçerik (geçişli) */}
+              <div className="flex-1 flex flex-col justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`content-${active}`}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <p className={`${EYEBROW_CLS} mb-4`}>
+                      {language === 'tr'
+                        ? `Değer ${String(active + 1).padStart(2, '0')}`
+                        : `Value ${String(active + 1).padStart(2, '0')}`}
+                    </p>
+                    <h3 className="font-fraunces text-3xl md:text-4xl font-semibold leading-tight text-[#1f1f1f]">
+                      {current.title[language]}
+                    </h3>
+                    <p className="mt-6 text-[17px] leading-8 text-[#5f5b52]">
+                      {current.desc[language]}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Tüm değerlerin küçük listesi */}
+              <ul className="mt-10 grid grid-cols-5 gap-1">
+                {VALUES.map((v, i) => (
+                  <li
+                    key={i}
+                    className={`text-[10px] uppercase tracking-[0.15em] py-3 border-t-2 transition-colors ${
+                      active === i
+                        ? 'border-[#8b6f3d] text-[#1f1f1f] font-semibold'
+                        : 'border-[#e4dccb] text-[#9a8c70]'
+                    }`}
+                  >
+                    <span className="font-mono mr-1">{String(i + 1).padStart(2, '0')}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+
+          <p className="mt-8 text-center text-[10px] uppercase tracking-[0.3em] text-[#9a8c70]">
+            {language === 'tr' ? 'Aşağı kaydırın' : 'Scroll down'} ↓
+          </p>
         </div>
       </div>
     </section>
