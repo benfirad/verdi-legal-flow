@@ -57,7 +57,7 @@ function SuccessMessage({ language }) {
       <h3 className="font-fraunces text-2xl font-bold text-bone">
         {language === 'tr' ? 'Mesajınız İletildi!' : 'Message Sent!'}
       </h3>
-      <p className="text-muted-foreground max-w-sm">
+      <p className="text-steel max-w-sm">
         {language === 'tr'
           ? 'En kısa sürede ekibimiz size dönüş yapacaktır. Teşekkür ederiz.'
           : 'Our team will get back to you as soon as possible. Thank you.'}
@@ -129,7 +129,7 @@ export default function ContactPage() {
                       <info.icon className="w-5 h-5 text-cobalt" />
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{info.label}</p>
+                      <p className="text-xs text-steel/80 uppercase tracking-wider mb-1">{info.label}</p>
                       <p className="text-bone font-medium text-sm leading-relaxed">{info.value}</p>
                     </div>
                   </motion.div>
@@ -149,8 +149,8 @@ export default function ContactPage() {
                 <div className="flex flex-col gap-2.5">
                   {WORKING_HOURS[language].map((row, i) => (
                     <div key={i} className="flex justify-between items-center text-sm">
-                      <span className="text-muted-foreground">{row.day}</span>
-                      <span className={`font-medium ${row.hours === 'Kapalı' || row.hours === 'Closed' ? 'text-muted-foreground/50' : 'text-bone'}`}>{row.hours}</span>
+                      <span className="text-steel/80">{row.day}</span>
+                      <span className={`font-medium ${row.hours === 'Kapalı' || row.hours === 'Closed' ? 'text-steel/40' : 'text-bone'}`}>{row.hours}</span>
                     </div>
                   ))}
                 </div>
@@ -194,27 +194,27 @@ export default function ContactPage() {
 
                       <div className="grid md:grid-cols-2 gap-5">
                         <div className="space-y-1.5">
-                          <label className="text-xs text-muted-foreground uppercase tracking-wider">{t('contact.form.name')} *</label>
+                          <label className="text-xs text-steel/80 uppercase tracking-wider">{t('contact.form.name')} *</label>
                           <Input value={formData.name} onChange={set('name')} required
-                            className="h-11 bg-ink/60 border-border/30 focus:border-cobalt text-bone placeholder:text-muted-foreground/40" />
+                            className="h-11 bg-ink/60 border-border/30 focus:border-cobalt text-bone placeholder:text-steel/40" />
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-xs text-muted-foreground uppercase tracking-wider">{t('contact.form.email')} *</label>
+                          <label className="text-xs text-steel/80 uppercase tracking-wider">{t('contact.form.email')} *</label>
                           <Input type="email" value={formData.email} onChange={set('email')} required
-                            className="h-11 bg-ink/60 border-border/30 focus:border-cobalt text-bone placeholder:text-muted-foreground/40" />
+                            className="h-11 bg-ink/60 border-border/30 focus:border-cobalt text-bone placeholder:text-steel/40" />
                         </div>
                       </div>
 
                       <div className="grid md:grid-cols-2 gap-5">
                         <div className="space-y-1.5">
-                          <label className="text-xs text-muted-foreground uppercase tracking-wider">{t('contact.form.phone')}</label>
+                          <label className="text-xs text-steel/80 uppercase tracking-wider">{t('contact.form.phone')}</label>
                           <Input type="tel" value={formData.phone} onChange={set('phone')}
-                            className="h-11 bg-ink/60 border-border/30 focus:border-cobalt text-bone placeholder:text-muted-foreground/40" />
+                            className="h-11 bg-ink/60 border-border/30 focus:border-cobalt text-bone placeholder:text-steel/40" />
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-xs text-muted-foreground uppercase tracking-wider">{t('contact.form.subject')}</label>
+                          <label className="text-xs text-steel/80 uppercase tracking-wider">{t('contact.form.subject')}</label>
                           <Select value={formData.subject} onValueChange={v => setFormData(p => ({ ...p, subject: v }))}>
-                            <SelectTrigger className="h-11 bg-ink/60 border-border/30 text-bone data-[placeholder]:text-muted-foreground/40">
+                            <SelectTrigger className="h-11 bg-ink/60 border-border/30 text-bone data-[placeholder]:text-steel/40">
                               <SelectValue placeholder={t('contact.form.selectSubject')} />
                             </SelectTrigger>
                             <SelectContent>
@@ -227,9 +227,9 @@ export default function ContactPage() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs text-muted-foreground uppercase tracking-wider">{t('contact.form.message')} *</label>
+                        <label className="text-xs text-steel/80 uppercase tracking-wider">{t('contact.form.message')} *</label>
                         <Textarea value={formData.message} onChange={set('message')} required
-                          className="min-h-[160px] bg-ink/60 border-border/30 focus:border-cobalt text-bone resize-none placeholder:text-muted-foreground/40" />
+                          className="min-h-[160px] bg-ink/60 border-border/30 focus:border-cobalt text-bone resize-none placeholder:text-steel/40" />
                       </div>
 
                       <motion.button
