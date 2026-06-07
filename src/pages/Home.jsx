@@ -155,7 +155,7 @@ export default function Home() {
             <div className="mt-20 flex flex-col justify-between gap-6 border-t border-[#d8d0bf] pt-10 md:flex-row md:items-end">
               <Reveal>
                 <h3 className={SUB_TITLE_CLS}>
-                  {language === 'tr' ? 'Ortaklarımız' : 'Our Partners'}
+                  {language === 'tr' ? 'Ekibimiz' : 'Our Team'}
                 </h3>
               </Reveal>
               <Reveal delay={0.1} y={12}>
