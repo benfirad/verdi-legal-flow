@@ -225,7 +225,7 @@ export default function TeamPage() {
       <Navbar />
 
       {/* Hero */}
-      <section data-nav-theme="light" className="border-b border-[#d8d0bf]">
+      <section data-nav-theme="light" className="bg-white border-b border-[#d8d0bf]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-36 pb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d]">
             {language === 'tr' ? 'Ekibimiz' : 'Our Team'}
