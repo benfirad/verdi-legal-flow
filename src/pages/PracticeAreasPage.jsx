@@ -5,7 +5,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
-const PRACTICE_AREAS = [
+export const PRACTICE_AREAS = [
   {
     id: 'banking',
     tr: {

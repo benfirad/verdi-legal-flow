@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useLanguage } from '@/lib/LanguageContext';
 import { teamMembers } from '@/lib/teamData';
-import PracticeAreaTree from '@/components/PracticeAreaTree';
+import { PRACTICE_AREAS } from './PracticeAreasPage';
 
 // Tüm bölüm başlıkları için ortak standart — Hakkımızda bloğuyla aynı oran
 const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d]';
@@ -73,6 +73,24 @@ function SectionHeader({ eyebrow, title, action }) {
 export default function Home() {
   const { language, t } = useLanguage();
   const featuredTeam = teamMembers.filter((m) => m.position === 'partner');
+  const [activeId, setActiveId] = useState(PRACTICE_AREAS[0].id);
+
+  // Scroll spy — hangi bölüm görünür ise sidebar'da işaretle
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveId(e.target.id);
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+    PRACTICE_AREAS.forEach((a) => {
+      const el = document.getElementById(a.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#f6f4ef] text-[#202020]">
@@ -197,9 +215,110 @@ export default function Home() {
               />
             </div>
 
-            <Reveal delay={0.2}>
-              <PracticeAreaTree dark={false} />
-            </Reveal>
+            <div className="grid gap-12 lg:grid-cols-[280px_1fr] mt-12">
+              {/* Sidebar */}
+              <aside className="lg:sticky lg:top-32 lg:self-start">
+                <p className={`${EYEBROW_CLS} mb-6`}>
+                  {language === 'tr' ? 'Alanlar' : 'Areas'}
+                </p>
+                <nav>
+                  <ul className="space-y-1">
+                    {PRACTICE_AREAS.map((area, i) => {
+                      const isActive = activeId === area.id;
+                      return (
+                        <li key={area.id}>
+                          <a
+                            href={`#${area.id}`}
+                            className={`group flex items-center gap-3 border-l-2 py-2.5 pl-4 text-sm transition ${
+                              isActive
+                                ? 'border-[#8b6f3d] text-[#1f1f1f] font-semibold'
+                                : 'border-transparent text-[#5f5b52] hover:text-[#1f1f1f] hover:border-[#d8d0bf]'
+                            }`}
+                          >
+                            <span className="text-xs font-mono text-[#9a8c70]">
+                              {String(i + 1).padStart(2, '0')}
+                            </span>
+                            <span>{area[language].title}</span>
+                            <ChevronRight
+                              className={`ml-auto h-3.5 w-3.5 transition ${
+                                isActive ? 'translate-x-1 text-[#8b6f3d]' : 'opacity-0 group-hover:opacity-100'
+                              }`}
+                            />
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </nav>
+              </aside>
+
+              {/* Detail blocks */}
+              <div>
+                {PRACTICE_AREAS.map((area, i) => {
+                  const content = area[language];
+                  return (
+                    <article
+                      key={area.id}
+                      id={area.id}
+                      className="scroll-mt-32 border-b border-[#d8d0bf] py-14 first:pt-0 last:border-b-0"
+                    >
+                      <Reveal>
+                        <div className="flex items-baseline gap-4 mb-6">
+                          <span className="font-fraunces text-5xl font-semibold text-[#d4c4a3]">
+                            {String(i + 1).padStart(2, '0')}
+                          </span>
+                          <h2 className="font-fraunces text-3xl font-semibold leading-tight text-[#1f1f1f] md:text-4xl">
+                            {content.title}
+                          </h2>
+                        </div>
+                        <p className="text-lg leading-8 text-[#5f5b52] max-w-3xl">
+                          {content.lede}
+                        </p>
+                      </Reveal>
+
+                      <Reveal delay={0.1}>
+                        <div className="mt-8">
+                          <p className={`${EYEBROW_CLS} mb-5`}>
+                            {language === 'tr' ? 'Hizmetlerimiz' : 'Services'}
+                          </p>
+                          <ul className="grid gap-3 sm:grid-cols-2">
+                            {content.services.map((s, j) => (
+                              <li
+                                key={j}
+                                className="flex items-start gap-3 border-l-2 border-[#d8d0bf] pl-4 py-2 text-[15px] text-[#3a3a3a] hover:border-[#8b6f3d] transition-colors"
+                              >
+                                <span className="font-mono text-xs text-[#9a8c70] mt-1.5 shrink-0">
+                                  {String(j + 1).padStart(2, '0')}
+                                </span>
+                                {s}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </Reveal>
+
+                      <Reveal delay={0.2}>
+                        <div className="mt-8 flex flex-wrap items-center gap-6 text-sm">
+                          <a
+                            href="/iletisim"
+                            className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#1f1f1f] text-xs"
+                          >
+                            {language === 'tr' ? 'Bu konuda danışın' : 'Get advice'}
+                            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                          </a>
+                          <a
+                            href="/ekibimiz"
+                            className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8b6f3d] hover:text-[#1f1f1f] transition"
+                          >
+                            {language === 'tr' ? 'İlgili ekip' : 'Related team'}
+                          </a>
+                        </div>
+                      </Reveal>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </section>
       </main>
