@@ -157,7 +157,7 @@ export default function About() {
             <figure className="relative">
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=900&q=80"
+                  src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=900&q=85"
                   alt="Verdi Hukuk Bürosu"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />

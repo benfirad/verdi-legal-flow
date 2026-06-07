@@ -263,7 +263,7 @@ export default function PracticeAreasPage() {
       {/* Hero */}
       <section data-nav-theme="dark" className="relative overflow-hidden bg-[#1A2530] text-white">
         <img
-          src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=2400&q=90"
+          src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=2400&q=90"
           alt={language === 'tr' ? 'Hukuk kütüphanesi' : 'Law library'}
           className="absolute inset-0 h-full w-full object-cover object-center grayscale"
         />
