@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -205,22 +205,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Çalışma Alanları ── */}
-        <section id="practice-areas" data-nav-theme="light" className="bg-[#f6f4ef]">
-          <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-            <div className="mb-12 border-b border-[#d8d0bf] pb-8">
-              <SectionHeader
-                eyebrow={t('practiceAreas.title')}
-                title={t('practiceAreas.subtitle')}
-                action={
-                  <a href="/calisma-alanlari" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#6d5b35]">
-                    {language === 'tr' ? 'Tüm alanlar' : 'All practices'}
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </a>
-                }
-              />
-            </div>
+        {/* ── Çalışma Alanları — yatay kart carousel ── */}
+        <PracticeAreasCarousel language={language} t={t} />
 
+        {/* Eski sticky-sidebar layout kaldırıldı — yerine carousel geldi */}
+        {false && (
+        <section id="practice-areas-legacy" data-nav-theme="light" className="hidden bg-[#f6f4ef]">
+          <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
             <div className="grid gap-12 lg:grid-cols-[280px_1fr] mt-12">
               {/* Sidebar */}
               <aside className="lg:sticky lg:top-32 lg:self-start">
@@ -330,9 +321,169 @@ export default function Home() {
             </div>
           </div>
         </section>
+        )}
       </main>
 
       <Footer />
+    </div>
+  );
+}
+
+// ── Çalışma Alanları — yatay scroll-driven carousel ──
+function PracticeAreasCarousel({ language, t }) {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  });
+
+  // 9 kart × her biri viewport genişliği; toplam yatay yer değiştirme = (n-1) * 100vw
+  const total = PRACTICE_AREAS.length;
+  // İlk kart başlık panelinin yanında dursun: 100vw - başlık paneli (yaklaşık)
+  // Kartlar sağdan sola kayar. Negatif x kullanıyoruz.
+  const xPercent = useTransform(scrollYProgress, [0, 1], ['0%', `-${(total) * 100}%`]);
+
+  return (
+    <section
+      ref={containerRef}
+      data-nav-theme="light"
+      className="relative bg-[#f6f4ef]"
+      style={{ height: `${total * 80}vh` }}
+    >
+      <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
+        {/* Üst başlık */}
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-8 pt-24 pb-8">
+          <SectionHeader
+            eyebrow={t('practiceAreas.title')}
+            title={t('practiceAreas.subtitle')}
+            action={
+              <a href="/calisma-alanlari" className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#6d5b35]">
+                {language === 'tr' ? 'Tüm alanlar' : 'All practices'}
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              </a>
+            }
+          />
+        </div>
+
+        {/* Yatay kayan kartlar */}
+        <div className="flex-1 flex items-center overflow-hidden">
+          <motion.div
+            style={{ x: xPercent }}
+            className="flex gap-6 px-6 lg:px-8 will-change-transform"
+          >
+            {PRACTICE_AREAS.map((area, i) => {
+              const content = area[language];
+              return (
+                <article
+                  key={area.id}
+                  className="relative shrink-0 w-[88vw] max-w-[720px] h-[60vh] max-h-[520px] bg-white border border-[#d8d0bf] p-10 md:p-12 flex flex-col"
+                >
+                  {/* Numara + gradient aksenti */}
+                  <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#8b6f3d] to-transparent" />
+                  <div className="flex items-baseline gap-4 mb-6">
+                    <span className="font-fraunces text-6xl font-semibold text-[#d4c4a3]">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-xs font-mono text-[#9a8c70]">
+                      / {String(total).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  <h3 className="font-fraunces text-2xl md:text-3xl font-semibold leading-tight text-[#1f1f1f]">
+                    {content.title}
+                  </h3>
+
+                  <p className="mt-4 text-[15px] leading-7 text-[#5f5b52] line-clamp-4">
+                    {content.lede}
+                  </p>
+
+                  {/* Hizmet özetleri */}
+                  <ul className="mt-6 space-y-2 flex-1 overflow-hidden">
+                    {content.services.slice(0, 3).map((s, j) => (
+                      <li key={j} className="flex items-start gap-3 text-sm text-[#3a3a3a]">
+                        <span className="font-mono text-xs text-[#9a8c70] mt-1">
+                          {String(j + 1).padStart(2, '0')}
+                        </span>
+                        <span className="truncate">{s}</span>
+                      </li>
+                    ))}
+                    {content.services.length > 3 && (
+                      <li className="text-xs text-[#9a8c70] pl-7">
+                        +{content.services.length - 3} {language === 'tr' ? 'hizmet daha' : 'more services'}
+                      </li>
+                    )}
+                  </ul>
+
+                  {/* CTA */}
+                  <a
+                    href="/calisma-alanlari"
+                    className="group mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#1f1f1f]"
+                  >
+                    {language === 'tr' ? 'Detayları gör' : 'See details'}
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </a>
+                </article>
+              );
+            })}
+
+            {/* Son kart (CTA) */}
+            <article className="relative shrink-0 w-[88vw] max-w-[720px] h-[60vh] max-h-[520px] bg-ink text-white p-10 md:p-12 flex flex-col justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#c8b68c]">
+                  {language === 'tr' ? 'Tüm uzmanlık alanları' : 'All practice areas'}
+                </p>
+                <h3 className="mt-6 font-fraunces text-2xl md:text-3xl font-semibold leading-tight">
+                  {language === 'tr'
+                    ? `${total} farklı alanda derin uzmanlık.`
+                    : `Deep expertise in ${total} distinct areas.`}
+                </h3>
+              </div>
+              <a
+                href="/calisma-alanlari"
+                className="group inline-flex items-center gap-3 border border-white/40 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] hover:bg-white hover:text-ink transition self-start"
+              >
+                {language === 'tr' ? 'Tümünü keşfet' : 'Explore all'}
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              </a>
+            </article>
+          </motion.div>
+        </div>
+
+        {/* Alt progress + ipucu */}
+        <CarouselProgress scrollYProgress={scrollYProgress} total={total} language={language} />
+      </div>
+    </section>
+  );
+}
+
+function CarouselProgress({ scrollYProgress, total, language }) {
+  const widthPercent = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const [current, setCurrent] = useState(1);
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on('change', (v) => {
+      const i = Math.min(total + 1, Math.max(1, Math.floor(v * (total + 1)) + 1));
+      setCurrent(i);
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress, total]);
+
+  return (
+    <div className="mx-auto w-full max-w-7xl px-6 lg:px-8 pb-10">
+      <div className="flex items-center gap-6">
+        <div className="relative h-px flex-1 bg-[#d8d0bf]">
+          <motion.div
+            className="absolute left-0 top-0 h-full bg-[#8b6f3d]"
+            style={{ width: widthPercent }}
+          />
+        </div>
+        <span className="text-xs font-mono text-[#9a8c70] whitespace-nowrap">
+          {String(current).padStart(2, '0')} / {String(total + 1).padStart(2, '0')}
+        </span>
+      </div>
+      <p className="mt-3 text-center text-[10px] uppercase tracking-[0.3em] text-[#9a8c70]">
+        {language === 'tr' ? 'Aşağı kaydırın' : 'Scroll down'} →
+      </p>
     </div>
   );
 }
