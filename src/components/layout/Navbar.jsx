@@ -130,7 +130,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-auto fixed inset-0 z-50 bg-black/45 lg:hidden"
+            className="pointer-events-auto fixed inset-0 z-50 bg-black/45"
           >
             <motion.div
               initial={{ x: '100%' }}
