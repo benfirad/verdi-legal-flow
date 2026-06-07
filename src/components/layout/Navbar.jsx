@@ -51,12 +51,12 @@ export default function Navbar() {
   return (
     <header
       className={`pointer-events-none fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        isDark ? 'text-white' : 'text-[#2A1A14]'
+        isDark ? 'text-white' : 'text-[#0A1428]'
       } ${
         isScrolled
           ? isDark
             ? 'bg-ink/85 backdrop-blur-md border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.25)]'
-            : 'bg-[#F4EBD9]/90 backdrop-blur-md border-b border-[#D9CFB6] shadow-[0_4px_24px_rgba(0,0,0,0.06)]'
+            : 'bg-[#F1EEE7]/90 backdrop-blur-md border-b border-[#D4DAE3] shadow-[0_4px_24px_rgba(0,0,0,0.06)]'
           : 'bg-transparent'
       }`}
     >
@@ -133,7 +133,7 @@ export default function Navbar() {
           >
             EN
           </button>
-          <span className={isDark ? 'text-white/35' : 'text-[#2A1A14]/35'}>|</span>
+          <span className={isDark ? 'text-white/35' : 'text-[#0A1428]/35'}>|</span>
           <button
             onClick={() => setLanguage('tr')}
             className={`transition hover:opacity-100 ${language === 'tr' ? 'opacity-100 font-bold' : 'opacity-40'}`}

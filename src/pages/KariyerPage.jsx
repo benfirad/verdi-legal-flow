@@ -134,23 +134,23 @@ export default function KariyerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4EBD9] text-[#2A1A14]">
+    <div className="min-h-screen bg-[#F1EEE7] text-[#0A1428]">
       <Navbar />
 
       {/* Hero Section */}
-      <section data-nav-theme="light" className="relative overflow-hidden bg-white text-[#2A1A14] pt-36 pb-16 border-b border-[#D9CFB6]">
+      <section data-nav-theme="light" className="relative overflow-hidden bg-white text-[#0A1428] pt-36 pb-16 border-b border-[#D4DAE3]">
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8" ref={headerRef}>
           <motion.div className="flex items-center gap-3 mb-6"
             initial={{ opacity: 0, x: -20 }} animate={headerInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
-            <div className="w-8 h-px bg-[#9C7B3F]" />
-            <span className="text-xs tracking-[0.35em] uppercase text-[#9C7B3F] font-semibold">{l.badge}</span>
+            <div className="w-8 h-px bg-[#B8946B]" />
+            <span className="text-xs tracking-[0.35em] uppercase text-[#B8946B] font-semibold">{l.badge}</span>
           </motion.div>
-          <motion.h1 className="font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold text-[#2A1A14] leading-tight mb-6 whitespace-pre-line"
+          <motion.h1 className="font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0A1428] leading-tight mb-6 whitespace-pre-line"
             initial={{ opacity: 0, y: 40 }} animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
             {l.title}
           </motion.h1>
-          <motion.p className="text-[#6B5340] text-base md:text-lg max-w-2xl leading-relaxed font-light"
+          <motion.p className="text-[#475569] text-base md:text-lg max-w-2xl leading-relaxed font-light"
             initial={{ opacity: 0 }} animate={headerInView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}>
             {l.sub}
           </motion.p>
@@ -158,11 +158,11 @@ export default function KariyerPage() {
       </section>
 
       {/* Culture & Values */}
-      <section data-nav-theme="light" className="bg-[#F4EBD9] border-b border-[#D9CFB6]/40 py-24 px-6 lg:px-8">
+      <section data-nav-theme="light" className="bg-[#F1EEE7] border-b border-[#D4DAE3]/40 py-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#9C7B3F] mb-3">{l.cultureTitle}</p>
-            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#2A1A14]">{l.cultureSub}</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#B8946B] mb-3">{l.cultureTitle}</p>
+            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#0A1428]">{l.cultureSub}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -176,13 +176,13 @@ export default function KariyerPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6, scale: 1.015 }}
-                  className="bg-white p-8 border border-[#D9CFB6] rounded-sm hover:shadow-[0_12px_36px_rgba(139,111,61,0.06)] hover:border-[#9C7B3F]/50 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group"
+                  className="bg-white p-8 border border-[#D4DAE3] rounded-sm hover:shadow-[0_12px_36px_rgba(139,111,61,0.06)] hover:border-[#B8946B]/50 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group"
                 >
-                  <div className="w-12 h-12 rounded-sm bg-[#c9a87c]/10 border border-[#c9a87c]/30 flex items-center justify-center text-[#9C7B3F] mb-6 group-hover:bg-[#c9a87c] group-hover:text-white transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]">
+                  <div className="w-12 h-12 rounded-sm bg-[#c9a87c]/10 border border-[#c9a87c]/30 flex items-center justify-center text-[#B8946B] mb-6 group-hover:bg-[#c9a87c] group-hover:text-white transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]">
                     <IconComponent className="w-5 h-5" />
                   </div>
-                  <h3 className="font-semibold text-lg text-[#2A1A14] mb-3">{val.title}</h3>
-                  <p className="text-sm text-[#6B5340] leading-relaxed font-light">{val.desc}</p>
+                  <h3 className="font-semibold text-lg text-[#0A1428] mb-3">{val.title}</h3>
+                  <p className="text-sm text-[#475569] leading-relaxed font-light">{val.desc}</p>
                 </motion.div>
               );
             })}
@@ -191,12 +191,12 @@ export default function KariyerPage() {
       </section>
 
       {/* Open Positions */}
-      <section data-nav-theme="light" className="bg-[#F4EBD9] py-24 px-6 lg:px-8">
+      <section data-nav-theme="light" className="bg-[#F1EEE7] py-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#D9CFB6] pb-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#D4DAE3] pb-6 mb-12">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#9C7B3F] mb-3">{l.badge}</p>
-              <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#2A1A14]">{l.openPos}</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#B8946B] mb-3">{l.badge}</p>
+              <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#0A1428]">{l.openPos}</h2>
             </div>
           </div>
 
@@ -209,17 +209,17 @@ export default function KariyerPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -4, scale: 1.015 }}
-                className="border border-[#D9CFB6] rounded-sm p-6 bg-white hover:border-[#9C7B3F]/50 hover:shadow-[0_12px_36px_rgba(139,111,61,0.06)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group"
+                className="border border-[#D4DAE3] rounded-sm p-6 bg-white hover:border-[#B8946B]/50 hover:shadow-[0_12px_36px_rgba(139,111,61,0.06)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-semibold text-base text-[#2A1A14] mb-1 group-hover:text-[#9C7B3F] transition-colors">{p.title}</h3>
-                    <p className="text-[#6B5340] text-xs uppercase tracking-wider font-medium">{p.dept}</p>
+                    <h3 className="font-semibold text-base text-[#0A1428] mb-1 group-hover:text-[#B8946B] transition-colors">{p.title}</h3>
+                    <p className="text-[#475569] text-xs uppercase tracking-wider font-medium">{p.dept}</p>
                   </div>
                   <span className={`text-xs px-3 py-1 rounded-sm border shrink-0 font-medium ${
                     p.type === 'Staj' || p.type === 'Internship'
-                      ? 'bg-[#c9a87c]/10 border-[#c9a87c]/30 text-[#9C7B3F]'
-                      : 'bg-[#2A1A14]/5 border-[#2A1A14]/10 text-[#2A1A14]/70'
+                      ? 'bg-[#c9a87c]/10 border-[#c9a87c]/30 text-[#B8946B]'
+                      : 'bg-[#0A1428]/5 border-[#0A1428]/10 text-[#0A1428]/70'
                   }`}>
                     {p.type}
                   </span>
@@ -231,70 +231,70 @@ export default function KariyerPage() {
       </section>
 
       {/* Application Form */}
-      <section data-nav-theme="light" className="bg-[#F4EBD9] pb-28 px-6 lg:px-8">
+      <section data-nav-theme="light" className="bg-[#F1EEE7] pb-28 px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white border border-[#D9CFB6] rounded-sm p-8 md:p-12 shadow-[0_12px_40px_rgba(0,0,0,0.01)]"
+            className="bg-white border border-[#D4DAE3] rounded-sm p-8 md:p-12 shadow-[0_12px_40px_rgba(0,0,0,0.01)]"
           >
-            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#2A1A14] border-b border-[#D9CFB6] pb-6 mb-8">{l.applyTitle}</h2>
+            <h2 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#0A1428] border-b border-[#D4DAE3] pb-6 mb-8">{l.applyTitle}</h2>
 
             {success ? (
               <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
                 className="bg-green-500/5 border border-green-500/20 rounded-sm p-10 text-center">
                 <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="font-semibold text-lg text-[#2A1A14] mb-2">{l.successTitle}</h3>
-                <p className="text-[#6B5340] text-sm">{l.successMsg}</p>
+                <h3 className="font-semibold text-lg text-[#0A1428] mb-2">{l.successTitle}</h3>
+                <p className="text-[#475569] text-sm">{l.successMsg}</p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#6B5340] mb-2">{l.name} *</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#475569] mb-2">{l.name} *</label>
                     <input required value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                      className="w-full px-4 py-3 border border-[#D9CFB6] rounded-sm bg-white text-[#2A1A14] text-sm focus:outline-none focus:border-[#9C7B3F] transition-colors" />
+                      className="w-full px-4 py-3 border border-[#D4DAE3] rounded-sm bg-white text-[#0A1428] text-sm focus:outline-none focus:border-[#B8946B] transition-colors" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#6B5340] mb-2">{l.email} *</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#475569] mb-2">{l.email} *</label>
                     <input required type="email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                      className="w-full px-4 py-3 border border-[#D9CFB6] rounded-sm bg-white text-[#2A1A14] text-sm focus:outline-none focus:border-[#9C7B3F] transition-colors" />
+                      className="w-full px-4 py-3 border border-[#D4DAE3] rounded-sm bg-white text-[#0A1428] text-sm focus:outline-none focus:border-[#B8946B] transition-colors" />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#6B5340] mb-2">{l.phone}</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#475569] mb-2">{l.phone}</label>
                     <input value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-                      className="w-full px-4 py-3 border border-[#D9CFB6] rounded-sm bg-white text-[#2A1A14] text-sm focus:outline-none focus:border-[#9C7B3F] transition-colors" />
+                      className="w-full px-4 py-3 border border-[#D4DAE3] rounded-sm bg-white text-[#0A1428] text-sm focus:outline-none focus:border-[#B8946B] transition-colors" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#6B5340] mb-2">{l.position} *</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#475569] mb-2">{l.position} *</label>
                     <div className="relative">
                       <select required value={form.position} onChange={e => setForm(f => ({ ...f, position: e.target.value }))}
-                        className="w-full px-4 py-3 border border-[#D9CFB6] rounded-sm bg-white text-[#2A1A14] text-sm focus:outline-none focus:border-[#9C7B3F] transition-colors appearance-none cursor-pointer">
+                        className="w-full px-4 py-3 border border-[#D4DAE3] rounded-sm bg-white text-[#0A1428] text-sm focus:outline-none focus:border-[#B8946B] transition-colors appearance-none cursor-pointer">
                         <option value="">{l.posPlaceholder}</option>
                         {pos.map((p, i) => <option key={i} value={p.title}>{p.title}</option>)}
                         <option value={language === 'tr' ? 'Açık Başvuru' : 'Open Application'}>{language === 'tr' ? 'Açık Başvuru' : 'Open Application'}</option>
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#6B5340]">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#475569]">
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#6B5340] mb-2">{l.message}</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#475569] mb-2">{l.message}</label>
                   <textarea rows={4} value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                    className="w-full px-4 py-3 border border-[#D9CFB6] rounded-sm bg-white text-[#2A1A14] text-sm focus:outline-none focus:border-[#9C7B3F] transition-colors resize-none" />
+                    className="w-full px-4 py-3 border border-[#D4DAE3] rounded-sm bg-white text-[#0A1428] text-sm focus:outline-none focus:border-[#B8946B] transition-colors resize-none" />
                 </div>
 
                 {/* CV Upload */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#6B5340] mb-2">{l.cvLabel}</label>
-                  <label className="flex items-center gap-3 px-4 py-4 border border-dashed border-[#c9a87c]/40 rounded-sm bg-[#c9a87c]/5 cursor-pointer hover:bg-[#c9a87c]/10 hover:border-[#9C7B3F] transition-all group">
-                    <Upload className="w-4 h-4 text-[#9C7B3F]/70 group-hover:text-[#9C7B3F] transition-colors" />
-                    <span className="text-sm text-[#6B5340] group-hover:text-[#2A1A14] transition-colors font-medium">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#475569] mb-2">{l.cvLabel}</label>
+                  <label className="flex items-center gap-3 px-4 py-4 border border-dashed border-[#c9a87c]/40 rounded-sm bg-[#c9a87c]/5 cursor-pointer hover:bg-[#c9a87c]/10 hover:border-[#B8946B] transition-all group">
+                    <Upload className="w-4 h-4 text-[#B8946B]/70 group-hover:text-[#B8946B] transition-colors" />
+                    <span className="text-sm text-[#475569] group-hover:text-[#0A1428] transition-colors font-medium">
                       {cvFile ? cvFile.name : l.cvBtn}
                     </span>
                     <input type="file" accept=".pdf,.doc,.docx" className="hidden"
@@ -304,7 +304,7 @@ export default function KariyerPage() {
 
                 <motion.button
                   type="submit" disabled={loading}
-                  className="flex items-center gap-3 px-8 py-4 bg-[#2A1A14] text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-[#9C7B3F] hover:text-white transition-all disabled:opacity-60 w-full justify-center shadow-md hover:shadow-lg"
+                  className="flex items-center gap-3 px-8 py-4 bg-[#0A1428] text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-[#B8946B] hover:text-white transition-all disabled:opacity-60 w-full justify-center shadow-md hover:shadow-lg"
                   whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.98 }}>
                   {loading ? l.sending : <><Send className="w-4 h-4" />{l.submit}</>}
                 </motion.button>

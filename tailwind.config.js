@@ -14,15 +14,15 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-        // Bordo + parşömen paleti (Türk klasik)
-        ink: '#5C1A1A',          // şarap kırmızısı / bordo (footer + dark sections)
-        bone: '#F4EBD9',         // parşömen (sayfa zemini)
-        cobalt: '#9C7B3F',       // antik altın
-        steel: '#A89880',         // sıcak gri
-        parchment: '#FFFCF5',     // sıcak beyaz kart
-        sepia: '#3D1010',         // koyu bordo aksent
-        slate_section: '#2D0A0A', // en koyu bordo
-        cool_mid: '#E8DCC0',      // sıcak orta ton
+        // Oxford navy + sıcak krem + brass aksent (sofistike, karakterli)
+        ink: '#0F1F3D',          // Oxford navy (footer + koyu bölümler)
+        bone: '#F1EEE7',         // sıcak krem (sayfa zemini)
+        cobalt: '#B8946B',       // brushed brass (aksent)
+        steel: '#7A8AA3',         // soğuk slate
+        parchment: '#FAF8F3',     // krem kart zemini
+        sepia: '#1F365C',         // mid navy
+        slate_section: '#08132A', // en derin navy
+        cool_mid: '#E5E2D8',      // sıcak nötr
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

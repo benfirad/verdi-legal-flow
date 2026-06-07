@@ -181,10 +181,10 @@ export default function VerdiAIChat() {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.94 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 pl-4 pr-5 py-3.5 rounded-full bg-[#9C7B3F] text-white shadow-[0_8px_32px_rgba(139,111,61,0.25)] hover:shadow-[0_12px_40px_rgba(139,111,61,0.4)] transition-shadow"
+            className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 pl-4 pr-5 py-3.5 rounded-full bg-[#B8946B] text-white shadow-[0_8px_32px_rgba(139,111,61,0.25)] hover:shadow-[0_12px_40px_rgba(139,111,61,0.4)] transition-shadow"
           >
             {/* Pulsing ring */}
-            <span className="absolute inset-0 rounded-full bg-[#9C7B3F] animate-ping opacity-20 pointer-events-none" />
+            <span className="absolute inset-0 rounded-full bg-[#B8946B] animate-ping opacity-20 pointer-events-none" />
             <div className="relative w-7 h-7 rounded-full bg-white/10 flex items-center justify-center shrink-0">
               <Sparkles className="w-3.5 h-3.5 text-white" />
             </div>
@@ -210,7 +210,7 @@ export default function VerdiAIChat() {
             <div className="flex items-center gap-3 px-4 py-3.5 bg-[#0a0e17] border-b border-white/10 shrink-0">
               <div className="relative">
                 <div className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                  <Sparkles className="w-4 h-4 text-[#D9B97A]" />
+                  <Sparkles className="w-4 h-4 text-[#D4B585]" />
                 </div>
                 {/* Online dot */}
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-[#0a0e17]" />
@@ -240,7 +240,7 @@ export default function VerdiAIChat() {
 
             {/* Disclaimer bar */}
             <div className="bg-[#161f30]/40 border-b border-white/5 px-4 py-1.5 shrink-0 flex items-center gap-1.5">
-              <Bot className="w-3 h-3 text-[#D9B97A] shrink-0" />
+              <Bot className="w-3 h-3 text-[#D4B585] shrink-0" />
               <p className="text-[11px] text-white/60 leading-tight">
                 {language === 'tr'
                   ? 'Bu asistan genel bilgi sağlar; hukuki tavsiye yerine geçmez.'
@@ -260,14 +260,14 @@ export default function VerdiAIChat() {
                     className={`flex gap-2.5 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     {msg.role === 'assistant' && (
-                      <div className="w-7 h-7 rounded-full bg-[#9C7B3F]/10 border border-[#9C7B3F]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Sparkles className="w-3 h-3 text-[#D9B97A]" />
+                      <div className="w-7 h-7 rounded-full bg-[#B8946B]/10 border border-[#B8946B]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Sparkles className="w-3 h-3 text-[#D4B585]" />
                       </div>
                     )}
                     <div
                       className={`max-w-[78%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${
                         msg.role === 'user'
-                          ? 'bg-[#9C7B3F] text-white rounded-tr-sm'
+                          ? 'bg-[#B8946B] text-white rounded-tr-sm'
                           : 'bg-[#182030] border border-white/5 text-white/90 rounded-tl-sm'
                       }`}
                       dangerouslySetInnerHTML={{ __html: formatMessage(msg.content) }}
@@ -290,10 +290,10 @@ export default function VerdiAIChat() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: 0.2 + idx * 0.05 }}
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(139, 111, 61, 0.2)', borderColor: '#9C7B3F' }}
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(139, 111, 61, 0.2)', borderColor: '#B8946B' }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => submitMessage(sug.text)}
-                      className="text-[11px] font-medium px-3 py-2 rounded-full border border-[#9C7B3F]/40 bg-[#9C7B3F]/5 text-[#D9B97A] hover:text-white transition-colors text-left shrink-0"
+                      className="text-[11px] font-medium px-3 py-2 rounded-full border border-[#B8946B]/40 bg-[#B8946B]/5 text-[#D4B585] hover:text-white transition-colors text-left shrink-0"
                     >
                       {sug.label}
                     </motion.button>
@@ -310,8 +310,8 @@ export default function VerdiAIChat() {
                     exit={{ opacity: 0 }}
                     className="flex gap-2.5 justify-start"
                   >
-                    <div className="w-7 h-7 rounded-full bg-[#9C7B3F]/10 border border-[#9C7B3F]/20 flex items-center justify-center shrink-0">
-                      <Sparkles className="w-3 h-3 text-[#D9B97A]" />
+                    <div className="w-7 h-7 rounded-full bg-[#B8946B]/10 border border-[#B8946B]/20 flex items-center justify-center shrink-0">
+                      <Sparkles className="w-3 h-3 text-[#D4B585]" />
                     </div>
                     <div className="bg-[#182030] border border-white/5 rounded-2xl rounded-tl-sm px-4 py-3 flex gap-1.5 items-center">
                       {[0, 1, 2].map(i => (
@@ -334,14 +334,14 @@ export default function VerdiAIChat() {
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 placeholder={placeholder}
-                className="flex-1 bg-[#131924] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#9C7B3F]/50 resize-none"
+                className="flex-1 bg-[#131924] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#B8946B]/50 resize-none"
               />
               <motion.button
                 type="submit"
                 disabled={!input.trim() || loading}
                 whileHover={{ scale: 1.07 }}
                 whileTap={{ scale: 0.93 }}
-                className="w-10 h-10 rounded-xl bg-[#9C7B3F] text-white flex items-center justify-center shrink-0 disabled:opacity-40 transition-opacity"
+                className="w-10 h-10 rounded-xl bg-[#B8946B] text-white flex items-center justify-center shrink-0 disabled:opacity-40 transition-opacity"
               >
                 <Send className="w-4 h-4" />
               </motion.button>
