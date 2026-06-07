@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -112,11 +112,13 @@ export default function Navbar() {
           </div>
           {/* Ana Menü butonu — her zaman görünür */}
           <button
-            className="pointer-events-auto flex h-11 w-11 items-center justify-center border border-current transition hover:opacity-70"
+            className="pointer-events-auto flex h-11 w-11 flex-col items-center justify-center gap-[5px] border border-current transition hover:opacity-70 group"
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Ana Menü"
           >
-            <Menu className="h-5 w-5" />
+            <span className="w-5 h-0.5 bg-current transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
+            <span className="w-5 h-0.5 bg-current transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]" />
+            <span className="w-5 h-0.5 bg-current transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-1" />
           </button>
         </div>
       </nav>
