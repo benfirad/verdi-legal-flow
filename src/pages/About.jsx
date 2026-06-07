@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView, useScroll, useMotionValueEvent } from 'framer-motion';
-import { ArrowRight, Users, Scale, Sparkles, Building2, MessageSquare } from 'lucide-react';
+import { Users, Scale, Sparkles, Building2, MessageSquare } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';

@@ -3,14 +3,27 @@ import { motion } from "framer-motion";
 
 export default function AuthLayout({ icon: Icon, title, subtitle, footer, children }) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-md"
-      >
-        <div className="text-center mb-10">
+    <div className="min-h-screen flex flex-col bg-background">
+      {/* Brand Logo - Top Left */}
+      <header className="w-full px-6 py-6 md:px-10 md:py-8 flex items-center justify-between shrink-0">
+        <a href="/" className="block transition hover:opacity-75">
+          <img
+            src="/assets/logoust.png"
+            alt="Verdi"
+            className="h-8 md:h-10 w-auto object-contain"
+          />
+        </a>
+      </header>
+
+      {/* Main Container */}
+      <div className="flex-1 flex items-center justify-center px-4 pb-12 md:pb-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full max-w-md"
+        >
+          <div className="text-center mb-10">
           <motion.div 
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -57,6 +70,7 @@ export default function AuthLayout({ icon: Icon, title, subtitle, footer, childr
           </motion.p>
         )}
       </motion.div>
+      </div>
     </div>
   );
 }

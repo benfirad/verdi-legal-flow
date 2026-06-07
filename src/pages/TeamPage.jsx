@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, X, GraduationCap, Scale, Globe, Award, Filter, ChevronDown } from 'lucide-react';
+import { Mail, Phone, X, GraduationCap, Scale, Globe, Filter, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';

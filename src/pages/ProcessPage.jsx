@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import {
-  Play, CheckCircle2, Circle, Clock, ChevronRight, Zap,
-  RotateCcw, ArrowRight, Terminal, Wifi, Lock, FileSearch,
-  Users, MessageSquare, BarChart3, Award, AlertCircle
+  Play, CheckCircle2, Clock, ChevronRight,
+  RotateCcw, ArrowRight, Terminal, Lock, FileSearch,
+  Users, MessageSquare, BarChart3, Award
 } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';

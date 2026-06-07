@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Upload, Send, Briefcase, Users, Star, CheckCircle, GraduationCap, Shield } from 'lucide-react';
+import { Upload, Send, Users, Star, CheckCircle, GraduationCap } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { localClient } from '@/api/localClient';
 import Navbar from '@/components/layout/Navbar';
