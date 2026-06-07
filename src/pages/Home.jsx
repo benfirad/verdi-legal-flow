@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useLanguage } from '@/lib/LanguageContext';
 import { teamMembers } from '@/lib/teamData';
+import PracticeAreaTree from '@/components/PracticeAreaTree';
 
 // Tüm bölüm başlıkları için ortak standart — Hakkımızda bloğuyla aynı oran
 const EYEBROW_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text-[#8b6f3d]';
@@ -71,7 +72,6 @@ function SectionHeader({ eyebrow, title, action }) {
 
 export default function Home() {
   const { language, t } = useLanguage();
-  const areas = t('practiceAreas.areas').slice(0, 8);
   const featuredTeam = teamMembers.filter((m) => m.position === 'partner');
 
   return (
@@ -197,22 +197,9 @@ export default function Home() {
               />
             </div>
 
-            <StaggerList className="grid border-t border-[#d8d0bf] md:grid-cols-2" stagger={0.06}>
-              {areas.map((area, index) => (
-                <motion.a
-                  key={area.id}
-                  variants={itemVariants}
-                  href="/calisma-alanlari"
-                  className="group flex min-h-28 items-center justify-between gap-6 border-b border-[#d8d0bf] px-0 py-7 transition hover:bg-white md:px-6"
-                >
-                  <div>
-                    <span className="text-xs text-[#9a8c70]">{String(index + 1).padStart(2, '0')}</span>
-                    <h3 className="mt-2 font-fraunces text-2xl text-[#202020]">{area.title}</h3>
-                  </div>
-                  <ArrowRight className="h-5 w-5 shrink-0 text-[#9a8c70] transition group-hover:translate-x-1 group-hover:text-[#202020]" />
-                </motion.a>
-              ))}
-            </StaggerList>
+            <Reveal delay={0.2}>
+              <PracticeAreaTree dark={false} />
+            </Reveal>
           </div>
         </section>
       </main>
