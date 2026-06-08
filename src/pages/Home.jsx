@@ -42,8 +42,8 @@ export default function Home() {
         {/* ── Hero (stack layer 1) ── */}
         <section id="home" data-nav-theme="dark" className="sticky top-0 z-10 min-h-[760px] overflow-hidden bg-[#1A2530] text-white lg:h-screen lg:min-h-screen">
           <img
-            src="https://images.unsplash.com/photo-1605346434674-a440ca4dc4c0?w=2400&q=90"
-            alt={language === 'tr' ? 'İstanbul Maslak — iş merkezi panoraması' : 'Istanbul Maslak — business district panorama'}
+            src="https://images.unsplash.com/photo-1494522358652-f30e61a60313?w=2400&q=90"
+            alt={language === 'tr' ? 'Renkli mimari cephe' : 'Colorful architectural facade'}
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/40 to-black/70" />
