@@ -51,6 +51,7 @@ const AuthenticatedApp = () => {
       <Route path="/calisma-alanlari" element={<PracticeAreasPage />} />
       <Route path="/ekibimiz" element={<TeamPage />} />
       <Route path="/yayinlar" element={<PublicationsPage />} />
+      <Route path="/makaleler" element={<PublicationsPage />} />
       <Route path="/surec" element={<ProcessPage />} />
       <Route path="/kariyer" element={<KariyerPage />} />
       <Route path="/iletisim" element={<ContactPage />} />

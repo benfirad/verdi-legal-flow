@@ -31,7 +31,7 @@ function FlagEN({ className = '' }) {
 const getDefaultTheme = () => {
   if (typeof window === 'undefined') return 'light';
 
-  const darkRoutes = ['/iletisim', '/yayinlar', '/ekibimiz', '/surec'];
+  const darkRoutes = ['/iletisim', '/yayinlar', '/makaleler', '/ekibimiz', '/surec'];
   const path = window.location.pathname;
 
   if (path === '/') return 'dark';
@@ -86,6 +86,7 @@ export default function Navbar() {
     { href: '/hakkimizda', label: t('nav.about') },
     { href: '/calisma-alanlari', label: language === 'tr' ? 'Hizmetlerimiz' : 'Services' },
     { href: '/ekibimiz', label: t('nav.team') },
+    { href: '/makaleler', label: language === 'tr' ? 'Makaleler' : 'Articles' },
     { href: '/kariyer', label: language === 'tr' ? 'Kariyer' : 'Career' },
     { href: '/iletisim', label: t('nav.contact') },
   ];
