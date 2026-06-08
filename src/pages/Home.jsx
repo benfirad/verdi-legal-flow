@@ -176,7 +176,7 @@ export default function Home() {
                     variants={itemVariants}
                     whileHover={{ y: -2 }}
                     transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-                    href="/calisma-alanlari"
+                    href={`/calisma-alanlari#${area.id}`}
                     className="group relative flex flex-col justify-between gap-8 bg-white p-8 md:p-10 min-h-[260px] hover:bg-[#1A2530] transition-colors duration-500 overflow-hidden"
                   >
                     {/* Üst: numara + ok */}

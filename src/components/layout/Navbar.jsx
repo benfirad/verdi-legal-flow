@@ -59,21 +59,6 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  // Dış tıklama ile dropdown kapanır
-  useEffect(() => {
-    if (!langOpen) return;
-    const onDown = (e) => {
-      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
-    };
-    const onKey = (e) => { if (e.key === 'Escape') setLangOpen(false); };
-    document.addEventListener('mousedown', onDown);
-    document.addEventListener('keydown', onKey);
-    return () => {
-      document.removeEventListener('mousedown', onDown);
-      document.removeEventListener('keydown', onKey);
-    };
-  }, [langOpen]);
-
   useEffect(() => {
     const updateTheme = () => {
       const markerY = 44;
