@@ -188,7 +188,7 @@ export default function PublicationsPage() {
       <Navbar />
 
       {/* ── Hero ── diğer sayfalarla aynı yükseklik + animasyon ────── */}
-      <section data-nav-theme="dark" className="relative overflow-hidden bg-[#1A2530] text-white">
+      <section data-nav-theme="dark" className="sticky top-0 z-10 relative overflow-hidden bg-[#1A2530] text-white">
         <img
           src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=2400&q=90"
           alt={language === 'tr' ? 'Hukuk kütüphanesi' : 'Law library'}
@@ -285,79 +285,84 @@ export default function PublicationsPage() {
         </div>
       </section>
 
-      {/* ── Kategori Filtre Şeridi ──────────────────────────────────── */}
-      <div data-nav-theme="light" className="sticky top-0 z-20 bg-[#E8ECEF]/90 backdrop-blur-md border-b border-[#C8CFD3]/60 shadow-sm">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-3.5 flex items-center gap-3 overflow-x-auto scrollbar-none">
-          <Tag className="w-3.5 h-3.5 text-[#5A7A8C] shrink-0" />
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setCategory(cat)}
-              className={`whitespace-nowrap text-xs font-semibold px-4 py-1.5 rounded-full border transition-all duration-200 shrink-0 ${
-                activeCategory === cat
-                  ? 'bg-[#1A2530] text-white border-[#1A2530]'
-                  : 'bg-transparent text-[#4D5660] border-[#C8CFD3] hover:border-[#5A7A8C] hover:text-[#1A2530]'
-              }`}
-            >
-              {cat === 'all' ? (language === 'tr' ? 'Tümü' : 'All') : cat}
-            </button>
-          ))}
-          <span className="ml-auto text-xs text-[#5A7A8C] shrink-0 font-medium">
-            {filtered.length} {language === 'tr' ? 'makale' : `article${filtered.length !== 1 ? 's' : ''}`}
-          </span>
+      {/* ── İçerik Bloku (Hero üzerine binen bölüm) ── */}
+      <div className="relative z-20 bg-[#E8ECEF] shadow-[0_-24px_60px_-20px_rgba(0,0,0,0.25)]">
+        {/* ── Kategori Filtre Şeridi ──────────────────────────────────── */}
+        <div data-nav-theme="light" className="sticky top-0 z-30 bg-[#E8ECEF]/90 backdrop-blur-md border-b border-[#C8CFD3]/60 shadow-sm">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 py-3.5 flex items-center gap-3 overflow-x-auto scrollbar-none">
+            <Tag className="w-3.5 h-3.5 text-[#5A7A8C] shrink-0" />
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setCategory(cat)}
+                className={`whitespace-nowrap text-xs font-semibold px-4 py-1.5 rounded-full border transition-all duration-200 shrink-0 ${
+                  activeCategory === cat
+                    ? 'bg-[#1A2530] text-white border-[#1A2530]'
+                    : 'bg-transparent text-[#4D5660] border-[#C8CFD3] hover:border-[#5A7A8C] hover:text-[#1A2530]'
+                }`}
+              >
+                {cat === 'all' ? (language === 'tr' ? 'Tümü' : 'All') : cat}
+              </button>
+            ))}
+            <span className="ml-auto text-xs text-[#5A7A8C] shrink-0 font-medium">
+              {filtered.length} {language === 'tr' ? 'makale' : `article${filtered.length !== 1 ? 's' : ''}`}
+            </span>
+          </div>
         </div>
+
+        {/* ── Makale Grid ───────────────────────────────────────────────── */}
+        <section className="mx-auto max-w-7xl px-6 lg:px-8 py-16 pb-28">
+          <AnimatePresence mode="wait">
+            {filtered.length === 0 ? (
+              <motion.div
+                key="empty"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="text-center py-24"
+              >
+                <Search className="w-12 h-12 text-[#C8CFD3] mx-auto mb-4" />
+                <p className="text-[#5A7A8C] text-lg font-medium mb-2">
+                  {language === 'tr' ? 'Sonuç bulunamadı' : 'No results found'}
+                </p>
+                <p className="text-[#A8B0B5] text-sm">
+                  {language === 'tr'
+                    ? 'Farklı bir arama terimi veya kategori deneyin.'
+                    : 'Try a different search term or category.'}
+                </p>
+                <button
+                  onClick={() => { setSearch(''); setCategory('all'); }}
+                  className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-[#5A7A8C] hover:text-[#1A2530] transition-colors"
+                >
+                  {language === 'tr' ? 'Filtreleri temizle' : 'Clear filters'}
+                </button>
+              </motion.div>
+            ) : (
+              <motion.div key="grid" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+
+                {/* Öne çıkan — Reveal ile soldan kayarak gelir */}
+                {!debouncedSearch && activeCategory === 'all' && featured && (
+                  <div className="mb-8">
+                    <FeaturedCard pub={featured} onClick={setSelected} />
+                  </div>
+                )}
+
+                {/* Kartlar — StaggerList ile sırayla soldan kayar */}
+                <StaggerList className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {((!debouncedSearch && activeCategory === 'all') ? rest : filtered).map((pub) => (
+                    <ArticleCard key={pub.id} pub={pub} onClick={setSelected} />
+                  ))}
+                </StaggerList>
+
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </section>
       </div>
 
-      {/* ── Makale Grid ───────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-8 py-16 pb-28">
-        <AnimatePresence mode="wait">
-          {filtered.length === 0 ? (
-            <motion.div
-              key="empty"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="text-center py-24"
-            >
-              <Search className="w-12 h-12 text-[#C8CFD3] mx-auto mb-4" />
-              <p className="text-[#5A7A8C] text-lg font-medium mb-2">
-                {language === 'tr' ? 'Sonuç bulunamadı' : 'No results found'}
-              </p>
-              <p className="text-[#A8B0B5] text-sm">
-                {language === 'tr'
-                  ? 'Farklı bir arama terimi veya kategori deneyin.'
-                  : 'Try a different search term or category.'}
-              </p>
-              <button
-                onClick={() => { setSearch(''); setCategory('all'); }}
-                className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-[#5A7A8C] hover:text-[#1A2530] transition-colors"
-              >
-                {language === 'tr' ? 'Filtreleri temizle' : 'Clear filters'}
-              </button>
-            </motion.div>
-          ) : (
-            <motion.div key="grid" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-
-              {/* Öne çıkan — Reveal ile soldan kayarak gelir */}
-              {!debouncedSearch && activeCategory === 'all' && featured && (
-                <div className="mb-8">
-                  <FeaturedCard pub={featured} onClick={setSelected} />
-                </div>
-              )}
-
-              {/* Kartlar — StaggerList ile sırayla soldan kayar */}
-              <StaggerList className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {((!debouncedSearch && activeCategory === 'all') ? rest : filtered).map((pub) => (
-                  <ArticleCard key={pub.id} pub={pub} onClick={setSelected} />
-                ))}
-              </StaggerList>
-
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </section>
-
-      <Footer />
+      <div className="relative z-40">
+        <Footer />
+      </div>
     </div>
   );
 }
