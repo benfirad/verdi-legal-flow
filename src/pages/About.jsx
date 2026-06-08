@@ -216,15 +216,16 @@ function ValuesShowcase({ language }) {
     >
       <div className="sticky top-0 h-screen flex items-center">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 w-full">
-          <Reveal>
-            <div className="mb-10 max-w-2xl">
-              <h2 className={SECTION_TITLE_CLS}>
-                {language === 'tr'
+          <div className="mb-10 max-w-2xl">
+            <WordReveal
+              text={
+                language === 'tr'
                   ? 'Çalışma anlayışımızın temelini oluşturan ilkeler.'
-                  : 'The principles that form the foundation of our practice.'}
-              </h2>
-            </div>
-          </Reveal>
+                  : 'The principles that form the foundation of our practice.'
+              }
+              className="font-fraunces text-3xl font-semibold leading-tight text-[#1A2530] md:text-4xl"
+            />
+          </div>
 
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] items-stretch">
             {/* Sol: animasyonlu ikon paneli */}
@@ -337,5 +338,34 @@ function ValuesShowcase({ language }) {
         </div>
       </div>
     </section>
+  );
+}
+
+// ── Kelime-kelime dramatik reveal ──
+function WordReveal({ text, className = '' }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const words = text.split(' ');
+
+  return (
+    <h2 ref={ref} className={className}>
+      {words.map((word, i) => (
+        <span key={i} className="inline-block overflow-hidden align-bottom mr-[0.25em]">
+          <motion.span
+            className="inline-block"
+            initial={{ y: '110%', opacity: 0, rotateX: -45 }}
+            animate={inView ? { y: 0, opacity: 1, rotateX: 0 } : {}}
+            transition={{
+              duration: 0.85,
+              delay: i * 0.07,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            style={{ transformOrigin: '0% 100%' }}
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </h2>
   );
 }

@@ -71,15 +71,20 @@ export default function KariyerPage() {
       <Navbar />
 
       <main>
-        {/* ── Hero (stack layer 1) ── */}
-        <section data-nav-theme="dark" className="sticky top-0 z-10 min-h-[60vh] overflow-hidden bg-[#1A2530] text-white">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1A2530] via-[#1A2530] to-[#2B3A4A]" />
-          <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#5A7A8C]/25 blur-[140px]" />
-          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#B8CCDA]/15 blur-[140px]" />
+        {/* ── Hero (stack layer 1) — fotoğraflı ── */}
+        <section data-nav-theme="dark" className="sticky top-0 z-10 relative overflow-hidden bg-[#1A2530] text-white">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=2400&q=90"
+            alt={language === 'tr' ? 'Modern ofis ortamı' : 'Modern office environment'}
+            className="absolute inset-0 h-full w-full object-cover object-center grayscale"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/75 to-ink/55" />
+          <div className="absolute inset-0 bg-ink/35" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/30 to-ink/40" />
 
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-24">
             <Reveal>
-              <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-5xl max-w-3xl">
+              <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-4xl max-w-3xl">
                 {t('Bir adım atın. Geri kalanını birlikte inşa edelim.', 'Take a step. We will build the rest together.')}
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
