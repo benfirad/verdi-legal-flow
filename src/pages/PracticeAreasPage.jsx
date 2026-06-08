@@ -8,6 +8,7 @@ import { Reveal } from '@/components/motion/Reveal';
 export const PRACTICE_AREAS = [
   {
     id: 'banking',
+    image: 'https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=900&q=80',
     tr: {
       title: 'Bankacılık ve Finansal Hizmetler',
       lede: 'Türkiye’de bankacılık hukuku alanında öncü hukuk büroları arasında yer alıyoruz ve geniş bir finansman işlemleri yelpazesinde derin bir tecrübeye sahibiz.',
@@ -33,6 +34,7 @@ export const PRACTICE_AREAS = [
   },
   {
     id: 'ma',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80',
     tr: {
       title: 'Birleşme ve Devralmalar / Şirketler Hukuku',
       lede: 'Yerli ve yabancı müvekkillerimize birleşme, devralma ve kurumsal yapılanma süreçlerinde uçtan uca hukuki danışmanlık sunuyoruz.',
@@ -58,6 +60,7 @@ export const PRACTICE_AREAS = [
   },
   {
     id: 'privatization',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80',
     tr: {
       title: 'Özelleştirme',
       lede: 'Özelleştirme sürecinin farklı aşamalarında müvekkillerimizi düzenli olarak temsil ediyor; kamu varlığı devirlerinde stratejik danışmanlık sağlıyoruz.',
@@ -81,6 +84,7 @@ export const PRACTICE_AREAS = [
   },
   {
     id: 'capital-markets',
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80',
     tr: {
       title: 'Sermaye Piyasaları',
       lede: 'Borç ve özsermaye finansmanlarında yatırım bankalarını, aracı kurumları ve ihraççıları temsil ediyor; SPK süreçlerini uçtan uca yürütüyoruz.',
@@ -106,6 +110,7 @@ export const PRACTICE_AREAS = [
   },
   {
     id: 'dispute',
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=900&q=80',
     tr: {
       title: 'Uyuşmazlık Çözümü',
       lede: 'Müvekkillerimizi geniş bir ticari uyuşmazlık yelpazesinde temsil ediyor; yargı, tahkim ve alternatif çözüm yollarında stratejik destek sağlıyoruz.',
@@ -131,6 +136,7 @@ export const PRACTICE_AREAS = [
   },
   {
     id: 'competition',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80',
     tr: {
       title: 'Rekabet Hukuku',
       lede: 'Çalışma alanlarımız rekabet hukukunun tüm yönlerini kapsıyor; Rekabet Kurulu nezdinde başvuru, soruşturma ve uyum programlarında destek sağlıyoruz.',
@@ -156,6 +162,7 @@ export const PRACTICE_AREAS = [
   },
   {
     id: 'foreign-investment',
+    image: 'https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=900&q=80',
     tr: {
       title: 'Yabancı Yatırım',
       lede: 'Yabancı müvekkillerimize Türkiye’deki yatırımlarının her aşamasında — kuruluştan çıkışa — kapsamlı hukuki danışmanlık sunuyoruz.',
@@ -181,6 +188,7 @@ export const PRACTICE_AREAS = [
   },
   {
     id: 'ip',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=80',
     tr: {
       title: 'Fikri Mülkiyet',
       lede: 'Fikri mülkiyet varlıklarının yaratılması, devralınması, lisanslanması ve Türkiye’de korunmasına ilişkin tüm süreçlerde destek sağlıyoruz.',
@@ -206,6 +214,7 @@ export const PRACTICE_AREAS = [
   },
   {
     id: 'it',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80',
     tr: {
       title: 'Bilgi Teknolojileri ve İletişim',
       lede: 'Teknoloji ve iletişim sektörlerinin kendine özgü hukuki ihtiyaçlarına yönelik uzmanlık alanlarımızla danışmanlık sağlıyoruz.',
@@ -365,55 +374,74 @@ export default function PracticeAreasPage() {
                   isActive ? 'opacity-100 scale-100' : 'opacity-25 scale-[0.98]'
                 }`}
               >
-                <Reveal>
-                  <div className="flex items-baseline gap-4 mb-6">
-                    <span className="font-fraunces text-5xl font-semibold text-[#d4c4a3]">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <h2 className="font-fraunces text-3xl font-semibold leading-tight text-[#1A2530] md:text-4xl">
-                      {content.title}
-                    </h2>
-                  </div>
-                  <p className="text-lg leading-8 text-[#4D5660] max-w-3xl">
-                    {content.lede}
-                  </p>
-                </Reveal>
+                {/* Two-column: text left, image right */}
+                <div className="grid gap-10 lg:grid-cols-[1fr_320px] xl:grid-cols-[1fr_360px] items-start">
+                  <div>
+                    <Reveal>
+                      <div className="flex items-baseline gap-4 mb-6">
+                        <span className="font-fraunces text-5xl font-semibold text-[#d4c4a3]">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <h2 className="font-fraunces text-3xl font-semibold leading-tight text-[#1A2530] md:text-4xl">
+                          {content.title}
+                        </h2>
+                      </div>
+                      <p className="text-lg leading-8 text-[#4D5660]">
+                        {content.lede}
+                      </p>
+                    </Reveal>
 
-                <Reveal delay={0.1}>
-                  <div className="mt-8">
-                    <ul className="grid gap-3 sm:grid-cols-2">
-                      {content.services.map((s, j) => (
-                        <li
-                          key={j}
-                          className="flex items-start gap-3 border-l-2 border-[#C8CFD3] pl-4 py-2 text-[15px] text-[#3a3a3a] hover:border-[#5A7A8C] transition-colors"
+                    <Reveal delay={0.1}>
+                      <div className="mt-8">
+                        <ul className="grid gap-3 sm:grid-cols-2">
+                          {content.services.map((s, j) => (
+                            <li
+                              key={j}
+                              className="flex items-start gap-3 border-l-2 border-[#C8CFD3] pl-4 py-2 text-[15px] text-[#3a3a3a] hover:border-[#5A7A8C] transition-colors"
+                            >
+                              <span className="font-mono text-xs text-[#A8B0B5] mt-1.5 shrink-0">
+                                {String(j + 1).padStart(2, '0')}
+                              </span>
+                              {s}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </Reveal>
+
+                    <Reveal delay={0.2}>
+                      <div className="mt-8 flex flex-wrap items-center gap-6 text-sm">
+                        <a
+                          href="/iletisim"
+                          className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#1A2530] text-xs"
                         >
-                          <span className="font-mono text-xs text-[#A8B0B5] mt-1.5 shrink-0">
-                            {String(j + 1).padStart(2, '0')}
-                          </span>
-                          {s}
-                        </li>
-                      ))}
-                    </ul>
+                          {language === 'tr' ? 'Bu konuda danışın' : 'Get advice'}
+                          <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                        </a>
+                        <a
+                          href="/ekibimiz"
+                          className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5A7A8C] hover:text-[#1A2530] transition"
+                        >
+                          {language === 'tr' ? 'İlgili ekip' : 'Related team'}
+                        </a>
+                      </div>
+                    </Reveal>
                   </div>
-                </Reveal>
 
-                <Reveal delay={0.2}>
-                  <div className="mt-8 flex flex-wrap items-center gap-6 text-sm">
-                    <a
-                      href="/iletisim"
-                      className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#1A2530] text-xs"
-                    >
-                      {language === 'tr' ? 'Bu konuda danışın' : 'Get advice'}
-                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                    </a>
-                    <a
-                      href="/ekibimiz"
-                      className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5A7A8C] hover:text-[#1A2530] transition"
-                    >
-                      {language === 'tr' ? 'İlgili ekip' : 'Related team'}
-                    </a>
-                  </div>
-                </Reveal>
+                  {/* Area image */}
+                  {area.image && (
+                    <Reveal delay={0.15}>
+                      <div className="relative overflow-hidden rounded-2xl shadow-xl hidden lg:block">
+                        <img
+                          src={area.image}
+                          alt={content.title}
+                          className="w-full h-64 xl:h-72 object-cover object-center transition-transform duration-700 hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1A2530]/40 via-transparent to-transparent" />
+                      </div>
+                    </Reveal>
+                  )}
+                </div>
               </article>
             );
           })}
