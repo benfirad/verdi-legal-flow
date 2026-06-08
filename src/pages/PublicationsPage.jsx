@@ -8,9 +8,8 @@ import PublicationDetail from '@/pages/PublicationDetail';
 import { publications } from '@/lib/publicationsData';
 import { Reveal, Enter, StaggerList, itemVariants, CARD_EASE } from '@/components/motion/Reveal';
 
-/* ─── Küçük makale kartı ────────────────────────────────────────────── */
-function ArticleCard({ pub, index, onClick }) {
-  const ref = useRef(null);
+/* ─── Küçük makale kartı — variants ile StaggerList'e katılır ─────── */
+function ArticleCard({ pub, onClick }) {
   const { language } = useLanguage();
 
   const formatDate = (d) =>
@@ -19,60 +18,59 @@ function ArticleCard({ pub, index, onClick }) {
     }).format(new Date(d));
 
   return (
-    <Reveal delay={(index % 3) * 0.08} from="bottom" offset={40}>
-      <article
-        onClick={() => onClick(pub)}
-        className="group cursor-pointer bg-white/60 backdrop-blur-sm border border-[#C8CFD3]/60 rounded-2xl overflow-hidden hover:border-[#5A7A8C]/40 hover:shadow-[0_12px_40px_rgba(26,37,48,0.12)] transition-all duration-500 flex flex-col h-full"
-      >
-        {/* Görsel */}
-        <div className="relative aspect-[16/10] overflow-hidden">
-          <img
-            src={pub.image}
-            alt={pub.title[language]}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A2530]/50 via-transparent to-transparent" />
-          <span className="absolute top-3 left-3 text-[11px] px-3 py-1.5 bg-[#1A2530]/75 backdrop-blur-sm text-white/90 rounded-full font-medium tracking-wide border border-white/10">
-            {pub.category[language]}
+    <motion.article
+      variants={itemVariants}
+      onClick={() => onClick(pub)}
+      className="group cursor-pointer bg-white/60 backdrop-blur-sm border border-[#C8CFD3]/60 rounded-2xl overflow-hidden hover:border-[#5A7A8C]/40 hover:shadow-[0_12px_40px_rgba(26,37,48,0.12)] transition-all duration-500 flex flex-col h-full"
+    >
+      {/* Görsel */}
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <img
+          src={pub.image}
+          alt={pub.title[language]}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A2530]/50 via-transparent to-transparent" />
+        <span className="absolute top-3 left-3 text-[11px] px-3 py-1.5 bg-[#1A2530]/75 backdrop-blur-sm text-white/90 rounded-full font-medium tracking-wide border border-white/10">
+          {pub.category[language]}
+        </span>
+      </div>
+
+      {/* İçerik */}
+      <div className="p-6 flex flex-col flex-1">
+        <div className="flex items-center gap-3 text-xs text-[#5A7A8C] mb-3">
+          <span className="flex items-center gap-1.5">
+            <Calendar className="w-3 h-3" />
+            {formatDate(pub.date)}
+          </span>
+          <span className="w-0.5 h-3 bg-[#C8CFD3] rounded-full" />
+          <span className="flex items-center gap-1.5">
+            <Clock className="w-3 h-3" />
+            {pub.readTime[language]}
           </span>
         </div>
 
-        {/* İçerik */}
-        <div className="p-6 flex flex-col flex-1">
-          <div className="flex items-center gap-3 text-xs text-[#5A7A8C] mb-3">
-            <span className="flex items-center gap-1.5">
-              <Calendar className="w-3 h-3" />
-              {formatDate(pub.date)}
-            </span>
-            <span className="w-0.5 h-3 bg-[#C8CFD3] rounded-full" />
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-3 h-3" />
-              {pub.readTime[language]}
-            </span>
-          </div>
+        <h3 className="font-fraunces text-lg font-semibold text-[#1A2530] leading-snug mb-3 flex-1 group-hover:text-[#5A7A8C] transition-colors duration-300">
+          {pub.title[language]}
+        </h3>
 
-          <h3 className="font-fraunces text-lg font-semibold text-[#1A2530] leading-snug mb-3 flex-1 group-hover:text-[#5A7A8C] transition-colors duration-300">
-            {pub.title[language]}
-          </h3>
+        <p className="text-[#4D5660] text-sm leading-relaxed mb-5 line-clamp-2">
+          {pub.excerpt[language]}
+        </p>
 
-          <p className="text-[#4D5660] text-sm leading-relaxed mb-5 line-clamp-2">
-            {pub.excerpt[language]}
-          </p>
-
-          <div className="flex items-center justify-between pt-4 border-t border-[#C8CFD3]/50">
-            <span className="text-xs text-[#5A7A8C] font-medium">{pub.author}</span>
-            <span className="flex items-center gap-1.5 text-[#1A2530] text-xs font-semibold uppercase tracking-[0.15em] group-hover:gap-2.5 transition-all duration-300">
-              {language === 'tr' ? 'Oku' : 'Read'}
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </span>
-          </div>
+        <div className="flex items-center justify-between pt-4 border-t border-[#C8CFD3]/50">
+          <span className="text-xs text-[#5A7A8C] font-medium">{pub.author}</span>
+          <span className="flex items-center gap-1.5 text-[#1A2530] text-xs font-semibold uppercase tracking-[0.15em] group-hover:gap-2.5 transition-all duration-300">
+            {language === 'tr' ? 'Oku' : 'Read'}
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+          </span>
         </div>
-      </article>
-    </Reveal>
+      </div>
+    </motion.article>
   );
 }
 
-/* ─── Öne çıkan büyük kart ──────────────────────────────────────────── */
+/* ─── Öne çıkan büyük kart — ayrı Reveal ile ───────────────────────── */
 function FeaturedCard({ pub, onClick }) {
   const { language } = useLanguage();
 
@@ -85,7 +83,7 @@ function FeaturedCard({ pub, onClick }) {
     <Reveal from="bottom" offset={50}>
       <article
         onClick={() => onClick(pub)}
-        className="group cursor-pointer col-span-full bg-white/60 backdrop-blur-sm border border-[#C8CFD3]/60 rounded-2xl overflow-hidden hover:border-[#5A7A8C]/40 hover:shadow-[0_20px_60px_rgba(26,37,48,0.14)] transition-all duration-500"
+        className="group cursor-pointer bg-white/60 backdrop-blur-sm border border-[#C8CFD3]/60 rounded-2xl overflow-hidden hover:border-[#5A7A8C]/40 hover:shadow-[0_20px_60px_rgba(26,37,48,0.14)] transition-all duration-500"
       >
         <div className="grid md:grid-cols-[1fr_45%]">
           {/* Sol: görsel */}
@@ -152,7 +150,7 @@ export default function PublicationsPage() {
     return () => clearTimeout(id);
   }, [search]);
 
-  // "/" tuşu arama barını odaklar
+  // "/" tuşu → arama barını odaklar
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === '/' && document.activeElement !== inputRef.current) {
@@ -189,7 +187,7 @@ export default function PublicationsPage() {
     <div className="min-h-screen bg-[#E8ECEF] text-[#1A2530]">
       <Navbar />
 
-      {/* ── Hero — diğer sayfalarla aynı yapı ─────────────────────── */}
+      {/* ── Hero ── diğer sayfalarla aynı yükseklik + animasyon ────── */}
       <section data-nav-theme="dark" className="relative overflow-hidden bg-[#1A2530] text-white">
         <img
           src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=2400&q=90"
@@ -201,21 +199,27 @@ export default function PublicationsPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/30 to-ink/40" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-24">
-          <Reveal>
+
+          {/* Başlık: Enter (soldan kayar, anında tetikler) */}
+          <Enter from="left" delay={0.1}>
             <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-4xl max-w-3xl">
               {language === 'tr'
                 ? 'Hukuki içgörülerimiz, deneyimimizin yansıması.'
                 : 'Our legal insights, a reflection of our experience.'}
             </h1>
+          </Enter>
+
+          {/* Alt yazı: Enter ile hafif gecikme */}
+          <Enter from="left" delay={0.25}>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
               {language === 'tr'
                 ? 'Güncel hukuki gelişmeler, içtihat analizleri ve sektöre özel rehberler.'
                 : 'Current legal developments, case law analyses, and sector-specific guides.'}
             </p>
-          </Reveal>
+          </Enter>
 
-          {/* ── Premium Arama Barı ── */}
-          <Enter delay={0.35} from="bottom" offset={30}>
+          {/* Arama barı: Enter aşağıdan gelir */}
+          <Enter delay={0.4} from="bottom" offset={30}>
             <div className="mt-10">
               <div
                 className={`relative flex items-center gap-4 bg-white/[0.07] border rounded-2xl px-5 py-4 transition-all duration-300 max-w-2xl ${
@@ -277,6 +281,7 @@ export default function PublicationsPage() {
               </AnimatePresence>
             </div>
           </Enter>
+
         </div>
       </section>
 
@@ -332,21 +337,21 @@ export default function PublicationsPage() {
             </motion.div>
           ) : (
             <motion.div key="grid" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              {/* Öne çıkan */}
+
+              {/* Öne çıkan — Reveal ile soldan kayarak gelir */}
               {!debouncedSearch && activeCategory === 'all' && featured && (
                 <div className="mb-8">
                   <FeaturedCard pub={featured} onClick={setSelected} />
                 </div>
               )}
 
-              {/* Normal grid */}
+              {/* Kartlar — StaggerList ile sırayla soldan kayar */}
               <StaggerList className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {((!debouncedSearch && activeCategory === 'all') ? rest : filtered).map((pub, i) => (
-                  <motion.div key={pub.id} variants={itemVariants}>
-                    <ArticleCard pub={pub} index={i} onClick={setSelected} />
-                  </motion.div>
+                {((!debouncedSearch && activeCategory === 'all') ? rest : filtered).map((pub) => (
+                  <ArticleCard key={pub.id} pub={pub} onClick={setSelected} />
                 ))}
               </StaggerList>
+
             </motion.div>
           )}
         </AnimatePresence>
