@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/lib/LanguageContext';
 
 // ── Bayrak SVG'leri ──
@@ -43,6 +44,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
   const isDark = theme === 'dark';
 
   const toggleLang = () => setLanguage(language === 'tr' ? 'en' : 'tr');
@@ -115,14 +117,14 @@ export default function Navbar() {
               : 'opacity-100'
           }`}
         >
-          <a href="/" className="block">
+          <Link to="/" className="block">
             <img
               src="/assets/logoust.png"
               alt="Verdi"
               className={`w-auto object-contain ${isDark ? 'invert' : ''}`}
               style={{ height: '48px' }}
             />
-          </a>
+          </Link>
         </div>
 
         {/* Center Logo - Visible only when scrolled */}
@@ -133,14 +135,14 @@ export default function Navbar() {
               : 'opacity-0 pointer-events-none'
           }`}
         >
-          <a href="/" className="block">
+          <Link to="/" className="block">
             <img
               src="/assets/logoust.png"
               alt="Verdi"
               className={`w-auto object-contain ${isDark ? 'invert' : ''}`}
               style={{ height: '32px' }}
             />
-          </a>
+          </Link>
         </div>
 
         {/* Middle: Navigation links (centered, hidden on mobile, fades and slides out upwards on scroll) */}
@@ -152,13 +154,13 @@ export default function Navbar() {
           }`}
         >
           {navItems.map((item) => (
-            <a
+            <Link
               key={`${item.href}-${item.label}`}
-              href={item.href}
+              to={item.href}
               className="text-[14px] font-bold tracking-normal transition hover:opacity-70 whitespace-nowrap"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -239,8 +241,8 @@ export default function Navbar() {
             <ul className="space-y-0">
               {navItems.map((item, i) => (
                 <li key={`${item.href}-${item.label}`} className="border-b border-white/5 last:border-0">
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     onClick={() => setMobileOpen(false)}
                     className="group flex items-center gap-4 px-4 py-5 transition-colors hover:bg-white/5"
                   >
@@ -248,7 +250,7 @@ export default function Navbar() {
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <span className="font-fraunces text-2xl font-semibold">{item.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -284,13 +286,13 @@ export default function Navbar() {
 
           {/* Alt: CTA */}
           <div className="p-6 border-t border-white/10">
-            <a
-              href="/iletisim"
+            <Link
+              to="/iletisim"
               onClick={() => setMobileOpen(false)}
               className="w-full inline-flex items-center justify-center gap-3 border border-white/40 px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white hover:bg-white hover:text-[#1A2530] transition-colors"
             >
               {language === 'tr' ? 'İletişime geçin' : 'Contact us'}
-            </a>
+            </Link>
             <p className="mt-4 text-center text-[10px] uppercase tracking-[0.28em] text-white/40">
               info@verdi.av.tr
             </p>
