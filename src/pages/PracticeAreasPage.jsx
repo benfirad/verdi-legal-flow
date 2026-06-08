@@ -256,6 +256,35 @@ export default function PracticeAreasPage() {
     return () => observer.disconnect();
   }, []);
 
+  // URL'deki #hash varsa o bölüme kaydır (SPA route change'lerinde tarayıcı bunu otomatik yapmıyor)
+  useEffect(() => {
+    const tryScroll = () => {
+      const id = window.location.hash.replace('#', '');
+      if (!id) return false;
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setActiveId(id);
+        return true;
+      }
+      return false;
+    };
+    // İlk denemede element henüz mount olmamış olabilir; birkaç frame bekle
+    const r1 = requestAnimationFrame(() => {
+      if (!tryScroll()) {
+        const r2 = requestAnimationFrame(tryScroll);
+        return () => cancelAnimationFrame(r2);
+      }
+    });
+    // Hash değişimini de dinle (aynı sayfada başka karta tıklanırsa)
+    const onHashChange = () => tryScroll();
+    window.addEventListener('hashchange', onHashChange);
+    return () => {
+      cancelAnimationFrame(r1);
+      window.removeEventListener('hashchange', onHashChange);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#E8ECEF] text-[#1A2530]">
       <Navbar />
