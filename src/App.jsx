@@ -138,7 +138,7 @@ function App() {
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
         <LanguageProvider>
-          <Router basename="/werdy">
+          <Router>
             <AuthenticatedApp />
             <WerdyAIChat />
           </Router>
