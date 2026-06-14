@@ -30,7 +30,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'cdemir@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'privatization', 'dispute'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -49,7 +49,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'ayilmaz@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['dispute', 'competition', 'ip', 'it'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -68,7 +68,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'mkaya@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -86,7 +86,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'zcelik@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['ma', 'privatization', 'capital-markets', 'dispute', 'competition', 'foreign-investment'],
     languages: ['Türkçe', 'İngilizce', 'Hollandaca', 'Almanca'],
     education: [
@@ -107,7 +107,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'barslan@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -125,7 +125,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'eyildiz@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['dispute', 'ip'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -143,7 +143,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'dozturk@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['İngilizce', 'Almanca', 'Türkçe'],
     education: [
@@ -161,7 +161,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'mbulut@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -197,7 +197,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'saydin@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -215,7 +215,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'bguler@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce', 'Almanca'],
     education: [
@@ -234,7 +234,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'icetin@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -252,7 +252,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'maksoy@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1500048993953-d23a436266cf?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['dispute', 'ip'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -270,7 +270,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'ayavuz@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=400&h=400',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce', 'Arapça'],
     education: [
