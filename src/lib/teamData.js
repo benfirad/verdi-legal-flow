@@ -1,6 +1,4 @@
-// Werdy Hukuk Bürosu — ekip verileri (werdy.av.tr'den alınmıştır)
-
-const IMG_BASE = 'https://werdy.av.tr';
+// Werdy Hukuk Bürosu — ekip verileri
 
 // Pozisyon sıralaması (yukarıdan aşağıya)
 export const POSITIONS = [
@@ -23,16 +21,16 @@ export const PRACTICE_AREAS = [
 ];
 
 export const teamMembers = [
-{
+  {
     id: 184,
-    slug: 'a-can-werdy',
-    name: 'A. Can Werdy',
+    slug: 'caner-demir',
+    name: 'Caner Demir',
     position: 'partner',
     titleEn: 'Partner',
     titleTr: 'Ortak',
-    email: 'cwerdy@werdy.av.tr',
+    email: 'cdemir@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/a-can-werdy.png',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'privatization', 'dispute'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -42,16 +40,16 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-{
+  {
     id: 205,
-    slug: 'ozer-koseoglu',
-    name: 'Özer Köseoğlu',
+    slug: 'ayse-yilmaz',
+    name: 'Ayşe Yılmaz',
     position: 'partner',
     titleEn: 'Partner',
     titleTr: 'Ortak',
-    email: 'okoseoglu@werdy.av.tr',
+    email: 'ayilmaz@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/ozer-koseoglu.png',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['dispute', 'competition', 'ip', 'it'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -61,16 +59,16 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-{
+  {
     id: 215,
-    slug: 'zeynep-fencimen',
-    name: 'Zeynep Fencimen',
+    slug: 'murat-kaya',
+    name: 'Murat Kaya',
     position: 'partner',
     titleEn: 'Partner',
     titleTr: 'Ortak',
-    email: 'zfencimen@werdy.av.tr',
+    email: 'mkaya@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/zeynep-fencimen.png',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -79,16 +77,16 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-{
+  {
     id: 1240,
-    slug: 'dogac-gunaydin',
-    name: 'Doğaç Günaydın',
+    slug: 'zeynep-celik',
+    name: 'Zeynep Çelik',
     position: 'partner',
     titleEn: 'Partner',
     titleTr: 'Ortak',
-    email: 'dgunaydin@werdy.av.tr',
+    email: 'zcelik@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/dogac-gunaydin.png',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['ma', 'privatization', 'capital-markets', 'dispute', 'competition', 'foreign-investment'],
     languages: ['Türkçe', 'İngilizce', 'Hollandaca', 'Almanca'],
     education: [
@@ -100,16 +98,16 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-{
+  {
     id: 1287,
-    slug: 'yaren-kinalioglu',
-    name: 'Yaren Kınalıoğlu',
+    slug: 'bora-arslan',
+    name: 'Bora Arslan',
     position: 'associate',
     titleEn: 'Associate',
     titleTr: 'Avukat',
-    email: 'ykinalioglu@werdy.av.tr',
+    email: 'barslan@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/yaren-kinalioglu.png',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -118,16 +116,16 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-{
+  {
     id: 1295,
-    slug: 'beyda-ulu',
-    name: 'Beyda Ulu',
+    slug: 'elif-yildiz',
+    name: 'Elif Yıldız',
     position: 'associate',
     titleEn: 'Associate',
     titleTr: 'Avukat',
-    email: 'bulu@werdy.av.tr',
+    email: 'eyildiz@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/beyda-ulu.png',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['dispute', 'ip'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -136,16 +134,16 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-{
+  {
     id: 1308,
-    slug: 'alparslan-erbay',
-    name: 'Alparslan Erbay',
+    slug: 'deniz-ozturk',
+    name: 'Deniz Öztürk',
     position: 'associate',
     titleEn: 'Associate',
     titleTr: 'Avukat',
-    email: 'aerbay@werdy.av.tr',
+    email: 'dozturk@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/alparslan-erbay.png',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['İngilizce', 'Almanca', 'Türkçe'],
     education: [
@@ -154,16 +152,16 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-{
+  {
     id: 1309,
-    slug: 'pelin-nida-surmeli',
-    name: 'Pelin Nida Sürmeli',
+    slug: 'merve-bulut',
+    name: 'Merve Bulut',
     position: 'associate',
     titleEn: 'Associate',
     titleTr: 'Avukat',
-    email: 'psurmeli@werdy.av.tr',
+    email: 'mbulut@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/pelin-nida-surmeli.png',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -172,16 +170,16 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-{
+  {
     id: 1310,
-    slug: 'taylan-ozgur-kocak',
-    name: 'Taylan Özgür Koçak',
+    slug: 'kaan-koc',
+    name: 'Kaan Koç',
     position: 'associate',
     titleEn: 'Associate',
     titleTr: 'Avukat',
-    email: 'tkocak@werdy.av.tr',
+    email: 'kkoc@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/taylan-ozgur-kocak.png',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'Almanca', 'İngilizce'],
     education: [
@@ -190,16 +188,16 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-{
+  {
     id: 1311,
-    slug: 'selin-tutucu',
-    name: 'Selin Tutucu',
+    slug: 'selin-aydin',
+    name: 'Selin Aydın',
     position: 'trainee',
     titleEn: 'Trainee',
     titleTr: 'Stajyer Avukat',
-    email: 'stutucu@werdy.av.tr',
+    email: 'saydin@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/selin-tutucu.png',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -208,16 +206,16 @@ export const teamMembers = [
     ],
     bar: null,
   },
-{
+  {
     id: 1313,
-    slug: 'can-berk-kahya',
-    name: 'Can Berk Kahya',
+    slug: 'burak-guler',
+    name: 'Burak Güler',
     position: 'trainee',
     titleEn: 'Trainee',
     titleTr: 'Stajyer Avukat',
-    email: 'ckahya@werdy.av.tr',
+    email: 'bguler@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/can-berk-kahya.png',
+    image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce', 'Almanca'],
     education: [
@@ -227,16 +225,16 @@ export const teamMembers = [
     ],
     bar: null,
   },
-{
+  {
     id: 1317,
-    slug: 'ilayda-kizikli',
-    name: 'İlayda Kızıklı',
+    slug: 'irem-cetin',
+    name: 'İrem Çetin',
     position: 'trainee',
     titleEn: 'Trainee',
     titleTr: 'Stajyer Avukat',
-    email: 'ikizikli@werdy.av.tr',
+    email: 'icetin@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/ilayda-kizikli.png',
+    image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -245,16 +243,16 @@ export const teamMembers = [
     ],
     bar: null,
   },
-{
+  {
     id: 1318,
-    slug: 'metehan-unal',
-    name: 'Metehan Ünal',
+    slug: 'mete-aksoy',
+    name: 'Mete Aksoy',
     position: 'trainee',
     titleEn: 'Trainee',
     titleTr: 'Stajyer Avukat',
-    email: 'munal@werdy.av.tr',
+    email: 'maksoy@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/metehan-unal.png',
+    image: 'https://images.unsplash.com/photo-1500048993953-d23a436266cf?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['dispute', 'ip'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -265,14 +263,14 @@ export const teamMembers = [
   },
   {
     id: 1319,
-    slug: 'aksel-kalaycioglu',
-    name: 'Aksel Kalaycıoğlu',
+    slug: 'asli-yavuz',
+    name: 'Aslı Yavuz',
     position: 'trainee',
     titleEn: 'Trainee',
     titleTr: 'Stajyer Avukat',
-    email: 'akalaycioglu@werdy.av.tr',
+    email: 'ayavuz@werdy.av.tr',
     phone: '+90 212 324 96 34',
-    image: '/assets/team/aksel-kalaycioglu.png',
+    image: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=400&h=400',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce', 'Arapça'],
     education: [
