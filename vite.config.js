@@ -4,6 +4,10 @@ import path from 'node:path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/werdy/',
+  build: {
+    outDir: 'dist/werdy',
+  },
   logLevel: 'error', // Suppress warnings, only show errors
   plugins: [
     react(),
