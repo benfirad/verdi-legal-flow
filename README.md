@@ -1,3 +1,13 @@
+# Proprietary Software
+
+Copyright © 2026 FIRAT DASDOGEN
+
+All Rights Reserved.
+
+Unauthorized copying, modification, distribution, deployment, hosting, or creation of derivative works is prohibited.
+
+---
+
 # Verdi Legal Flow
 
 Verdi Hukuk icin Vite + React tabanli web uygulamasi.
