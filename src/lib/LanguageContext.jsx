@@ -1,255 +1,280 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const translations = {
+const TRANSLATIONS = {
   tr: {
     nav: {
-      home: 'Ana Sayfa',
-      about: 'Hakkımızda',
-      practiceAreas: 'Çalışma Alanları',
-      team: 'Ekibimiz',
-      publications: 'Yayınlar',
-      process: 'Süreç',
-      references: 'Referanslar',
-      contact: 'İletişim'
+      home: 'Zirve 2026',
+      about: 'Hakkında',
+      practiceAreas: 'Program',
+      team: 'Konuşmacılar',
+      publications: 'Haberler',
+      process: 'Akış',
+      references: 'Ortaklar',
+      contact: 'Kayıt & İletişim'
     },
     hero: {
       tagline: 'İstanbul • Türkiye',
-      title: 'Werdy Hukuk Bürosu',
-      subtitle: 'Güvenilir. Deneyimli. Çözüm Odaklı.',
-      description: 'Ticari hukuk, tahkim ve kurumsal danışmanlık alanlarında uzman ekibimizle profesyonel hukuki danışmanlık çözümleri sunuyoruz.',
-      cta: 'Danışmanlık Alın',
-      ctaSecondary: 'Çalışma Alanları',
+      title: 'Redmono Creative Summit 2026',
+      subtitle: 'Yaratıcılık. Tasarım. Gelecek.',
+      description: 'Tasarım, yapay zeka ve dijital marka dünyasının öncülerinin buluştuğu, Redmono Creative Agency tarafından düzenlenen İstanbul\'un en ilham verici yaratıcılık zirvesi.',
+      cta: 'Kayıt Olun',
+      ctaSecondary: 'Zirve Programı',
       scroll: 'Keşfetmek için kaydırın',
-      badge: 'Seçkin Hizmet',
-      slogan: '— Yüksek kaliteli hizmetler sunan bir hukuk bürosu.'
+      badge: 'Redmono Design Event',
+      slogan: '— Tasarım ve yaratıcılığın sınırlarını yeniden tanımlayan zirve.'
     },
     about: {
-      title: 'Hakkımızda',
-      subtitle: 'Werdy Hukuk Bürosu',
-      description: 'Werdy, modern ve yenilikçi yaklaşımıyla ticaret hukuku, şirketler hukuku, gayrimenkul hukuku, iş hukuku ve tahkim alanlarında uzmanlaşmış bağımsız bir hukuk çalışmasıdır. Ulusal ve uluslararası alanda kurumsal ve bireysel danışmanlık hizmetleri sunmayı amaçlamaktadır.',
-      description2: 'Deneyimli avukat kadromuz, her müvekkilin ihtiyacına özel çözümler geliştirerek hukuki süreçleri etkin biçimde yönetmektedir.',
-      experience: 'Yıllık Deneyim',
-      clients: 'Kurumsal Müvekkil',
-      cases: 'Tamamlanan Dava',
-      countries: 'Çalışılan Ülke',
+      title: 'Zirve Hakkında',
+      subtitle: 'Redmono Creative Summit 2026',
+      description: 'Redmono Creative Summit, 2026 yılında İstanbul Kadıköy\'de düzenlenen; yaratıcı endüstriler, kullanıcı deneyimi, marka tasarımı, yapay zekalı sanat ve gelecek teknolojileri alanlarında küresel öncüleri bir araya getiren prestijli bir etkinliktir. Katılımcılarına ilham verici oturumlar, atölye çalışmaları ve zengin networking fırsatları sunar.',
+      description2: 'Kendi alanlarında çığır açan uzman konuşmacı kadromuz, geleceğin tasarım trendlerini ve dijital dönüşüm süreçlerini masaya yatırıyor.',
+      experience: 'Seçkin Oturum',
+      clients: 'Yaratıcı Katılımcı',
+      cases: 'Öncü Konuşmacı',
+      countries: 'Uluslararası Ortak',
       values: [
-        { title: 'Güvenilirlik', desc: 'Her müvekkilimize dürüst, şeffaf ve etik bir hizmet anlayışıyla yaklaşıyoruz.' },
-        { title: 'Uzmanlık', desc: 'Alanlarında uzmanlaşmış avukatlarımız en güncel hukuki gelişmeleri takip eder.' },
-        { title: 'Çözüm Odaklılık', desc: 'Karmaşık hukuki sorunlara pratik ve uygulanabilir çözümler üretiriz.' }
+        { title: 'Yaratıcılık', desc: 'Sınırları zorlayan tasarım fikirleri ve vizyoner sunumlar.' },
+        { title: 'Etkileşim', desc: 'Akranlar ve sektör profesyonelleri ile interaktif atölyeler.' },
+        { title: 'Gelecek', desc: 'Yapay zeka ve dijital marka trendlerinin geleceğine bakış.' }
       ]
     },
     process: {
-      title: 'Hukuki Süreç',
-      subtitle: 'Nasıl Çalışıyoruz?',
-      description: 'Müvekkillerimize şeffaf, adım adım ve öngörülebilir bir hukuki danışmanlık süreci sunuyoruz.',
+      title: 'Zirve Akışı',
+      subtitle: 'Nasıl Katılabilirsiniz?',
+      description: 'Katılımcılarımıza şeffaf, adım adım ve verimli bir zirve deneyimi sunuyoruz.',
       steps: [
         {
           number: '01',
-          title: 'İlk Görüşme',
-          desc: 'Hukuki durumunuzu ve ihtiyaçlarınızı anlamak için ücretsiz ilk değerlendirme görüşmesi yapıyoruz.',
-          duration: 'Aynı gün – 24 saat'
+          title: 'Kayıt ve Bilet',
+          desc: 'İletişim formundan veya doğrudan bize ulaşarak zirve biletinizi alın ve atölye seçimlerini yapın.',
+          duration: 'Kayıt Süreci'
         },
         {
           number: '02',
-          title: 'Dosya Analizi',
-          desc: 'Uzman avukatlarımız belgelerinizi ve hukuki durumunuzu detaylıca inceleyerek strateji belirler.',
-          duration: '2 – 5 iş günü'
+          title: 'Atölye Seçimi',
+          desc: 'Zirve günü katılmak istediğiniz yaratıcı ve teknik atölyeler için ön rezervasyonunuzu tamamlayın.',
+          duration: 'Etkinlik Öncesi'
         },
         {
           number: '03',
-          title: 'Strateji & Teklif',
-          desc: 'Size özel hukuki strateji, süreç planı ve şeffaf maliyet bilgisi sunulur.',
-          duration: '1 – 3 iş günü'
+          title: 'Zirve Günü',
+          desc: 'Açılış konuşmaları, paneller ve uygulamalı atölyelerle dolu yaratıcı maratona katılın.',
+          duration: '15-16 Ekim 2026'
         },
         {
           number: '04',
-          title: 'Süreç Yönetimi',
-          desc: 'Hukuki süreç boyunca tüm işlemler takip edilir, müvekkil düzenli olarak bilgilendirilir.',
-          duration: 'Süreç boyunca'
+          title: 'Networking & Parti',
+          desc: 'Sektörün lider ajansları, markaları ve kreatif ekipleriyle tanışma fırsatını kaçırmayın.',
+          duration: 'Zirve Kapanışı'
         },
         {
           number: '05',
-          title: 'Sonuç & Raporlama',
-          desc: 'Davanın sonuçlanmasının ardından detaylı sonuç raporu hazırlanır ve müvekkile teslim edilir.',
-          duration: 'Kapanış aşaması'
+          title: 'Dijital Raporlar',
+          desc: 'Tüm oturum kayıtlarına, atölye notlarına ve zirve sunumlarına dijital arşivimizden erişin.',
+          duration: 'Etkinlik Sonrası'
         }
       ]
     },
     practiceAreas: {
-      title: 'Çalışma Alanları',
-      subtitle: 'Uzmanlık Alanlarımız',
+      title: 'Zirve Programı',
+      subtitle: 'Etkinlik Konuları',
       learnMore: 'Detaylı Bilgi',
       areas: [
-        { id: 1, title: 'Ticaret Hukuku', description: 'Ticari sözleşmeler, alım-satım sözleşmeleri, distribütörlük ve acente sözleşmeleri, ticari uyuşmazlıkların çözümü, kefalet ve teminat hukuku.', icon: 'briefcase' },
-        { id: 2, title: 'Şirketler Hukuku', description: 'Anonim ve limited şirket kuruluşları, genel kurul süreçleri, birleşme ve devralma (M&A), şirket yeniden yapılandırma, ortaklık anlaşmazlıkları.', icon: 'users' },
-        { id: 3, title: 'Tahkim & Uyuşmazlık Çözümü', description: 'İstanbul Tahkim Merkezi (İSTAC), ICC ve ad hoc tahkim davaları; arabuluculuk, müzakere ve yargı dışı çözüm yöntemleri.', icon: 'scale' },
-        { id: 4, title: 'Gayrimenkul & İnşaat Hukuku', description: 'Taşınmaz alım-satımı, kat mülkiyeti, kira sözleşmeleri, inşaat ve müteahhitlik sözleşmeleri, imar ve ruhsat uyuşmazlıkları.', icon: 'building' },
-        { id: 5, title: 'İş & Sosyal Güvenlik Hukuku', description: 'Bireysel ve toplu iş sözleşmeleri, işçi alacakları, işe iade davaları, iş kazaları ve meslek hastalıkları, SGK uyuşmazlıkları.', icon: 'handshake' },
-        { id: 6, title: 'Fikri Mülkiyet Hukuku', description: 'Marka tescili ve itiraz süreçleri, patent ve faydalı model başvuruları, telif hakkı ihlalleri, haksız rekabet ve ticari sır davaları.', icon: 'lightbulb' },
-        { id: 7, title: 'Banka & Finans Hukuku', description: 'Kredi sözleşmeleri, finansal teminatlar, leasing ve faktoring işlemleri, banka uyuşmazlıkları ve düzenleyici uyum danışmanlığı.', icon: 'landmark' },
-        { id: 8, title: 'İdare & Vergi Hukuku', description: 'İdari işlemlere itiraz, vergi cezaları ve uyuşmazlıkları, kamu ihale hukuku, lisans ve izin süreçleri.', icon: 'shield' },
-        { id: 9, title: 'Miras & Aile Hukuku', description: 'Vasiyetname hazırlanması, miras taksim anlaşmaları, velayet ve nafaka davaları, aile şirketi hukuku.', icon: 'heart' },
-        { id: 10, title: 'İcra & İflas Hukuku', description: 'İlamlı ve ilamsız icra takipleri, ihtiyati haciz ve tedbir kararları, iflas erteleme ve konkordato süreçleri.', icon: 'gavel' },
-        { id: 11, title: 'Ceza Hukuku', description: 'Ticari suçlar, sahtecilik, dolandırıcılık, zimmet ve görevi kötüye kullanma davalarında kurumsal ve bireysel savunma.', icon: 'lock' },
-        { id: 12, title: 'Enerji & Çevre Hukuku', description: 'Enerji lisansları, yenilenebilir enerji yatırımları, çevre mevzuatı uyumu, ÇED süreçleri ve enerji alım-satım sözleşmeleri.', icon: 'zap' }
+        { id: 1, title: 'Kullanıcı Deneyimi (UX/UI)', description: 'Modern web ve mobil arayüz tasarımlarında kullanıcı odaklı deneyim analizi, estetik ve kullanılabilirlik prensipleri.', icon: 'briefcase' },
+        { id: 2, title: 'Marka Kimliği & Branding', description: 'Dijital çağda akılda kalıcı kurumsal kimlik inşası, logo tasarımı ve tutarlı marka dili oluşturma stratejileri.', icon: 'users' },
+        { id: 3, title: 'Yapay Zeka & Sanat', description: 'Generative AI araçlarının tasarım süreçlerine entegrasyonu, yapay zekalı sanatın geleceği ve telif tartışmaları.', icon: 'scale' },
+        { id: 4, title: 'Web3 & Gelecek Teknolojileri', description: 'Merkeziyetsiz web mimarisi, interaktif 3D deneyimler ve geleceğin dijital evrenlerinde marka konumlandırma.', icon: 'building' },
+        { id: 5, title: 'Yaratıcı Liderlik', description: 'Tasarım ekiplerini yönetmek, inovasyon kültürünü beslemek ve ajans dünyasında kreatif liderlik vizyonu.', icon: 'handshake' },
+        { id: 6, title: 'Kreatif Strateji', description: 'Hedef kitle analiziyle desteklenmiş, ölçülebilir ve yaratıcı dijital pazarlama kampanyalarının kurgulanması.', icon: 'lightbulb' },
+        { id: 7, title: 'Motion & Hareketli Grafik', description: 'Video prodüksiyonu, animasyon, sinematik anlatım ve dijital ekranlarda dikkat çeken dinamik grafikler.', icon: 'landmark' },
+        { id: 8, title: 'Yazılım & Teknolojik Arayüzler', description: 'Modern frontend frameworkleri, etkileşimli mikro-animasyonlar ve tasarım-yazılım köprüsünün kurulması.', icon: 'shield' },
+        { id: 9, title: 'İçerik Stratejisi', description: 'Sosyal medya içerik planlaması, kopya yazımı, hikaye anlatıcılığı ve dijital platformlarda ses getiren metinler.', icon: 'heart' },
+        { id: 10, title: 'Reklam & Dijital PR', description: 'Medya ilişkileri, viral pazarlama teknikleri, yaratıcı PR kampanyaları ve marka bilinirliği yönetimi.', icon: 'gavel' },
+        { id: 11, title: 'Tasarım Kültürü & Etik', description: 'Erişilebilirlik (A11y), yeşil tasarım, etik tasarım standartları ve sürdürülebilir kullanıcı deneyimi.', icon: 'lock' },
+        { id: 12, title: 'Girişimcilik & Startup Tasarımı', description: 'Startuplar için MVP tasarımları, pitch deck hazırlama, yatırımcı sunumları ve hızlı büyüme tasarımları.', icon: 'zap' }
       ]
     },
     team: {
-      title: 'Ekibimiz',
-      subtitle: 'Uzman Avukat Kadromuz',
-      description: 'Werdy Hukuk Bürosu\'nun deneyimli avukat ekibi, her davada müvekkillerinin haklarını en etkin biçimde savunmaktadır.',
-      viewProfile: 'Tüm Ekibi Görüntüle'
+      title: 'Konuşmacılar',
+      subtitle: 'Yaratıcı Konuşmacı Kadromuz',
+      description: 'Redmono Summit 2026\'da alanında devrim yaratan yerli ve yabancı 14 seçkin konuşmacı ve moderatör bizlerle.',
+      viewProfile: 'Tüm Konuşmacıları Görüntüle'
     },
     publications: {
-      title: 'Yayınlar',
-      subtitle: 'Güncel Hukuki Makaleler',
-      description: 'Hukuk alanındaki güncel gelişmeler ve uzman değerlendirmelerimizi paylaşıyoruz.',
+      title: 'Haberler',
+      subtitle: 'Zirveden Son Duyurular',
+      description: 'Redmono Creative Summit 2026 hakkında son güncellemeler, duyurular ve yaratıcı makaleler.',
       readMore: 'Devamını Oku',
-      viewAll: 'Tüm Yayınları Görüntüle'
+      viewAll: 'Tüm Haberleri Görüntüle'
     },
     contact: {
-      title: 'İletişim',
-      subtitle: 'Hukuki Danışmanlık Alın',
-      description: 'Hukuki ihtiyaçlarınız için aşağıdaki formu doldurabilir veya doğrudan ulaşabilirsiniz.',
+      title: 'Kayıt Olun',
+      subtitle: 'Bize Ulaşın & Yerinizi Ayırtın',
+      description: 'Zirveye kayıt yaptırmak, sponsor olmak veya detaylı bilgi almak için formu doldurabilirsiniz.',
       form: {
         name: 'Adınız Soyadınız',
         email: 'E-posta Adresiniz',
         phone: 'Telefon Numaranız',
-        subject: 'Konu',
-        message: 'Mesajınız',
+        subject: 'İlgi Alanınız',
+        message: 'Sorunuz veya Mesajınız',
         submit: 'Mesaj Gönder',
         selectSubject: 'Konu seçiniz',
-        subjects: ['Ticaret Hukuku', 'Tahkim', 'Gayrimenkul Hukuku', 'Şirketler Hukuku', 'İş Hukuku', 'Fikri Mülkiyet', 'Diğer']
+        subjects: ['UX/UI Tasarım', 'Marka Kimliği', 'Yapay Zeka', 'Web3', 'Sponsorluk', 'Gönüllü Katılım', 'Diğer']
       },
       info: {
-        address: 'Adres',
+        address: 'Zirve Adresi',
         addressValue: 'Caferağa Mah. Moda Cad. No:82, 34710 Kadıköy / İstanbul',
-        phone: 'Telefon',
+        phone: 'İletişim',
         phoneValue: '+90 212 900 00 00',
         email: 'E-posta',
         emailValue: 'info@redmono.com'
       }
     },
     footer: {
-      description: 'İstanbul merkezli Werdy, ulusal ve uluslararası müvekkillerine modern ve yenilikçi hukuki danışmanlık çözümleri sunmaktadır.',
+      description: 'İstanbul merkezli Redmono Creative Summit, 2026 yılında ulusal ve uluslararası kreatif toplulukları bir araya getiren yenilikçi bir zirvedir.',
       quickLinks: 'Hızlı Bağlantılar',
-      practiceAreas: 'Çalışma Alanları',
+      practiceAreas: 'Zirve Konuları',
       contact: 'İletişim',
-      rights: 'Tüm hakları saklıdır.',
+      rights: 'Tüm hakları saklıdır. Redmono Creative Agency 2026 — redmono.com',
       privacy: 'Gizlilik Politikası',
       terms: 'Kullanım Koşulları'
     }
   },
   en: {
     nav: {
-      home: 'Home',
+      home: 'Summit 2026',
       about: 'About',
-      practiceAreas: 'Practice Areas',
-      team: 'Our Team',
-      publications: 'Publications',
-      process: 'Process',
-      references: 'References',
-      contact: 'Contact'
+      practiceAreas: 'Schedule',
+      team: 'Speakers',
+      publications: 'News',
+      process: 'Timeline',
+      references: 'Partners',
+      contact: 'Register & Contact'
     },
     hero: {
       tagline: 'Istanbul • Turkey',
-      title: 'Werdy Law Firm',
-      subtitle: 'Reliable. Experienced. Solution-Oriented.',
-      description: 'With a professional and dedicated team in commercial law, arbitration and corporate advisory, we provide trusted legal support to our clients.',
-      cta: 'Get Consultation',
-      ctaSecondary: 'Practice Areas',
+      title: 'Redmono Creative Summit 2026',
+      subtitle: 'Creativity. Design. Future.',
+      description: 'The most inspiring creativity summit in Istanbul, organized by Redmono Creative Agency, bringing together pioneers of design, AI, and digital branding.',
+      cta: 'Register Now',
+      ctaSecondary: 'Summit Schedule',
       scroll: 'Scroll to explore',
-      badge: 'Premium Quality',
-      slogan: '— a law firm which provides a broad range of high quality services.'
+      badge: 'Redmono Design Event',
+      slogan: '— A summit redefining the boundaries of design and creativity.'
     },
     about: {
-      title: 'About Us',
-      subtitle: 'Werdy Law Firm',
-      description: 'Werdy is an independent legal design concept specializing in commercial law, corporate law, real estate law, employment law and arbitration. It delivers high-quality advisory services to corporate and individual clients.',
-      description2: 'Our experienced team of attorneys develops tailored solutions for each client\'s needs and effectively manages legal processes.',
-      experience: 'Years of Experience',
-      clients: 'Corporate Clients',
-      cases: 'Completed Cases',
-      countries: 'Countries Served',
+      title: 'About the Summit',
+      subtitle: 'Redmono Creative Summit 2026',
+      description: 'Redmono Creative Summit is a prestigious event held in Kadikoy, Istanbul in 2026, bringing together global pioneers in creative industries, user experience, brand design, AI-driven art, and future technologies. It offers inspiring sessions, workshops, and rich networking opportunities.',
+      description2: 'Our lineup of expert speakers, who are breaking ground in their fields, will dissect future design trends and digital transformation processes.',
+      experience: 'Featured Sessions',
+      clients: 'Creative Attendees',
+      cases: 'Keynote Speakers',
+      countries: 'Global Partners',
       values: [
-        { title: 'Reliability', desc: 'We approach every client with an honest, transparent and ethical service philosophy.' },
-        { title: 'Expertise', desc: 'Our specialized attorneys follow the latest legal developments in their fields.' },
-        { title: 'Solution Focus', desc: 'We generate practical and applicable solutions to complex legal problems.' }
+        { title: 'Creativity', desc: 'Boundary-pushing design concepts and visionary presentations.' },
+        { title: 'Interaction', desc: 'Interactive workshops with peers and industry professionals.' },
+        { title: 'Future', desc: 'A look into the future of AI and digital brand trends.' }
       ]
     },
     process: {
-      title: 'Legal Process',
-      subtitle: 'How We Work',
-      description: 'We offer our clients a transparent, step-by-step and predictable legal advisory process.',
+      title: 'Summit Timeline',
+      subtitle: 'How to Participate?',
+      description: 'We provide our participants with a transparent, step-by-step, and efficient summit experience.',
       steps: [
-        { number: '01', title: 'Initial Consultation', desc: 'We conduct a free initial assessment meeting to understand your legal situation and needs.', duration: 'Same day – 24 hours' },
-        { number: '02', title: 'File Analysis', desc: 'Our expert attorneys examine your documents and legal situation in detail to determine strategy.', duration: '2 – 5 business days' },
-        { number: '03', title: 'Strategy & Proposal', desc: 'A tailored legal strategy, process plan and transparent cost information is presented to you.', duration: '1 – 3 business days' },
-        { number: '04', title: 'Process Management', desc: 'All proceedings are monitored throughout the legal process and clients are regularly informed.', duration: 'Throughout process' },
-        { number: '05', title: 'Result & Reporting', desc: 'After the case is concluded, a detailed outcome report is prepared and delivered to the client.', duration: 'Closing phase' }
+        {
+          number: '01',
+          title: 'Ticket Registration',
+          desc: 'Get your summit ticket and select your workshops by filling out the contact form or reaching us directly.',
+          duration: 'Registration'
+        },
+        {
+          number: '02',
+          title: 'Workshop Selection',
+          desc: 'Pre-book your spot for the creative and technical workshops you wish to attend on the summit day.',
+          duration: 'Pre-Event'
+        },
+        {
+          number: '03',
+          title: 'Summit Day',
+          desc: 'Join the creative marathon packed with keynotes, panels, and hands-on workshops.',
+          duration: 'October 15-16, 2026'
+        },
+        {
+          number: '04',
+          title: 'Networking & Party',
+          desc: 'Don’t miss the chance to meet leading agencies, brands, and creative teams in the industry.',
+          duration: 'Summit Wrap-Up'
+        },
+        {
+          number: '05',
+          title: 'Digital Reports',
+          desc: 'Access all session recordings, workshop notes, and summit presentations from our digital archive.',
+          duration: 'Post-Event'
+        }
       ]
     },
     practiceAreas: {
-      title: 'Practice Areas',
-      subtitle: 'Our Expertise',
-      learnMore: 'Learn More',
+      title: 'Summit Schedule',
+      subtitle: 'Event Topics',
+      learnMore: 'Read Details',
       areas: [
-        { id: 1, title: 'Commercial Law', description: 'Commercial contracts, sale agreements, distributorship and agency contracts, resolution of commercial disputes, surety and guarantee law.', icon: 'briefcase' },
-        { id: 2, title: 'Corporate Law', description: 'Joint-stock and limited company formations, general assembly processes, mergers & acquisitions, corporate restructuring, partnership disputes.', icon: 'users' },
-        { id: 3, title: 'Arbitration & Dispute Resolution', description: 'ISTAC, ICC and ad hoc arbitration proceedings; mediation, negotiation and alternative dispute resolution methods.', icon: 'scale' },
-        { id: 4, title: 'Real Estate & Construction Law', description: 'Property transactions, condominium law, lease agreements, construction and contractor agreements, zoning and permit disputes.', icon: 'building' },
-        { id: 5, title: 'Employment & Social Security Law', description: 'Individual and collective employment contracts, employee claims, reinstatement actions, workplace accidents and SGK disputes.', icon: 'handshake' },
-        { id: 6, title: 'Intellectual Property Law', description: 'Trademark registration and opposition proceedings, patent and utility model applications, copyright infringement, unfair competition and trade secret litigation.', icon: 'lightbulb' },
-        { id: 7, title: 'Banking & Finance Law', description: 'Loan agreements, financial collateral, leasing and factoring transactions, banking disputes and regulatory compliance advisory.', icon: 'landmark' },
-        { id: 8, title: 'Administrative & Tax Law', description: 'Challenging administrative acts, tax penalties and disputes, public procurement law, licensing and permit procedures.', icon: 'shield' },
-        { id: 9, title: 'Inheritance & Family Law', description: 'Will preparation, inheritance partition agreements, custody and alimony proceedings, family business law.', icon: 'heart' },
-        { id: 10, title: 'Enforcement & Insolvency Law', description: 'Executory and non-executory enforcement proceedings, precautionary attachments, insolvency postponement and concordat processes.', icon: 'gavel' },
-        { id: 11, title: 'Criminal Law', description: 'Corporate and individual defense in commercial crimes: fraud, forgery, embezzlement and abuse of authority cases.', icon: 'lock' },
-        { id: 12, title: 'Energy & Environmental Law', description: 'Energy licenses, renewable energy investments, environmental legislation compliance, EIA processes and energy purchase agreements.', icon: 'zap' }
+        { id: 1, title: 'User Experience (UX/UI)', description: 'User-oriented experience analysis, aesthetics, and usability principles in modern web and mobile interface designs.', icon: 'briefcase' },
+        { id: 2, title: 'Brand Identity & Branding', description: 'Building memorable corporate identities, logo design, and consistent brand language strategies in the digital age.', icon: 'users' },
+        { id: 3, title: 'AI & Art', description: 'Integration of Generative AI tools into design processes, the future of AI-driven art, and copyright discussions.', icon: 'scale' },
+        { id: 4, title: 'Web3 & Future Tech', description: 'Decentralized web architecture, interactive 3D experiences, and brand positioning in future digital universes.', icon: 'building' },
+        { id: 5, title: 'Creative Leadership', description: 'Managing design teams, nurturing innovation culture, and creative leadership vision in the agency world.', icon: 'handshake' },
+        { id: 6, title: 'Creative Strategy', description: 'Building measurable and creative digital marketing campaigns supported by target audience analysis.', icon: 'lightbulb' },
+        { id: 7, title: 'Motion & Motion Graphics', description: 'Video production, animation, cinematic storytelling, and dynamic graphics that grab attention on digital screens.', icon: 'landmark' },
+        { id: 8, title: 'Software & Tech Interfaces', description: 'Modern frontend frameworks, interactive micro-animations, and building the design-to-development bridge.', icon: 'shield' },
+        { id: 9, title: 'Content Strategy', description: 'Social media content planning, copywriting, storytelling, and copy that makes a difference on digital platforms.', icon: 'heart' },
+        { id: 10, title: 'Advertising & Digital PR', description: 'Media relations, viral marketing techniques, creative PR campaigns, and brand awareness management.', icon: 'gavel' },
+        { id: 11, title: 'Design Culture & Ethics', description: 'Accessibility (A11y), green design, ethical design standards, and sustainable user experience.', icon: 'lock' },
+        { id: 12, title: 'Entrepreneurship & Startup Design', description: 'MVP designs for startups, pitch deck preparation, investor presentations, and fast-growth designs.', icon: 'zap' }
       ]
     },
     team: {
-      title: 'Our Team',
-      subtitle: 'Expert Attorney Staff',
-      description: 'The experienced attorney team of Werdy Law Firm defends clients\' rights most effectively in every case.',
-      viewProfile: 'View All Team'
+      title: 'Speakers',
+      subtitle: 'Our Creative Speakers Lineup',
+      description: 'Meet our 14 distinguished keynote speakers and moderators redefining their fields at Redmono Summit 2026.',
+      viewProfile: 'View All Speakers'
     },
     publications: {
-      title: 'Publications',
-      subtitle: 'Latest Legal Articles',
-      description: 'We share current developments in the legal field and our expert assessments.',
-      readMore: 'Read More',
-      viewAll: 'View All Publications'
+      title: 'News',
+      subtitle: 'Latest Announcements',
+      description: 'Get the latest updates, announcements, and creative articles about Redmono Creative Summit 2026.',
+      readMore: 'Read Article',
+      viewAll: 'View All News'
     },
     contact: {
-      title: 'Contact',
-      subtitle: 'Get Legal Consultation',
-      description: 'You can fill out the form below or reach us directly for your legal needs.',
+      title: 'Register Now',
+      subtitle: 'Get in Touch & Book Your Spot',
+      description: 'You can fill out the form to register, become a sponsor, or ask for details about the summit.',
       form: {
         name: 'Your Name',
         email: 'Your Email',
         phone: 'Your Phone',
-        subject: 'Subject',
+        subject: 'Interest Area',
         message: 'Your Message',
         submit: 'Send Message',
-        selectSubject: 'Select a subject',
-        subjects: ['Commercial Law', 'Arbitration', 'Real Estate Law', 'Corporate Law', 'Employment Law', 'Intellectual Property', 'Other']
+        selectSubject: 'Select topic',
+        subjects: ['UX/UI Design', 'Branding', 'Artificial Intelligence', 'Web3', 'Sponsorship', 'Volunteering', 'Other']
       },
       info: {
-        address: 'Address',
+        address: 'Summit Location',
         addressValue: 'Caferaga Mah. Moda Cad. No:82, 34710 Kadikoy / Istanbul',
-        phone: 'Phone',
+        phone: 'Contact',
         phoneValue: '+90 212 900 00 00',
         email: 'Email',
         emailValue: 'info@redmono.com'
       }
     },
     footer: {
-      description: 'Istanbul-based Werdy has been providing trusted legal advisory services to national and international clients with a modern approach.',
+      description: 'Based in Istanbul, Redmono Creative Summit is an innovative event bringing together national and international creative communities in 2026.',
       quickLinks: 'Quick Links',
-      practiceAreas: 'Practice Areas',
+      practiceAreas: 'Summit Topics',
       contact: 'Contact',
-      rights: 'All rights reserved.',
+      rights: 'All rights reserved. Redmono Creative Agency 2026 — redmono.com',
       privacy: 'Privacy Policy',
       terms: 'Terms of Use'
     }
@@ -259,27 +284,34 @@ const translations = {
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState('tr');
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem('language') || 'tr';
+  });
 
   useEffect(() => {
-    document.documentElement.lang = language;
+    localStorage.setItem('language', language);
   }, [language]);
 
-  const t = (key) => {
-    const keys = key.split('.');
-    let value = translations[language];
-    for (const k of keys) {
-      value = value?.[k];
-    }
-    return value || key;
+  const toggleLanguage = () => {
+    setLanguage(prev => (prev === 'tr' ? 'en' : 'tr'));
   };
 
-  const toggleLanguage = () => {
-    setLanguage(prev => prev === 'tr' ? 'en' : 'tr');
+  const t = (keyPath, fallback = '') => {
+    const keys = keyPath.split('.');
+    let result = TRANSLATIONS[language];
+    
+    for (const key of keys) {
+      if (result && result[key] !== undefined) {
+        result = result[key];
+      } else {
+        return fallback || keyPath;
+      }
+    }
+    return result;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, t }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
@@ -287,6 +319,8 @@ export function LanguageProvider({ children }) {
 
 export function useLanguage() {
   const context = useContext(LanguageContext);
-  if (!context) throw new Error('useLanguage must be used within a LanguageProvider');
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
   return context;
 }

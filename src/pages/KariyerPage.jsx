@@ -14,33 +14,33 @@ const TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-
 const VALUES = [
   {
     icon: Sparkles,
-    tr: { title: 'Mükemmeliyetçilik', desc: 'Her dosyaya en yüksek hukuki standartlarla yaklaşır, detaya ve analitik derinliğe önem veririz.' },
-    en: { title: 'Excellence', desc: 'We approach every file with the highest legal standards, valuing detail and analytical depth.' },
+    tr: { title: 'Kreatif Mükemmeliyet', desc: 'Her projeye en yüksek tasarım standartlarıyla yaklaşır, detaya ve özgünlüğe önem veririz.' },
+    en: { title: 'Creative Excellence', desc: 'We approach every project with the highest design standards, valuing detail and originality.' },
   },
   {
     icon: GraduationCap,
-    tr: { title: 'Sürekli Gelişim', desc: 'Yüksek lisans süreçlerini, akademik çalışmaları ve mesleki uzmanlaşmayı destekleriz.' },
-    en: { title: 'Continuous Growth', desc: "We support LLM studies, academic work and professional specialization." },
+    tr: { title: 'Sürekli Öğrenme', desc: 'Tasarım teknolojilerini, yapay zeka araçlarını ve yaratıcı pratikleri takip etmeyi destekleriz.' },
+    en: { title: 'Continuous Learning', desc: "We support keeping track of design technologies, AI tools, and creative practices." },
   },
   {
     icon: Users,
-    tr: { title: 'Kolektif Kültür', desc: 'Hiyerarşiden uzak, şeffaf, bilgi paylaşımına ve karşılıklı saygıya dayalı bir ekip.' },
-    en: { title: 'Collective Culture', desc: 'A flat, transparent team built on knowledge-sharing and mutual respect.' },
+    tr: { title: 'Kolektif Paylaşım', desc: 'Hiyerarşiden uzak, açık fikirli, bilgi paylaşımına ve ortak üretime dayalı bir topluluk.' },
+    en: { title: 'Collective Collaboration', desc: 'A flat, open-minded community built on knowledge-sharing and co-creation.' },
   },
 ];
 
 const POSITIONS = {
   tr: [
-    { title: 'Avukat — Kurumsal Hukuk', dept: 'Hukuk', type: 'Tam Zamanlı', location: 'İstanbul' },
-    { title: 'Stajyer Avukat', dept: 'Hukuk', type: 'Staj', location: 'İstanbul' },
-    { title: 'Hukuk Asistanı', dept: 'Destek', type: 'Tam Zamanlı', location: 'İstanbul' },
-    { title: 'Kıdemli Avukat — Sermaye Piyasaları', dept: 'Hukuk', type: 'Tam Zamanlı', location: 'İstanbul' },
+    { title: 'Atölye Asistanı', dept: 'Destek', type: 'Gönüllü', location: 'İstanbul' },
+    { title: 'Sosyal Medya Gönüllüsü', dept: 'İçerik', type: 'Gönüllü', location: 'İstanbul' },
+    { title: 'Kayıt & Karşılama Görevlisi', dept: 'Operasyon', type: 'Gönüllü', location: 'İstanbul' },
+    { title: 'Teknik Sahne Sorumlusu', dept: 'Teknoloji', type: 'Gönüllü', location: 'İstanbul' },
   ],
   en: [
-    { title: 'Attorney — Corporate Law', dept: 'Legal', type: 'Full-time', location: 'Istanbul' },
-    { title: 'Trainee Attorney', dept: 'Legal', type: 'Internship', location: 'Istanbul' },
-    { title: 'Legal Assistant', dept: 'Support', type: 'Full-time', location: 'Istanbul' },
-    { title: 'Senior Attorney — Capital Markets', dept: 'Legal', type: 'Full-time', location: 'Istanbul' },
+    { title: 'Workshop Assistant', dept: 'Support', type: 'Volunteer', location: 'Istanbul' },
+    { title: 'Social Media Volunteer', dept: 'Content', type: 'Volunteer', location: 'Istanbul' },
+    { title: 'Registration Host', dept: 'Operations', type: 'Volunteer', location: 'Istanbul' },
+    { title: 'Technical Stage Manager', dept: 'Technology', type: 'Volunteer', location: 'Istanbul' },
   ],
 };
 
@@ -85,12 +85,12 @@ export default function KariyerPage() {
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-24">
             <Reveal>
               <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-4xl max-w-3xl">
-                {t('Bir adım atın. Geri kalanını birlikte inşa edelim.', 'Take a step. We will build the rest together.')}
+                {t('Zirve ekibine katılın. Geleceği birlikte tasarlayalım.', 'Join the summit team. Let us design the future together.')}
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
                 {t(
-                  'Werdy’de kariyeriniz; kurumsal işlemlerden uluslararası tahkime, sermaye piyasalarından rekabet hukukuna uzanan kapsamlı bir uzmanlığın içinde şekillenir.',
-                  'At Werdy your career unfolds across corporate transactions, international arbitration, capital markets and competition law.',
+                  'Redmono Creative Summit 2026’da gönüllü olarak yer alın; atölye asistanlığından sosyal medya yönetimine, teknik sahne yönetiminden karşılama operasyonlarına uzanan zengin bir deneyim kazanın.',
+                  'Volunteer at Redmono Creative Summit 2026; gain rich experience ranging from workshop assistance to social media management, technical stage operations, and registration hosting.',
                 )}
               </p>
             </Reveal>
@@ -103,7 +103,7 @@ export default function KariyerPage() {
             <Reveal>
               <div className="mb-14 max-w-2xl">
                 <h2 className={TITLE_CLS}>
-                  {t('Hukuk pratiğinizi besleyen bir çalışma kültürü.', 'A culture that nourishes your legal practice.')}
+                  {t('Yaratıcı topluluğumuzu besleyen ortak değerlerimiz.', 'Our shared values that nourish our creative community.')}
                 </h2>
               </div>
             </Reveal>

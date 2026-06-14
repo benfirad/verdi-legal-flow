@@ -29,62 +29,62 @@ const AuthenticatedApp = () => {
   useEffect(() => {
     const routeTitles = {
       '/': {
-        tr: 'Werdy Hukuk Bürosu | Modern Hukuk ve Danışmanlık (Redmono)',
-        en: 'Werdy Law Firm | Modern Law & Consultancy (Redmono)'
+        tr: 'Redmono Creative Summit 2026 | İstanbul',
+        en: 'Redmono Creative Summit 2026 | Istanbul'
       },
       '/hakkimizda': {
-        tr: 'Hakkımızda | Werdy Hukuk Bürosu (Redmono)',
-        en: 'About Us | Werdy Law Firm (Redmono)'
+        tr: 'Zirve Hakkında | Redmono Creative Summit 2026',
+        en: 'About the Summit | Redmono Creative Summit 2026'
       },
       '/calisma-alanlari': {
-        tr: 'Çalışma Alanları | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Practice Areas | Werdy Law Firm (Redmono)'
+        tr: 'Zirve Programı | Redmono Creative Summit 2026',
+        en: 'Summit Schedule | Redmono Creative Summit 2026'
       },
       '/ekibimiz': {
-        tr: 'Ekibimiz | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Our Team | Werdy Law Firm (Redmono)'
+        tr: 'Konuşmacılar | Redmono Creative Summit 2026',
+        en: 'Speakers | Redmono Creative Summit 2026'
       },
       '/yayinlar': {
-        tr: 'Yayınlar | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Publications | Werdy Law Firm (Redmono)'
+        tr: 'Haberler | Redmono Creative Summit 2026',
+        en: 'News & Announcements | Redmono Creative Summit 2026'
       },
       '/makaleler': {
-        tr: 'Yayınlar | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Publications | Werdy Law Firm (Redmono)'
+        tr: 'Haberler | Redmono Creative Summit 2026',
+        en: 'News & Announcements | Redmono Creative Summit 2026'
       },
       '/surec': {
-        tr: 'Süreç | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Process | Werdy Law Firm (Redmono)'
+        tr: 'Akış | Redmono Creative Summit 2026',
+        en: 'Timeline | Redmono Creative Summit 2026'
       },
       '/kariyer': {
-        tr: 'Kariyer | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Careers | Werdy Law Firm (Redmono)'
+        tr: 'Kayıt & Başvuru | Redmono Creative Summit 2026',
+        en: 'Registration & Applications | Redmono Creative Summit 2026'
       },
       '/iletisim': {
-        tr: 'İletişim | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Contact | Werdy Law Firm (Redmono)'
+        tr: 'İletişim & Kayıt | Redmono Creative Summit 2026',
+        en: 'Contact & Registration | Redmono Creative Summit 2026'
       },
       '/login': {
-        tr: 'Giriş Yap | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Login | Werdy Law Firm (Redmono)'
+        tr: 'Giriş Yap | Redmono Creative Summit 2026',
+        en: 'Login | Redmono Creative Summit 2026'
       },
       '/register': {
-        tr: 'Kayıt Ol | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Register | Werdy Law Firm (Redmono)'
+        tr: 'Kayıt Ol | Redmono Creative Summit 2026',
+        en: 'Register | Redmono Creative Summit 2026'
       },
       '/forgot-password': {
-        tr: 'Şifremi Unuttum | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Forgot Password | Werdy Law Firm (Redmono)'
+        tr: 'Şifremi Unuttum | Redmono Creative Summit 2026',
+        en: 'Forgot Password | Redmono Creative Summit 2026'
       },
       '/reset-password': {
-        tr: 'Şifreyi Sıfırla | Werdy Hukuk Bürosu (Redmono)',
-        en: 'Reset Password | Werdy Law Firm (Redmono)'
+        tr: 'Şifreyi Sıfırla | Redmono Creative Summit 2026',
+        en: 'Reset Password | Redmono Creative Summit 2026'
       }
     };
 
     const currentTitle = routeTitles[location.pathname] || {
-      tr: 'Werdy Hukuk Bürosu | Modern Hukuki Çözümler (Redmono)',
-      en: 'Werdy Law Firm | Modern Legal Solutions (Redmono)'
+      tr: 'Redmono Creative Summit 2026 | Yaratıcılık, Tasarım, Gelecek',
+      en: 'Redmono Creative Summit 2026 | Creativity, Design, Future'
     };
 
     document.title = language === 'tr' ? currentTitle.tr : currentTitle.en;

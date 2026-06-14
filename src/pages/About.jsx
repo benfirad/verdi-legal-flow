@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Users, Scale, Sparkles, Building2, MessageSquare } from 'lucide-react';
+import { Users, Sparkles, Building2, MessageSquare } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -12,51 +12,51 @@ const EYEBROW_DARK_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text
 const SECTION_TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-[#1A2530] md:text-4xl';
 
 const STATS = [
-  { value: '12+', label: { tr: 'Yıllık Tecrübe', en: 'Years of Experience' } },
-  { value: '450+', label: { tr: 'Kurumsal Müvekkil', en: 'Corporate Clients' } },
-  { value: '1950+', label: { tr: 'Tamamlanan Dava', en: 'Completed Cases' } },
-  { value: '22+', label: { tr: 'Ülkede Faaliyet', en: 'Countries Served' } },
+  { value: '12+', label: { tr: 'Seçkin Oturum', en: 'Featured Sessions' } },
+  { value: '450+', label: { tr: 'Kreatif Katılımcı', en: 'Creative Attendees' } },
+  { value: '1950+', label: { tr: 'Öncü Konuşmacı', en: 'Keynote Speakers' } },
+  { value: '22+', label: { tr: 'Uluslararası Ortak', en: 'Global Partners' } },
 ];
 
 const VALUES = [
   {
     icon: Users,
-    title: { tr: 'Müvekkil Odaklılık', en: 'Client Focus' },
+    title: { tr: 'Yaratıcı Topluluk', en: 'Creative Community' },
     desc: {
-      tr: 'Müvekkillerimizin ihtiyaçlarını derinlemesine anlamak, menfaatlerini en iyi şekilde temsil etmek ve haklarını korumak temel önceliğimizdir. Her dosyaya özgü, hızlı ve nitelikli çözümler üretmek için çalışırız.',
-      en: 'Understanding our clients’ needs in depth, representing their interests in the best possible way and protecting their rights is our primary priority. We work to produce case-specific, fast and high-quality solutions.',
-    },
-  },
-  {
-    icon: Scale,
-    title: { tr: 'Profesyonel Hizmet Anlayışı', en: 'Professional Service' },
-    desc: {
-      tr: 'Mesleki etik kurallara, dürüstlük ve şeffaflık ilkelerine bağlı kalarak yüksek uzmanlık gerektiren çözümler sunar; müvekkil memnuniyetini en üst düzeyde tutmayı hedefleriz.',
-      en: 'Adhering to professional ethics, honesty and transparency, we provide solutions requiring high expertise and aim to keep client satisfaction at the highest level.',
+      tr: 'Yaratıcı endüstrilerin her alanından profesyonelleri bir araya getirerek güçlü ve esnek bir paylaşım ekosistemi oluşturuyoruz.',
+      en: 'By bringing together professionals from all fields of creative industries, we create a strong and flexible sharing ecosystem.',
     },
   },
   {
     icon: Sparkles,
-    title: { tr: 'Sürekli Gelişim ve Eğitim', en: 'Continuous Development' },
+    title: { tr: 'Yenilikçi Yaklaşım', en: 'Innovative Approach' },
     desc: {
-      tr: 'Hukukun dinamik yapısını, mevzuat değişikliklerini ve hukuk teknolojilerini yakından takip eder; dijital dönüşümü, akademik çalışmaları ve yeni hizmet alanlarının geliştirilmesini önemseriz.',
-      en: 'We closely follow the dynamic structure of law, legislative changes and legal technologies; we value digital transformation, academic work and the development of new service areas.',
-    },
-  },
-  {
-    icon: Building2,
-    title: { tr: 'Verimli ve Saygın İş Ortamı', en: 'Productive Workplace' },
-    desc: {
-      tr: 'Çalışanlarımıza verimli bir iş ortamı sunar, yetkinliklerini geliştirir; açık iletişim, mentorluk ve esnek çalışma olanaklarıyla kişisel ve kariyer gelişimini destekleriz.',
-      en: 'We offer our employees a productive work environment, develop their competencies and support personal and career growth through open communication, mentorship and flexible working arrangements.',
+      tr: 'Tasarım trendleri, yapay zekalı sanat ve gelecek teknolojilerinde en yeni akımları takip ediyor ve katılımcılarımızla paylaşıyoruz.',
+      en: 'We follow the latest trends in design, AI art, and future technologies, sharing them with our attendees.',
     },
   },
   {
     icon: MessageSquare,
-    title: { tr: 'İletişim ve Erişilebilirlik', en: 'Communication & Accessibility' },
+    title: { tr: 'Etkileşimli Atölyeler', en: 'Interactive Workshops' },
     desc: {
-      tr: 'Karmaşık hukuki konuları anlaşılır bir dille aktarmayı, geri bildirim mekanizmaları ve teknoloji aracılığıyla saygılı ve profesyonel iletişimi güçlendirmeyi taahhüt ederiz.',
-      en: 'We are committed to explaining complex legal matters in clear language and strengthening respectful, professional communication through feedback mechanisms and technology.',
+      tr: 'Sadece teorik sunumlar değil, uzman eğitmenler eşliğinde uygulamalı ve pratik öğrenme deneyimleri sunuyoruz.',
+      en: 'Not just theoretical presentations, we offer hands-on and practical learning experiences guided by expert instructors.',
+    },
+  },
+  {
+    icon: Building2,
+    title: { tr: 'Sürdürülebilir Tasarım', en: 'Sustainable Design' },
+    desc: {
+      tr: 'Çevre dostu, erişilebilir (A11y) ve etik tasarım prensiplerini destekleyerek geleceğin dijital dünyasını daha yaşanabilir kılmayı hedefliyoruz.',
+      en: 'We aim to make the future digital world more livable by supporting eco-friendly, accessible (A11y), and ethical design principles.',
+    },
+  },
+  {
+    icon: Sparkles,
+    title: { tr: 'Geniş İş Ortaklıkları', en: 'Broad Partnerships' },
+    desc: {
+      tr: 'Sektörün lider ajansları, teknoloji devleri ve bağımsız tasarımcılar ile ortaklıklar kurarak ekosistemi zenginleştiriyoruz.',
+      en: 'We enrich the ecosystem by establishing partnerships with leading agencies, tech giants, and independent designers.',
     },
   },
 ];
@@ -79,8 +79,8 @@ export default function About() {
               <div className="md:pb-6">
                 <p className="mt-4 max-w-md text-lg leading-8 text-[#4D5660]">
                   {language === 'tr'
-                    ? 'Kuruluşumuzdan bu yana yerli ve uluslararası iş dünyasına kesintisiz hukuki danışmanlık veriyoruz.'
-                    : 'Since our establishment, we have been providing uninterrupted legal counsel to domestic and international business.'}
+                    ? 'Yaratıcı zihinleri bir araya getiren zirvemiz, tasarım ve geleceğin teknolojilerinde ilham verici bir deneyim sunuyor.'
+                    : 'Bringing creative minds together, our summit offers an inspiring experience in design and future technologies.'}
                 </p>
               </div>
               {/* Sağ aksent */}
@@ -100,19 +100,19 @@ export default function About() {
             <Reveal>
               <h2 className={SECTION_TITLE_CLS}>
                 {language === 'tr'
-                  ? 'İstanbul merkezli, uluslararası ölçekte hizmet veren bir hukuk bürosu.'
-                  : 'An Istanbul-based law firm serving on an international scale.'}
+                  ? 'İstanbul merkezli, uluslararası kreatif ve teknolojik toplulukları buluşturan yenilikçi bir zirve.'
+                  : 'An Istanbul-based innovative summit bringing together global creative and tech communities.'}
               </h2>
               <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#4D5660]">
                 <p>
                   {language === 'tr'
-                    ? 'Werdy Hukuk Bürosu, yabancı yatırımcılara ve Türk iş dünyasının kurumsal aktörlerine geniş bir uzmanlık yelpazesi içinde hukuki danışmanlık ve dava takip hizmeti sunan, deneyimli avukatlardan oluşan bir ekiptir.'
-                    : 'Werdy Law Firm is a team of experienced attorneys providing legal advisory and dispute resolution services to foreign investors and Turkish corporate actors across a broad range of expertise.'}
+                    ? 'Redmono Creative Summit, tasarımcılar, yazılımcılar, sanatçılar ve marka stratejistleri için en yeni trendlerin paylaşıldığı benzersiz bir buluşma noktasıdır.'
+                    : 'Redmono Creative Summit is a unique meeting point where the latest trends are shared for designers, developers, artists, and brand strategists.'}
                 </p>
                 <p>
                   {language === 'tr'
-                    ? 'Şirketler hukuku, sermaye piyasaları, birleşme ve devralmalar, rekabet hukuku, bankacılık ve finans, vergi hukuku, gayrimenkul, proje geliştirme, enerji ve altyapı hukuku ile dava, tahkim ve idari uyuşmazlıklar başlıca çalışma alanlarımız arasında yer almaktadır.'
-                    : 'Our principal practice areas include corporate law, capital markets, mergers and acquisitions, competition law, banking and finance, tax law, real estate, project development, energy and infrastructure law as well as litigation, arbitration and administrative disputes.'}
+                    ? 'UX/UI Tasarım, Marka Kimliği, Yapay Zeka & Sanat, Web3 ve Yaratıcı Liderlik gibi başlıklar altında zengin içerik ve uygulamalı atölye çalışmaları sunuyoruz.'
+                    : 'We offer rich content and hands-on workshops under tracks like UX/UI Design, Brand Identity, AI & Art, Web3, and Creative Leadership.'}
                 </p>
               </div>
             </Reveal>
@@ -123,19 +123,19 @@ export default function About() {
             <Reveal delay={0.1} from="right">
               <h2 className={SECTION_TITLE_CLS}>
                 {language === 'tr'
-                  ? 'Sonuç odaklı ve yenilikçi bir hukuk anlayışıyla kuruldu.'
-                  : 'Established with a result-oriented approach to law.'}
+                  ? 'Tasarım ve yaratıcılığın sınırlarını zorlamak amacıyla yola çıktık.'
+                  : 'We set out to push the boundaries of design and creativity.'}
               </h2>
               <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#4D5660]">
                 <p>
                   {language === 'tr'
-                    ? 'Werdy, kurucu ekibimiz tarafından, yerli ve yabancı iş dünyasına uluslararası standartlarda sonuç odaklı, yaratıcı, yenilikçi, hızlı ve nitelikli hukuki çözümler sunma anlayışıyla kurulmuştur.'
-                    : 'Werdy was founded by our founding team with the philosophy of delivering result-oriented, creative, innovative, rapid and high-quality legal solutions to domestic and foreign business communities according to international standards.'}
+                    ? 'Zirvemiz, Redmono Creative Agency tarafından, yaratıcı dünyayı geleceğin teknolojileriyle birleştirmek ve ortak bir sinerji alanı oluşturmak üzere kurgulanmıştır.'
+                    : 'Our summit is designed by Redmono Creative Agency to combine the creative world with future technologies and establish a shared synergy.'}
                 </p>
                 <p>
                   {language === 'tr'
-                    ? 'Kuruluş ilkelerimiz; sektörde güven ve saygınlığı korumak, mesleki etik ve dürüstlükten ödün vermemek, üst düzey uzmanlık ve bilgi birikimine sahip olmak, çalışanlarımızın sürekli gelişimini desteklemek ve hukukun üstünlüğüne ve sosyal sorumluluğa bağlı kalmaktır.'
-                    : 'Our founding principles are: maintaining trust and respect in the sector, upholding professional ethics and integrity, building high-level expertise and knowledge, supporting the continuous development of our employees, and remaining committed to the rule of law and social responsibility.'}
+                    ? 'Temel ilkelerimiz; etik tasarım standartlarını yaygınlaştırmak, kapsayıcılık ve erişilebilirliği gözetmek, genç yetenekleri desteklemek ve dijital ekosistemi büyütmektir.'
+                    : 'Our core principles are: promoting ethical design standards, observing exclusivity and accessibility, supporting young talents, and growing the digital ecosystem.'}
                 </p>
               </div>
             </Reveal>
@@ -146,7 +146,7 @@ export default function About() {
               <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=900&q=85"
-                  alt="Werdy Hukuk Bürosu"
+                  alt="Redmono Creative Summit"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
@@ -167,12 +167,12 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 py-24 text-center">
           <Reveal>
             <h2 className={SECTION_TITLE_CLS}>
-              {language === 'tr' ? 'Müvekkil odaklı çözümler.' : 'Client-centered solutions.'}
+              {language === 'tr' ? 'Yaratıcı ve gelecek odaklı vizyon.' : 'Creative and future-oriented vision.'}
             </h2>
             <p className="mt-8 max-w-3xl mx-auto text-lg leading-8 text-[#4D5660]">
               {language === 'tr'
-                ? 'Her müvekkilimizin ticari hedeflerini, sektörel dinamiklerini ve risk eşiklerini bütünsel olarak değerlendirir; üretilen hukuki çözümün gerçek dünyada uygulanabilir, hızlı ve değer yaratan bir sonuç doğurmasını sağlarız.'
-                : 'We assess each client’s commercial objectives, sector dynamics and risk thresholds holistically, ensuring that the legal solutions we produce are practical, swift and value-generating in the real world.'}
+                ? 'Katılımcılarımızın ve konuşmacılarımızın vizyoner fikirlerini destekliyor, zirve boyunca sürecek etkileşimlerle yeni iş birliklerine kapı açıyoruz.'
+                : 'We support the visionary ideas of our attendees and speakers, opening doors to new collaborations through interactions throughout the summit.'}
             </p>
           </Reveal>
         </div>

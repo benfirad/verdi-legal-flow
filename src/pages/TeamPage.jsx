@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, X, GraduationCap, Scale, Globe, Filter, ChevronDown, Search, ArrowRight } from 'lucide-react';
+import { Mail, Phone, X, GraduationCap, Sparkles, Globe, Filter, ChevronDown, Search, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -117,7 +117,7 @@ function MemberModal({ member, onClose }) {
             {memberAreaLabels.length > 0 && (
               <div className="mt-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <Scale className="w-4 h-4 text-[#5A7A8C]" />
+                  <Sparkles className="w-4 h-4 text-[#5A7A8C]" />
                   <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5A7A8C]">
                     {language === 'tr' ? 'Çalışma Alanları' : 'Practice Areas'}
                   </span>

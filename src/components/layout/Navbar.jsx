@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/lib/LanguageContext';
+import BrandLogo from '@/components/BrandLogo';
 
 // ── Bayrak SVG'leri ──
 function FlagTR({ className = '' }) {
@@ -118,11 +119,10 @@ export default function Navbar() {
           }`}
         >
           <Link to="/" className="block">
-            <img
-              src="/assets/logoust.png"
-              alt="Werdy"
-              className={`w-auto object-contain ${isDark ? 'invert' : ''}`}
-              style={{ height: '48px' }}
+            <BrandLogo
+              className={isDark ? 'text-white' : 'text-[#1A2530]'}
+              markClassName="h-10 w-10 text-base"
+              textClassName="text-xs"
             />
           </Link>
         </div>
@@ -136,11 +136,10 @@ export default function Navbar() {
           }`}
         >
           <Link to="/" className="block">
-            <img
-              src="/assets/logoust.png"
-              alt="Werdy"
-              className={`w-auto object-contain ${isDark ? 'invert' : ''}`}
-              style={{ height: '32px' }}
+            <BrandLogo
+              className={isDark ? 'text-white' : 'text-[#1A2530]'}
+              markClassName="h-8 w-8 text-xs"
+              textClassName="text-[10px] hidden sm:block"
             />
           </Link>
         </div>
@@ -226,7 +225,7 @@ export default function Navbar() {
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
-            <img src="/assets/logoust.png" alt="Werdy" className="h-7 w-auto object-contain invert" />
+            <BrandLogo className="text-white" markClassName="h-8 w-8 text-xs" textClassName="text-xs" />
             <button
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"

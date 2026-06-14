@@ -3,51 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { Calendar, ArrowRight, FileText } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Button } from '@/components/ui/button';
-
-const publications = [
-  {
-    id: 1,
-    title: {
-      tr: 'Türk Ticaret Hukukunda Güncel Gelişmeler',
-      en: 'Recent Developments in Turkish Commercial Law'
-    },
-    excerpt: {
-      tr: '2026 yılında yürürlüğe giren yeni düzenlemeler ve şirketlere etkileri hakkında kapsamlı bir analiz.',
-      en: 'A comprehensive analysis of new regulations effective in 2026 and their impact on companies.'
-    },
-    date: '2026-02-15',
-    category: { tr: 'Ticaret Hukuku', en: 'Commercial Law' },
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80'
-  },
-  {
-    id: 2,
-    title: {
-      tr: 'Uluslararası Tahkim Süreçlerinde Dikkat Edilmesi Gerekenler',
-      en: 'Key Considerations in International Arbitration Proceedings'
-    },
-    excerpt: {
-      tr: 'Uluslararası ticari uyuşmazlıklarda tahkim yolunun avantajları ve süreç yönetimi.',
-      en: 'Advantages of arbitration in international commercial disputes and process management.'
-    },
-    date: '2026-01-28',
-    category: { tr: 'Tahkim', en: 'Arbitration' },
-    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80'
-  },
-  {
-    id: 3,
-    title: {
-      tr: 'Gayrimenkul Yatırımlarında Hukuki Risk Yönetimi',
-      en: 'Legal Risk Management in Real Estate Investments'
-    },
-    excerpt: {
-      tr: 'Taşınmaz yatırımlarında karşılaşılabilecek hukuki riskler ve önlem stratejileri.',
-      en: 'Legal risks in real estate investments and prevention strategies.'
-    },
-    date: '2026-01-10',
-    category: { tr: 'Gayrimenkul', en: 'Real Estate' },
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
-  }
-];
+import { publications } from '@/lib/publicationsData';
 
 export default function Publications() {
   const { language, t } = useLanguage();
