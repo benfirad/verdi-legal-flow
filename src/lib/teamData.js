@@ -30,7 +30,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'cdemir@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/caner-demir.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'ma', 'privatization', 'dispute'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -49,7 +49,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'ayilmaz@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/ayse-yilmaz.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['dispute', 'competition', 'ip', 'it'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -68,7 +68,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'mkaya@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/murat-kaya.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -86,7 +86,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'zcelik@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/zeynep-celik.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['ma', 'privatization', 'capital-markets', 'dispute', 'competition', 'foreign-investment'],
     languages: ['Türkçe', 'İngilizce', 'Hollandaca', 'Almanca'],
     education: [
@@ -107,7 +107,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'barslan@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/bora-arslan.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -125,7 +125,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'eyildiz@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/elif-yildiz.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['dispute', 'ip'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -143,7 +143,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'dozturk@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/deniz-ozturk.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['İngilizce', 'Almanca', 'Türkçe'],
     education: [
@@ -161,7 +161,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'mbulut@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/merve-bulut.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -179,7 +179,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'kkoc@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/kaan-koc.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'Almanca', 'İngilizce'],
     education: [
@@ -197,7 +197,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'saydin@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/selin-aydin.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -215,7 +215,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'bguler@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/burak-guler.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce', 'Almanca'],
     education: [
@@ -234,7 +234,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'icetin@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/irem-cetin.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -252,7 +252,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'maksoy@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/mete-aksoy.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['dispute', 'ip'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -270,7 +270,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'ayavuz@redmono.com',
     phone: '+90 212 900 00 00',
-    image: '/assets/team/asli-yavuz.png',
+    image: '/assets/team/redmono-avatar.svg',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce', 'Arapça'],
     education: [
