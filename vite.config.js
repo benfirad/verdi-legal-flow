@@ -6,7 +6,7 @@ import path from 'node:path'
 export default defineConfig({
   base: '/',
   build: {
-    outDir: 'dist',
+    outDir: 'werdy',
   },
   logLevel: 'error', // Suppress warnings, only show errors
   plugins: [
