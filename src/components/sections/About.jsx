@@ -82,7 +82,7 @@ export default function About() {
               {/* Floating badge */}
               <div className="absolute bottom-6 left-6 right-6 p-5 bg-ink/80 backdrop-blur-sm border border-bone/10 rounded-sm">
                 <p className="font-fraunces text-lg text-bone mb-1">"Hukukta güven, her şeyden önce gelir."</p>
-                <p className="text-xs text-bone/50">— Werdy Hukuk Bürosu, 2003</p>
+                <p className="text-xs text-bone/50">— Werdy Legal Design, 2026</p>
               </div>
             </div>
 

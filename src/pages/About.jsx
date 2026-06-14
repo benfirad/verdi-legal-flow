@@ -12,10 +12,10 @@ const EYEBROW_DARK_CLS = 'text-xs font-semibold uppercase tracking-[0.35em] text
 const SECTION_TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-[#1A2530] md:text-4xl';
 
 const STATS = [
-  { value: '20+', label: { tr: 'Yıllık Tecrübe', en: 'Years of Experience' } },
-  { value: '300+', label: { tr: 'Kurumsal Müvekkil', en: 'Corporate Clients' } },
-  { value: '1500+', label: { tr: 'Tamamlanan Dava', en: 'Completed Cases' } },
-  { value: '15+', label: { tr: 'Ülkede Faaliyet', en: 'Countries Served' } },
+  { value: '12+', label: { tr: 'Yıllık Tecrübe', en: 'Years of Experience' } },
+  { value: '450+', label: { tr: 'Kurumsal Müvekkil', en: 'Corporate Clients' } },
+  { value: '1950+', label: { tr: 'Tamamlanan Dava', en: 'Completed Cases' } },
+  { value: '22+', label: { tr: 'Ülkede Faaliyet', en: 'Countries Served' } },
 ];
 
 const VALUES = [
@@ -74,13 +74,13 @@ export default function About() {
           <Reveal>
             <div className="grid items-end gap-8 md:grid-cols-[auto_1fr_auto] md:gap-12">
               <span className="block font-fraunces text-[140px] md:text-[200px] leading-[0.85] font-semibold text-[#1A2530]">
-                20<span className="text-[#5A7A8C]">+</span>
+                12<span className="text-[#5A7A8C]">+</span>
               </span>
               <div className="md:pb-6">
                 <p className="mt-4 max-w-md text-lg leading-8 text-[#4D5660]">
                   {language === 'tr'
-                    ? '2003’ten bu yana yerli ve uluslararası iş dünyasına kesintisiz hukuki danışmanlık veriyoruz.'
-                    : 'Since 2003, we have been providing uninterrupted legal counsel to domestic and international business.'}
+                    ? 'Kuruluşumuzdan bu yana yerli ve uluslararası iş dünyasına kesintisiz hukuki danışmanlık veriyoruz.'
+                    : 'Since our establishment, we have been providing uninterrupted legal counsel to domestic and international business.'}
                 </p>
               </div>
               {/* Sağ aksent */}
@@ -123,14 +123,14 @@ export default function About() {
             <Reveal delay={0.1} from="right">
               <h2 className={SECTION_TITLE_CLS}>
                 {language === 'tr'
-                  ? '2003 yılında, sonuç odaklı bir hukuk anlayışıyla kuruldu.'
-                  : 'Founded in 2003 with a result-oriented approach to law.'}
+                  ? 'Sonuç odaklı ve yenilikçi bir hukuk anlayışıyla kuruldu.'
+                  : 'Established with a result-oriented approach to law.'}
               </h2>
               <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#4D5660]">
                 <p>
                   {language === 'tr'
-                    ? 'Werdy Hukuk Bürosu, kurucu ortağımız Av. Mehmet Werdy tarafından, yerli ve yabancı iş dünyasına uluslararası standartlarda sonuç odaklı, yaratıcı, yenilikçi, hızlı ve nitelikli hukuki çözümler sunma anlayışıyla kurulmuştur.'
-                    : 'Werdy Law Firm was founded by our founding partner Att. Mehmet Werdy with the philosophy of delivering result-oriented, creative, innovative, rapid and high-quality legal solutions to domestic and foreign business communities according to international standards.'}
+                    ? 'Werdy, kurucu ekibimiz tarafından, yerli ve yabancı iş dünyasına uluslararası standartlarda sonuç odaklı, yaratıcı, yenilikçi, hızlı ve nitelikli hukuki çözümler sunma anlayışıyla kurulmuştur.'
+                    : 'Werdy was founded by our founding team with the philosophy of delivering result-oriented, creative, innovative, rapid and high-quality legal solutions to domestic and foreign business communities according to international standards.'}
                 </p>
                 <p>
                   {language === 'tr'
@@ -152,7 +152,7 @@ export default function About() {
               </div>
               <div className="absolute -bottom-6 -right-6 w-3/4 h-3/4 border border-[#5A7A8C]/30 pointer-events-none" />
               <figcaption className="absolute -top-4 -left-4 bg-[#5A7A8C] text-[#E8ECEF] px-5 py-3">
-                <span className="font-fraunces text-2xl font-bold">2003</span>
+                <span className="font-fraunces text-2xl font-bold">Est.</span>
                 <p className="text-xs text-[#E8ECEF]/70 tracking-wider uppercase mt-0.5">
                   {language === 'tr' ? 'Kuruluş' : 'Founded'}
                 </p>

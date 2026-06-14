@@ -16,17 +16,17 @@ const translations = {
       tagline: 'İstanbul • Türkiye',
       title: 'Werdy Hukuk Bürosu',
       subtitle: 'Güvenilir. Deneyimli. Çözüm Odaklı.',
-      description: 'Ticari hukuk, tahkim ve kurumsal danışmanlık alanlarında yirmi yılı aşkın tecrübemizle müvekkillerimize güvenilir hukuki destek sunuyoruz.',
+      description: 'Ticari hukuk, tahkim ve kurumsal danışmanlık alanlarında uzman ekibimizle profesyonel hukuki danışmanlık çözümleri sunuyoruz.',
       cta: 'Danışmanlık Alın',
       ctaSecondary: 'Çalışma Alanları',
       scroll: 'Keşfetmek için kaydırın',
-      badge: '2003\'ten beri',
+      badge: 'Seçkin Hizmet',
       slogan: '— Yüksek kaliteli hizmetler sunan bir hukuk bürosu.'
     },
     about: {
       title: 'Hakkımızda',
       subtitle: 'Werdy Hukuk Bürosu',
-      description: 'Werdy Hukuk Bürosu, 2003 yılında İstanbul\'da kurulmuş olup; ticaret hukuku, şirketler hukuku, gayrimenkul hukuku, iş hukuku ve tahkim alanlarında uzmanlaşmış bir hukuk bürosudur. Büromuz, ulusal ve uluslararası arenada faaliyet gösteren kurumsal ve bireysel müvekkillerine yüksek kaliteli hukuki danışmanlık hizmetleri sunmaktadır.',
+      description: 'Werdy, modern ve yenilikçi yaklaşımıyla ticaret hukuku, şirketler hukuku, gayrimenkul hukuku, iş hukuku ve tahkim alanlarında uzmanlaşmış bağımsız bir hukuk çalışmasıdır. Ulusal ve uluslararası alanda kurumsal ve bireysel danışmanlık hizmetleri sunmayı amaçlamaktadır.',
       description2: 'Deneyimli avukat kadromuz, her müvekkilin ihtiyacına özel çözümler geliştirerek hukuki süreçleri etkin biçimde yönetmektedir.',
       experience: 'Yıllık Deneyim',
       clients: 'Kurumsal Müvekkil',
@@ -131,7 +131,7 @@ const translations = {
       }
     },
     footer: {
-      description: 'İstanbul merkezli Werdy Hukuk Bürosu, 2003\'ten bu yana ulusal ve uluslararası müvekkillerine güvenilir hukuki danışmanlık sunmaktadır.',
+      description: 'İstanbul merkezli Werdy, ulusal ve uluslararası müvekkillerine modern ve yenilikçi hukuki danışmanlık çözümleri sunmaktadır.',
       quickLinks: 'Hızlı Bağlantılar',
       practiceAreas: 'Çalışma Alanları',
       contact: 'İletişim',
@@ -155,17 +155,17 @@ const translations = {
       tagline: 'Istanbul • Turkey',
       title: 'Werdy Law Firm',
       subtitle: 'Reliable. Experienced. Solution-Oriented.',
-      description: 'With over twenty years of experience in commercial law, arbitration and corporate advisory, we provide trusted legal support to our clients.',
+      description: 'With a professional and dedicated team in commercial law, arbitration and corporate advisory, we provide trusted legal support to our clients.',
       cta: 'Get Consultation',
       ctaSecondary: 'Practice Areas',
       scroll: 'Scroll to explore',
-      badge: 'Since 2003',
+      badge: 'Premium Quality',
       slogan: '— a law firm which provides a broad range of high quality services.'
     },
     about: {
       title: 'About Us',
       subtitle: 'Werdy Law Firm',
-      description: 'Founded in Istanbul in 2003, Werdy Law Firm specializes in commercial law, corporate law, real estate law, employment law and arbitration. The firm provides high-quality legal advisory services to corporate and individual clients operating nationally and internationally.',
+      description: 'Werdy is an independent legal design concept specializing in commercial law, corporate law, real estate law, employment law and arbitration. It delivers high-quality advisory services to corporate and individual clients.',
       description2: 'Our experienced team of attorneys develops tailored solutions for each client\'s needs and effectively manages legal processes.',
       experience: 'Years of Experience',
       clients: 'Corporate Clients',
@@ -245,7 +245,7 @@ const translations = {
       }
     },
     footer: {
-      description: 'Istanbul-based Werdy Law Firm has been providing trusted legal advisory services to national and international clients since 2003.',
+      description: 'Istanbul-based Werdy has been providing trusted legal advisory services to national and international clients with a modern approach.',
       quickLinks: 'Quick Links',
       practiceAreas: 'Practice Areas',
       contact: 'Contact',

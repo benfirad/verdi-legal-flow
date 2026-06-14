@@ -244,7 +244,7 @@ export default function ContactPage() {
             <Reveal>
               <div className="max-w-2xl mb-10">
                 <h2 className={TITLE_CLS}>
-                  {t('Levent — Büyükdere Caddesi üzerinde.', 'Levent — on Büyükdere Avenue.')}
+                  {t('Kadıköy — Moda Caddesi üzerinde.', 'Kadikoy — on Moda Avenue.')}
                 </h2>
               </div>
             </Reveal>
@@ -253,7 +253,7 @@ export default function ContactPage() {
               <div className="aspect-[16/7] w-full overflow-hidden border border-[#C8CFD3]">
                 <iframe
                   title="Werdy Hukuk Bürosu — Harita"
-                  src="https://maps.google.com/maps?q=Levent,%20B%C3%BCy%C3%BCkdere%20Cad,%20%C5%9Fi%C5%9Fli/%C4%B0stanbul&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Cafera%C4%9Fa%20Mah.%20Moda%20Cad.%20No:82,%20Kad%C4%B1k%C3%B6y/%C4%B0stanbul&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-full grayscale contrast-110"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -264,7 +264,7 @@ export default function ContactPage() {
             <Reveal delay={0.15}>
               <div className="mt-10 flex flex-wrap items-center gap-6 text-sm">
                 <a
-                  href="https://maps.google.com/?q=Levent,Büyükdere+Caddesi,Şişli+İstanbul"
+                  href="https://maps.google.com/?q=Caferağa+Mah.+Moda+Cad.+No:82,Kadıköy+İstanbul"
                   target="_blank"
                   rel="noreferrer"
                   className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#1A2530] text-xs"
