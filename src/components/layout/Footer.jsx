@@ -15,7 +15,7 @@ export default function Footer() {
             <img
               src="/assets/werdylogo.png"
               alt="Werdy Hukuk Bürosu"
-              className="h-auto w-36 max-w-full object-contain brightness-0 invert"
+              className="h-auto w-48 md:w-56 max-w-full object-contain brightness-0 invert"
             />
             <div className="flex gap-2.5">
               {[Linkedin, Twitter, Instagram].map((Icon, index) => (
