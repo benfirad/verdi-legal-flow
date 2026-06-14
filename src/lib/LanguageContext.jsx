@@ -123,11 +123,11 @@ const translations = {
       },
       info: {
         address: 'Adres',
-        addressValue: 'Levent, Büyükdere Cad. No:185, 34394 Şişli / İstanbul',
+        addressValue: 'Caferağa Mah. Moda Cad. No:82, 34710 Kadıköy / İstanbul',
         phone: 'Telefon',
-        phoneValue: '+90 212 324 XX XX',
+        phoneValue: '+90 212 900 00 00',
         email: 'E-posta',
-        emailValue: 'info@werdyhukuk.com.tr'
+        emailValue: 'info@redmono.com'
       }
     },
     footer: {
@@ -237,11 +237,11 @@ const translations = {
       },
       info: {
         address: 'Address',
-        addressValue: 'Levent, Büyükdere Cad. No:185, 34394 Şişli / Istanbul',
+        addressValue: 'Caferaga Mah. Moda Cad. No:82, 34710 Kadikoy / Istanbul',
         phone: 'Phone',
-        phoneValue: '+90 212 324 XX XX',
+        phoneValue: '+90 212 900 00 00',
         email: 'Email',
-        emailValue: 'info@werdylaw.com.tr'
+        emailValue: 'info@redmono.com'
       }
     },
     footer: {

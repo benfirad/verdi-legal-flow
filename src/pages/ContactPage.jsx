@@ -203,20 +203,20 @@ export default function ContactPage() {
                 <InfoCard
                   icon={MapPin}
                   eyebrow={t('Adres', 'Address')}
-                  title={t('Levent, Büyükdere Cad. No:185', 'Levent, Büyükdere Cad. No:185')}
-                  subtitle={t('34394 Şişli / İstanbul, Türkiye', '34394 Şişli / Istanbul, Türkiye')}
+                  title={t('Caferağa Mah. Moda Cad. No:82', 'Caferaga Mah. Moda Cad. No:82')}
+                  subtitle={t('34710 Kadıköy / İstanbul, Türkiye', '34710 Kadikoy / Istanbul, Turkey')}
                 />
                 <InfoCard
                   icon={Phone}
                   eyebrow={t('Telefon', 'Phone')}
-                  title="+90 212 324 96 34"
-                  href="tel:+902123249634"
+                  title="+90 212 900 00 00"
+                  href="tel:+902129000000"
                 />
                 <InfoCard
                   icon={Mail}
                   eyebrow={t('E-posta', 'Email')}
-                  title="info@werdy.av.tr"
-                  href="mailto:info@werdy.av.tr"
+                  title="info@redmono.com"
+                  href="mailto:info@redmono.com"
                 />
 
                 {/* Çalışma saatleri */}

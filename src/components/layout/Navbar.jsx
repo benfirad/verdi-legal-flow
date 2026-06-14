@@ -294,7 +294,7 @@ export default function Navbar() {
               {language === 'tr' ? 'İletişime geçin' : 'Contact us'}
             </Link>
             <p className="mt-4 text-center text-[10px] uppercase tracking-[0.28em] text-white/40">
-              info@werdy.av.tr
+              info@redmono.com
             </p>
           </div>
         </aside>

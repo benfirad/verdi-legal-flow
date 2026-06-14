@@ -63,7 +63,7 @@ export const localClient = {
       return true;
     },
     loginWithProvider() {
-      const user = createUser('demo@werdyhukuk.com');
+      const user = createUser('demo@redmono.com');
       writeUser(user);
       window.location.href = '/';
     },
