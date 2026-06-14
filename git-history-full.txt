@@ -1,0 +1,832 @@
+* commit f68329864fe4bc5e797c046ab9c5542a73d66a82 (HEAD -> main, origin/main, origin/HEAD)
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-14 23:46:59 +0300
+| 
+|     Add proprietary license and copyright notice
+| 
+* commit d3b8eaf1f0023c83af002a60a38cb19a2c88e311
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-14 14:40:18 +0300
+| 
+|     fix(home): replace hero image with a premium boutique modern office entrance photo
+| 
+* commit 81cce8f2818ca8ee843b109c438fed06ffc63030
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-14 14:38:02 +0300
+| 
+|     fix(home): replace AI image with real Unsplash corporate skyscraper photograph
+| 
+* commit 5c11c79f25a598e74c02ff4fbeec8ddcf219ebd4
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-14 14:37:16 +0300
+| 
+|     fix(home): replace Italy facade image with a legally safe custom corporate architecture image
+| 
+* commit 121f7039d53d8f92d6760b298d6ae0f65d58f9a6
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-14 14:24:22 +0300
+| 
+|     feat(ekip): add upscaled transparent portraits and update team database with Aksel Kalaycıoğlu
+| 
+* commit e0fcb4ca4eba47c5b4b46d0e723c23e6e6ad60d9
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-09 02:05:29 +0300
+| 
+|     fix(makaleler): add sticky hero and sliding shadowed content wrapper
+| 
+* commit 9ca94b870c2db12d25016d7a005014cec34128c7
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-09 01:27:15 +0300
+| 
+|     fix(makaleler): fix animation double-wrap, proper Enter/StaggerList/Reveal usage
+| 
+* commit 2ff714827cc46b2c02daeaf60852305fee5ed417
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-09 01:17:30 +0300
+| 
+|     fix(makaleler): remove sticky from hero to prevent overlap with category bar
+| 
+* commit 5844b4a1c8f43df099dc439f51259f08e1a9ef7d
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-09 01:15:01 +0300
+| 
+|     feat(makaleler): align hero with other pages + add Reveal/Enter/StaggerList animations
+| 
+* commit d0bdcb661a7e9ccce3efbe75ab758cb029f4f175
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-09 01:12:09 +0300
+| 
+|     fix(nav): use React Router Link for SPA navigation, remove sticky from practice areas hero
+| 
+* commit a64eb3f9c4cd8c4f04e20c08431735b97d2cdfa8
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-09 01:07:35 +0300
+| 
+|     feat(makaleler): premium articles page with search bar + category filters
+| 
+* commit e3c9d682942041a449fcdfdc21037aeccbaae476
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-09 01:02:25 +0300
+| 
+|     feat(practice-areas): add curated images to each area detail block
+| 
+* commit 155e139a81d4b89d8cbb4c75db887dc87ea56b1b
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 03:14:52 +0300
+| 
+|     fix(practice-areas): scroll to anchor when arriving with #hash
+|     
+|     React Router doesn't natively scroll to the URL hash on client-side
+|     route changes — clicking a card on Home that links to
+|     /calisma-alanlari#banking would land on the top of the page.
+|     
+|     Add a useEffect that reads window.location.hash on mount, resolves the
+|     matching article by id, and scrollIntoView({ behavior: 'smooth' }).
+|     Wrapped in requestAnimationFrame to wait for the article elements to
+|     mount, with a second-frame retry as a fallback. Also subscribes to the
+|     'hashchange' event so in-page anchor clicks keep working.
+|     
+|     Sets activeId to the resolved hash so the sticky sidebar highlights
+|     the correct entry immediately.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit d4230eccee54e81e34dba5b83741529a9759f169
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 03:07:33 +0300
+| 
+|     content(home): swap hero to a colorful architectural facade
+|     
+|     Replace the Istanbul Maslak skyline with a vibrant building shot (warm
+|     sunset facade, Unsplash 1494522358652) so the home hero leads with
+|     color rather than a desaturated grayscale skyline.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 27f9f4bf0b24d0f2fa665f27b60bf7ed234bc78c
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 03:06:35 +0300
+| 
+|     feat(home): deep-link Practice Area cards to their detail anchor
+|     
+|     Home — Magazine grid
+|     - Each area card now links to /calisma-alanlari#<area.id> instead of
+|       the generic /calisma-alanlari, so the visitor lands directly on the
+|       selected area's detail block (numbered title + lede + services +
+|       CTAs). The Practice Areas page already gives every article
+|       id={area.id} with scroll-mt-32, so the native anchor jump aligns
+|       cleanly below the navbar.
+|     
+|     Navbar
+|     - Remove the leftover langOpen/langRef effect that referenced the
+|       deleted dropdown state and was throwing on mount, causing a white
+|       screen.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 87a598699b1bfefe5e605ca2efe7d04fca9b951e
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 03:02:03 +0300
+| 
+|     style(home): drop grayscale on the home page Partner cards
+|     
+|     Match the Team page treatment — featured Partner thumbnails on the
+|     home About + Team block now render in full color and only the scale
+|     zoom remains on hover.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 936a598660aaf2da5e0ecbb0d7f944f4093e5316
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 03:00:56 +0300
+| 
+|     ui: flag language toggle, dramatic Values heading, image heroes for Contact/Career
+|     
+|     Language toggle (Navbar)
+|     - Replace the dropdown + chevron with a single flag button
+|     - Inline SVG TR (🇹🇷) and EN/GB (🇬🇧) flags inside a 7×10 framed window
+|     - Shows the CURRENT language; one click flips to the other
+|     - New @keyframes flagFlip (rotateY 90→0 + scale snap, 400ms) plays on
+|       every change for a card-flip feel
+|     - Mobile drawer language section also swapped for a flag toggle row
+|     
+|     About — Değerlerimiz heading
+|     - Replace the standard Reveal slide-in with WordReveal: each word is
+|       clipped to its own overflow box and rises in from below with a slight
+|       rotateX(-45→0), staggered 70ms per word with ease-out-quart
+|     - Reads like a typeset reveal — much more dramatic than the prior fade
+|     
+|     Contact + Career hero parity with Practice Areas
+|     - Drop min-h-[55vh]/min-h-[60vh]; heros now use natural padding (pt-40
+|       pb-24) so all dark hero sections share the same height
+|     - Add a full-bleed grayscale photo behind each:
+|       · Contact → modern meeting room (1497366754035)
+|       · Career  → modern office workspace (1497366216548)
+|     - 3-layer ink overlay matching Practice Areas (horizontal gradient +
+|       flat tint + vertical gradient) for guaranteed text legibility
+|     - Headline scaled md:text-5xl → md:text-4xl to match other heros
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 99a467983cceaec735c7c186cd9e01b93625a8d5
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 02:56:02 +0300
+| 
+|     mobile: hamburger nav drawer + new Istanbul Maslak hero
+|     
+|     Mobile menu (Navbar)
+|     - Add a Menu hamburger button (h-11 w-11 bordered square) on mobile,
+|       matching the active theme color
+|     - Build a full-screen drawer that slides in from the right with:
+|       - Top bar: inverted Verdi logo + X close button
+|       - Big fraunces nav list with mono index "01..06", hover highlight
+|       - "Dil / Language" section with 2-button TR/EN selector (active in
+|         white, inactive in white/20 outline)
+|       - Footer CTA: "İletişime geçin" outline button + info@verdi.av.tr
+|     - Body scroll lock while open; Escape and backdrop both close it
+|     - Desktop language dropdown moved behind `hidden lg:block` so it only
+|       shows on lg+; mobile uses the drawer
+|     
+|     Hero image
+|     - Swap the home hero to a high-quality Istanbul Maslak business
+|       district panorama (Sapphire Tower / skyline). Removed grayscale so
+|       the city color comes through under the existing ink gradient.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 8f04158d63af4c12b4de87f593ea0fbaf838ff5d
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 02:52:46 +0300
+| 
+|     ui: color team cards, language dropdown, squared Verdi AI button
+|     
+|     Team cards (TeamPage MemberCard):
+|     - Drop the grayscale default; photos render in full color from the start
+|     - Bigger hover lift (y:-6, scale:1.02) with a 280-stiffness spring
+|     - Dark navy drop-shadow on hover + thicker accent border
+|     - Hover reveal: bottom-up navy gradient overlay + "Profili Gör →" label
+|       in the photo, plus a soft cool-cream background fade on the name card
+|     - Member name slides to brushed-indigo on hover
+|     
+|     Language switcher (Navbar):
+|     - Replace the inline "EN | TR" with a single button (TR/EN + chevron)
+|     - Clicking opens a small panel below: full names (Türkçe / English),
+|       active row highlighted with a Check icon
+|     - Closes on outside click and Escape; spring fade/scale animation
+|     - Uses lucide ChevronDown + Check icons
+|     
+|     Verdi AI launcher (VerdiAIChat):
+|     - Drop `rounded-full` from the pill, ping ring and inner icon disc — all
+|       square now. Background switched to ink navy for stronger contrast and
+|       navy shadows to match.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit a799fa7e5e0b8f1626d4ed4e5382b6fbcbf965d5
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 02:49:25 +0300
+| 
+|     refactor: drop eyebrow labels site-wide + redesign home Practice Areas
+|     
+|     Eyebrow removal (24 instances across 6 pages):
+|     - Strip every <p class={EYEBROW_CLS}>...</p> and inline equivalents
+|     - Section titles stand on their own now — no all-caps mini-labels above
+|     - Files: Home, About, PracticeAreasPage, TeamPage, ContactPage, KariyerPage
+|     - Python script-based, multi-line aware
+|     
+|     Home Practice Areas — full redesign (home only)
+|     - Replace the duplicated sticky-sidebar/detail-list layout with a clean
+|       3-column magazine grid: 9 numbered cards on a hairline grid
+|     - Each card: large fraunces number, title, 2-line lede, arrow that
+|       translates on hover
+|     - Hover invertes the card to ink/navy with brushed-indigo accent and a
+|       bottom hairline that wipes in (scale-x)
+|     - Section heading kept simple: "Dokuz alanda, derin uzmanlık." +
+|       "Tüm alanlar →"
+|     - Removed the now-unused PracticeAreasCarousel/CarouselProgress helpers,
+|       scroll-spy IntersectionObserver, ChevronRight import, and useScroll/
+|       useTransform/useInView/useState/useEffect/useRef imports
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 0a4c267e4278cf219c14ef330064cc83a7f3fdd4
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 02:44:29 +0300
+| 
+|     feat: sticky-stack transitions on all pages + redesign Contact & Career
+|     + team search
+|     
+|     Sticky-stack transitions everywhere
+|     - About: hero (z-10 sticky) → Biz Kimiz/Kuruluş (z-20) → Tek Hedef (z-30)
+|       → Değerlerimiz scroll showcase (z-40) → Footer (z-50)
+|     - Team: hero (z-10 sticky) → filters (z-20) → grid (z-30) → footer (z-40)
+|     - Practice Areas: hero (z-10 sticky) → content (z-20) → footer (z-30)
+|     - Each layered section gets a top inner shadow to emphasise the reveal
+|     
+|     Contact (ContactPage.jsx) — complete rewrite
+|     - Dark hero with cool radial blooms
+|     - Two-column form (left) + sticky info cards (right) with map embed
+|     - Field/SelectField inline components, success/error states
+|     - Working hours table with day/time list
+|     - Grayscale Google Maps iframe + open-in-maps link
+|     
+|     Career (KariyerPage.jsx) — complete rewrite
+|     - 4 stacked sticky layers: hero → values → open positions → application form
+|     - Values: 3 cards (Excellence / Continuous Growth / Collective Culture)
+|     - Open positions: numbered list with role, dept, type, location +
+|       per-row Apply button that prefills the form
+|     - Application form: name/email/phone/position/letter + CV file upload
+|     - Success state, loading state, real localClient POST
+|     
+|     Team search
+|     - New search input under hero (with Search/X icons, focus ring)
+|     - Filter logic matches against name, both titles and email,
+|       Turkish-locale case-insensitive
+|     
+|     All flows use the shared Reveal / StaggerList / itemVariants / CARD_EASE
+|     so animations feel uniform across the site.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 29ddfc55ab82c77d8323e3e0f0e0b6f8e9ee6080
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 02:01:42 +0300
+| 
+|     content: upgrade hero + team photos to higher-quality portraits
+|     
+|     Replace generic 135x135 verdi.av.tr thumbnails and shared library hero
+|     with distinct high-resolution Unsplash images per surface.
+|     
+|     Home hero:
+|     - Old: 1486406146926 (generic facade)
+|     - New: 1577415124269 (modern tower, dramatic upward shot)
+|     
+|     About sticky figure (Kuruluş bölümü):
+|     - Old: 1521587760476 (library shelves, also used on Practice Areas)
+|     - New: 1589994965851 (close-up stacked law books — distinct from PA)
+|     
+|     Practice Areas hero:
+|     - New: 1505664194779 (classical column architecture, fits expertise theme)
+|     
+|     Team members (13 portraits, 900px w=900&q=85):
+|     - A. Can Verdi → 1560250097-0b93528c311a   (founding partner, distinguished)
+|     - Özer Köseoğlu → 1556157382-97eda2d62296  (glasses, composed)
+|     - Zeynep Fencimen → 1573496359142          (kept similar, hi-res)
+|     - Doğaç Günaydın → 1472099645785           (modern, suited)
+|     - Yaren Kınalıoğlu → 1580489944761         (hi-res)
+|     - Beyda Ulu → 1554151228-14d9def656e4
+|     - Alparslan Erbay → 1500648767791
+|     - Pelin Nida Sürmeli → 1573497019940
+|     - Taylan Özgür Koçak → 1519085360753
+|     - Selin Tutucu → 1607746882042
+|     - Can Berk Kahya → 1620891549027
+|     - İlayda Kızıklı → 1598550874175
+|     - Metehan Ünal → 1605462863863
+|     
+|     Gender-appropriate Turkish lawyer portraits picked per name convention.
+|     All grayscale-friendly with neutral backgrounds.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit d6cee03eb01fba5cff5064c18a8373640379211e
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:57:02 +0300
+| 
+|     theme: Tsukimi (月見) — moonlight cool palette
+|     
+|     Cool moonlight-inspired Japanese palette: slate body, moon-white page,
+|     ice-blue accent. No warm tones, no indigo dominance — calm, modern,
+|     luminous.
+|     
+|     Tailwind tokens:
+|     - ink:    #2B3A4A  Cool slate (footer + dark sections)
+|     - bone:   #E8ECEF  Moon white (page bg)
+|     - cobalt: #5A7A8C  Ice blue (accent)
+|     - steel:  #A8B0B5  Silver gray
+|     - parchment: #F4F6F8  Pale moon card
+|     - sepia:  #3D4D5E  Mid slate
+|     - slate_section: #1A2530  Night slate
+|     - cool_mid: #C8CFD3  Cool stone
+|     
+|     Sed pass across src for previous indigo palette:
+|     - #DEE2E6 → #E8ECEF   page bg
+|     - #C8D0DA → #C8CFD3   border
+|     - #CCD3DD → #CDD3D8
+|     - #D6DCE3 → #D6DCE0
+|     - #0E1A35 → #1A2530   dark text (cool slate)
+|     - #4A5876 → #4D5660   body slate
+|     - #535F7B → #525C68
+|     - #6B8AAE → #5A7A8C   accent ice blue
+|     - #4F6B8E → #3F5C72   link
+|     - #A8C0DA → #B8CCDA   on-dark light ice
+|     - #8FA0B5 → #A8B0B5   muted silver
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit cb9c4f480e88c2aef8e3792663cf4fe060f0003e
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:53:48 +0300
+| 
+|     theme: Aizome (藍染) — multi-indigo, Edo period palette
+|     
+|     Drop all warm cream/sand/ivory tones for a fully cool indigo palette
+|     inspired by Japanese aizome (indigo dye) tradition. Multiple blue
+|     shades from pale washi to deep midnight, with a soft pale-indigo as
+|     the accent (no brass, no gold).
+|     
+|     Tailwind tokens:
+|     - ink:    #1B2A4E  Deep indigo (footer + dark sections)
+|     - bone:   #DEE2E6  Cool washi (page bg)
+|     - cobalt: #6B8AAE  Pale indigo (accent)
+|     - steel:  #8FA0B5  Cool light gray
+|     - parchment: #F4F6F8  White card bg
+|     - sepia:  #2A3D6B  Mid indigo
+|     - slate_section: #0E1A35  Deepest night indigo
+|     - cool_mid: #C8D0DA  Cool light gray
+|     
+|     Sed pass across src to migrate Emerald/Champagne palette:
+|     - #F0EBE0 → #DEE2E6   page bg
+|     - #D5D0BF → #C8D0DA   border
+|     - #D8D2BE → #CCD3DD
+|     - #E4DFCD → #D6DCE3
+|     - #E0DBC8 → #C8D0DA
+|     - #0F1E1A → #0E1A35   dark text (deep indigo)
+|     - #525A52 → #4A5876   body (cool slate)
+|     - #5A615C → #535F7B
+|     - #B08A4C → #6B8AAE   accent (pale indigo)
+|     - #8C6A2F → #4F6B8E   link indigo
+|     - #D9B97A → #A8C0DA   on-dark light indigo
+|     - #8A8D7E → #8FA0B5   muted cool gray
+|     - #072821 → #0E1A35   hero deep indigo
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit ce4985c195f38d6470fe937ca6c0dc3cc231bf27
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:49:50 +0300
+| 
+|     theme: Pantone Emerald (17-5641) + Champagne + Brushed Brass
+|     
+|     Switch to an editorial, award-grade palette inspired by Pantone's
+|     Color of the Year 2013 (Emerald 17-5641). Deep jewel-tone primary,
+|     warm champagne page background, brushed brass accent — far from the
+|     generic navy/charcoal that AI-default sites use.
+|     
+|     Tailwind tokens:
+|     - ink:    #0E5043  Emerald (footer + dark sections)
+|     - bone:   #F0EBE0  Champagne cream (page bg)
+|     - cobalt: #B08A4C  Brushed brass (accent)
+|     - steel:  #7A8276  warm gray-green
+|     - parchment: #FAF7EE  light cream card
+|     - sepia:  #1F3D34  mid emerald
+|     - slate_section: #072821  forest depth
+|     - cool_mid: #E0DBC8  warm champagne
+|     
+|     Sed pass across src to migrate previous navy palette:
+|     - #F1EEE7 → #F0EBE0   page bg
+|     - #D4DAE3 → #D5D0BF   border
+|     - #DCDFE5 → #D8D2BE
+|     - #E4E7EC → #E4DFCD
+|     - #E5E2D8 → #E0DBC8
+|     - #0A1428 → #0F1E1A   dark text (emerald-charcoal)
+|     - #475569 → #525A52   body (warm gray-green)
+|     - #5A6577 → #5A615C
+|     - #B8946B → #B08A4C   brass accent
+|     - #9C7846 → #8C6A2F   muted gold link
+|     - #D4B585 → #D9B97A   brass on dark
+|     - #8E96A5 → #8A8D7E   warm muted
+|     - #08132A → #072821   hero deep emerald
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 147722135ae29bf9ca892170bd56dc7eefcd248a
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:47:31 +0300
+| 
+|     theme: Oxford navy + warm cream + brushed brass
+|     
+|     Move from bordeaux to a sophisticated navy-led palette with a warm
+|     accent so it doesn't feel sterile/corporate:
+|     
+|     Tailwind tokens:
+|     - ink:    #0F1F3D  Oxford navy (footer + dark sections)
+|     - bone:   #F1EEE7  warm cream (page bg)
+|     - cobalt: #B8946B  brushed brass (accent)
+|     - steel:  #7A8AA3  cool slate
+|     - parchment: #FAF8F3
+|     - sepia:  #1F365C  mid navy
+|     - slate_section: #08132A  deepest navy
+|     - cool_mid: #E5E2D8
+|     
+|     Sed pass across src for the previous bordeaux palette:
+|     - #F4EBD9 → #F1EEE7    cream bg
+|     - #2A1A14 → #0A1428    deep navy text
+|     - #6B5340 → #475569    cool slate body text
+|     - #7A6451 → #5A6577
+|     - #9C7B3F → #B8946B    brass accent
+|     - #7A5A2C → #9C7846    link gold
+|     - #D9B97A → #D4B585    brass on dark
+|     - #D9CFB6 → #D4DAE3    cool border
+|     - #E0D3B5 → #DCDFE5
+|     - #E4D7BC → #E4E7EC
+|     - #E8DCC0 → #E5E2D8
+|     - #A89880 → #8E96A5    cool muted
+|     - #1F0808 → #08132A    hero deep navy
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit ada75df7376593f032afa67132e3ed694d152f0b
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:43:33 +0300
+| 
+|     theme: switch palette to bordeaux + parchment (Turkish classical)
+|     
+|     Replace the generic cream / navy / cool-gold palette with a warmer,
+|     more characterful Turkish-classical scheme:
+|     
+|     Tailwind tokens (tailwind.config.js):
+|     - ink:    #5C1A1A  (wine / bordeaux — dark sections, footer)
+|     - bone:   #F4EBD9  (parchment — page background)
+|     - cobalt: #9C7B3F  (antique brass — accent)
+|     - steel:  #A89880  (warm gray)
+|     - parchment / sepia / slate_section / cool_mid updated to warm tones
+|     
+|     Hardcoded hex replacements across src (sed pass):
+|     - #f6f4ef → #F4EBD9   page bg
+|     - #1f1f1f / #202020 → #2A1A14   warm dark text
+|     - #5f5b52 / #6b665d / #777167 → #6B5340 / #7A6451   warm body text
+|     - #8b6f3d → #9C7B3F   antique gold eyebrows
+|     - #c8b68c → #D9B97A   gold on dark
+|     - #6d5b35 → #7A5A2C   muted gold links
+|     - #d8d0bf → #D9CFB6   border
+|     - #ded8ca → #E0D3B5   border alt
+|     - #e4dccb → #E4D7BC   subtle divider
+|     - #9a8c70 → #A89880   muted captions
+|     - #e8e1d2 → #E8DCC0   warm placeholder
+|     - #3D5A80 (was cobalt) → #9C7B3F   antique gold
+|     
+|     Hero/dark sections:
+|     - bg-[#05070b] → bg-[#1F0808]   deep bordeaux instead of near-black
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit a0dde4bc48a0dbb2d55ee3df6714cb69f8219a28
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:38:49 +0300
+| 
+|     feat(motion): cinematic horizontal slide reveal
+|     
+|     Rework the shared motion module to use a horizontal slide-in language:
+|     
+|     - Reveal accepts `from='left'|'right'|'top'|'bottom'` (default 'left'),
+|       offset prop, and uses a single set of variants with 0.95s ease-out-quart
+|     - itemVariants now slides children from x:-60 → 0 (used by StaggerList)
+|     - Enter (above-the-fold) supports the same `from` prop
+|     - Apply direction-aware reveals at key call sites:
+|       - Hero contact button slides in from the right
+|       - Section header "action" link slides in from the right
+|       - About page right-column paragraphs slide in from the right
+|       - About page founder image (sticky) slides in from the right
+|     - Drop the old y={12} prop usage now that direction is the lever
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 272bac2ec06764b0adbcbbd0390caf7a2b92a4e3
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:34:56 +0300
+| 
+|     refactor(motion): site-wide card-stack animation language
+|     
+|     - New shared module src/components/motion/Reveal.jsx with:
+|       - Reveal: card-like fade + slide-up + subtle scale-in (y:56, scale:0.96)
+|       - Enter: same feel for above-the-fold hero content
+|       - StaggerList + itemVariants: 12% stagger for grids
+|       - CARD_EASE = [0.22, 1, 0.36, 1] (ease-out-quart snap)
+|     - Home / About / PracticeAreasPage import from the shared module and
+|       delete their per-file Reveal/StaggerList/itemVariants definitions
+|     - Hero buttons use whileHover with the same easing for consistent feel
+|     - Footer height tightened: py-20 -> py-10, smaller logo (w-36), smaller
+|       social icons (h-8), more compact CTA text (text-3xl), trimmed bottom bar
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit cba1eed947727d41a019275a48892cd546b4c6c2
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:30:17 +0300
+| 
+|     refactor(footer): minimal layout — logo left, CTA right
+|     
+|     Strip the footer to two main columns:
+|     - Left: logo + small social icon row
+|     - Right: "Bizimle Çalışın" eyebrow, headline, contact button (right-aligned)
+|     
+|     Remove the address/phone/email strip entirely. Bottom row keeps the
+|     copyright and privacy/terms links.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit bbc33a0be4e12cd2ab26f577228450d73cc668ac
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:28:49 +0300
+| 
+|     refactor(footer): drop description + nav links, feature CTA as the center
+|     
+|     - Remove the "İstanbul merkezli..." description paragraph under the logo
+|     - Remove the "Bizi Tanıyın" quick-links column entirely
+|     - Restructure footer into clean rows:
+|       1. Brand bar: logo (smaller) + social icons (right-aligned)
+|       2. Big centered CTA: "Hukuki ihtiyaçlarınızı birlikte değerlendirelim."
+|          with the contact button as a single focal point
+|       3. Address / phone / email in a 3-column info strip with gold icons
+|       4. Bottom: copyright + privacy/terms
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit afd70ad2a22ecd3bb4f1fa49eae4024850824f1a
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:25:43 +0300
+| 
+|     feat(home): stacked sticky sections reveal as you scroll
+|     
+|     Replace the horizontal carousel with a true card-stack scroll pattern:
+|     
+|     - Each main section (Hero, About, Practice Areas) is position: sticky
+|       with progressively higher z-index (10, 20, 30)
+|     - Sections pin at top:0 as you scroll past them; the next section
+|       slides up and covers the previous one (z-index wins)
+|     - Top shadow on every layer above the first to emphasise the reveal
+|     - Footer wrapped in z-40 container so it sits above all layers
+|     - Restore Practice Areas sidebar-stick layout (carousel scrapped)
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 9e98a2c3c7394f7e24e060b8c0ff71572256e65e
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-08 01:18:43 +0300
+| 
+|     feat(home): horizontal card carousel for Practice Areas
+|     
+|     Replace the long sticky-sidebar Practice Areas section with a scroll-driven
+|     horizontal carousel — cards slide left as the user scrolls down:
+|     
+|     - Tall section (total * 80vh) with a sticky h-screen child
+|     - Inner motion.div translated via useScroll + useTransform on scrollYProgress
+|     - 9 area cards + 1 final CTA card with ink background
+|     - Each card: numbered, title, lede, top 3 services preview, "Detayları gör" link
+|     - Bottom progress bar with active card index and "Aşağı kaydırın →" hint
+|     - Old sticky-sidebar block kept behind `{false && (...)}` for reference
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 21180880eee17b4d8938d7e471e11bcf75ac5557
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:49:54 +0300
+| 
+|     Overhaul chatbot colors to align with brand bronze-gold scheme and resolve contrast issues
+| 
+* commit b6b9262a0a50c9b016883b12cfbadb694abe66bf
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:48:38 +0300
+| 
+|     Add interactive suggested question chips to VerdiAIChat
+| 
+* commit b2471f42cd639b3801296466c8e21ca7b856bb2e
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:47:36 +0300
+| 
+|     Expand Verdi AIChat chatbot keywords and responses for Hakkımızda, Yayınlar, and Süreç
+| 
+* commit 7e97083860ffaa2ce667ab4d663df3f6acf27897
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:46:07 +0300
+| 
+|     Change logo transition from sliding to fade-out/fade-in swap in Navbar
+| 
+* commit 113e2ab576ac5373255dacb388d92ce1bf497f61
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:43:53 +0300
+| 
+|     Position logo on the left at page load/entrance and center on scroll, and add top-left logo to authentication layout
+| 
+* commit 54fd4ecb427ca1025903f539b442763ed3ca7b72
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:40:28 +0300
+| 
+|     Center navbar logo and remove links and controls
+| 
+* commit 3c3119b607dccf6ebd2a091eb0a63b57a9f6758e
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:40:01 +0300
+| 
+|     Remove hamburger menu drawer and keep links always visible on desktop
+| 
+* commit de371cc3dde6c71538978c3c790a0bfba793dfe2
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:38:56 +0300
+| 
+|     Allow navigation drawer to display and open on desktop screens
+| 
+* commit d045f751060f808e3fa979b651d146c12c837dfd
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:37:58 +0300
+| 
+|     Animate hamburger menu button lines on hover
+| 
+* commit fd91264408b7c64d3a95e9d40e7e1c7b8211833e
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:37:17 +0300
+| 
+|     Remove search button from navbar
+| 
+* commit 82e3f37420a46b5d4ad07a7c57d4030c92c52319
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:36:47 +0300
+| 
+|     Fix navbar hamburger menu pointer events and clickability
+| 
+* commit c59d21f67dc78f53b5f0c5fa007c03718ea7570a
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:35:14 +0300
+| 
+|     Animate AuthLayout and UserNotRegisteredError cards
+| 
+* commit 7c418d04b6fd654f59237c652dc5ca37ae7d509f
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:34:06 +0300
+| 
+|     Refine website animations and fix router auth redirection
+| 
+* commit 6a03783e5cf8842bffea17e3f7bf94d161a603da
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:28:31 +0300
+| 
+|     Ana sayfadaki Ortaklarımız başlığı Ekibimiz olarak güncellendi
+| 
+* commit 6fa49c19fcab5d75f9021e1aea09015eabdd6b87
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:26:57 +0300
+| 
+|     İletişim sayfasındaki koyu renkli etiketlerin kontrastı arttırılarak tamamen görünür hale getirildi
+| 
+* commit 1a1eaf88d8b899ee584c9daf42e807ab061fe244
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:24:56 +0300
+| 
+|     Kariyer sayfası Hero arka plan rengi Ekibimiz sayfasıyla uyumlu olacak şekilde beyaz yapıldı
+| 
+* commit 4659ae49e9270f3951f0eefcc7d8005adff6242d
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:24:14 +0300
+| 
+|     İletişim ve Ekip sayfalarındaki devasa başlık boyutları küçültüldü ve font-semibold yapıldı
+| 
+* commit a52b8ee41bd1c88bfc8972cf9e15eecb0cd8ca68
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:22:27 +0300
+| 
+|     Kariyer sayfası sadeleştirildi, Verdi AI sohbet robotu aktif hale getirildi, dil seçimi düzeltildi ve verdi.av.tr faviconu eklendi
+| 
+* commit a93873a52048bb50cf97b810a4d2a6a05b23395c
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:16:35 +0300
+| 
+|     Kariyer sayfasının renk paleti sitenin kurumsal renkleri (#f6f4ef, #202020, #8b6f3d) ile eşitlendi
+| 
+* commit 8325eacccc81b5eb627d689a2b7c7cc26d4e956f
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:15:34 +0300
+| 
+|     Kariyer sayfasındaki font uyuşmazlıkları ve aşırı büyük başlık boyutları düzeltildi
+| 
+* commit 70a06641665e208021f89376d6b3245b92d8d7b7
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:14:21 +0300
+| 
+|     Kariyer sayfası (KariyerPage.jsx) premium ve modern tasarımla güncellendi
+| 
+* commit 5fc523b41fa365de3fc6ff201cfc08516b5f10cc
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:13:19 +0300
+| 
+|     Çalışma Alanları sayfasına (PracticeAreasPage) aktif olmayan alanların saydamlığını azaltan odaklanma efekti eklendi
+| 
+* commit 36b8999e3c5578f2310fe2f46f6217c28ce49da7
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:11:46 +0300
+| 
+|     Aktif olmayan çalışma alanlarının saydamlığını azaltan odaklanma efekti eklendi
+| 
+* commit 4f44c5d5c82cb025167cc0eaf98e83d085a934f6
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:10:54 +0300
+| 
+|     Ana sayfadaki uzmanlık alanları bölümü ekran görüntüsündeki gibi sidebar'lı orijinal tasarım ile değiştirildi
+| 
+* commit 952a7bcbbb79b56a7ebbd07ca55bece455b1a88a
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:09:42 +0300
+| 
+|     Ana sayfadaki uzmanlık alanları listesi interaktif ağaç yapısı (PracticeAreaTree) ile değiştirildi
+| 
+* commit 04f4ccdafcf68dbc29b610d46bf1e83dec500b2c
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 05:08:01 +0300
+| 
+|     Navbar'a Ana Sayfa linki eklendi, Duyurular ve Yayınlar sekmeleri kaldırıldı
+| 
+* commit 1c66e8e8bfada858c04c462265b8285fab65d3db
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 04:57:26 +0300
+| 
+|     style(team): white background for hero section
+|     
+|     Switch the top hero block from the page's cream tone to plain white so it
+|     visually separates from the page chrome.
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit ed62a8482b0b8995f49d2769c3aee2e5db07c13f
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 04:56:46 +0300
+| 
+|     fix(team): balance Position filter with Practice Area drawer trigger
+|     
+|     - Replace small chip buttons with a single segmented control:
+|       bordered row with divided tabs that fills the full column width
+|     - New PositionTab component (centered label + count, ink active state)
+|     - Equalise both columns (lg:grid-cols-2) so the layout looks balanced
+|     - Match the drawer trigger height (h-[58px]) for visual parity
+|     - Truncate long area names and prevent the X clear button from shrinking
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 1f8a0b5484f1fdc6933a30786a039b55fd52f073
+| Author: firat <firat@dogen.es>
+| Date:   2026-06-07 04:54:20 +0300
+| 
+|     feat(team): convert Practice Area filter to a right-side drawer
+|     
+|     - Replace the inline practice area chips with a dropdown-style trigger button
+|       showing the current selection + filtered count
+|     - Add AreaFilterDrawer component: right-aligned panel with backdrop blur,
+|       area list with hover/active states, Clear/Close footer actions
+|     - Lock body scroll and listen for Escape while the drawer is open
+|     - Position filter stays inline since it only has 3 options
+|     
+|     Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+| 
+* commit 396e51ac8cb86639f82788db6bb67a6a870c9b1f
+  Author: firat <firat@dogen.es>
+  Date:   2026-06-07 04:37:41 +0300
+  
+      initial: Verdi Hukuk Bürosu website
+      
+      - Home page with hero, about + partners, practice areas, publications
+      - About page with Biz Kimiz, 20+ experience callout, interactive Values showcase
+      - Practice Areas page with sticky sidebar nav + scroll-spy
+      - Team page with filterable grid (real verdi.av.tr data)
+      - Contact page, Career page, Publications page
+      - Footer with ink navy theme and reorganized columns
+      - Standardized typography and dynamic Reveal/Stagger animations across pages
+      
+      Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>

@@ -215,8 +215,8 @@ export default function ContactPage() {
                 <InfoCard
                   icon={Mail}
                   eyebrow={t('E-posta', 'Email')}
-                  title="info@verdi.av.tr"
-                  href="mailto:info@verdi.av.tr"
+                  title="info@werdy.av.tr"
+                  href="mailto:info@werdy.av.tr"
                 />
 
                 {/* Çalışma saatleri */}
@@ -252,7 +252,7 @@ export default function ContactPage() {
             <Reveal delay={0.1}>
               <div className="aspect-[16/7] w-full overflow-hidden border border-[#C8CFD3]">
                 <iframe
-                  title="Verdi Hukuk Bürosu — Harita"
+                  title="Werdy Hukuk Bürosu — Harita"
                   src="https://maps.google.com/maps?q=Levent,%20B%C3%BCy%C3%BCkdere%20Cad,%20%C5%9Fi%C5%9Fli/%C4%B0stanbul&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-full grayscale contrast-110"
                   loading="lazy"

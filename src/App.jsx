@@ -18,7 +18,7 @@ import Register from '@/pages/Register';
 import ForgotPassword from '@/pages/ForgotPassword';
 import ResetPassword from '@/pages/ResetPassword';
 import { LanguageProvider } from '@/lib/LanguageContext';
-import VerdiAIChat from '@/components/VerdiAIChat';
+import WerdyAIChat from '@/components/WerdyAIChat';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -73,7 +73,7 @@ function App() {
         <LanguageProvider>
           <Router>
             <AuthenticatedApp />
-            <VerdiAIChat />
+            <WerdyAIChat />
           </Router>
           <Toaster />
         </LanguageProvider>

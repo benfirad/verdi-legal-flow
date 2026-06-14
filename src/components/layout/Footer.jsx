@@ -13,8 +13,8 @@ export default function Footer() {
           {/* Sol: logo + sosyal */}
           <div className="flex flex-col gap-4">
             <img
-              src="/assets/verdilogo.png"
-              alt="Verdi Hukuk Bürosu"
+              src="/assets/werdylogo.png"
+              alt="Werdy Hukuk Bürosu"
               className="h-auto w-36 max-w-full object-contain brightness-0 invert"
             />
             <div className="flex gap-2.5">
@@ -53,7 +53,7 @@ export default function Footer() {
 
         {/* Alt çubuk */}
         <div className="flex flex-col justify-between gap-3 border-t border-white/10 py-4 text-xs text-[#8c97b3] md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} VERDI {language === 'tr' ? 'Hukuk Bürosu' : 'Law Firm'}. {t('footer.rights')}</p>
+          <p>© 2026 redmono creative agency</p>
           <div className="flex gap-6">
             <a href="#" className="transition hover:text-white">{t('footer.privacy')}</a>
             <a href="#" className="transition hover:text-white">{t('footer.terms')}</a>

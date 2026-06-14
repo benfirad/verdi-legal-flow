@@ -22,7 +22,7 @@ export const PRACTICE_AREAS = [
     },
     en: {
       title: 'Banking & Financial Services',
-      lede: 'Verdi is one of the leading law firms in banking law in Turkey, with extensive experience in a broad variety of financing transactions.',
+      lede: 'Werdy is one of the leading law firms in banking law in Turkey, with extensive experience in a broad variety of financing transactions.',
       services: [
         'Project finance and collateral structuring',
         'Syndicated loans and refinancing transactions',
@@ -73,7 +73,7 @@ export const PRACTICE_AREAS = [
     },
     en: {
       title: 'Privatization',
-      lede: 'Verdi regularly represents clients at different stages of the privatization process and provides strategic counsel on public asset transfers.',
+      lede: 'Werdy regularly represents clients at different stages of the privatization process and provides strategic counsel on public asset transfers.',
       services: [
         'Privatization tender processes and bid preparation',
         'Investment committee and regulatory approvals',
@@ -124,7 +124,7 @@ export const PRACTICE_AREAS = [
     },
     en: {
       title: 'Dispute Resolution',
-      lede: 'Verdi represents its clients in a variety of commercial disputes and provides strategic support in litigation, arbitration and alternative resolution.',
+      lede: 'Werdy represents its clients in a variety of commercial disputes and provides strategic support in litigation, arbitration and alternative resolution.',
       services: [
         'Commercial and corporate litigation',
         'Domestic and international arbitration (ISTAC, ICC, UNCITRAL)',

@@ -9,7 +9,7 @@ export default function AuthLayout({ icon: Icon, title, subtitle, footer, childr
         <a href="/" className="block transition hover:opacity-75">
           <img
             src="/assets/logoust.png"
-            alt="Verdi"
+            alt="Werdy"
             className="h-8 md:h-10 w-auto object-contain"
           />
         </a>

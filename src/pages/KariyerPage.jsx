@@ -89,8 +89,8 @@ export default function KariyerPage() {
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
                 {t(
-                  'Verdi’de kariyeriniz; kurumsal işlemlerden uluslararası tahkime, sermaye piyasalarından rekabet hukukuna uzanan kapsamlı bir uzmanlığın içinde şekillenir.',
-                  'At Verdi your career unfolds across corporate transactions, international arbitration, capital markets and competition law.',
+                  'Werdy’de kariyeriniz; kurumsal işlemlerden uluslararası tahkime, sermaye piyasalarından rekabet hukukuna uzanan kapsamlı bir uzmanlığın içinde şekillenir.',
+                  'At Werdy your career unfolds across corporate transactions, international arbitration, capital markets and competition law.',
                 )}
               </p>
             </Reveal>

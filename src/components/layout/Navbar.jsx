@@ -120,7 +120,7 @@ export default function Navbar() {
           <Link to="/" className="block">
             <img
               src="/assets/logoust.png"
-              alt="Verdi"
+              alt="Werdy"
               className={`w-auto object-contain ${isDark ? 'invert' : ''}`}
               style={{ height: '48px' }}
             />
@@ -138,7 +138,7 @@ export default function Navbar() {
           <Link to="/" className="block">
             <img
               src="/assets/logoust.png"
-              alt="Verdi"
+              alt="Werdy"
               className={`w-auto object-contain ${isDark ? 'invert' : ''}`}
               style={{ height: '32px' }}
             />
@@ -226,7 +226,7 @@ export default function Navbar() {
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
-            <img src="/assets/logoust.png" alt="Verdi" className="h-7 w-auto object-contain invert" />
+            <img src="/assets/logoust.png" alt="Werdy" className="h-7 w-auto object-contain invert" />
             <button
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"
@@ -294,7 +294,7 @@ export default function Navbar() {
               {language === 'tr' ? 'İletişime geçin' : 'Contact us'}
             </Link>
             <p className="mt-4 text-center text-[10px] uppercase tracking-[0.28em] text-white/40">
-              info@verdi.av.tr
+              info@werdy.av.tr
             </p>
           </div>
         </aside>

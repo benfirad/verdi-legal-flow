@@ -106,8 +106,8 @@ export default function About() {
               <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#4D5660]">
                 <p>
                   {language === 'tr'
-                    ? 'Verdi Hukuk Bürosu, yabancı yatırımcılara ve Türk iş dünyasının kurumsal aktörlerine geniş bir uzmanlık yelpazesi içinde hukuki danışmanlık ve dava takip hizmeti sunan, deneyimli avukatlardan oluşan bir ekiptir.'
-                    : 'Verdi Law Firm is a team of experienced attorneys providing legal advisory and dispute resolution services to foreign investors and Turkish corporate actors across a broad range of expertise.'}
+                    ? 'Werdy Hukuk Bürosu, yabancı yatırımcılara ve Türk iş dünyasının kurumsal aktörlerine geniş bir uzmanlık yelpazesi içinde hukuki danışmanlık ve dava takip hizmeti sunan, deneyimli avukatlardan oluşan bir ekiptir.'
+                    : 'Werdy Law Firm is a team of experienced attorneys providing legal advisory and dispute resolution services to foreign investors and Turkish corporate actors across a broad range of expertise.'}
                 </p>
                 <p>
                   {language === 'tr'
@@ -129,8 +129,8 @@ export default function About() {
               <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#4D5660]">
                 <p>
                   {language === 'tr'
-                    ? 'Verdi Hukuk Bürosu, kurucu ortağımız Av. Mehmet Verdi tarafından, yerli ve yabancı iş dünyasına uluslararası standartlarda sonuç odaklı, yaratıcı, yenilikçi, hızlı ve nitelikli hukuki çözümler sunma anlayışıyla kurulmuştur.'
-                    : 'Verdi Law Firm was founded by our founding partner Att. Mehmet Verdi with the philosophy of delivering result-oriented, creative, innovative, rapid and high-quality legal solutions to domestic and foreign business communities according to international standards.'}
+                    ? 'Werdy Hukuk Bürosu, kurucu ortağımız Av. Mehmet Werdy tarafından, yerli ve yabancı iş dünyasına uluslararası standartlarda sonuç odaklı, yaratıcı, yenilikçi, hızlı ve nitelikli hukuki çözümler sunma anlayışıyla kurulmuştur.'
+                    : 'Werdy Law Firm was founded by our founding partner Att. Mehmet Werdy with the philosophy of delivering result-oriented, creative, innovative, rapid and high-quality legal solutions to domestic and foreign business communities according to international standards.'}
                 </p>
                 <p>
                   {language === 'tr'
@@ -146,7 +146,7 @@ export default function About() {
               <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=900&q=85"
-                  alt="Verdi Hukuk Bürosu"
+                  alt="Werdy Hukuk Bürosu"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
@@ -242,7 +242,7 @@ function ValuesShowcase({ language }) {
               <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-[#5A7A8C]/20 blur-[100px]" />
 
               <img
-                src="/assets/verdilogo.png"
+                src="/assets/werdylogo.png"
                 alt=""
                 aria-hidden="true"
                 className="absolute inset-0 m-auto w-2/3 object-contain brightness-0 invert opacity-[0.07]"

@@ -8,9 +8,9 @@ Unauthorized copying, modification, distribution, deployment, hosting, or creati
 
 ---
 
-# Verdi Legal Flow
+# Werdy Legal Flow
 
-Verdi Hukuk icin Vite + React tabanli web uygulamasi.
+Werdy Hukuk icin Vite + React tabanli web uygulamasi.
 
 ## Calistirma
 

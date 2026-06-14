@@ -7,7 +7,7 @@ export default function BrandLogo({ className = '', markClassName = '', textClas
         V
       </div>
       <div className={`leading-none ${textClassName}`}>
-        <div className="font-fraunces text-xl font-bold tracking-wide">VERDI</div>
+        <div className="font-fraunces text-xl font-bold tracking-wide">WERDY</div>
         <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.28em] opacity-70">Hukuk</div>
       </div>
     </div>

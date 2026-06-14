@@ -55,8 +55,8 @@ export default function Home() {
               <Enter delay={0.3}>
                 <p className="max-w-none text-xl font-normal leading-snug text-white/92 lg:text-[26px] xl:text-[28px]">
                   {language === 'tr'
-                    ? 'Hukuki danışmanlık alanında Verdi, hizmetlerini derin hukuki deneyime ve farklı alanlarda tecrübeye sahip uzman avukat, danışman ve destek birimlerinden oluşan yetkin bir ekiple sunmaktadır.'
-                    : 'Verdi provides legal services through a capable team of attorneys, consultants and support units with deep legal experience across distinct areas of practice.'}
+                    ? 'Hukuki danışmanlık alanında Werdy, hizmetlerini derin hukuki deneyime ve farklı alanlarda tecrübeye sahip uzman avukat, danışman ve destek birimlerinden oluşan yetkin bir ekiple sunmaktadır.'
+                    : 'Werdy provides legal services through a capable team of attorneys, consultants and support units with deep legal experience across distinct areas of practice.'}
                 </p>
               </Enter>
               <Enter delay={0.55} from="right">

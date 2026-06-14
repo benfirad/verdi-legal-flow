@@ -14,7 +14,7 @@ const translations = {
     },
     hero: {
       tagline: 'İstanbul • Türkiye',
-      title: 'Verdi Hukuk Bürosu',
+      title: 'Werdy Hukuk Bürosu',
       subtitle: 'Güvenilir. Deneyimli. Çözüm Odaklı.',
       description: 'Ticari hukuk, tahkim ve kurumsal danışmanlık alanlarında yirmi yılı aşkın tecrübemizle müvekkillerimize güvenilir hukuki destek sunuyoruz.',
       cta: 'Danışmanlık Alın',
@@ -25,8 +25,8 @@ const translations = {
     },
     about: {
       title: 'Hakkımızda',
-      subtitle: 'Verdi Hukuk Bürosu',
-      description: 'Verdi Hukuk Bürosu, 2003 yılında İstanbul\'da kurulmuş olup; ticaret hukuku, şirketler hukuku, gayrimenkul hukuku, iş hukuku ve tahkim alanlarında uzmanlaşmış bir hukuk bürosudur. Büromuz, ulusal ve uluslararası arenada faaliyet gösteren kurumsal ve bireysel müvekkillerine yüksek kaliteli hukuki danışmanlık hizmetleri sunmaktadır.',
+      subtitle: 'Werdy Hukuk Bürosu',
+      description: 'Werdy Hukuk Bürosu, 2003 yılında İstanbul\'da kurulmuş olup; ticaret hukuku, şirketler hukuku, gayrimenkul hukuku, iş hukuku ve tahkim alanlarında uzmanlaşmış bir hukuk bürosudur. Büromuz, ulusal ve uluslararası arenada faaliyet gösteren kurumsal ve bireysel müvekkillerine yüksek kaliteli hukuki danışmanlık hizmetleri sunmaktadır.',
       description2: 'Deneyimli avukat kadromuz, her müvekkilin ihtiyacına özel çözümler geliştirerek hukuki süreçleri etkin biçimde yönetmektedir.',
       experience: 'Yıllık Deneyim',
       clients: 'Kurumsal Müvekkil',
@@ -97,7 +97,7 @@ const translations = {
     team: {
       title: 'Ekibimiz',
       subtitle: 'Uzman Avukat Kadromuz',
-      description: 'Verdi Hukuk Bürosu\'nun deneyimli avukat ekibi, her davada müvekkillerinin haklarını en etkin biçimde savunmaktadır.',
+      description: 'Werdy Hukuk Bürosu\'nun deneyimli avukat ekibi, her davada müvekkillerinin haklarını en etkin biçimde savunmaktadır.',
       viewProfile: 'Tüm Ekibi Görüntüle'
     },
     publications: {
@@ -127,11 +127,11 @@ const translations = {
         phone: 'Telefon',
         phoneValue: '+90 212 324 XX XX',
         email: 'E-posta',
-        emailValue: 'info@verdihukuk.com.tr'
+        emailValue: 'info@werdyhukuk.com.tr'
       }
     },
     footer: {
-      description: 'İstanbul merkezli Verdi Hukuk Bürosu, 2003\'ten bu yana ulusal ve uluslararası müvekkillerine güvenilir hukuki danışmanlık sunmaktadır.',
+      description: 'İstanbul merkezli Werdy Hukuk Bürosu, 2003\'ten bu yana ulusal ve uluslararası müvekkillerine güvenilir hukuki danışmanlık sunmaktadır.',
       quickLinks: 'Hızlı Bağlantılar',
       practiceAreas: 'Çalışma Alanları',
       contact: 'İletişim',
@@ -153,7 +153,7 @@ const translations = {
     },
     hero: {
       tagline: 'Istanbul • Turkey',
-      title: 'Verdi Law Firm',
+      title: 'Werdy Law Firm',
       subtitle: 'Reliable. Experienced. Solution-Oriented.',
       description: 'With over twenty years of experience in commercial law, arbitration and corporate advisory, we provide trusted legal support to our clients.',
       cta: 'Get Consultation',
@@ -164,8 +164,8 @@ const translations = {
     },
     about: {
       title: 'About Us',
-      subtitle: 'Verdi Law Firm',
-      description: 'Founded in Istanbul in 2003, Verdi Law Firm specializes in commercial law, corporate law, real estate law, employment law and arbitration. The firm provides high-quality legal advisory services to corporate and individual clients operating nationally and internationally.',
+      subtitle: 'Werdy Law Firm',
+      description: 'Founded in Istanbul in 2003, Werdy Law Firm specializes in commercial law, corporate law, real estate law, employment law and arbitration. The firm provides high-quality legal advisory services to corporate and individual clients operating nationally and internationally.',
       description2: 'Our experienced team of attorneys develops tailored solutions for each client\'s needs and effectively manages legal processes.',
       experience: 'Years of Experience',
       clients: 'Corporate Clients',
@@ -211,7 +211,7 @@ const translations = {
     team: {
       title: 'Our Team',
       subtitle: 'Expert Attorney Staff',
-      description: 'The experienced attorney team of Verdi Law Firm defends clients\' rights most effectively in every case.',
+      description: 'The experienced attorney team of Werdy Law Firm defends clients\' rights most effectively in every case.',
       viewProfile: 'View All Team'
     },
     publications: {
@@ -241,11 +241,11 @@ const translations = {
         phone: 'Phone',
         phoneValue: '+90 212 324 XX XX',
         email: 'Email',
-        emailValue: 'info@verdilaw.com.tr'
+        emailValue: 'info@werdylaw.com.tr'
       }
     },
     footer: {
-      description: 'Istanbul-based Verdi Law Firm has been providing trusted legal advisory services to national and international clients since 2003.',
+      description: 'Istanbul-based Werdy Law Firm has been providing trusted legal advisory services to national and international clients since 2003.',
       quickLinks: 'Quick Links',
       practiceAreas: 'Practice Areas',
       contact: 'Contact',

@@ -27,7 +27,7 @@ Yönetim kurulu üyelerinin kişisel sorumluluklarına ilişkin düzenlemeler de
 
 **Sonuç**
 
-Bu değişikliklerin şirket tüzüklerine ve iç yönetmeliklerine yansıtılması gerekmektedir. Verdi Hukuk Bürosu olarak, uyum süreçlerinde müvekkillerimize kapsamlı danışmanlık hizmeti sunmaya devam etmekteyiz.`,
+Bu değişikliklerin şirket tüzüklerine ve iç yönetmeliklerine yansıtılması gerekmektedir. Werdy Hukuk Bürosu olarak, uyum süreçlerinde müvekkillerimize kapsamlı danışmanlık hizmeti sunmaya devam etmekteyiz.`,
       en: `The amendments to the Turkish Commercial Code as of 2026 have initiated profound transformations, particularly in joint-stock company management structures and electronic general assembly practices.
 
 **Electronic General Assembly Requirement**
@@ -44,11 +44,11 @@ Regulations concerning the personal liability of board members have also been re
 
 **Conclusion**
 
-These changes need to be reflected in company articles of association and internal regulations. As Verdi Law Firm, we continue to provide comprehensive advisory services to our clients throughout their compliance processes.`
+These changes need to be reflected in company articles of association and internal regulations. As Werdy Law Firm, we continue to provide comprehensive advisory services to our clients throughout their compliance processes.`
     },
     date: '2026-02-15',
     category: { tr: 'Ticaret Hukuku', en: 'Commercial Law' },
-    author: 'Av. Mehmet Verdi',
+    author: 'Av. Mehmet Werdy',
     readTime: { tr: '5 dk okuma', en: '5 min read' },
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80'
   },

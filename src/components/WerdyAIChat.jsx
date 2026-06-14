@@ -4,8 +4,8 @@ import { Send, Trash2, Sparkles, Bot, User, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const WELCOME = {
-  tr: 'Merhaba! Ben **Verdi Yapay Zekası**. Hukuki sorularınızı yanıtlamak, doğru uzmanlara yönlendirmek ve büromuz hakkında bilgi vermek için buradayım. Size nasıl yardımcı olabilirim?',
-  en: "Hello! I'm **Verdi AI**. I'm here to answer your questions, direct you to the right expert, and provide information about our firm. How can I help you?",
+  tr: 'Merhaba! Ben **Werdy Yapay Zekası**. Hukuki sorularınızı yanıtlamak, doğru uzmanlara yönlendirmek ve büromuz hakkında bilgi vermek için buradayım. Size nasıl yardımcı olabilirim?',
+  en: "Hello! I'm **Werdy AI**. I'm here to answer your questions, direct you to the right expert, and provide information about our firm. How can I help you?",
 };
 
 const SUGGESTIONS = {
@@ -29,30 +29,30 @@ const SUGGESTIONS = {
 
 const RESPONSES = {
   tr: {
-    greeting: "Merhaba! Size nasıl yardımcı olabilirim? Verdi Hukuk Bürosu, uzmanlık alanlarımız, ekibimiz veya bizimle iletişime geçme konularında sorularınızı yanıtlayabilirim.",
-    default: "Sorunuzu anlıyorum. Verdi Hukuk Bürosu olarak kurumsal danışmanlık, uyuşmazlık çözümü, bankacılık ve diğer uzmanlık alanlarımızda size en iyi hizmeti sunmak için buradayız. Detaylı hukuki danışmanlık almak ve davanızı değerlendirmemiz için lütfen [İletişim](/iletisim) sayfamızdaki formu doldurun veya doğrudan bizi arayın.",
-    contact: "Verdi Hukuk Bürosu İstanbul Levent'te yer almaktadır.\n\n**Adres:** Levent, Büyükdere Cad. No:185, 34394 Şişli / İstanbul\n**Telefon:** +90 212 324 XX XX\n**E-posta:** info@verdihukuk.com.tr\n\nBizimle doğrudan iletişime geçmek için [İletişim Sayfamızı](/iletisim) ziyaret edebilirsiniz.",
-    team: "Verdi Hukuk Bürosu, kurucuları ve kıdemli ortakları dahil olmak üzere alanında uzman geniş bir avukat kadrosuna sahiptir. Ekibimizin tamamını, uzmanlık alanlarını ve özgeçmişlerini incelemek için [Ekibimiz Sayfasını](/ekibimiz) ziyaret edebilirsiniz.",
+    greeting: "Merhaba! Size nasıl yardımcı olabilirim? Werdy Hukuk Bürosu, uzmanlık alanlarımız, ekibimiz veya bizimle iletişime geçme konularında sorularınızı yanıtlayabilirim.",
+    default: "Sorunuzu anlıyorum. Werdy Hukuk Bürosu olarak kurumsal danışmanlık, uyuşmazlık çözümü, bankacılık ve diğer uzmanlık alanlarımızda size en iyi hizmeti sunmak için buradayız. Detaylı hukuki danışmanlık almak ve davanızı değerlendirmemiz için lütfen [İletişim](/iletisim) sayfamızdaki formu doldurun veya doğrudan bizi arayın.",
+    contact: "Werdy Hukuk Bürosu İstanbul Levent'te yer almaktadır.\n\n**Adres:** Levent, Büyükdere Cad. No:185, 34394 Şişli / İstanbul\n**Telefon:** +90 212 324 XX XX\n**E-posta:** info@werdyhukuk.com.tr\n\nBizimle doğrudan iletişime geçmek için [İletişim Sayfamızı](/iletisim) ziyaret edebilirsiniz.",
+    team: "Werdy Hukuk Bürosu, kurucuları ve kıdemli ortakları dahil olmak üzere alanında uzman geniş bir avukat kadrosuna sahiptir. Ekibimizin tamamını, uzmanlık alanlarını ve özgeçmişlerini incelemek için [Ekibimiz Sayfasını](/ekibimiz) ziyaret edebilirsiniz.",
     banking: "Türkiye'de bankacılık hukuku alanında öncü hukuk büroları arasında yer alıyoruz. Proje finansmanı, sendikasyon kredileri, BDDK düzenleyici uyumu ve yapılandırılmış finansman alanlarında derin tecrübeye sahibiz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
     ma: "Yerli ve yabancı müvekkillerimize birleşme, devralma (M&A) ve şirketler hukuku süreçlerinde tam kapsamlı hukuki danışmanlık sunuyoruz. Durum tespiti (due diligence), hisse devir sözleşmesi (SPA) müzakereleri ve kurumsal yönetim konularında lideriz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
     dispute: "Müvekkillerimizi geniş bir ticari uyuşmazlık yelpazesinde temsil ediyor; ulusal ve uluslararası tahkim (ISTAC, ICC, UNCITRAL) ve davalarda stratejik destek sağlıyoruz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
     competition: "Rekabet hukuku alanında birleşme/devralma izin başvuruları, Rekabet Kurulu soruşturmaları, kartel ve hakim durum davalarında ve uyum programlarında müvekkillerimizi en üst düzeyde temsil etmekteyiz. Detaylı bilgi için [Çalışma Alanlarımız](/calisma-alanlari) sayfasını inceleyebilirsiniz.",
-    career: "Verdi Hukuk Bürosu bünyesinde kariyer yapmak, stajyer veya avukat olarak ekibimize katılmak isterseniz güncel açık pozisyonlarımızı görmek ve CV'nizi göndermek için [Kariyer Sayfamızı](/kariyer) ziyaret edebilirsiniz.",
-    about: "Verdi Hukuk Bürosu, Türkiye'nin önde gelen tam hizmet (full-service) hukuk bürolarından biridir. Sektör bilgisi ile birleştirdiğimiz derin hukuki uzmanlığımızla, yerli ve uluslararası müvekkillerimize en yüksek standartlarda danışmanlık hizmeti sunuyoruz. Kuruluşumuz ve vizyonumuz hakkında daha fazla bilgi edinmek için [Hakkımızda](/hakkimizda) sayfamızı ziyaret edebilirsiniz.",
+    career: "Werdy Hukuk Bürosu bünyesinde kariyer yapmak, stajyer veya avukat olarak ekibimize katılmak isterseniz güncel açık pozisyonlarımızı görmek ve CV'nizi göndermek için [Kariyer Sayfamızı](/kariyer) ziyaret edebilirsiniz.",
+    about: "Werdy Hukuk Bürosu, Türkiye'nin önde gelen tam hizmet (full-service) hukuk bürolarından biridir. Sektör bilgisi ile birleştirdiğimiz derin hukuki uzmanlığımızla, yerli ve uluslararası müvekkillerimize en yüksek standartlarda danışmanlık hizmeti sunuyoruz. Kuruluşumuz ve vizyonumuz hakkında daha fazla bilgi edinmek için [Hakkımızda](/hakkimizda) sayfamızı ziyaret edebilirsiniz.",
     publications: "Büromuz avukatlarının güncel hukuki gelişmeleri ve makaleleri ele aldığı yayınlarımızı incelemek için [Yayınlarımız](/yayinlar) sayfamızı ziyaret edebilirsiniz.",
     process: "Müvekkillerimizle yürüttüğümüz şeffaf ve adım adım hukuki süreçlerimizi incelemek ve süreç simülasyonumuzu deneyimlemek için [Süreç Yönetimi](/surec) sayfamızı ziyaret edebilirsiniz.",
   },
   en: {
-    greeting: "Hello! How can I help you? I can answer your questions about Verdi Law Firm, our practice areas, our team, or how to contact us.",
-    default: "I understand your query. At Verdi Law Firm, we are here to provide you with the best service in corporate advisory, dispute resolution, and our other practice areas. To get detailed legal advice and let us assess your case, please fill out the form on our [Contact](/iletisim) page or call us directly.",
-    contact: "Verdi Law Firm is located in Levent, Istanbul.\n\n**Address:** Levent, Buyukdere Cad. No:185, 34394 Sisli / Istanbul\n**Phone:** +90 212 324 XX XX\n**Email:** info@verdilaw.com.tr\n\nYou can visit our [Contact Page](/iletisim) to get in touch with us directly.",
-    team: "Verdi Law Firm has a large team of expert lawyers, including founders and senior partners. You can visit our [Team Page](/ekibimiz) to review our entire team, their specialties, and biographies.",
+    greeting: "Hello! How can I help you? I can answer your questions about Werdy Law Firm, our practice areas, our team, or how to contact us.",
+    default: "I understand your query. At Werdy Law Firm, we are here to provide you with the best service in corporate advisory, dispute resolution, and our other practice areas. To get detailed legal advice and let us assess your case, please fill out the form on our [Contact](/iletisim) page or call us directly.",
+    contact: "Werdy Law Firm is located in Levent, Istanbul.\n\n**Address:** Levent, Buyukdere Cad. No:185, 34394 Sisli / Istanbul\n**Phone:** +90 212 324 XX XX\n**Email:** info@werdylaw.com.tr\n\nYou can visit our [Contact Page](/iletisim) to get in touch with us directly.",
+    team: "Werdy Law Firm has a large team of expert lawyers, including founders and senior partners. You can visit our [Team Page](/ekibimiz) to review our entire team, their specialties, and biographies.",
     banking: "We are among the leading law firms in Turkey in the field of banking law. We have deep experience in project finance, syndicated loans, BRSA regulatory compliance, and structured finance. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
     ma: "We offer full-service legal advice to domestic and foreign clients in mergers & acquisitions (M&A) and corporate law processes. We are leaders in due diligence, SPA negotiations, and corporate governance. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
     dispute: "We represent our clients in a wide range of commercial disputes, providing strategic support in domestic and international arbitration (ISTAC, ICC, UNCITRAL) and litigation. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
     competition: "In competition law, we provide high-level representation in merger/acquisition clearance filings, TCA investigations, cartel and dominance cases, and compliance programs. For more information, please check our [Practice Areas](/calisma-alanlari) page.",
-    career: "If you would like to build a career at Verdi Law Firm, or join our team as an associate or intern, you can visit our [Career Page](/kariyer) to view open positions and submit your CV.",
-    about: "Verdi Law Firm is one of Turkey's leading full-service law firms. With deep legal expertise combined with sector knowledge, we provide advisory services to domestic and international clients at the highest standards. To learn more about our history and vision, please visit our [About Us](/hakkimizda) page.",
+    career: "If you would like to build a career at Werdy Law Firm, or join our team as an associate or intern, you can visit our [Career Page](/kariyer) to view open positions and submit your CV.",
+    about: "Werdy Law Firm is one of Turkey's leading full-service law firms. With deep legal expertise combined with sector knowledge, we provide advisory services to domestic and international clients at the highest standards. To learn more about our history and vision, please visit our [About Us](/hakkimizda) page.",
     publications: "You can visit our [Publications](/yayinlar) page to review articles and updates on current legal developments authored by our lawyers.",
     process: "You can visit our [Process Management](/surec) page to examine our transparent, step-by-step workflows and experience our process simulator.",
   }
@@ -106,7 +106,7 @@ function getBotResponse(input, lang) {
   return res.default;
 }
 
-export default function VerdiAIChat() {
+export default function WerdyAIChat() {
   const { language } = useLanguage();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -188,7 +188,7 @@ export default function VerdiAIChat() {
             <div className="relative w-7 h-7 bg-white/10 flex items-center justify-center shrink-0">
               <Sparkles className="w-3.5 h-3.5 text-white" />
             </div>
-            <span className="text-sm font-semibold tracking-wide relative z-10">Verdi AI</span>
+            <span className="text-sm font-semibold tracking-wide relative z-10">Werdy AI</span>
           </motion.button>
         )}
       </AnimatePresence>
@@ -216,7 +216,7 @@ export default function VerdiAIChat() {
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-[#0a0e17]" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-white font-semibold text-sm leading-tight">Verdi Yapay Zekası</p>
+                <p className="text-white font-semibold text-sm leading-tight">Werdy Yapay Zekası</p>
                 <p className="text-white/50 text-[11px]">
                   {language === 'tr' ? 'Hukuki Asistan · Çevrimiçi' : 'Legal Assistant · Online'}
                 </p>

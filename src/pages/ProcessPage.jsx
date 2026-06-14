@@ -127,7 +127,7 @@ function TerminalLog({ logs, isRunning, stepIdx }) {
         <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-        <span className="text-muted-foreground/50 ml-2">verdi.legal — sistem terminali</span>
+        <span className="text-muted-foreground/50 ml-2">werdy.legal — sistem terminali</span>
       </div>
       <div className="space-y-1">
         <AnimatePresence>
