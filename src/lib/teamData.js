@@ -23,7 +23,7 @@ export const PRACTICE_AREAS = [
 ];
 
 export const teamMembers = [
-  {
+{
     id: 184,
     slug: 'a-can-verdi',
     name: 'A. Can Verdi',
@@ -32,7 +32,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'cverdi@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=85',
+    image: '/assets/team/a-can-verdi.png',
     practiceAreas: ['banking', 'ma', 'privatization', 'dispute'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -42,7 +42,7 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-  {
+{
     id: 205,
     slug: 'ozer-koseoglu',
     name: 'Özer Köseoğlu',
@@ -51,7 +51,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'okoseoglu@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=900&q=85',
+    image: '/assets/team/ozer-koseoglu.png',
     practiceAreas: ['dispute', 'competition', 'ip', 'it'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -61,7 +61,7 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-  {
+{
     id: 215,
     slug: 'zeynep-fencimen',
     name: 'Zeynep Fencimen',
@@ -70,7 +70,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'zfencimen@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=85',
+    image: '/assets/team/zeynep-fencimen.png',
     practiceAreas: ['banking', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -79,7 +79,7 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-  {
+{
     id: 1240,
     slug: 'dogac-gunaydin',
     name: 'Doğaç Günaydın',
@@ -88,7 +88,7 @@ export const teamMembers = [
     titleTr: 'Ortak',
     email: 'dgunaydin@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=900&q=85',
+    image: '/assets/team/dogac-gunaydin.png',
     practiceAreas: ['ma', 'privatization', 'capital-markets', 'dispute', 'competition', 'foreign-investment'],
     languages: ['Türkçe', 'İngilizce', 'Hollandaca', 'Almanca'],
     education: [
@@ -100,7 +100,7 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-  {
+{
     id: 1287,
     slug: 'yaren-kinalioglu',
     name: 'Yaren Kınalıoğlu',
@@ -109,7 +109,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'ykinalioglu@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=900&q=85',
+    image: '/assets/team/yaren-kinalioglu.png',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -118,7 +118,7 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-  {
+{
     id: 1295,
     slug: 'beyda-ulu',
     name: 'Beyda Ulu',
@@ -127,7 +127,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'bulu@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?w=900&q=85',
+    image: '/assets/team/beyda-ulu.png',
     practiceAreas: ['dispute', 'ip'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -136,7 +136,7 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-  {
+{
     id: 1308,
     slug: 'alparslan-erbay',
     name: 'Alparslan Erbay',
@@ -145,7 +145,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'aerbay@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900&q=85',
+    image: '/assets/team/alparslan-erbay.png',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['İngilizce', 'Almanca', 'Türkçe'],
     education: [
@@ -154,7 +154,7 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-  {
+{
     id: 1309,
     slug: 'pelin-nida-surmeli',
     name: 'Pelin Nida Sürmeli',
@@ -163,7 +163,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'psurmeli@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=85',
+    image: '/assets/team/pelin-nida-surmeli.png',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -172,7 +172,7 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-  {
+{
     id: 1310,
     slug: 'taylan-ozgur-kocak',
     name: 'Taylan Özgür Koçak',
@@ -181,7 +181,7 @@ export const teamMembers = [
     titleTr: 'Avukat',
     email: 'tkocak@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=85',
+    image: '/assets/team/taylan-ozgur-kocak.png',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'Almanca', 'İngilizce'],
     education: [
@@ -190,7 +190,7 @@ export const teamMembers = [
     ],
     bar: 'İstanbul Barosu',
   },
-  {
+{
     id: 1311,
     slug: 'selin-tutucu',
     name: 'Selin Tutucu',
@@ -199,7 +199,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'stutucu@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=900&q=85',
+    image: '/assets/team/selin-tutucu.png',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -208,7 +208,7 @@ export const teamMembers = [
     ],
     bar: null,
   },
-  {
+{
     id: 1313,
     slug: 'can-berk-kahya',
     name: 'Can Berk Kahya',
@@ -217,7 +217,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'ckahya@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1620891549027-942fdc95d3f5?w=900&q=85',
+    image: '/assets/team/can-berk-kahya.png',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce', 'Almanca'],
     education: [
@@ -227,7 +227,7 @@ export const teamMembers = [
     ],
     bar: null,
   },
-  {
+{
     id: 1317,
     slug: 'ilayda-kizikli',
     name: 'İlayda Kızıklı',
@@ -236,7 +236,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'ikizikli@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=900&q=85',
+    image: '/assets/team/ilayda-kizikli.png',
     practiceAreas: ['banking', 'ma', 'capital-markets'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -245,7 +245,7 @@ export const teamMembers = [
     ],
     bar: null,
   },
-  {
+{
     id: 1318,
     slug: 'metehan-unal',
     name: 'Metehan Ünal',
@@ -254,7 +254,7 @@ export const teamMembers = [
     titleTr: 'Stajyer Avukat',
     email: 'munal@verdi.av.tr',
     phone: '+90 212 324 96 34',
-    image: 'https://images.unsplash.com/photo-1605462863863-10d9e47e15ee?w=900&q=85',
+    image: '/assets/team/metehan-unal.png',
     practiceAreas: ['dispute', 'ip'],
     languages: ['Türkçe', 'İngilizce'],
     education: [
@@ -263,4 +263,22 @@ export const teamMembers = [
     ],
     bar: null,
   },
+  {
+    id: 1319,
+    slug: 'aksel-kalaycioglu',
+    name: 'Aksel Kalaycıoğlu',
+    position: 'trainee',
+    titleEn: 'Trainee',
+    titleTr: 'Stajyer Avukat',
+    email: 'akalaycioglu@verdi.av.tr',
+    phone: '+90 212 324 96 34',
+    image: '/assets/team/aksel-kalaycioglu.png',
+    practiceAreas: ['banking', 'ma', 'capital-markets'],
+    languages: ['Türkçe', 'İngilizce', 'Arapça'],
+    education: [
+      'Koç Üniversitesi Hukuk Fakültesi, LL.B. (2025)',
+      'Tarsus Amerikan Koleji (2021)',
+    ],
+    bar: null,
+  }
 ];
