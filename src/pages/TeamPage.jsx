@@ -17,7 +17,7 @@ function MemberCard({ member, onClick }) {
       whileHover={{ y: -6, scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 280, damping: 20 }}
     >
-      <div className="aspect-square overflow-hidden bg-[#C8CFD3] relative">
+      <div className="aspect-square overflow-hidden bg-transparent relative">
         <img
           src={member.image}
           alt={member.name}
@@ -95,7 +95,7 @@ function MemberModal({ member, onClose }) {
         </button>
 
         <div className="grid md:grid-cols-5">
-          <div className="md:col-span-2 bg-[#C8CFD3]">
+          <div className="md:col-span-2 bg-transparent">
             <div className="aspect-square md:aspect-auto md:h-full overflow-hidden">
               <img
                 src={member.image}
