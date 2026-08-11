@@ -250,12 +250,12 @@ export default function TeamPage() {
       <section data-nav-theme="light" className="sticky top-0 z-10 bg-white border-b border-[#C8CFD3]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-36 pb-16">
           <h1 className="mt-6 font-fraunces text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15] text-[#1A2530]">
-            {language === 'tr' ? 'Werdy ekibiyle tanışın.' : 'Meet the Werdy team.'}
+            {language === 'tr' ? 'VERDİ ekibiyle tanışın.' : 'Meet the VERDİ team.'}
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-[#4D5660]">
             {language === 'tr'
-              ? 'Deneyimli avukat, danışman ve stajyer kadromuzla müvekkillerimize geniş bir uzmanlık yelpazesinde hizmet veriyoruz.'
-              : 'With our experienced team of attorneys, advisors and trainees, we serve our clients across a broad spectrum of expertise.'}
+              ? 'Farklı disiplinlerde çalışan avukat ve danışmanlardan oluşan bu ekip, VERDİ HUKUK marka konseptini temsil eder; kişi ve özgeçmiş bilgileri örnek amaçlıdır.'
+              : 'This illustrative team of lawyers and advisers represents the VERDİ LAW brand concept; names and biographies are sample content.'}
           </p>
 
           {/* Kişi arama */}

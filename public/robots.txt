@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Konsept yayındayken sayfa içi noindex etiketi geçerlidir.
+# Canlıya geçişte VITE_SITE_STATUS=live ve VITE_SITE_URL tanımlanmalıdır.

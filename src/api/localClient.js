@@ -1,4 +1,4 @@
-const AUTH_STORAGE_KEY = 'werdy_auth_user';
+const AUTH_STORAGE_KEY = 'verdi_auth_user';
 
 const delay = (ms = 350) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -63,7 +63,7 @@ export const localClient = {
       return true;
     },
     loginWithProvider() {
-      const user = createUser('demo@redmono.com');
+      const user = createUser('demo@verdi-hukuk.example');
       writeUser(user);
       window.location.href = '/';
     },

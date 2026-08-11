@@ -2,12 +2,13 @@ import React from 'react';
 import { Linkedin, Twitter, Instagram, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import BrandLogo from '@/components/BrandLogo';
+import { BRAND } from '@/lib/brand';
 
 export default function Footer() {
   const { t, language } = useLanguage();
 
   return (
-    <footer className="bg-ink text-[#e6eaf3]">
+    <footer id="site-footer" className="bg-ink text-[#e6eaf3]">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Ana satır: solda logo, sağda CTA */}
         <div className="grid gap-8 py-10 md:grid-cols-[auto_1fr] md:items-center md:gap-12">
@@ -35,8 +36,8 @@ export default function Footer() {
             </p>
             <h2 className="mt-3 font-fraunces text-2xl font-semibold leading-tight md:text-3xl md:ml-auto md:max-w-xl">
               {language === 'tr'
-                ? 'Yaratıcı geleceği birlikte tasarlayalım.'
-                : 'Let us design the creative future together.'}
+                ? 'Hukuki belirsizliği birlikte netliğe dönüştürelim.'
+                : 'Let us turn legal complexity into clarity.'}
             </h2>
             <a
               href="/iletisim"
@@ -50,7 +51,12 @@ export default function Footer() {
 
         {/* Alt çubuk */}
         <div className="flex flex-col justify-between gap-3 border-t border-white/10 py-4 text-xs text-[#8c97b3] md:flex-row md:items-center">
-          <p>© 2026 redmono creative agency — <a href="https://redmono.com" target="_blank" rel="noopener noreferrer" className="hover:text-white underline transition-colors">redmono.com</a></p>
+          <div className="max-w-3xl space-y-2">
+            <p>© 2026 {BRAND.name}. {language === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.'}</p>
+            {BRAND.concept && (
+              <p className="text-[10px] leading-5 text-[#8c97b3]">{BRAND.conceptNotice[language]}</p>
+            )}
+          </div>
           <div className="flex gap-6">
             <a href="#" className="transition hover:text-white">{t('footer.privacy')}</a>
             <a href="#" className="transition hover:text-white">{t('footer.terms')}</a>

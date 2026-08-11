@@ -74,15 +74,15 @@ export default function About() {
             <div className="relative aspect-[4/5] rounded-sm overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80"
-                alt="Redmono Creative Summit"
+                alt="VERDİ HUKUK ekip çalışması"
                 className="w-full h-full object-cover grayscale"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
 
               {/* Floating badge */}
               <div className="absolute bottom-6 left-6 right-6 p-5 bg-ink/80 backdrop-blur-sm border border-bone/10 rounded-sm">
-                <p className="font-fraunces text-lg text-bone mb-1">"Geleceği şekillendiren yaratıcı fikirler buluşuyor."</p>
-                <p className="text-xs text-bone/50">— Redmono Creative Agency, 2026</p>
+                <p className="font-fraunces text-lg text-bone mb-1">"Net hukuk, güçlü karar."</p>
+                <p className="text-xs text-bone/50">— VERDİ HUKUK marka konsepti</p>
               </div>
             </div>
 

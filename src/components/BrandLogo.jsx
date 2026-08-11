@@ -1,19 +1,16 @@
 import React from 'react';
-import { useLanguage } from '@/lib/LanguageContext';
 
 export default function BrandLogo({ className = '', markClassName = '', textClassName = '' }) {
-  const { language } = useLanguage();
+  const inverted = className.includes('text-white');
+  const compact = markClassName.includes('h-8');
+
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <div className={`flex h-10 w-10 items-center justify-center rounded-sm border border-current/25 font-fraunces text-xl font-bold ${markClassName}`}>
-        W
-      </div>
-      <div className={`leading-none ${textClassName}`}>
-        <div className="font-fraunces text-xl font-bold tracking-wide">WERDY</div>
-        <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.28em] opacity-70">
-          {language === 'tr' ? 'Zirve' : 'Summit'}
-        </div>
-      </div>
+    <div className={`flex items-center ${className}`} data-logo-source="imagegen">
+      <img
+        src="/verdi-logo-ai-lockup.png"
+        alt="VERDİ Hukuk Bürosu"
+        className={`${compact ? 'h-9 max-w-[170px]' : 'h-12 max-w-[220px]'} w-auto object-contain object-left ${inverted ? 'brightness-0 invert' : ''} ${textClassName.includes('hidden') ? 'sm:block' : ''}`}
+      />
     </div>
   );
 }

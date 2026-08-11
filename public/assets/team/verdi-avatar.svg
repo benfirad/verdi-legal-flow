@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E8ECEF"/>
+      <stop offset="1" stop-color="#C8CFD3"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3D4D5E"/>
+      <stop offset="1" stop-color="#1A2530"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <path d="M0 56 400 0v88L0 144Z" fill="#fff" opacity=".25"/>
+  <circle cx="200" cy="151" r="68" fill="#A8B0B5"/>
+  <path d="M136 154c5-53 29-82 65-82 38 0 60 29 64 82-19-9-40-20-63-36-19 17-41 29-66 36Z" fill="#3D4D5E"/>
+  <path d="M160 208h80l18 33-58 44-58-44Z" fill="#F4F6F8"/>
+  <path d="M55 400c7-104 57-164 119-176l26 61 27-61c64 12 112 72 119 176Z" fill="url(#coat)"/>
+  <path d="m174 224 26 61-31 47-24-94Zm53 0-27 61 31 47 24-94Z" fill="#E8ECEF" opacity=".92"/>
+  <path d="M200 285v115" stroke="#B8CCDA" stroke-width="2" opacity=".35"/>
+  <rect x="18" y="18" width="364" height="364" fill="none" stroke="#5A7A8C" stroke-opacity=".24"/>
+  <path d="M318 328h40v40" fill="none" stroke="#B8CCDA" stroke-width="2"/>
+  <text x="338" y="356" text-anchor="middle" fill="#B8CCDA" font-family="Arial, sans-serif" font-size="18" font-weight="700">V</text>
+</svg>

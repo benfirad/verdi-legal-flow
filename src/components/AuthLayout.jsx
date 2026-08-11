@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import BrandLogo from '@/components/BrandLogo';
 
 export default function AuthLayout({ icon: Icon, title, subtitle, footer, children }) {
   return (
@@ -7,11 +8,7 @@ export default function AuthLayout({ icon: Icon, title, subtitle, footer, childr
       {/* Brand Logo - Top Left */}
       <header className="w-full px-6 py-6 md:px-10 md:py-8 flex items-center justify-between shrink-0">
         <a href="/" className="block transition hover:opacity-75">
-          <img
-            src="/assets/logoust.png"
-            alt="Werdy"
-            className="h-8 md:h-10 w-auto object-contain"
-          />
+          <BrandLogo className="text-[#1A2530]" />
         </a>
       </header>
 

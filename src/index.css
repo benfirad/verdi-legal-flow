@@ -87,11 +87,13 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
     @apply bg-background text-foreground font-inter;
     font-family: var(--font-inter);
+    overflow-x: clip;
   }
 
   h1,
@@ -121,11 +123,11 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground;
   }
 
-  .werdy-reveal {
-    animation: werdyReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  .verdi-reveal {
+    animation: verdiReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  @keyframes werdyReveal {
+  @keyframes verdiReveal {
     from {
       opacity: 0;
       transform: translateY(30px);
@@ -189,7 +191,7 @@
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .werdy-reveal {
+  .verdi-reveal {
     animation: none;
     opacity: 1;
     transform: none;
