@@ -8,11 +8,11 @@ Unauthorized copying, modification, distribution, deployment, hosting, or creati
 
 ---
 
-# VERDİ HUKUK — Marka Konsepti
+# DACH HUKUK — Marka Konsepti
 
-VERDİ HUKUK için hazırlanmış Vite + React tabanlı bağımsız marka ve web deneyimi konsepti.
+DACH HUKUK için hazırlanmış Vite + React tabanlı bağımsız marka ve web deneyimi konsepti.
 
-> Sayfadaki kişi, iletişim ve kariyer bilgileri temsilidir. Gerçek bir hukuk bürosu beyanı veya hukuki hizmet teklifi değildir.
+> Sayfadaki kişiler, yapay zekâ ile üretilmiş sentetik portreler, iletişim ve kariyer bilgileri temsilidir. Gerçek bir hukuk bürosu beyanı veya hukuki hizmet teklifi değildir.
 
 ## Calistirma
 

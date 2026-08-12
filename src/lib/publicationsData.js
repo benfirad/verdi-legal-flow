@@ -32,7 +32,7 @@ Instead of treating every clause equally, focus first on matters with the highes
 
 The true value of a well-drafted agreement emerges when operational teams can monitor obligations after signing.`,
     },
-    date: '2026-07-18', category: { tr: 'Ticaret Hukuku', en: 'Commercial Law' }, author: 'VERDİ İçgörü Ekibi', readTime: { tr: '4 dk okuma', en: '4 min read' },
+    date: '2026-07-18', category: { tr: 'Ticaret Hukuku', en: 'Commercial Law' }, author: 'DACH İçgörü Ekibi', readTime: { tr: '4 dk okuma', en: '4 min read' },
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80',
   },
   {
@@ -68,7 +68,7 @@ Decision ownership, record keeping and notification workflows should be tested b
 
 Continuous training, review and updating offer stronger protection than a one-off documentation exercise.`,
     },
-    date: '2026-07-02', category: { tr: 'Veri Koruma', en: 'Data Protection' }, author: 'VERDİ İçgörü Ekibi', readTime: { tr: '5 dk okuma', en: '5 min read' },
+    date: '2026-07-02', category: { tr: 'Veri Koruma', en: 'Data Protection' }, author: 'DACH İçgörü Ekibi', readTime: { tr: '5 dk okuma', en: '5 min read' },
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
   },
   {
@@ -104,7 +104,7 @@ Recovery, preserving the relationship, protecting reputation or achieving a fast
 
 Negotiation, mediation, arbitration and litigation should be compared by cost, timing and enforceability.`,
     },
-    date: '2026-06-20', category: { tr: 'Uyuşmazlık Çözümü', en: 'Dispute Resolution' }, author: 'VERDİ İçgörü Ekibi', readTime: { tr: '5 dk okuma', en: '5 min read' },
+    date: '2026-06-20', category: { tr: 'Uyuşmazlık Çözümü', en: 'Dispute Resolution' }, author: 'DACH İçgörü Ekibi', readTime: { tr: '5 dk okuma', en: '5 min read' },
     image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80',
   },
 ];

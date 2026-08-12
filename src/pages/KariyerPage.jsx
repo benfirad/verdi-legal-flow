@@ -85,7 +85,7 @@ export default function KariyerPage() {
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-24">
             <Reveal>
               <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-4xl max-w-3xl">
-                {t('VERDİ ekibine katılın. Birlikte netlik üretelim.', 'Join the VERDİ team. Let us create clarity together.')}
+                {t('DACH ekibine katılın. Birlikte netlik üretelim.', 'Join the DACH team. Let us create clarity together.')}
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
                 {t(

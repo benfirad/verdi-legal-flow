@@ -18,7 +18,7 @@ import Register from '@/pages/Register';
 import ForgotPassword from '@/pages/ForgotPassword';
 import ResetPassword from '@/pages/ResetPassword';
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext';
-import VerdiAIChat from '@/components/VerdiAIChat';
+import DachAIChat from '@/components/DachAIChat';
 import Seo from '@/components/Seo';
 
 const AuthenticatedApp = () => {
@@ -78,7 +78,7 @@ function App() {
         <LanguageProvider>
           <Router>
             <AuthenticatedApp />
-            <VerdiAIChat />
+            <DachAIChat />
           </Router>
           <Toaster />
         </LanguageProvider>

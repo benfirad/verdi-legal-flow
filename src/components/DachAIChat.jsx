@@ -6,18 +6,18 @@ import { BRAND } from '@/lib/brand';
 
 const CONTENT = {
   tr: {
-    welcome: 'Merhaba, ben **VERDİ Dijital Asistanı**. Çalışma alanları ve iletişim akışı hakkında genel bilgi verebilirim. Bu deneyim bir marka konseptidir; yanıtlar hukuki görüş değildir.',
+    welcome: 'Merhaba, ben **DACH Dijital Asistanı**. Çalışma alanları ve iletişim akışı hakkında genel bilgi verebilirim. Bu deneyim bir marka konseptidir; yanıtlar hukuki görüş değildir.',
     placeholder: 'Sorunuzu yazın…',
     suggestions: ['Çalışma alanlarınız neler?', 'Nasıl çalışıyorsunuz?', 'İletişim bilgileri'],
-    generic: 'VERDİ HUKUK; ticaret ve şirketler, birleşme ve devralmalar, uyuşmazlık çözümü, iş, gayrimenkul, rekabet, finans, veri koruma ve fikri mülkiyet alanlarında kurgulanmış bir marka konseptidir. [Çalışma Alanları](/calisma-alanlari) sayfasında ayrıntıları görebilirsiniz.',
+    generic: 'DACH HUKUK; ticaret ve şirketler, birleşme ve devralmalar, uyuşmazlık çözümü, iş, gayrimenkul, rekabet, finans, veri koruma ve fikri mülkiyet alanlarında kurgulanmış bir marka konseptidir. [Çalışma Alanları](/calisma-alanlari) sayfasında ayrıntıları görebilirsiniz.',
     process: 'Çalışma akışı ilk değerlendirme, kapsam ve strateji, uygulama, raporlama ve takip adımlarından oluşur. Ayrıntılar için [Çalışma Sürecimiz](/surec) sayfasını ziyaret edebilirsiniz.',
     contact: `Bu konseptte kullanılan iletişim bilgileri temsilidir.\n\n**E-posta:** ${BRAND.email}\n**Telefon:** ${BRAND.phone}\n\n[İletişim sayfasına gidin](/iletisim).`,
   },
   en: {
-    welcome: 'Hello, I am the **VERDİ Digital Assistant**. I can provide general information about practice areas and the contact journey. This is a brand concept and responses are not legal advice.',
+    welcome: 'Hello, I am the **DACH Digital Assistant**. I can provide general information about practice areas and the contact journey. This is a brand concept and responses are not legal advice.',
     placeholder: 'Type your question…',
     suggestions: ['What are your practice areas?', 'How do you work?', 'Contact details'],
-    generic: 'VERDİ LAW is a brand concept covering corporate and commercial, M&A, disputes, employment, real estate, competition, finance, data protection and intellectual property. Visit [Practice Areas](/calisma-alanlari) for details.',
+    generic: 'DACH LAW is a brand concept covering corporate and commercial, M&A, disputes, employment, real estate, competition, finance, data protection and intellectual property. Visit [Practice Areas](/calisma-alanlari) for details.',
     process: 'The workflow covers initial assessment, scope and strategy, execution, reporting and follow-up. Visit [How We Work](/surec) for more.',
     contact: `Contact details in this concept are illustrative.\n\n**Email:** ${BRAND.email}\n**Phone:** ${BRAND.phone}\n\n[Go to contact page](/iletisim).`,
   },
@@ -38,7 +38,7 @@ function format(text) {
     .replace(/\n/g, '<br/>');
 }
 
-export default function VerdiAIChat() {
+export default function DachAIChat() {
   const { language } = useLanguage();
   const content = CONTENT[language] || CONTENT.tr;
   const [open, setOpen] = useState(false);
@@ -63,8 +63,8 @@ export default function VerdiAIChat() {
     <>
       <AnimatePresence>
         {!open && (
-          <motion.button initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} onClick={() => setOpen(true)} className="fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center bg-[#1A2530] text-sm font-semibold text-white shadow-[0_10px_40px_rgba(26,37,48,.4)] sm:bottom-6 sm:right-6 sm:h-auto sm:w-auto sm:gap-3 sm:px-5 sm:py-3.5" aria-label="VERDİ dijital asistanını aç">
-            <Sparkles className="h-4 w-4 text-[#B8CCDA]" /><span className="hidden sm:inline">VERDİ Asistan</span>
+          <motion.button type="button" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} onClick={() => setOpen(true)} className="fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center bg-[#1A2530] text-sm font-semibold text-white shadow-[0_10px_40px_rgba(26,37,48,.4)] sm:bottom-6 sm:right-6 sm:h-auto sm:w-auto sm:gap-3 sm:px-5 sm:py-3.5" aria-label="DACH dijital asistanını aç">
+            <Sparkles className="h-4 w-4 text-[#B8CCDA]" /><span className="hidden sm:inline">DACH Asistan</span>
           </motion.button>
         )}
       </AnimatePresence>
@@ -74,9 +74,9 @@ export default function VerdiAIChat() {
           <motion.aside initial={{ opacity: 0, y: 30, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 30, scale: 0.96 }} className="fixed inset-x-3 bottom-3 top-3 z-50 flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0a0e17] shadow-2xl md:inset-auto md:bottom-6 md:right-6 md:h-[560px] md:w-[400px]">
             <header className="flex items-center gap-3 border-b border-white/10 px-4 py-3.5 text-white">
               <div className="flex h-9 w-9 items-center justify-center border border-white/10 bg-white/5"><Sparkles className="h-4 w-4 text-[#B8CCDA]" /></div>
-              <div className="flex-1"><p className="text-sm font-semibold">VERDİ Dijital Asistan</p><p className="text-[11px] text-white/50">{BRAND.conceptLabel[language]}</p></div>
-              <button onClick={() => setMessages([{ role: 'assistant', content: content.welcome, id: Date.now() }])} className="p-2 text-white/50 hover:text-white" aria-label="Sohbeti temizle"><Trash2 className="h-4 w-4" /></button>
-              <button onClick={() => setOpen(false)} className="p-2 text-white/50 hover:text-white" aria-label="Asistanı kapat"><ChevronDown className="h-4 w-4" /></button>
+              <div className="flex-1"><p className="text-sm font-semibold">DACH Dijital Asistan</p><p className="text-[11px] text-white/50">{BRAND.conceptLabel[language]}</p></div>
+              <button type="button" onClick={() => setMessages([{ role: 'assistant', content: content.welcome, id: Date.now() }])} className="p-2 text-white/50 hover:text-white" aria-label="Sohbeti temizle"><Trash2 className="h-4 w-4" /></button>
+              <button type="button" onClick={() => setOpen(false)} className="p-2 text-white/50 hover:text-white" aria-label="Asistanı kapat"><ChevronDown className="h-4 w-4" /></button>
             </header>
             <div className="flex items-center gap-2 border-b border-white/5 bg-white/[.03] px-4 py-2 text-[11px] leading-4 text-white/55"><Bot className="h-3 w-3 shrink-0 text-[#B8CCDA]" />{language === 'tr' ? 'Genel bilgi sağlar; hukuki danışmanlık değildir.' : 'General information only; not legal advice.'}</div>
             <div className="flex-1 space-y-4 overflow-y-auto px-4 py-4">

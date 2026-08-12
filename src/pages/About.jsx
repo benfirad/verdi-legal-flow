@@ -73,7 +73,7 @@ export default function About() {
               <figure className="relative">
                 <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=1000&q=85" alt={language === 'tr' ? 'Hukuk ve adalet temalı mimari detay' : 'Architectural detail representing law and justice'} className="aspect-[4/5] w-full object-cover grayscale" />
                 <div className="absolute -bottom-5 -left-5 bg-[#1A2530] px-6 py-5 text-white">
-                  <p className="font-fraunces text-2xl font-semibold">VERDİ</p>
+                  <p className="font-fraunces text-2xl font-semibold">DACH</p>
                   <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-[#B8CCDA]">{BRAND.conceptLabel[language]}</p>
                 </div>
               </figure>

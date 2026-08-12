@@ -1,9 +1,9 @@
 export const BRAND = {
-  name: 'VERDİ HUKUK',
-  shortName: 'VERDİ',
-  legalName: 'Verdi Hukuk Bürosu',
-  englishName: 'Verdi Law Office',
-  email: 'iletisim@verdi-hukuk.example',
+  name: 'DACH HUKUK',
+  shortName: 'DACH',
+  legalName: 'DACH Hukuk Bürosu',
+  englishName: 'DACH Law Office',
+  email: 'iletisim@dach-hukuk.example',
   phone: '+90 212 000 00 00',
   address: 'İstanbul, Türkiye',
   concept: true,
@@ -12,8 +12,8 @@ export const BRAND = {
     en: 'Independent brand concept',
   },
   conceptNotice: {
-    tr: 'VERDİ HUKUK, marka ve dijital deneyim sunumu amacıyla hazırlanmış bağımsız bir konsept çalışmadır. Sayfadaki kişi ve iletişim bilgileri temsilidir; hukuki hizmet teklifi niteliği taşımaz.',
-    en: 'VERDİ HUKUK is an independent brand and digital experience concept. People and contact details shown are illustrative and do not constitute an offer of legal services.',
+    tr: 'DACH HUKUK, marka ve dijital deneyim sunumu amacıyla hazırlanmış bağımsız bir konsept çalışmadır. Kişiler, yapay zekâ ile üretilen portreler ve iletişim bilgileri temsilidir; hukuki hizmet teklifi niteliği taşımaz.',
+    en: 'DACH LAW is an independent brand and digital experience concept. People, AI-generated portraits and contact details are illustrative and do not constitute an offer of legal services.',
   },
 };
 

@@ -123,11 +123,31 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground;
   }
 
-  .verdi-reveal {
-    animation: verdiReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  .dach-reveal {
+    animation: dachReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  @keyframes verdiReveal {
+  .dach-logo-lockup {
+    animation: dachLogoReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    transform-origin: left center;
+  }
+
+  .dach-logo::after {
+    content: '';
+    position: absolute;
+    inset: -20% auto -20% -35%;
+    width: 22%;
+    transform: skewX(-18deg);
+    background: linear-gradient(90deg, transparent, rgba(184, 204, 218, 0.28), transparent);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .dach-logo:hover::after {
+    animation: dachLogoSweep 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes dachReveal {
     from {
       opacity: 0;
       transform: translateY(30px);
@@ -136,6 +156,25 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes dachLogoReveal {
+    from {
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+      transform: translateX(-8px);
+    }
+    to {
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes dachLogoSweep {
+    from { left: -35%; opacity: 0; }
+    25% { opacity: 1; }
+    to { left: 115%; opacity: 0; }
   }
 
   .magnetic-hover {
@@ -191,10 +230,15 @@
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .verdi-reveal {
+  .dach-reveal {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .dach-logo-lockup,
+  .dach-logo:hover::after {
+    animation: none;
   }
   
   .line-grow {

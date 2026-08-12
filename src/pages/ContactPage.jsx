@@ -215,8 +215,8 @@ export default function ContactPage() {
                 <InfoCard
                   icon={Mail}
                   eyebrow={t('E-posta', 'Email')}
-                  title="iletisim@verdi-hukuk.example"
-                  href="mailto:iletisim@verdi-hukuk.example"
+                  title="iletisim@dach-hukuk.example"
+                  href="mailto:iletisim@dach-hukuk.example"
                 />
 
                 {/* Çalışma saatleri */}
@@ -252,7 +252,7 @@ export default function ContactPage() {
             <Reveal delay={0.1}>
               <div className="aspect-[16/7] w-full overflow-hidden border border-[#C8CFD3]">
                 <iframe
-                  title="VERDİ HUKUK — İstanbul haritası"
+                  title="DACH HUKUK — İstanbul haritası"
                   src="https://maps.google.com/maps?q=Istanbul%2C%20Turkey&t=&z=11&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-full grayscale contrast-110"
                   loading="lazy"

@@ -60,8 +60,8 @@ export default function Home() {
                   </span>
                   <h1 className="max-w-none text-[19px] font-normal leading-snug text-white/92 sm:text-xl lg:text-[26px] xl:text-[28px]">
                     {language === 'tr'
-                      ? 'VERDİ HUKUK; ticari hedefleri, hukuki riskleri ve insan unsurunu aynı stratejik çerçevede değerlendirerek müvekkillerine açık, çevik ve sonuç odaklı danışmanlık sunar.'
-                      : 'VERDİ LAW brings commercial goals, legal risk and the human dimension into one strategic framework to deliver clear, agile and outcome-focused counsel.'}
+                      ? 'DACH HUKUK; ticari hedefleri, hukuki riskleri ve insan unsurunu aynı stratejik çerçevede değerlendirerek müvekkillerine açık, çevik ve sonuç odaklı danışmanlık sunar.'
+                      : 'DACH LAW brings commercial goals, legal risk and the human dimension into one strategic framework to deliver clear, agile and outcome-focused counsel.'}
                   </h1>
                 </div>
               </Enter>

@@ -39,14 +39,14 @@ const TRANSLATIONS = {
       publications: 'İçgörüler', process: 'Yaklaşımımız', references: 'Referanslar', contact: 'İletişim',
     },
     hero: {
-      tagline: 'İstanbul • Türkiye', title: 'VERDİ HUKUK', subtitle: 'Netlik. Strateji. Güven.',
+      tagline: 'İstanbul • Türkiye', title: 'DACH HUKUK', subtitle: 'Netlik. Strateji. Güven.',
       description: 'İş dünyasının hukuki ihtiyaçlarına ticari bakış, disiplinler arası uzmanlık ve açık iletişimle yaklaşan bağımsız hukuk markası konsepti.',
       cta: 'Bize Ulaşın', ctaSecondary: 'Çalışma Alanları', scroll: 'Keşfetmek için kaydırın',
       badge: 'Bağımsız Marka Konsepti', slogan: '— Hukuki karmaşıklığı uygulanabilir stratejiye dönüştürür.',
     },
     about: {
       title: 'Hakkımızda', subtitle: 'Stratejik hukuk danışmanlığı',
-      description: 'VERDİ HUKUK, şirketlerin yalnızca bugünkü sorunlarına değil, yarının kararlarına da hazırlıklı olmasını hedefleyen bir hukuk bürosu konseptidir. Hukuki doğruluk ile ticari gerçekliği aynı masada buluşturur.',
+      description: 'DACH HUKUK, şirketlerin yalnızca bugünkü sorunlarına değil, yarının kararlarına da hazırlıklı olmasını hedefleyen bir hukuk bürosu konseptidir. Hukuki doğruluk ile ticari gerçekliği aynı masada buluşturur.',
       description2: 'Her dosyada açık iletişim, ölçülü risk yönetimi ve uygulanabilir çözümler üretmeyi esas alır.',
       experience: 'Yıllık Birikim', clients: 'Kurumsal Müvekkil', cases: 'Çözümlenen Dosya', countries: 'Sınır Ötesi Ağ',
       values: [
@@ -73,9 +73,9 @@ const TRANSLATIONS = {
       title: 'İletişim', subtitle: 'Konunuzu birlikte değerlendirelim',
       description: 'Kısa bir ön bilgi bırakın; uygun çalışma alanındaki ekibimiz temsilî iletişim akışı kapsamında size dönüş yapsın.',
       form: { name: 'Adınız Soyadınız', email: 'E-posta Adresiniz', phone: 'Telefon Numaranız', subject: 'Hukuki Konu', message: 'Kısa Açıklama', submit: 'Mesaj Gönder', selectSubject: 'Konu seçiniz', subjects: ['Ticaret ve Şirketler', 'Birleşme ve Devralmalar', 'Uyuşmazlık Çözümü', 'İş Hukuku', 'Gayrimenkul', 'Veri Koruma', 'Diğer'] },
-      info: { address: 'Konum', addressValue: 'İstanbul, Türkiye', phone: 'Telefon', phoneValue: '+90 212 000 00 00', email: 'E-posta', emailValue: 'iletisim@verdi-hukuk.example' },
+      info: { address: 'Konum', addressValue: 'İstanbul, Türkiye', phone: 'Telefon', phoneValue: '+90 212 000 00 00', email: 'E-posta', emailValue: 'iletisim@dach-hukuk.example' },
     },
-    footer: { description: 'VERDİ HUKUK, stratejik hukuk danışmanlığı için hazırlanmış bağımsız bir marka konseptidir.', quickLinks: 'Hızlı Bağlantılar', practiceAreas: 'Çalışma Alanları', contact: 'İletişim', rights: 'Tüm hakları saklıdır.', privacy: 'Gizlilik Politikası', terms: 'Kullanım Koşulları' },
+    footer: { description: 'DACH HUKUK, stratejik hukuk danışmanlığı için hazırlanmış bağımsız bir marka konseptidir.', quickLinks: 'Hızlı Bağlantılar', practiceAreas: 'Çalışma Alanları', contact: 'İletişim', rights: 'Tüm hakları saklıdır.', privacy: 'Gizlilik Politikası', terms: 'Kullanım Koşulları' },
   },
   en: {
     nav: {
@@ -83,14 +83,14 @@ const TRANSLATIONS = {
       publications: 'Insights', process: 'Our Approach', references: 'References', contact: 'Contact',
     },
     hero: {
-      tagline: 'Istanbul • Türkiye', title: 'VERDİ LAW', subtitle: 'Clarity. Strategy. Trust.',
+      tagline: 'Istanbul • Türkiye', title: 'DACH LAW', subtitle: 'Clarity. Strategy. Trust.',
       description: 'An independent legal brand concept combining commercial insight, multidisciplinary expertise and clear communication.',
       cta: 'Contact Us', ctaSecondary: 'Practice Areas', scroll: 'Scroll to explore',
       badge: 'Independent Brand Concept', slogan: '— Turning legal complexity into practical strategy.',
     },
     about: {
       title: 'About', subtitle: 'Strategic legal counsel',
-      description: 'VERDİ LAW is a law firm concept designed to prepare businesses not only for today’s issues, but also for tomorrow’s decisions. It brings legal precision and commercial reality to the same table.',
+      description: 'DACH LAW is a law firm concept designed to prepare businesses not only for today’s issues, but also for tomorrow’s decisions. It brings legal precision and commercial reality to the same table.',
       description2: 'We prioritise clear communication, measured risk management and practical solutions in every matter.',
       experience: 'Years of Insight', clients: 'Corporate Clients', cases: 'Matters Resolved', countries: 'Cross-border Network',
       values: [
@@ -117,9 +117,9 @@ const TRANSLATIONS = {
       title: 'Contact', subtitle: 'Let us assess your matter together',
       description: 'Leave a short note and the relevant practice team will respond as part of this illustrative contact flow.',
       form: { name: 'Full Name', email: 'Email Address', phone: 'Phone Number', subject: 'Legal Matter', message: 'Brief Description', submit: 'Send Message', selectSubject: 'Select a matter', subjects: ['Corporate and Commercial', 'Mergers and Acquisitions', 'Dispute Resolution', 'Employment', 'Real Estate', 'Data Protection', 'Other'] },
-      info: { address: 'Location', addressValue: 'Istanbul, Türkiye', phone: 'Phone', phoneValue: '+90 212 000 00 00', email: 'Email', emailValue: 'contact@verdi-hukuk.example' },
+      info: { address: 'Location', addressValue: 'Istanbul, Türkiye', phone: 'Phone', phoneValue: '+90 212 000 00 00', email: 'Email', emailValue: 'contact@dach-hukuk.example' },
     },
-    footer: { description: 'VERDİ LAW is an independent brand concept for strategic legal counsel.', quickLinks: 'Quick Links', practiceAreas: 'Practice Areas', contact: 'Contact', rights: 'All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms of Use' },
+    footer: { description: 'DACH LAW is an independent brand concept for strategic legal counsel.', quickLinks: 'Quick Links', practiceAreas: 'Practice Areas', contact: 'Contact', rights: 'All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms of Use' },
   },
 };
 
