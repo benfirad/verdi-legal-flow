@@ -14,33 +14,33 @@ const TITLE_CLS = 'mt-6 font-fraunces text-3xl font-semibold leading-tight text-
 const VALUES = [
   {
     icon: Sparkles,
-    tr: { title: 'Kreatif Mükemmeliyet', desc: 'Her projeye en yüksek tasarım standartlarıyla yaklaşır, detaya ve özgünlüğe önem veririz.' },
-    en: { title: 'Creative Excellence', desc: 'We approach every project with the highest design standards, valuing detail and originality.' },
+    tr: { title: 'Mesleki Özen', desc: 'Her işe güçlü hazırlık, etik sorumluluk ve detaylara dikkatle yaklaşırız.' },
+    en: { title: 'Professional Care', desc: 'We approach every matter with strong preparation, ethical responsibility and attention to detail.' },
   },
   {
     icon: GraduationCap,
-    tr: { title: 'Sürekli Öğrenme', desc: 'Tasarım teknolojilerini, yapay zeka araçlarını ve yaratıcı pratikleri takip etmeyi destekleriz.' },
-    en: { title: 'Continuous Learning', desc: "We support keeping track of design technologies, AI tools, and creative practices." },
+    tr: { title: 'Sürekli Öğrenme', desc: 'Hukuki gelişmeleri, sektör dinamiklerini ve yeni çalışma yöntemlerini yakından takip ederiz.' },
+    en: { title: 'Continuous Learning', desc: 'We closely follow legal developments, sector dynamics and new ways of working.' },
   },
   {
     icon: Users,
-    tr: { title: 'Kolektif Paylaşım', desc: 'Hiyerarşiden uzak, açık fikirli, bilgi paylaşımına ve ortak üretime dayalı bir topluluk.' },
-    en: { title: 'Collective Collaboration', desc: 'A flat, open-minded community built on knowledge-sharing and co-creation.' },
+    tr: { title: 'Birlikte Üretim', desc: 'Açık fikirli, bilgi paylaşımına ve farklı uzmanlıkların birlikte çalışmasına dayalı bir ekip kültürü.' },
+    en: { title: 'Collaboration', desc: 'An open-minded team culture built on knowledge sharing and collaboration across disciplines.' },
   },
 ];
 
 const POSITIONS = {
   tr: [
-    { title: 'Atölye Asistanı', dept: 'Destek', type: 'Gönüllü', location: 'İstanbul' },
-    { title: 'Sosyal Medya Gönüllüsü', dept: 'İçerik', type: 'Gönüllü', location: 'İstanbul' },
-    { title: 'Kayıt & Karşılama Görevlisi', dept: 'Operasyon', type: 'Gönüllü', location: 'İstanbul' },
-    { title: 'Teknik Sahne Sorumlusu', dept: 'Teknoloji', type: 'Gönüllü', location: 'İstanbul' },
+    { title: 'Kıdemli Avukat', dept: 'Şirketler ve M&A', type: 'Tam Zamanlı', location: 'İstanbul' },
+    { title: 'Avukat', dept: 'Uyuşmazlık Çözümü', type: 'Tam Zamanlı', location: 'İstanbul' },
+    { title: 'Yeni Mezun Avukat', dept: 'Genel Hukuk', type: 'Tam Zamanlı', location: 'İstanbul' },
+    { title: 'Yasal Stajyer', dept: 'Rotasyon Programı', type: 'Staj', location: 'İstanbul' },
   ],
   en: [
-    { title: 'Workshop Assistant', dept: 'Support', type: 'Volunteer', location: 'Istanbul' },
-    { title: 'Social Media Volunteer', dept: 'Content', type: 'Volunteer', location: 'Istanbul' },
-    { title: 'Registration Host', dept: 'Operations', type: 'Volunteer', location: 'Istanbul' },
-    { title: 'Technical Stage Manager', dept: 'Technology', type: 'Volunteer', location: 'Istanbul' },
+    { title: 'Senior Associate', dept: 'Corporate and M&A', type: 'Full-time', location: 'Istanbul' },
+    { title: 'Associate', dept: 'Dispute Resolution', type: 'Full-time', location: 'Istanbul' },
+    { title: 'Junior Associate', dept: 'General Practice', type: 'Full-time', location: 'Istanbul' },
+    { title: 'Legal Trainee', dept: 'Rotation Programme', type: 'Internship', location: 'Istanbul' },
   ],
 };
 
@@ -85,12 +85,12 @@ export default function KariyerPage() {
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-24">
             <Reveal>
               <h1 className="mt-6 font-fraunces text-3xl font-semibold leading-tight text-white md:text-4xl max-w-3xl">
-                {t('Zirve ekibine katılın. Geleceği birlikte tasarlayalım.', 'Join the summit team. Let us design the future together.')}
+                {t('DACH ekibine katılın. Birlikte netlik üretelim.', 'Join the DACH team. Let us create clarity together.')}
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
                 {t(
-                  'Redmono Creative Summit 2026’da gönüllü olarak yer alın; atölye asistanlığından sosyal medya yönetimine, teknik sahne yönetiminden karşılama operasyonlarına uzanan zengin bir deneyim kazanın.',
-                  'Volunteer at Redmono Creative Summit 2026; gain rich experience ranging from workshop assistance to social media management, technical stage operations, and registration hosting.',
+                  'Güçlü hukuki temel, ticari merak ve açık iletişimle çalışan bir ekip kültürünü deneyimleyin. Bu kariyer sayfasındaki ilanlar konsept sunum amacıyla hazırlanmıştır.',
+                  'Experience a team culture built on strong legal foundations, commercial curiosity and clear communication. Roles on this page are illustrative concept content.',
                 )}
               </p>
             </Reveal>
@@ -103,7 +103,7 @@ export default function KariyerPage() {
             <Reveal>
               <div className="mb-14 max-w-2xl">
                 <h2 className={TITLE_CLS}>
-                  {t('Yaratıcı topluluğumuzu besleyen ortak değerlerimiz.', 'Our shared values that nourish our creative community.')}
+                  {t('Birlikte çalışma kültürümüzü şekillendiren değerler.', 'The values that shape how we work together.')}
                 </h2>
               </div>
             </Reveal>

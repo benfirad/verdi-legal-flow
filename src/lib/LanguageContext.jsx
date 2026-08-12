@@ -1,317 +1,145 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
+const LEGAL_AREAS = {
+  tr: [
+    ['Ticaret ve Şirketler Hukuku', 'Şirketlerin kuruluşundan günlük operasyonlarına ve kurumsal yönetim süreçlerine uzanan bütüncül danışmanlık.', 'briefcase'],
+    ['Birleşme ve Devralmalar', 'Yerel ve sınır ötesi işlemlerde hukuki inceleme, sözleşme müzakeresi ve kapanış desteği.', 'handshake'],
+    ['Uyuşmazlık Çözümü', 'Ticari uyuşmazlıklarda dava, tahkim ve alternatif çözüm yollarına yönelik stratejik temsil.', 'scale'],
+    ['İş ve Sosyal Güvenlik Hukuku', 'İşverenler için sözleşme, yeniden yapılanma, uyum ve iş uyuşmazlıkları danışmanlığı.', 'users'],
+    ['Gayrimenkul ve İnşaat', 'Proje geliştirme, kira, satın alma, imar ve inşaat sözleşmelerine ilişkin hukuki destek.', 'building'],
+    ['Rekabet Hukuku', 'Birleşme kontrolü, rekabet uyumu, soruşturmalar ve dağıtım sistemleri konusunda danışmanlık.', 'gavel'],
+    ['Bankacılık ve Finans', 'Finansman işlemleri, teminat yapıları ve düzenleyici konularda çözüm odaklı hukuki destek.', 'landmark'],
+    ['Veri Koruma ve Teknoloji', 'KVKK, GDPR, dijital ürünler, veri ihlalleri ve teknoloji sözleşmeleri için uyum danışmanlığı.', 'shield'],
+    ['Fikri Mülkiyet', 'Marka, tasarım, telif ve lisans haklarının korunması ve ticarileştirilmesi.', 'lightbulb'],
+  ],
+  en: [
+    ['Corporate and Commercial', 'End-to-end counsel from incorporation and day-to-day operations to corporate governance.', 'briefcase'],
+    ['Mergers and Acquisitions', 'Legal due diligence, transaction documents, negotiations and closing support for local and cross-border deals.', 'handshake'],
+    ['Dispute Resolution', 'Strategic representation in litigation, arbitration and alternative dispute resolution.', 'scale'],
+    ['Employment and Benefits', 'Contracts, restructuring, compliance and employment disputes advice for employers.', 'users'],
+    ['Real Estate and Construction', 'Legal support for development, leasing, acquisitions, zoning and construction contracts.', 'building'],
+    ['Competition Law', 'Merger control, compliance, investigations and distribution system advice.', 'gavel'],
+    ['Banking and Finance', 'Solution-oriented support for financing transactions, security structures and regulatory matters.', 'landmark'],
+    ['Data Protection and Technology', 'Compliance advice on data protection, digital products, breaches and technology agreements.', 'shield'],
+    ['Intellectual Property', 'Protection and commercialisation of trademarks, designs, copyright and licensing rights.', 'lightbulb'],
+  ],
+};
+
+const createAreas = (language) => LEGAL_AREAS[language].map(([title, description, icon], index) => ({
+  id: index + 1,
+  title,
+  description,
+  icon,
+}));
 
 const TRANSLATIONS = {
   tr: {
     nav: {
-      home: 'Zirve 2026',
-      about: 'Hakkında',
-      practiceAreas: 'Program',
-      team: 'Konuşmacılar',
-      publications: 'Haberler',
-      process: 'Akış',
-      references: 'Ortaklar',
-      contact: 'Kayıt & İletişim'
+      home: 'Ana Sayfa', about: 'Hakkımızda', practiceAreas: 'Çalışma Alanları', team: 'Ekibimiz',
+      publications: 'İçgörüler', process: 'Yaklaşımımız', references: 'Referanslar', contact: 'İletişim',
     },
     hero: {
-      tagline: 'İstanbul • Türkiye',
-      title: 'Redmono Creative Summit 2026',
-      subtitle: 'Yaratıcılık. Tasarım. Gelecek.',
-      description: 'Tasarım, yapay zeka ve dijital marka dünyasının öncülerinin buluştuğu, Redmono Creative Agency tarafından düzenlenen İstanbul\'un en ilham verici yaratıcılık zirvesi.',
-      cta: 'Kayıt Olun',
-      ctaSecondary: 'Zirve Programı',
-      scroll: 'Keşfetmek için kaydırın',
-      badge: 'Redmono Design Event',
-      slogan: '— Tasarım ve yaratıcılığın sınırlarını yeniden tanımlayan zirve.'
+      tagline: 'İstanbul • Türkiye', title: 'DACH HUKUK', subtitle: 'Netlik. Strateji. Güven.',
+      description: 'İş dünyasının hukuki ihtiyaçlarına ticari bakış, disiplinler arası uzmanlık ve açık iletişimle yaklaşan bağımsız hukuk markası konsepti.',
+      cta: 'Bize Ulaşın', ctaSecondary: 'Çalışma Alanları', scroll: 'Keşfetmek için kaydırın',
+      badge: 'Bağımsız Marka Konsepti', slogan: '— Hukuki karmaşıklığı uygulanabilir stratejiye dönüştürür.',
     },
     about: {
-      title: 'Zirve Hakkında',
-      subtitle: 'Redmono Creative Summit 2026',
-      description: 'Redmono Creative Summit, 2026 yılında İstanbul Kadıköy\'de düzenlenen; yaratıcı endüstriler, kullanıcı deneyimi, marka tasarımı, yapay zekalı sanat ve gelecek teknolojileri alanlarında küresel öncüleri bir araya getiren prestijli bir etkinliktir. Katılımcılarına ilham verici oturumlar, atölye çalışmaları ve zengin networking fırsatları sunar.',
-      description2: 'Kendi alanlarında çığır açan uzman konuşmacı kadromuz, geleceğin tasarım trendlerini ve dijital dönüşüm süreçlerini masaya yatırıyor.',
-      experience: 'Seçkin Oturum',
-      clients: 'Yaratıcı Katılımcı',
-      cases: 'Öncü Konuşmacı',
-      countries: 'Uluslararası Ortak',
+      title: 'Hakkımızda', subtitle: 'Stratejik hukuk danışmanlığı',
+      description: 'DACH HUKUK, şirketlerin yalnızca bugünkü sorunlarına değil, yarının kararlarına da hazırlıklı olmasını hedefleyen bir hukuk bürosu konseptidir. Hukuki doğruluk ile ticari gerçekliği aynı masada buluşturur.',
+      description2: 'Her dosyada açık iletişim, ölçülü risk yönetimi ve uygulanabilir çözümler üretmeyi esas alır.',
+      experience: 'Yıllık Birikim', clients: 'Kurumsal Müvekkil', cases: 'Çözümlenen Dosya', countries: 'Sınır Ötesi Ağ',
       values: [
-        { title: 'Yaratıcılık', desc: 'Sınırları zorlayan tasarım fikirleri ve vizyoner sunumlar.' },
-        { title: 'Etkileşim', desc: 'Akranlar ve sektör profesyonelleri ile interaktif atölyeler.' },
-        { title: 'Gelecek', desc: 'Yapay zeka ve dijital marka trendlerinin geleceğine bakış.' }
-      ]
+        { title: 'Netlik', desc: 'Karmaşık hukuki konuları karar vericiler için anlaşılır ve uygulanabilir hale getiririz.' },
+        { title: 'Strateji', desc: 'Her öneriyi müvekkilin ticari hedefleri, sektörü ve risk iştahıyla birlikte değerlendiririz.' },
+        { title: 'Güven', desc: 'İlişkilerimizi şeffaf iletişim, özen ve uzun vadeli sorumluluk üzerine kurarız.' },
+      ],
     },
     process: {
-      title: 'Zirve Akışı',
-      subtitle: 'Nasıl Katılabilirsiniz?',
-      description: 'Katılımcılarımıza şeffaf, adım adım ve verimli bir zirve deneyimi sunuyoruz.',
+      title: 'Çalışma Sürecimiz', subtitle: 'Nasıl çalışıyoruz?',
+      description: 'Her işi kapsamı, sorumluluğu ve sonraki adımları baştan görünür kılan şeffaf bir süreçle yönetiriz.',
       steps: [
-        {
-          number: '01',
-          title: 'Kayıt ve Bilet',
-          desc: 'İletişim formundan veya doğrudan bize ulaşarak zirve biletinizi alın ve atölye seçimlerini yapın.',
-          duration: 'Kayıt Süreci'
-        },
-        {
-          number: '02',
-          title: 'Atölye Seçimi',
-          desc: 'Zirve günü katılmak istediğiniz yaratıcı ve teknik atölyeler için ön rezervasyonunuzu tamamlayın.',
-          duration: 'Etkinlik Öncesi'
-        },
-        {
-          number: '03',
-          title: 'Zirve Günü',
-          desc: 'Açılış konuşmaları, paneller ve uygulamalı atölyelerle dolu yaratıcı maratona katılın.',
-          duration: '15-16 Ekim 2026'
-        },
-        {
-          number: '04',
-          title: 'Networking & Parti',
-          desc: 'Sektörün lider ajansları, markaları ve kreatif ekipleriyle tanışma fırsatını kaçırmayın.',
-          duration: 'Zirve Kapanışı'
-        },
-        {
-          number: '05',
-          title: 'Dijital Raporlar',
-          desc: 'Tüm oturum kayıtlarına, atölye notlarına ve zirve sunumlarına dijital arşivimizden erişin.',
-          duration: 'Etkinlik Sonrası'
-        }
-      ]
+        { number: '01', title: 'İlk Değerlendirme', desc: 'İhtiyacı, ticari hedefi ve kritik zaman çizelgesini birlikte netleştiririz.', duration: 'Başlangıç' },
+        { number: '02', title: 'Kapsam ve Strateji', desc: 'Hukuki kapsamı, riskleri, alternatifleri ve çalışma planını ortaya koyarız.', duration: 'Planlama' },
+        { number: '03', title: 'Uygulama', desc: 'Belge, müzakere, dava veya uyum çalışmalarını sorumlu ekiple yürütürüz.', duration: 'Yürütme' },
+        { number: '04', title: 'Raporlama', desc: 'Gelişmeleri yalın, düzenli ve karar almaya elverişli biçimde paylaşırız.', duration: 'İletişim' },
+        { number: '05', title: 'Sonuç ve Takip', desc: 'Çıktıları teslim eder, sonraki riskleri ve aksiyonları birlikte değerlendiririz.', duration: 'Kapanış' },
+      ],
     },
-    practiceAreas: {
-      title: 'Zirve Programı',
-      subtitle: 'Etkinlik Konuları',
-      learnMore: 'Detaylı Bilgi',
-      areas: [
-        { id: 1, title: 'Kullanıcı Deneyimi (UX/UI)', description: 'Modern web ve mobil arayüz tasarımlarında kullanıcı odaklı deneyim analizi, estetik ve kullanılabilirlik prensipleri.', icon: 'briefcase' },
-        { id: 2, title: 'Marka Kimliği & Branding', description: 'Dijital çağda akılda kalıcı kurumsal kimlik inşası, logo tasarımı ve tutarlı marka dili oluşturma stratejileri.', icon: 'users' },
-        { id: 3, title: 'Yapay Zeka & Sanat', description: 'Generative AI araçlarının tasarım süreçlerine entegrasyonu, yapay zekalı sanatın geleceği ve telif tartışmaları.', icon: 'scale' },
-        { id: 4, title: 'Web3 & Gelecek Teknolojileri', description: 'Merkeziyetsiz web mimarisi, interaktif 3D deneyimler ve geleceğin dijital evrenlerinde marka konumlandırma.', icon: 'building' },
-        { id: 5, title: 'Yaratıcı Liderlik', description: 'Tasarım ekiplerini yönetmek, inovasyon kültürünü beslemek ve ajans dünyasında kreatif liderlik vizyonu.', icon: 'handshake' },
-        { id: 6, title: 'Kreatif Strateji', description: 'Hedef kitle analiziyle desteklenmiş, ölçülebilir ve yaratıcı dijital pazarlama kampanyalarının kurgulanması.', icon: 'lightbulb' },
-        { id: 7, title: 'Motion & Hareketli Grafik', description: 'Video prodüksiyonu, animasyon, sinematik anlatım ve dijital ekranlarda dikkat çeken dinamik grafikler.', icon: 'landmark' },
-        { id: 8, title: 'Yazılım & Teknolojik Arayüzler', description: 'Modern frontend frameworkleri, etkileşimli mikro-animasyonlar ve tasarım-yazılım köprüsünün kurulması.', icon: 'shield' },
-        { id: 9, title: 'İçerik Stratejisi', description: 'Sosyal medya içerik planlaması, kopya yazımı, hikaye anlatıcılığı ve dijital platformlarda ses getiren metinler.', icon: 'heart' },
-        { id: 10, title: 'Reklam & Dijital PR', description: 'Medya ilişkileri, viral pazarlama teknikleri, yaratıcı PR kampanyaları ve marka bilinirliği yönetimi.', icon: 'gavel' },
-        { id: 11, title: 'Tasarım Kültürü & Etik', description: 'Erişilebilirlik (A11y), yeşil tasarım, etik tasarım standartları ve sürdürülebilir kullanıcı deneyimi.', icon: 'lock' },
-        { id: 12, title: 'Girişimcilik & Startup Tasarımı', description: 'Startuplar için MVP tasarımları, pitch deck hazırlama, yatırımcı sunumları ve hızlı büyüme tasarımları.', icon: 'zap' }
-      ]
-    },
-    team: {
-      title: 'Konuşmacılar',
-      subtitle: 'Yaratıcı Konuşmacı Kadromuz',
-      description: 'Redmono Summit 2026\'da alanında devrim yaratan yerli ve yabancı 14 seçkin konuşmacı ve moderatör bizlerle.',
-      viewProfile: 'Tüm Konuşmacıları Görüntüle'
-    },
-    publications: {
-      title: 'Haberler',
-      subtitle: 'Zirveden Son Duyurular',
-      description: 'Redmono Creative Summit 2026 hakkında son güncellemeler, duyurular ve yaratıcı makaleler.',
-      readMore: 'Devamını Oku',
-      viewAll: 'Tüm Haberleri Görüntüle'
-    },
+    practiceAreas: { title: 'Çalışma Alanları', subtitle: 'Bütüncül hukuki destek', learnMore: 'Detaylı Bilgi', areas: createAreas('tr') },
+    team: { title: 'Ekibimiz', subtitle: 'Deneyim ve bakış açısı', description: 'Farklı disiplinlerde çalışan avukat ve danışmanların ortak strateji etrafında buluştuğu temsili ekip.', viewProfile: 'Tüm Ekibi Görüntüle' },
+    publications: { title: 'İçgörüler', subtitle: 'Güncel hukuki değerlendirmeler', description: 'İş dünyasını etkileyen düzenlemeler ve uyuşmazlık trendleri hakkında uygulamaya dönük değerlendirmeler.', readMore: 'Devamını Oku', viewAll: 'Tüm Yazıları Gör' },
     contact: {
-      title: 'Kayıt Olun',
-      subtitle: 'Bize Ulaşın & Yerinizi Ayırtın',
-      description: 'Zirveye kayıt yaptırmak, sponsor olmak veya detaylı bilgi almak için formu doldurabilirsiniz.',
-      form: {
-        name: 'Adınız Soyadınız',
-        email: 'E-posta Adresiniz',
-        phone: 'Telefon Numaranız',
-        subject: 'İlgi Alanınız',
-        message: 'Sorunuz veya Mesajınız',
-        submit: 'Mesaj Gönder',
-        selectSubject: 'Konu seçiniz',
-        subjects: ['UX/UI Tasarım', 'Marka Kimliği', 'Yapay Zeka', 'Web3', 'Sponsorluk', 'Gönüllü Katılım', 'Diğer']
-      },
-      info: {
-        address: 'Zirve Adresi',
-        addressValue: 'Caferağa Mah. Moda Cad. No:82, 34710 Kadıköy / İstanbul',
-        phone: 'İletişim',
-        phoneValue: '+90 212 900 00 00',
-        email: 'E-posta',
-        emailValue: 'info@redmono.com'
-      }
+      title: 'İletişim', subtitle: 'Konunuzu birlikte değerlendirelim',
+      description: 'Kısa bir ön bilgi bırakın; uygun çalışma alanındaki ekibimiz temsilî iletişim akışı kapsamında size dönüş yapsın.',
+      form: { name: 'Adınız Soyadınız', email: 'E-posta Adresiniz', phone: 'Telefon Numaranız', subject: 'Hukuki Konu', message: 'Kısa Açıklama', submit: 'Mesaj Gönder', selectSubject: 'Konu seçiniz', subjects: ['Ticaret ve Şirketler', 'Birleşme ve Devralmalar', 'Uyuşmazlık Çözümü', 'İş Hukuku', 'Gayrimenkul', 'Veri Koruma', 'Diğer'] },
+      info: { address: 'Konum', addressValue: 'İstanbul, Türkiye', phone: 'Telefon', phoneValue: '+90 212 000 00 00', email: 'E-posta', emailValue: 'iletisim@dach-hukuk.example' },
     },
-    footer: {
-      description: 'İstanbul merkezli Redmono Creative Summit, 2026 yılında ulusal ve uluslararası kreatif toplulukları bir araya getiren yenilikçi bir zirvedir.',
-      quickLinks: 'Hızlı Bağlantılar',
-      practiceAreas: 'Zirve Konuları',
-      contact: 'İletişim',
-      rights: 'Tüm hakları saklıdır. Redmono Creative Agency 2026 — redmono.com',
-      privacy: 'Gizlilik Politikası',
-      terms: 'Kullanım Koşulları'
-    }
+    footer: { description: 'DACH HUKUK, stratejik hukuk danışmanlığı için hazırlanmış bağımsız bir marka konseptidir.', quickLinks: 'Hızlı Bağlantılar', practiceAreas: 'Çalışma Alanları', contact: 'İletişim', rights: 'Tüm hakları saklıdır.', privacy: 'Gizlilik Politikası', terms: 'Kullanım Koşulları' },
   },
   en: {
     nav: {
-      home: 'Summit 2026',
-      about: 'About',
-      practiceAreas: 'Schedule',
-      team: 'Speakers',
-      publications: 'News',
-      process: 'Timeline',
-      references: 'Partners',
-      contact: 'Register & Contact'
+      home: 'Home', about: 'About', practiceAreas: 'Practice Areas', team: 'Our Team',
+      publications: 'Insights', process: 'Our Approach', references: 'References', contact: 'Contact',
     },
     hero: {
-      tagline: 'Istanbul • Turkey',
-      title: 'Redmono Creative Summit 2026',
-      subtitle: 'Creativity. Design. Future.',
-      description: 'The most inspiring creativity summit in Istanbul, organized by Redmono Creative Agency, bringing together pioneers of design, AI, and digital branding.',
-      cta: 'Register Now',
-      ctaSecondary: 'Summit Schedule',
-      scroll: 'Scroll to explore',
-      badge: 'Redmono Design Event',
-      slogan: '— A summit redefining the boundaries of design and creativity.'
+      tagline: 'Istanbul • Türkiye', title: 'DACH LAW', subtitle: 'Clarity. Strategy. Trust.',
+      description: 'An independent legal brand concept combining commercial insight, multidisciplinary expertise and clear communication.',
+      cta: 'Contact Us', ctaSecondary: 'Practice Areas', scroll: 'Scroll to explore',
+      badge: 'Independent Brand Concept', slogan: '— Turning legal complexity into practical strategy.',
     },
     about: {
-      title: 'About the Summit',
-      subtitle: 'Redmono Creative Summit 2026',
-      description: 'Redmono Creative Summit is a prestigious event held in Kadikoy, Istanbul in 2026, bringing together global pioneers in creative industries, user experience, brand design, AI-driven art, and future technologies. It offers inspiring sessions, workshops, and rich networking opportunities.',
-      description2: 'Our lineup of expert speakers, who are breaking ground in their fields, will dissect future design trends and digital transformation processes.',
-      experience: 'Featured Sessions',
-      clients: 'Creative Attendees',
-      cases: 'Keynote Speakers',
-      countries: 'Global Partners',
+      title: 'About', subtitle: 'Strategic legal counsel',
+      description: 'DACH LAW is a law firm concept designed to prepare businesses not only for today’s issues, but also for tomorrow’s decisions. It brings legal precision and commercial reality to the same table.',
+      description2: 'We prioritise clear communication, measured risk management and practical solutions in every matter.',
+      experience: 'Years of Insight', clients: 'Corporate Clients', cases: 'Matters Resolved', countries: 'Cross-border Network',
       values: [
-        { title: 'Creativity', desc: 'Boundary-pushing design concepts and visionary presentations.' },
-        { title: 'Interaction', desc: 'Interactive workshops with peers and industry professionals.' },
-        { title: 'Future', desc: 'A look into the future of AI and digital brand trends.' }
-      ]
+        { title: 'Clarity', desc: 'We make complex legal issues understandable and actionable for decision makers.' },
+        { title: 'Strategy', desc: 'We assess every recommendation against the client’s commercial goals, sector and risk appetite.' },
+        { title: 'Trust', desc: 'We build relationships on transparent communication, care and long-term responsibility.' },
+      ],
     },
     process: {
-      title: 'Summit Timeline',
-      subtitle: 'How to Participate?',
-      description: 'We provide our participants with a transparent, step-by-step, and efficient summit experience.',
+      title: 'How We Work', subtitle: 'Our process',
+      description: 'We manage every matter through a transparent process that makes scope, ownership and next steps visible from day one.',
       steps: [
-        {
-          number: '01',
-          title: 'Ticket Registration',
-          desc: 'Get your summit ticket and select your workshops by filling out the contact form or reaching us directly.',
-          duration: 'Registration'
-        },
-        {
-          number: '02',
-          title: 'Workshop Selection',
-          desc: 'Pre-book your spot for the creative and technical workshops you wish to attend on the summit day.',
-          duration: 'Pre-Event'
-        },
-        {
-          number: '03',
-          title: 'Summit Day',
-          desc: 'Join the creative marathon packed with keynotes, panels, and hands-on workshops.',
-          duration: 'October 15-16, 2026'
-        },
-        {
-          number: '04',
-          title: 'Networking & Party',
-          desc: 'Don’t miss the chance to meet leading agencies, brands, and creative teams in the industry.',
-          duration: 'Summit Wrap-Up'
-        },
-        {
-          number: '05',
-          title: 'Digital Reports',
-          desc: 'Access all session recordings, workshop notes, and summit presentations from our digital archive.',
-          duration: 'Post-Event'
-        }
-      ]
+        { number: '01', title: 'Initial Assessment', desc: 'We clarify the need, commercial objective and critical timeline together.', duration: 'Start' },
+        { number: '02', title: 'Scope and Strategy', desc: 'We define legal scope, risks, alternatives and the work plan.', duration: 'Planning' },
+        { number: '03', title: 'Execution', desc: 'The responsible team manages documentation, negotiation, disputes or compliance work.', duration: 'Delivery' },
+        { number: '04', title: 'Reporting', desc: 'We communicate developments in a clear, regular and decision-ready format.', duration: 'Communication' },
+        { number: '05', title: 'Outcome and Follow-up', desc: 'We deliver the outputs and review next risks and actions together.', duration: 'Close' },
+      ],
     },
-    practiceAreas: {
-      title: 'Summit Schedule',
-      subtitle: 'Event Topics',
-      learnMore: 'Read Details',
-      areas: [
-        { id: 1, title: 'User Experience (UX/UI)', description: 'User-oriented experience analysis, aesthetics, and usability principles in modern web and mobile interface designs.', icon: 'briefcase' },
-        { id: 2, title: 'Brand Identity & Branding', description: 'Building memorable corporate identities, logo design, and consistent brand language strategies in the digital age.', icon: 'users' },
-        { id: 3, title: 'AI & Art', description: 'Integration of Generative AI tools into design processes, the future of AI-driven art, and copyright discussions.', icon: 'scale' },
-        { id: 4, title: 'Web3 & Future Tech', description: 'Decentralized web architecture, interactive 3D experiences, and brand positioning in future digital universes.', icon: 'building' },
-        { id: 5, title: 'Creative Leadership', description: 'Managing design teams, nurturing innovation culture, and creative leadership vision in the agency world.', icon: 'handshake' },
-        { id: 6, title: 'Creative Strategy', description: 'Building measurable and creative digital marketing campaigns supported by target audience analysis.', icon: 'lightbulb' },
-        { id: 7, title: 'Motion & Motion Graphics', description: 'Video production, animation, cinematic storytelling, and dynamic graphics that grab attention on digital screens.', icon: 'landmark' },
-        { id: 8, title: 'Software & Tech Interfaces', description: 'Modern frontend frameworks, interactive micro-animations, and building the design-to-development bridge.', icon: 'shield' },
-        { id: 9, title: 'Content Strategy', description: 'Social media content planning, copywriting, storytelling, and copy that makes a difference on digital platforms.', icon: 'heart' },
-        { id: 10, title: 'Advertising & Digital PR', description: 'Media relations, viral marketing techniques, creative PR campaigns, and brand awareness management.', icon: 'gavel' },
-        { id: 11, title: 'Design Culture & Ethics', description: 'Accessibility (A11y), green design, ethical design standards, and sustainable user experience.', icon: 'lock' },
-        { id: 12, title: 'Entrepreneurship & Startup Design', description: 'MVP designs for startups, pitch deck preparation, investor presentations, and fast-growth designs.', icon: 'zap' }
-      ]
-    },
-    team: {
-      title: 'Speakers',
-      subtitle: 'Our Creative Speakers Lineup',
-      description: 'Meet our 14 distinguished keynote speakers and moderators redefining their fields at Redmono Summit 2026.',
-      viewProfile: 'View All Speakers'
-    },
-    publications: {
-      title: 'News',
-      subtitle: 'Latest Announcements',
-      description: 'Get the latest updates, announcements, and creative articles about Redmono Creative Summit 2026.',
-      readMore: 'Read Article',
-      viewAll: 'View All News'
-    },
+    practiceAreas: { title: 'Practice Areas', subtitle: 'Integrated legal support', learnMore: 'Learn More', areas: createAreas('en') },
+    team: { title: 'Our Team', subtitle: 'Experience and perspective', description: 'An illustrative team of lawyers and advisers across disciplines, aligned around one strategy.', viewProfile: 'View the Team' },
+    publications: { title: 'Insights', subtitle: 'Current legal perspectives', description: 'Practical analysis of regulations and dispute trends affecting business.', readMore: 'Read More', viewAll: 'View All Insights' },
     contact: {
-      title: 'Register Now',
-      subtitle: 'Get in Touch & Book Your Spot',
-      description: 'You can fill out the form to register, become a sponsor, or ask for details about the summit.',
-      form: {
-        name: 'Your Name',
-        email: 'Your Email',
-        phone: 'Your Phone',
-        subject: 'Interest Area',
-        message: 'Your Message',
-        submit: 'Send Message',
-        selectSubject: 'Select topic',
-        subjects: ['UX/UI Design', 'Branding', 'Artificial Intelligence', 'Web3', 'Sponsorship', 'Volunteering', 'Other']
-      },
-      info: {
-        address: 'Summit Location',
-        addressValue: 'Caferaga Mah. Moda Cad. No:82, 34710 Kadikoy / Istanbul',
-        phone: 'Contact',
-        phoneValue: '+90 212 900 00 00',
-        email: 'Email',
-        emailValue: 'info@redmono.com'
-      }
+      title: 'Contact', subtitle: 'Let us assess your matter together',
+      description: 'Leave a short note and the relevant practice team will respond as part of this illustrative contact flow.',
+      form: { name: 'Full Name', email: 'Email Address', phone: 'Phone Number', subject: 'Legal Matter', message: 'Brief Description', submit: 'Send Message', selectSubject: 'Select a matter', subjects: ['Corporate and Commercial', 'Mergers and Acquisitions', 'Dispute Resolution', 'Employment', 'Real Estate', 'Data Protection', 'Other'] },
+      info: { address: 'Location', addressValue: 'Istanbul, Türkiye', phone: 'Phone', phoneValue: '+90 212 000 00 00', email: 'Email', emailValue: 'contact@dach-hukuk.example' },
     },
-    footer: {
-      description: 'Based in Istanbul, Redmono Creative Summit is an innovative event bringing together national and international creative communities in 2026.',
-      quickLinks: 'Quick Links',
-      practiceAreas: 'Summit Topics',
-      contact: 'Contact',
-      rights: 'All rights reserved. Redmono Creative Agency 2026 — redmono.com',
-      privacy: 'Privacy Policy',
-      terms: 'Terms of Use'
-    }
-  }
+    footer: { description: 'DACH LAW is an independent brand concept for strategic legal counsel.', quickLinks: 'Quick Links', practiceAreas: 'Practice Areas', contact: 'Contact', rights: 'All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms of Use' },
+  },
 };
 
-const LanguageContext = createContext();
+const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState(() => {
-    return localStorage.getItem('language') || 'tr';
-  });
+  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'tr');
 
   useEffect(() => {
     localStorage.setItem('language', language);
   }, [language]);
 
-  const toggleLanguage = () => {
-    setLanguage(prev => (prev === 'tr' ? 'en' : 'tr'));
-  };
-
+  const toggleLanguage = () => setLanguage((current) => (current === 'tr' ? 'en' : 'tr'));
   const t = (keyPath, fallback = '') => {
-    const keys = keyPath.split('.');
-    let result = TRANSLATIONS[language];
-    
-    for (const key of keys) {
-      if (result && result[key] !== undefined) {
-        result = result[key];
-      } else {
-        return fallback || keyPath;
-      }
-    }
-    return result;
+    const result = keyPath.split('.').reduce((value, key) => value?.[key], TRANSLATIONS[language]);
+    return result ?? (fallback || keyPath);
   };
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
@@ -319,8 +147,6 @@ export function LanguageProvider({ children }) {
 
 export function useLanguage() {
   const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
+  if (!context) throw new Error('useLanguage must be used within a LanguageProvider');
   return context;
 }

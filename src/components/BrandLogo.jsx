@@ -1,19 +1,16 @@
 import React from 'react';
-import { useLanguage } from '@/lib/LanguageContext';
 
 export default function BrandLogo({ className = '', markClassName = '', textClassName = '' }) {
-  const { language } = useLanguage();
+  const inverted = className.includes('text-white');
+  const compact = markClassName.includes('h-8');
+
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <div className={`flex h-10 w-10 items-center justify-center rounded-sm border border-current/25 font-fraunces text-xl font-bold ${markClassName}`}>
-        W
-      </div>
-      <div className={`leading-none ${textClassName}`}>
-        <div className="font-fraunces text-xl font-bold tracking-wide">WERDY</div>
-        <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.28em] opacity-70">
-          {language === 'tr' ? 'Zirve' : 'Summit'}
-        </div>
-      </div>
+    <div className={`dach-logo group relative flex items-center overflow-hidden ${className}`} data-logo-source="imagegen">
+      <img
+        src="/dach-logo-ai-lockup.png"
+        alt="DACH HUKUK"
+        className={`dach-logo-lockup ${compact ? 'h-14 max-w-[250px]' : 'h-16 max-w-[280px]'} w-auto object-contain object-left transition-transform duration-700 group-hover:translate-x-1 ${inverted ? 'brightness-0 invert' : ''} ${textClassName.includes('hidden') ? 'sm:block' : ''}`}
+      />
     </div>
   );
 }

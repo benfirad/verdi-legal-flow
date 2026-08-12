@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/lib/LanguageContext';
 import BrandLogo from '@/components/BrandLogo';
+import { BRAND } from '@/lib/brand';
 
 // ── Bayrak SVG'leri ──
 function FlagTR({ className = '' }) {
@@ -71,7 +72,7 @@ export default function Navbar() {
         return rect.top <= markerY && rect.bottom > markerY;
       });
 
-      setTheme(activeSection?.dataset.navTheme || getDefaultTheme());
+      setTheme(activeSection?.getAttribute('data-nav-theme') || getDefaultTheme());
       setIsScrolled(window.scrollY > 24);
     };
 
@@ -194,6 +195,7 @@ export default function Navbar() {
 
         {/* Mobil: hamburger button (3 çizgi) */}
         <button
+          type="button"
           onClick={() => setMobileOpen(true)}
           aria-label="Open menu"
           className={`lg:hidden absolute right-7 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center border transition-colors ${
@@ -206,8 +208,8 @@ export default function Navbar() {
 
       {/* Mobil overlay menü */}
       <div
-        className={`pointer-events-auto fixed inset-0 z-[60] lg:hidden transition-opacity duration-300 ${
-          mobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 z-[60] overflow-hidden lg:hidden transition-opacity duration-300 ${
+          mobileOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
         aria-hidden={!mobileOpen}
       >
@@ -227,6 +229,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
             <BrandLogo className="text-white" markClassName="h-8 w-8 text-xs" textClassName="text-xs" />
             <button
+              type="button"
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"
               className="flex h-10 w-10 items-center justify-center border border-white/30 text-white hover:border-white hover:bg-white/5 transition-colors"
@@ -260,6 +263,7 @@ export default function Navbar() {
                 {language === 'tr' ? 'Dil' : 'Language'}
               </p>
               <button
+                type="button"
                 onClick={toggleLang}
                 className="w-full flex items-center justify-between gap-4 border border-white/20 hover:border-white/60 px-4 py-4 transition-colors group"
               >
@@ -293,7 +297,7 @@ export default function Navbar() {
               {language === 'tr' ? 'İletişime geçin' : 'Contact us'}
             </Link>
             <p className="mt-4 text-center text-[10px] uppercase tracking-[0.28em] text-white/40">
-              info@redmono.com
+              {BRAND.email}
             </p>
           </div>
         </aside>

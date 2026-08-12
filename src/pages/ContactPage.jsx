@@ -203,20 +203,20 @@ export default function ContactPage() {
                 <InfoCard
                   icon={MapPin}
                   eyebrow={t('Adres', 'Address')}
-                  title={t('Caferağa Mah. Moda Cad. No:82', 'Caferaga Mah. Moda Cad. No:82')}
-                  subtitle={t('34710 Kadıköy / İstanbul, Türkiye', '34710 Kadikoy / Istanbul, Turkey')}
+                  title={t('İstanbul, Türkiye', 'Istanbul, Türkiye')}
+                  subtitle={t('Konsept iletişim bilgisi', 'Concept contact information')}
                 />
                 <InfoCard
                   icon={Phone}
                   eyebrow={t('Telefon', 'Phone')}
-                  title="+90 212 900 00 00"
-                  href="tel:+902129000000"
+                  title="+90 212 000 00 00"
+                  href="tel:+902120000000"
                 />
                 <InfoCard
                   icon={Mail}
                   eyebrow={t('E-posta', 'Email')}
-                  title="info@redmono.com"
-                  href="mailto:info@redmono.com"
+                  title="iletisim@dach-hukuk.example"
+                  href="mailto:iletisim@dach-hukuk.example"
                 />
 
                 {/* Çalışma saatleri */}
@@ -244,7 +244,7 @@ export default function ContactPage() {
             <Reveal>
               <div className="max-w-2xl mb-10">
                 <h2 className={TITLE_CLS}>
-                  {t('Kadıköy — Moda Caddesi üzerinde.', 'Kadikoy — on Moda Avenue.')}
+                  {t('İstanbul merkezli bir marka konsepti.', 'An Istanbul-based brand concept.')}
                 </h2>
               </div>
             </Reveal>
@@ -252,8 +252,8 @@ export default function ContactPage() {
             <Reveal delay={0.1}>
               <div className="aspect-[16/7] w-full overflow-hidden border border-[#C8CFD3]">
                 <iframe
-                  title="Werdy Hukuk Bürosu — Harita"
-                  src="https://maps.google.com/maps?q=Cafera%C4%9Fa%20Mah.%20Moda%20Cad.%20No:82,%20Kad%C4%B1k%C3%B6y/%C4%B0stanbul&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  title="DACH HUKUK — İstanbul haritası"
+                  src="https://maps.google.com/maps?q=Istanbul%2C%20Turkey&t=&z=11&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-full grayscale contrast-110"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -264,7 +264,7 @@ export default function ContactPage() {
             <Reveal delay={0.15}>
               <div className="mt-10 flex flex-wrap items-center gap-6 text-sm">
                 <a
-                  href="https://maps.google.com/?q=Caferağa+Mah.+Moda+Cad.+No:82,Kadıköy+İstanbul"
+                  href="https://maps.google.com/?q=Istanbul,Turkey"
                   target="_blank"
                   rel="noreferrer"
                   className="group inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[#1A2530] text-xs"

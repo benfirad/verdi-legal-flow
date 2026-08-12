@@ -8,9 +8,11 @@ Unauthorized copying, modification, distribution, deployment, hosting, or creati
 
 ---
 
-# Werdy Legal Flow
+# DACH HUKUK — Marka Konsepti
 
-Werdy Hukuk icin Vite + React tabanli web uygulamasi.
+DACH HUKUK için hazırlanmış Vite + React tabanlı bağımsız marka ve web deneyimi konsepti.
+
+> Sayfadaki kişiler, yapay zekâ ile üretilmiş sentetik portreler, iletişim ve kariyer bilgileri temsilidir. Gerçek bir hukuk bürosu beyanı veya hukuki hizmet teklifi değildir.
 
 ## Calistirma
 
@@ -26,6 +28,16 @@ npm run build
 npm run lint
 npm run preview
 ```
+
+## SEO ve canlıya geçiş
+
+Konsept sürüm varsayılan olarak `noindex, nofollow` kullanır. Gerçek marka, iletişim bilgileri ve alan adı onaylandıktan sonra:
+
+```bash
+VITE_SITE_STATUS=live VITE_SITE_URL=https://alanadiniz.com npm run build
+```
+
+Canlıya almadan önce `public/sitemap.xml` içindeki örnek alan adını gerçek alan adıyla değiştirin.
 
 ## Notlar
 
